@@ -1,11 +1,12 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap 'homebrew/services'
 brew "mas"
 
 # Gui tools/Utils
 #cask "visual-studio-code"
-cask "docker"
+cask "docker" # Seems to hang brew installer?
 cask "kap"
 cask "handbrake"
 cask "zoom"
@@ -31,7 +32,6 @@ brew "htop"
 brew "git"
 brew "azure-cli"
 brew "iftop"
-brew "iotop"
 
 cask "alacritty"
 brew "stuartleeks/tap/devcontainer"
@@ -41,3 +41,7 @@ tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
 cask "font-cascadia-code"
 cask "font-fira-mono-nerd-font" # Mostly using this one
+
+# Window manager
+brew "koekeishiya/formulae/yabai", restart_service: true
+brew "koekeishiya/formulae/skhd", restart_service: true

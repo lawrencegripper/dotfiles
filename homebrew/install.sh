@@ -22,6 +22,7 @@ then
 fi
 
 # Install the files from brew bundle file
-brew bundle --file=~/.Brewfile
+brew bundle --file=~/.Brewfile -v
+brew services start yabai
 
 exit 0

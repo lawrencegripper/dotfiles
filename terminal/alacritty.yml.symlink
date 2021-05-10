@@ -1,0 +1,120 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+# Setup term for programs to be able to use it
+env:
+  TERM: alacritty
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+
+  # # Startup Mode (changes require restart)
+  # startup_mode: Fullscreen
+
+# Sample Font configuration for font: Monoid.
+# Feel free to use different font configuration family & face for each sections
+font:
+  # Normal font face - Also used to draw glyphs on tmux & VIM
+  # NOTE: You may use any font you'd like but make sure the normal fonts
+  # support ligatures/glyphs. That's used by tmux & VIM to provide a better
+  # UI for powerline & tmux bottom bar.
+  normal:
+    # Font name
+    family: FiraMono Nerd Font
+    # Font face
+    # style: Light
+
+  # Bold font face
+  bold:
+    family: FiraMono Nerd Font
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: FiraMono Nerd Font
+    style: Italic
+
+  # Font size
+  size: 16.0
+
+  # Better font rendering for mac
+  use_thin_strokes: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+# # Setup some amazing custom key bindings here - Best thing is you can setup key bindings
+# # using Mac's 'command' to control your tmux.
+# # A great reference: https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/#make-alacritty-feel-like-iterm2
+# key_bindings:
+#   # Use command + [ - to go to previous tmux window
+#   - { key: LBracket, mods: Command, chars: "\x5c\x70" }
+#   # Use command + ] - to go to previous tmux window
+#   - { key: RBracket, mods: Command, chars: "\x5c\x6e" }
+#   # ctrl-^ doesn't work in some terminals like alacritty
+#   - { key: Key6, mods: Control, chars: "\x1e" }
+
+
+# https://github.com/eendroroy/alacritty-theme
+# Colors (Material Theme)
+colors:
+  # Default colors
+  primary:
+    background: '0x1e282d'
+    foreground: '0xc4c7d1'
+
+  # Normal colors
+  normal:
+    black:   '0x666666'
+    red:     '0xeb606b'
+    green:   '0xc3e88d'
+    yellow:  '0xf7eb95'
+    blue:    '0x80cbc4'
+    magenta: '0xff2f90'
+    cyan:    '0xaeddff'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0xff262b'
+    red:     '0xeb606b'
+    green:   '0xc3e88d'
+    yellow:  '0xf7eb95'
+    blue:    '0x7dc6bf'
+    magenta: '0x6c71c4'
+    cyan:    '0x35434d'
+    white:   '0xffffff'
+# # Colors (Nord)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x2E3440'
+#     foreground: '0xD8DEE9'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x3B4252'
+#     red:     '0xBF616A'
+#     green:   '0xA3BE8C'
+#     yellow:  '0xEBCB8B'
+#     blue:    '0x81A1C1'
+#     magenta: '0xB48EAD'
+#     cyan:    '0x88C0D0'
+#     white:   '0xE5E9F0'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x4C566A'
+#     red:     '0xBF616A'
+#     green:   '0xA3BE8C'
+#     yellow:  '0xEBCB8B'
+#     blue:    '0x81A1C1'
+#     magenta: '0xB48EAD'
+#     cyan:    '0x8FBCBB'
+#     white:   '0xECEFF4'

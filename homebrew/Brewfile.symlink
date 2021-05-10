@@ -14,7 +14,7 @@ cask "pinta"
 cask "insomnia"
 cask "microsoft-azure-storage-explorer"
 cask "signal"
-cask "microsoft-edge"
+#cask "microsoft-edge" Edge installed from brew seems to fail to install pages as standalone apps
 cask "vlc"
 #cask "firefox"
 mas "1Password", id: 1333542190

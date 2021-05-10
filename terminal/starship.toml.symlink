@@ -1,0 +1,48 @@
+# Which is equivalent to
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$helm\
+$terraform\
+$memory_usage\
+$env_var\
+$cmd_duration\
+$custom\
+$line_break\
+$jobs\
+$time\
+$status\
+$character"""
+
+[jobs]
+threshold = 1
+format = "$number"
+
+[directory]
+truncate_to_repo = false
+
+#[battery]
+#full_symbol = "🔋"
+#charging_symbol = "⚡️"
+#discharging_symbol = "💀"
+
+[git_status]
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+ahead = " ⇡${count}"
+diverged = " ⇕⇡${ahead_count} ⇣${behind_count}"
+behind = " ⇣${count}"
+modified = " [📝${count}](blue)" 
+staged = " [🔏️${count}](green)"
+renamed = " [💨${count}](green)"
+deleted = "[🗑${count}](red)"
+#untracked = " [🚋️${count}](red)"
+untracked = " [👻️${count}](blue)"
+stashed = " [🗃️${count}](cyan)"

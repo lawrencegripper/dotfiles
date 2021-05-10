@@ -1,0 +1,13 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# Terminal stuff
+brew "z"
+brew "starship"
+brew "kubectl"
+brew "kubectx"
+
+cask "alacritty"
+brew "stuartleeks/tap/devcontainer"
+brew "lawrencegripper/tap/azbrowse"

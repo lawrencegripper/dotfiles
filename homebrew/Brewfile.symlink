@@ -1,12 +1,37 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+brew "mas"
+
+# Gui tools/Utils
+#cask "visual-studio-code"
+cask "docker"
+cask "kap"
+cask "handbrake"
+cask "zoom"
+cask "pinta"
+cask "insomnia"
+cask "microsoft-azure-storage-explorer"
+cask "signal"
+cask "microsoft-edge"
+cask "vlc"
+#cask "firefox"
+mas "1Password", id: 1333542190
+mas "Slack", id: 803453959
+mas "WhatsApp Desktop", id: 1147396723
 
 # Terminal stuff
 brew "z"
 brew "starship"
 brew "kubectl"
 brew "kubectx"
+brew "gh"
+brew "fzf"
+brew "htop"
+brew "git"
+brew "azure-cli"
+brew "iftop"
+brew "iotop"
 
 cask "alacritty"
 brew "stuartleeks/tap/devcontainer"

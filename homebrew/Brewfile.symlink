@@ -11,3 +11,8 @@ brew "kubectx"
 cask "alacritty"
 brew "stuartleeks/tap/devcontainer"
 brew "lawrencegripper/tap/azbrowse"
+
+tap "homebrew/cask-fonts"
+cask "font-jetbrains-mono"
+cask "font-cascadia-code"
+cask "font-fira-mono-nerd-font" # Mostly using this one

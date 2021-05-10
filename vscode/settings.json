@@ -1,0 +1,30 @@
+{
+    "workbench.colorTheme": "Arc Dark Theme",
+    "terminal.integrated.copyOnSelection": true,
+    "remote.SSH.showLoginTerminal": "true",
+    "workbench.iconTheme": "material-icon-theme",
+    "yaml.schemas": {
+        "kubernetes": "*.yaml"
+    },
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "workbench.sideBar.location": "right",
+    "languageToolLinter.languageTool.language": "en-GB",
+    "languageToolLinter.languageTool.motherTongue": "en-GB",
+    "languageToolLinter.lintOnOpen": true,
+    "languageToolLinter.lintOnChange": true,
+    "remote.containers.defaultExtensions": [
+        "davidlday.languagetool-linter",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "2gua.rainbow-brackets"
+    ],
+    "languageToolLinter.external.url": "http://host.docker.internal:8081",
+    "editor.fontFamily": "'FiraMono Nerd Font', monospace",
+    "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
+    "editor.codeLensFontFamily": "'FiraMono Nerd Font', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 16,
+    "editor.fontSize": 16
+}

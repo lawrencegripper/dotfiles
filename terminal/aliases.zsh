@@ -7,6 +7,7 @@ alias docker-remote-pull="rsync -rlptv --progress \"lawrence@ubuntudev:\${PWD}\"
 alias heic-convert="ls *.heic | xargs -n 1 -I {} heif-convert {} {}.jpg"
 alias dco="devcontainer open-in-code ."
 alias dce="devcontainer exec"
+alias k="kubectl"
 alias azb=azbrowse
 alias testaudio="arecord -d 10 -f cd -t wav foobar.wav && aplay foobar.wav"
 alias startcam="gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video6"

@@ -13,3 +13,6 @@ fi
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # End
+
+# Add SSH key
+ssh-add -K ~/.ssh/id_ed25519

@@ -4,6 +4,9 @@
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 #
 # Run ./set-defaults.sh and you'll be good to go.
+#
+# Use `defaults read | code -` to see current settings you may want to add below
+# after configuring/tweaking in System Preferences or the apps settings
 
 # Global defaults
 defaults write "Apple Global Domain" AppleLanguages '("en-GB")'

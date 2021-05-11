@@ -29,10 +29,10 @@ format = "$number"
 [directory]
 truncate_to_repo = false
 
-#[battery]
-#full_symbol = "🔋"
-#charging_symbol = "⚡️"
-#discharging_symbol = "💀"
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
 
 [git_status]
 format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"

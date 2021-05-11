@@ -5,8 +5,8 @@ tap 'homebrew/services'
 brew "mas"
 
 # Gui tools/Utils
-#cask "visual-studio-code"
-cask "docker" # Seems to hang brew installer?
+cask "visual-studio-code"
+cask "docker"
 cask "kap"
 cask "handbrake"
 cask "zoom"
@@ -16,7 +16,7 @@ cask "microsoft-azure-storage-explorer"
 cask "signal"
 #cask "microsoft-edge" Edge installed from brew seems to fail to install pages as standalone apps
 cask "vlc"
-#cask "firefox"
+cask "firefox"
 mas "1Password", id: 1333542190
 mas "Slack", id: 803453959
 mas "WhatsApp Desktop", id: 1147396723

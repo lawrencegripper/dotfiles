@@ -33,6 +33,7 @@ brew "htop"
 brew "git"
 brew "azure-cli"
 brew "iftop"
+brew "tldr"
 
 cask "alacritty"
 brew "stuartleeks/tap/devcontainer"

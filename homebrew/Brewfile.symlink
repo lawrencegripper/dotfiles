@@ -20,6 +20,7 @@ cask "vlc"
 mas "1Password", id: 1333542190
 mas "Slack", id: 803453959
 mas "WhatsApp Desktop", id: 1147396723
+mas "Menu World Time", id: 1446377255
 
 # Terminal stuff
 brew "z"
@@ -42,6 +43,9 @@ cask "font-jetbrains-mono"
 cask "font-cascadia-code"
 cask "font-fira-mono-nerd-font" # Mostly using this one
 
-# Window manager
-brew "koekeishiya/formulae/yabai", restart_service: true
-brew "koekeishiya/formulae/skhd", restart_service: true
+# Window manager 
+# Disabled Yabai due to requirement to partially disable IPS to install
+# brew "koekeishiya/formulae/yabai", restart_service: true
+# brew "koekeishiya/formulae/skhd", restart_service: true
+cask "amethyst"
+cask "alt-tab"

@@ -4,11 +4,7 @@
 [hub]
         protocol = https
 [alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://www.toptal.com/developers/gitignore/api/$*\" | tee .gitignore;}; \\\ngi"
 [color]
         diff = auto
         status = auto

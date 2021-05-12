@@ -15,3 +15,5 @@
         editor = code
 [credential]
 	helper = osxkeychain
+[push]
+	default = current

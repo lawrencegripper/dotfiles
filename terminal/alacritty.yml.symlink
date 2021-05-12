@@ -35,11 +35,10 @@ font:
     style: Italic
 
   # Font size
-  size: 16.0
+  size: 18.0
 
   # Better font rendering for mac
   use_thin_strokes: true
-
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 

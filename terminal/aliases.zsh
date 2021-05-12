@@ -15,3 +15,5 @@ alias ghrun="gh run list | grep $(git branch --show-current) | cut -d$'\t' -f 8 
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+# workaround alacritty terminfo when sshing to boxes see: https://github.com/alacritty/alacritty/issues/3360
+alias ssh='TERM=xterm-256color ssh'

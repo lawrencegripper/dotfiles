@@ -5,8 +5,11 @@ tap 'homebrew/services'
 brew "mas"
 
 # Gui tools/Utils
-cask "gpg-suite"
 #cask "visual-studio-code"
+#cask "microsoft-edge" Edge installed from brew seems to fail to install pages as standalone apps
+#cask "firefox"
+cask "drawio"
+cask "gpg-suite"
 cask "docker"
 cask "kap"
 cask "handbrake"
@@ -15,9 +18,7 @@ cask "pinta"
 cask "insomnia"
 cask "microsoft-azure-storage-explorer"
 cask "signal"
-#cask "microsoft-edge" Edge installed from brew seems to fail to install pages as standalone apps
 cask "vlc"
-#cask "firefox"
 mas "1Password", id: 1333542190
 mas "Slack", id: 803453959
 mas "WhatsApp Desktop", id: 1147396723

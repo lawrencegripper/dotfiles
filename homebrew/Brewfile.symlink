@@ -4,10 +4,30 @@ tap "homebrew/core"
 tap 'homebrew/services'
 brew "mas"
 
+# Terminal stuff
+brew "z"
+brew "starship"
+brew "kubectl"
+brew "kubectx"
+brew "gh"
+brew "fzf"
+brew "htop"
+brew "git"
+brew "azure-cli"
+brew "iftop"
+brew "tldr"
+cask "alacritty"
+brew "stuartleeks/tap/devcontainer"
+brew "lawrencegripper/tap/azbrowse"
+tap "homebrew/cask-fonts"
+cask "font-jetbrains-mono"
+cask "font-cascadia-code"
+cask "font-fira-mono-nerd-font" # Mostly using this one
+
 # Gui tools/Utils
-#cask "visual-studio-code"
-#cask "microsoft-edge" Edge installed from brew seems to fail to install pages as standalone apps
-#cask "firefox"
+cask "visual-studio-code"
+cask "microsoft-edge" #Edge installed from brew seems to fail to install pages as standalone apps
+cask "firefox"
 cask "drawio"
 cask "gpg-suite"
 cask "docker"
@@ -23,29 +43,6 @@ mas "1Password", id: 1333542190
 mas "Slack", id: 803453959
 mas "WhatsApp Desktop", id: 1147396723
 mas "Menu World Time", id: 1446377255
-
-# Terminal stuff
-brew "gnupg"
-brew "z"
-brew "starship"
-brew "kubectl"
-brew "kubectx"
-brew "gh"
-brew "fzf"
-brew "htop"
-brew "git"
-brew "azure-cli"
-brew "iftop"
-brew "tldr"
-
-cask "alacritty"
-brew "stuartleeks/tap/devcontainer"
-brew "lawrencegripper/tap/azbrowse"
-
-tap "homebrew/cask-fonts"
-cask "font-jetbrains-mono"
-cask "font-cascadia-code"
-cask "font-fira-mono-nerd-font" # Mostly using this one
 
 # Window manager 
 # Disabled Yabai due to requirement to partially disable IPS to install

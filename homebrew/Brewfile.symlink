@@ -6,6 +6,7 @@ brew "mas"
 
 # Terminal stuff
 brew "z"
+brew "jq"
 brew "starship"
 brew "kubectl"
 brew "kubectx"

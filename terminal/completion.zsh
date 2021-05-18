@@ -16,3 +16,4 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Add SSH key
 ssh-add -K ~/.ssh/id_ed25519
+ssh-add -K ~/.ssh/id_rsa_gh

@@ -6,3 +6,6 @@
 . <(devcontainer completion zsh | sed 's/devcontainer/dc/g')
 . <(kubectl completion zsh | sed 's/kubectl/k/g')
 eval "$(starship init zsh)"
+
+autoload bashcompinit && bashcompinit
+source /usr/local/etc/bash_completion.d/az

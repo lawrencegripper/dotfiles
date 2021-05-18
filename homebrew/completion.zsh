@@ -9,3 +9,6 @@ eval "$(starship init zsh)"
 
 autoload bashcompinit && bashcompinit
 source /usr/local/etc/bash_completion.d/az
+
+# wire up rbenv
+eval "$(rbenv init -)"

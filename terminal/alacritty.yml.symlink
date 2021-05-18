@@ -4,6 +4,9 @@
 env:
   TERM: alacritty
 
+scrolling:
+  history: 100000
+  
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true

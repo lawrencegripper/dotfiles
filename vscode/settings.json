@@ -1,4 +1,10 @@
 {
+    "editor.semanticHighlighting.enabled": true,
+    "editor.semanticTokenColorCustomizations": {
+        "[Arc Dark Theme]": {
+            "enabled": true
+        }
+    },
     "workbench.colorTheme": "Arc Dark Theme",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": "true",

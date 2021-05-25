@@ -46,6 +46,7 @@ cask "vlc"
 mas "Slack", id: 803453959
 mas "WhatsApp Desktop", id: 1147396723
 mas "Menu World Time", id: 1446377255
+cask "microsoft-remote-desktop"
 
 # Window manager 
 # Disabled Yabai due to requirement to partially disable IPS to install

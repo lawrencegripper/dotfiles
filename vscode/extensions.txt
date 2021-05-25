@@ -9,3 +9,8 @@ mattlott.copy-github-url
 davidlday.languagetool-linter
 eamodio.gitlens
 github.codespaces
+castwide.solargraph
+kaiwood.endwise
+misogi.ruby-rubocop
+rebornix.ruby
+wingrunr21.vscode-ruby

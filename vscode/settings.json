@@ -11,6 +11,8 @@
     "yaml.schemas": {
         "kubernetes": "*.yaml"
     },
+    "yaml.completion": true,
+    "yaml.schemaStore.enable": true,
     "zenMode.centerLayout": false,
     "zenMode.hideLineNumbers": false,
     "git.autofetch": true,
@@ -26,7 +28,6 @@
         "oderwat.indent-rainbow",
         "2gua.rainbow-brackets"
     ],
-    "languageToolLinter.external.url": "http://host.docker.internal:8081",
     "editor.fontFamily": "'FiraMono Nerd Font', monospace",
     "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
     "editor.codeLensFontFamily": "'FiraMono Nerd Font', Consolas, 'Courier New', monospace",
@@ -52,4 +53,19 @@
     // "solargraph.commandPath": "bin/solargraph",
     "solargraph.checkGemVersion": false,
     "remote.containers.workspaceMountConsistency": "delegated",
+    "go.delveConfig": {
+        "dlvLoadConfig": {
+            "followPointers": true,
+            "maxVariableRecurse": 1,
+            "maxStringLen": 8192,
+            "maxArrayValues": 64,
+            "maxStructFields": -1
+        },
+        "apiVersion": 2,
+        "showGlobalVariables": true
+    },
+    "go.testFlags": ["-v"],
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": ["--enable-all", "--new", "--disable=forbidigo", "--disable=wsl", "--disable=exhaustivestruct"],
+    "go.lintOnSave": "file"
 }

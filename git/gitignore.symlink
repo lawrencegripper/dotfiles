@@ -2,3 +2,5 @@
 *~
 *.swp
 *.lgpriv.*
+.env
+.vscode

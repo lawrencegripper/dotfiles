@@ -5,8 +5,11 @@ tap 'homebrew/services'
 brew "mas"
 
 # Terminal stuff
+brew "golangci-lint"
+brew "kind"
 brew "z"
 brew "jq"
+brew "yq"
 brew "starship"
 brew "kubectl"
 brew "kubectx"
@@ -26,8 +29,11 @@ cask "font-cascadia-code"
 cask "font-fira-mono-nerd-font" # Mostly using this one
 brew "rbenv"
 brew "jfrog-cli-go"
+brew "telnet"
 
 # Gui tools/Utils
+cask "notable"
+cask "onedrive"
 cask "1password"
 cask "visual-studio-code"
 cask "microsoft-edge" #Edge installed from brew seems to fail to install pages as standalone apps

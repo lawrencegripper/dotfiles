@@ -67,5 +67,6 @@
     "go.testFlags": ["-v"],
     "go.lintTool": "golangci-lint",
     "go.lintFlags": ["--enable-all", "--new", "--disable=forbidigo", "--disable=wsl", "--disable=exhaustivestruct"],
-    "go.lintOnSave": "file"
+    "go.lintOnSave": "file",
+    "shellcheck.enableQuickFix": true,
 }

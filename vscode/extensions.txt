@@ -14,3 +14,4 @@ kaiwood.endwise
 misogi.ruby-rubocop
 rebornix.ruby
 wingrunr21.vscode-ruby
+timonwong.shellcheck

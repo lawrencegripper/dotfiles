@@ -31,6 +31,7 @@ brew "rbenv"
 brew "jfrog-cli-go"
 brew "telnet"
 brew "shellcheck"
+brew "golang"
 
 # Gui tools/Utils
 cask "notable"

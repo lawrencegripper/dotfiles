@@ -10,7 +10,7 @@ alias dce="devcontainer exec"
 alias k="kubectl"
 alias azb=azbrowse
 alias testaudio="arecord -d 10 -f cd -t wav foobar.wav && aplay foobar.wav"
-alias ghrun="gh run list | grep \$(git branch --show-current) | cut -d$'\t' -f 8 | xargs gh run watch && notify-send 'Run finished'"
+alias ghrun="gh run list | grep \$(git branch --show-current) | cut -d$'\t' -f 7 | xargs gh run watch && notify-send 'Run finished'"
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'

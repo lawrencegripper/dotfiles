@@ -28,9 +28,11 @@ do
   source $file
 done
 
+# load brew autocompletions
+FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit && compinit
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}

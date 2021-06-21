@@ -1,14 +1,25 @@
 # load z into zsh
 . $(brew --prefix)/etc/profile.d/z.sh
-. <(azbrowse completion zsh)
-. <(azbrowse completion zsh | sed 's/azbrowse/azb/g')
-. <(devcontainer completion zsh)
-. <(devcontainer completion zsh | sed 's/devcontainer/dc/g')
-. <(kubectl completion zsh | sed 's/kubectl/k/g')
-eval "$(starship init zsh)"
 
+# autocomplete for brew bash stuff
 autoload bashcompinit && bashcompinit
-source /usr/local/etc/bash_completion.d/az
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+# Below favour the most recent completions from the clis rather than static files
+# small cost to pay at startup of terminal for this but means always up to date
+# autocomplete for k
+. <(kubectl completion zsh)
+complete -F __start_kubectl k
+
+# autocomplete for cobra based utils
+. <(azbrowse completion zsh)
+compdef _azbrowse azbrowse
+. <(devcontainer completion zsh)
+compdef _devcontainer devcontainer
+
+eval "$(starship init zsh)"
 
 # wire up rbenv
 eval "$(rbenv init -)"

@@ -21,8 +21,10 @@
 	gpgsign = true
 [user]
 	signingkey = 398C19D5AEA2D28A
-[gpg]
-        # see https://gist.github.com/brblck/b3fe11de13856c635b8b14b280c393d1
-	program = /usr/local/MacGPG2/bin/gpg2
 [init]
 	defaultBranch = main
+[user]
+        name = lawrencegripper
+        email = info@grippers.co.uk
+[credential]
+        helper = osxkeychain

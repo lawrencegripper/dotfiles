@@ -7,4 +7,5 @@ done <$ZSH/vscode/extensions.txt
 
 # Install requried local tooling
 gem install solargraph # Supports castwide.solargraph
-gem install rubocop
+gem install rubocop 
+gem install ruby-debug-ide debase # Support debugging in vscode for ruby

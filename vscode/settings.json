@@ -74,4 +74,5 @@
     },
     "sqltools.useNodeRuntime": true,
     "jupyter.askForKernelRestart": false,
+    "editor.inlineSuggest.enabled": true,
 }

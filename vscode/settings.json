@@ -26,7 +26,8 @@
         "davidlday.languagetool-linter",
         "eamodio.gitlens",
         "oderwat.indent-rainbow",
-        "2gua.rainbow-brackets"
+        "2gua.rainbow-brackets",
+        "redhat.vscode-yaml"
     ],
     "editor.fontFamily": "'FiraMono Nerd Font', monospace",
     "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
@@ -70,9 +71,22 @@
     "go.lintOnSave": "workspace",
     "shellcheck.enableQuickFix": true,
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
+    "workbench.editor.enablePreview": false,
     "sqltools.useNodeRuntime": true,
     "jupyter.askForKernelRestart": false,
     "editor.inlineSuggest.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false
+    },
+    "explorer.confirmDragAndDrop": false,
 }

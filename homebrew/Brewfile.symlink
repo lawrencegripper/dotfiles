@@ -33,6 +33,7 @@ brew "shellcheck"
 brew "golang"
 
 # Gui tools/Utils
+cask "mysqlworkbench"
 cask "notable"
 cask "onedrive"
 cask "1password"
@@ -60,4 +61,4 @@ cask "microsoft-remote-desktop"
 # brew "koekeishiya/formulae/yabai", restart_service: true
 # brew "koekeishiya/formulae/skhd", restart_service: true
 cask "amethyst"
-cask "alt-tab"
+# cask "alt-tab"

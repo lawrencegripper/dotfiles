@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
+tap "homebrew/cask-drivers"
 tap 'homebrew/services'
 brew "mas"
 
@@ -33,6 +34,7 @@ brew "shellcheck"
 brew "golang"
 
 # Gui tools/Utils
+cask "yubico-yubikey-manager"
 cask "mysqlworkbench"
 cask "notable"
 cask "onedrive"

@@ -27,7 +27,8 @@
         "eamodio.gitlens",
         "oderwat.indent-rainbow",
         "2gua.rainbow-brackets",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "copilot.vscode-copilot"
     ],
     "editor.fontFamily": "'FiraMono Nerd Font', monospace",
     "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
@@ -89,4 +90,5 @@
         "markdown": false
     },
     "explorer.confirmDragAndDrop": false,
+    "diffEditor.ignoreTrimWhitespace": false,
 }

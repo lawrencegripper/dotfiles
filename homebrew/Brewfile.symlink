@@ -32,8 +32,11 @@ brew "jfrog-cli-go"
 brew "telnet"
 brew "shellcheck"
 brew "golang"
+brew "nodenv"
 
 # Gui tools/Utils
+cask "dbeaver-community"
+cask "another-redis-desktop-manager"
 cask "yubico-yubikey-manager"
 cask "mysqlworkbench"
 cask "notable"

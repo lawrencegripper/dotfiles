@@ -12,7 +12,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = code
+        editor = nano
 [credential]
 	helper = osxkeychain
 [push]

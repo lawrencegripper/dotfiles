@@ -9,7 +9,8 @@
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
-        "kubernetes": "*.yaml"
+        "kubernetes": "*.yaml",
+        "kubernetes": "*.yml"
     },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,

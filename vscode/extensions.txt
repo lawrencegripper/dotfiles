@@ -15,3 +15,6 @@ misogi.ruby-rubocop
 rebornix.ruby
 wingrunr21.vscode-ruby
 timonwong.shellcheck
+noku.rails-run-spec-vscode
+connorshea.vscode-ruby-test-adapter
+sporto.rails-go-to-spec

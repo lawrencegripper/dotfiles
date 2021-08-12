@@ -36,7 +36,7 @@
     "editor.codeLensFontFamily": "'FiraMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 16,
     "editor.fontSize": 16,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "terminal.integrated.scrollback": 100000,
     "ruby.useLanguageServer": false,
     "ruby.lint": {
@@ -56,21 +56,38 @@
     // "solargraph.commandPath": "bin/solargraph",
     "solargraph.checkGemVersion": false,
     "remote.containers.workspaceMountConsistency": "delegated",
-    "go.delveConfig": {
-        "dlvLoadConfig": {
-            "followPointers": true,
-            "maxVariableRecurse": 1,
-            "maxStringLen": 8192,
-            "maxArrayValues": 64,
-            "maxStructFields": -1
-        },
-        "apiVersion": 2,
-        "showGlobalVariables": true
-    },
-    "go.testFlags": ["-v"],
+    // "go.delveConfig": {
+    //     "dlvLoadConfig": {
+    //         "followPointers": true,
+    //         "maxVariableRecurse": 1,
+    //         "maxStringLen": 8192,
+    //         "maxArrayValues": 64,
+    //         "maxStructFields": -1
+    //     },
+    //     "apiVersion": 2,
+    //     "showGlobalVariables": true
+    // },
+    "go.testFlags": [
+        "-v"
+    ],
     "go.lintTool": "golangci-lint",
-    "go.lintFlags": ["--enable-all", "--new", "--disable=forbidigo", "--disable=wsl", "--disable=exhaustivestruct"],
+    "go.lintFlags": [
+        "--enable-all",
+        "--new",
+        "--disable=forbidigo",
+        "--disable=wsl",
+        "--disable=exhaustivestruct"
+    ],
     "go.lintOnSave": "workspace",
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.autoClosingBrackets": "never",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
     "shellcheck.enableQuickFix": true,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
@@ -85,13 +102,16 @@
         "jupyter-notebook": "left"
     },
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "yaml": false,
         "plaintext": true,
-        "markdown": false
+        "markdown": false,
+        "jsonc": false
     },
     "explorer.confirmDragAndDrop": false,
     "diffEditor.ignoreTrimWhitespace": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
+        "occurrance"
     ],
+    "go.toolsManagement.autoUpdate": true,
 }

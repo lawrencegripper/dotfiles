@@ -3,19 +3,18 @@ format = """
 $username\
 $hostname\
 $shlvl\
-$kubernetes\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$hg_branch\
 $helm\
 $terraform\
 $memory_usage\
-$env_var\
 $cmd_duration\
 $custom\
+$kubernetes\
+$battery\
 $line_break\
 $jobs\
 $time\
@@ -33,16 +32,25 @@ truncate_to_repo = false
 full_symbol = "🔋"
 charging_symbol = "⚡️"
 discharging_symbol = "💀"
+[[battery.display]]
+threshold = 50
 
 [git_status]
-format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style)) "
 ahead = " ⇡${count}"
-diverged = " ⇕⇡${ahead_count} ⇣${behind_count}"
+diverged = " 😱⇡${ahead_count} ⇣${behind_count}"
 behind = " ⇣${count}"
-modified = " [📝${count}](blue)" 
-staged = " [🔏️${count}](green)"
-renamed = " [💨${count}](green)"
-deleted = "[🗑${count}](red)"
-#untracked = " [🚋️${count}](red)"
+modified = " [📝 ${count}](blue)" 
+staged = " [🔏️ ${count}](green)"
+renamed = " [↩️ ${count}](green)"
+deleted = "[🗑 ${count}](red)"
 untracked = " [👻️${count}](blue)"
-stashed = " [🗃️${count}](cyan)"
+stashed = " [📦${count}](cyan)"
+conflicted = " [💥 ${count}](red)"
+
+[kubernetes]
+format = ' [⛵ $context>$namespace](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+"homenet" = "hn"
+"docker-desktop" = "dd"

@@ -33,6 +33,7 @@ format = "$number"
 [directory]
 truncate_to_repo = false
 truncation_symbol = '…'
+home_symbol = '🏠'
 
 [battery]
 full_symbol = "🔋"

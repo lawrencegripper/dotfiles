@@ -12,7 +12,7 @@ alias azb=azbrowse
 alias testaudio="arecord -d 10 -f cd -t wav foobar.wav && aplay foobar.wav"
 alias ghrun="gh run list | grep \$(git branch --show-current) | cut -d$'\t' -f 7 | xargs gh run watch && notify-send 'Run finished'"
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
 # workaround alacritty terminfo when sshing to boxes see: https://github.com/alacritty/alacritty/issues/3360

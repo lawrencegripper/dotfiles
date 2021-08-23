@@ -4,6 +4,7 @@ $username\
 $hostname\
 $shlvl\
 $directory\
+$kubernetes\
 $git_branch\
 $git_commit\
 $git_state\
@@ -13,7 +14,6 @@ $terraform\
 $memory_usage\
 $cmd_duration\
 $custom\
-$kubernetes\
 $battery\
 $line_break\
 $jobs\
@@ -37,19 +37,19 @@ threshold = 50
 
 [git_status]
 format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style)) "
-ahead = " ⇡${count}"
-diverged = " 😱⇡${ahead_count} ⇣${behind_count}"
-behind = " ⇣${count}"
+ahead = " ⬆️ ${count}"
+diverged = " 😱 ⬆️ ${ahead_count} ⬇️ ${behind_count}"
+behind = " ⬇️ ${count}"
 modified = " [📝 ${count}](blue)" 
 staged = " [🔏️ ${count}](green)"
 renamed = " [↩️ ${count}](green)"
 deleted = "[🗑 ${count}](red)"
-untracked = " [👻️${count}](blue)"
-stashed = " [📦${count}](cyan)"
+untracked = " [👻️ ${count}](blue)"
+stashed = " [📦 ${count}](cyan)"
 conflicted = " [💥 ${count}](red)"
 
 [kubernetes]
-format = ' [⛵ $context>$namespace](dimmed green) '
+format = '[⛵ $context>$namespace](dimmed green) '
 disabled = false
 [kubernetes.context_aliases]
 "homenet" = "hn"

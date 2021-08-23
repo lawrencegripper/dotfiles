@@ -3,6 +3,7 @@ format = """
 $username\
 $hostname\
 $shlvl\
+$time\
 $directory\
 $kubernetes\
 $git_branch\
@@ -17,9 +18,13 @@ $custom\
 $battery\
 $line_break\
 $jobs\
-$time\
 $status\
 $character"""
+
+[time]
+disabled = false
+format = '[$time]($style) '
+style = '$fg_bold[$time]'
 
 [jobs]
 threshold = 1
@@ -27,6 +32,7 @@ format = "$number"
 
 [directory]
 truncate_to_repo = false
+truncation_symbol = '…'
 
 [battery]
 full_symbol = "🔋"

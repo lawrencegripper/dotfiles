@@ -10,6 +10,7 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$ruby\
 $helm\
 $terraform\
 $memory_usage\
@@ -43,7 +44,7 @@ discharging_symbol = "💀"
 threshold = 50
 
 [git_status]
-format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style)) "
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
 ahead = " ⬆️ ${count}"
 diverged = " 😱 ⬆️ ${ahead_count} ⬇️ ${behind_count}"
 behind = " ⬇️ ${count}"

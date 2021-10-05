@@ -5,6 +5,8 @@
             "enabled": true
         }
     },
+    // "rubyTestExplorer.debugCommand": "rdebug-ide",
+    "rubyTestExplorer.logpanel": true,
     "workbench.colorTheme": "Arc Dark Theme",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
@@ -29,14 +31,14 @@
         "oderwat.indent-rainbow",
         "2gua.rainbow-brackets",
         "redhat.vscode-yaml",
-        "github.copilot"
+        "github.copilot",
+        "humao.rest-client"
     ],
     "editor.fontFamily": "'FiraMono Nerd Font', monospace",
     "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
     "editor.codeLensFontFamily": "'FiraMono Nerd Font', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 16,
     "editor.fontSize": 16,
-    "window.zoomLevel": 2,
     "terminal.integrated.scrollback": 100000,
     "ruby.useLanguageServer": false,
     "ruby.lint": {
@@ -92,7 +94,7 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
-    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": true,
     "sqltools.useNodeRuntime": true,
     "jupyter.askForKernelRestart": false,
     "editor.inlineSuggest.enabled": true,
@@ -109,9 +111,9 @@
         "jsonc": false
     },
     "explorer.confirmDragAndDrop": false,
-    "diffEditor.ignoreTrimWhitespace": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
         "occurrance"
     ],
     "go.toolsManagement.autoUpdate": true,
+    "window.zoomLevel": 2,
 }

@@ -3,9 +3,11 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "homebrew/cask-drivers"
 tap 'homebrew/services'
+tap "sachaos/tap"
 brew "mas"
 
 # Terminal stuff
+brew "viddy" # watch substitue
 brew "golangci-lint"
 brew "kind"
 brew "z"
@@ -33,6 +35,7 @@ brew "telnet"
 brew "shellcheck"
 brew "golang"
 brew "nodenv"
+brew "ruby-build"
 
 # Gui tools/Utils
 cask "dbeaver-community"

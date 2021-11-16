@@ -24,4 +24,7 @@ fi
 # Install the files from brew bundle file
 brew bundle --file=~/.Brewfile -v
 
+# hack install fast-cli
+npm install -g fast-cli
+
 exit 0

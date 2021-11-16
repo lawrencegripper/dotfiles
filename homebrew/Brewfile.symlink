@@ -38,6 +38,7 @@ brew "nodenv"
 brew "ruby-build"
 
 # Gui tools/Utils
+cask "powershell"
 cask "dbeaver-community"
 cask "another-redis-desktop-manager"
 cask "yubico-yubikey-manager"

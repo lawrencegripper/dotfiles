@@ -32,7 +32,8 @@
         "2gua.rainbow-brackets",
         "redhat.vscode-yaml",
         "github.copilot",
-        "humao.rest-client"
+        "humao.rest-client",
+        "oderwat.indent-rainbow"
     ],
     "editor.fontFamily": "'FiraMono Nerd Font', monospace",
     "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
@@ -94,6 +95,7 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
+    "editor.renderWhitespace": "trailing",
     "workbench.editor.enablePreview": true,
     "sqltools.useNodeRuntime": true,
     "jupyter.askForKernelRestart": false,
@@ -115,5 +117,6 @@
         "occurrance"
     ],
     "go.toolsManagement.autoUpdate": true,
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
+    "workbench.startupEditor": "none",
 }

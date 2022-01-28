@@ -140,9 +140,16 @@ install_dotfiles () {
   done
 }
 
-info 'Makesure brews can write to zsh config'
-sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
-chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+if test $(which sudo)
+then
+  info 'Makesure brews can write to zsh config'
+  sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
+  chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+else
+  info 'Makesure brews can write to zsh config'
+  chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
+  chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+fi
 
 if test "$CODESPACES" = "true"
 then

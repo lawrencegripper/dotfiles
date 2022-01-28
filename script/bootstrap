@@ -8,7 +8,7 @@ DOTFILES_ROOT=$(pwd -P)
 # Hack setup zsh for codespaces to use right dir
 if test "$CODESPACES" = "true"
 then
-  ln -s $HOME/.dotfiles $CODESPACE_VSCODE_FOLDER/../.codespaces/.persistedshare/dotfiles/
+  ln -s "$CODESPACE_VSCODE_FOLDER/../.codespaces/.persistedshare/dotfiles/" "$HOME/.dotfiles"
 fi
 
 set -e

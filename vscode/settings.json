@@ -9,6 +9,13 @@
     "rubyTestExplorer.logpanel": true,
     "workbench.colorTheme": "Arc Dark Theme",
     "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+          "path": "zsh",
+          "args": ["-l"]
+        }
+    },
     "remote.SSH.showLoginTerminal": true,
     // "yaml.schemas": {
     //     "kubernetes": "*.yaml",

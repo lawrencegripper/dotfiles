@@ -25,6 +25,17 @@
     "languageToolLinter.languageTool.motherTongue": "en-GB",
     "languageToolLinter.lintOnOpen": true,
     "languageToolLinter.lintOnChange": true,
+    "github.codespaces.defaultExtensions": [
+        "GitHub.codespaces",
+        "GitHub.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "2gua.rainbow-brackets",
+        "redhat.vscode-yaml",
+        "github.copilot",
+        "humao.rest-client",
+        "oderwat.indent-rainbow"
+    ],
     "remote.containers.defaultExtensions": [
         "davidlday.languagetool-linter",
         "eamodio.gitlens",

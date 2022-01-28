@@ -156,5 +156,11 @@ then
   fi
 fi
 
+# Setup codespaces stuff
+if test "$CODESPACES" = "true"
+then
+  $DOTFILES_ROOT/script/install.sh
+fi
+
 echo ''
 echo '  All installed!'

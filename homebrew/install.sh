@@ -22,7 +22,12 @@ then
 fi
 
 # Install the files from brew bundle file
-brew bundle --file=~/.Brewfile -v
+if test "$CODESPACES" = "true"
+then
+  brew bundle --file=~/.Brewfile.codespaces -v
+else 
+  brew bundle --file=~/.Brewfile -v
+fi
 
 # hack install fast-cli
 npm install -g fast-cli

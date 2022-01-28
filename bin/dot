@@ -38,7 +38,7 @@ while test $# -gt 0; do
 	shift
 done
 
-export ZSH=$HOME/source/personal/dotfiles
+export ZSH=$HOME/$dotfilesDirectory
 
 # Set macOS defaults
 $ZSH/macos/set-defaults.sh

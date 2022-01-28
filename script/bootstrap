@@ -60,7 +60,7 @@ link_file () {
   then
     if test "$CODESPACES" = "true"
     then
-      overwrite="true"
+      overwrite_all="true"
     fi
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then

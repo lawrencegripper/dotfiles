@@ -4,14 +4,9 @@ tap "homebrew/core"
 
 # Terminal stuff
 brew "diff-so-fancy"
-brew "viddy" # watch substitue
 brew "z"
 brew "jq"
 brew "starship"
 brew "fzf"
 brew "htop"
 brew "tldr"
-tap "homebrew/cask-fonts"
-cask "font-jetbrains-mono"
-cask "font-cascadia-code"
-cask "font-fira-mono-nerd-font" # Mostly using this one

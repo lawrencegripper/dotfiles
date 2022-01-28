@@ -48,3 +48,5 @@ defaults write com.lwouis.alt-tab-macos '{
         updatePolicy = 1;
         windowMaxWidthInRow = 30;
     }';
+
+defaults write com.apple.Finder AppleShowAllFiles true

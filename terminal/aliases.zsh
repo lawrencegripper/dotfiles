@@ -17,3 +17,4 @@ alias la='ls -A'
 alias l='ls -CF'
 # workaround alacritty terminfo when sshing to boxes see: https://github.com/alacritty/alacritty/issues/3360
 alias ssh='TERM=xterm-256color ssh'
+alias gh='TERM=xterm-256color gh'

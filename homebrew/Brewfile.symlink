@@ -7,6 +7,7 @@ tap "sachaos/tap"
 brew "mas"
 
 # Terminal stuff
+brew "diff-so-fancy"
 brew "viddy" # watch substitue
 brew "golangci-lint"
 brew "kind"
@@ -38,6 +39,7 @@ brew "nodenv"
 brew "ruby-build"
 
 # Gui tools/Utils
+brew "firefoxpwa"
 cask "powershell"
 cask "dbeaver-community"
 cask "another-redis-desktop-manager"
@@ -64,6 +66,7 @@ mas "Slack", id: 803453959
 mas "WhatsApp Desktop", id: 1147396723
 mas "Menu World Time", id: 1446377255
 cask "microsoft-remote-desktop"
+brew "yt-dlp"
 
 # Window manager 
 # Disabled Yabai due to requirement to partially disable IPS to install

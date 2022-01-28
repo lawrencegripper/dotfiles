@@ -10,10 +10,10 @@
     "workbench.colorTheme": "Arc Dark Theme",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
-    "yaml.schemas": {
-        "kubernetes": "*.yaml",
-        "kubernetes": "*.yml"
-    },
+    // "yaml.schemas": {
+    //     "kubernetes": "*.yaml",
+    //     "kubernetes": "*.yml"
+    // },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
     "zenMode.centerLayout": false,
@@ -109,8 +109,11 @@
         "*": false,
         "yaml": false,
         "plaintext": true,
-        "markdown": false,
-        "jsonc": false
+        "markdown": true,
+        "jsonc": false,
+        "ruby": true,
+        "python": true,
+        "shellscript": true
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
@@ -119,4 +122,5 @@
     "go.toolsManagement.autoUpdate": true,
     "window.zoomLevel": 1,
     "workbench.startupEditor": "none",
+    "diffEditor.ignoreTrimWhitespace": false,
 }

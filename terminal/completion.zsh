@@ -15,5 +15,8 @@ source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # End
 
 # Add SSH key
-ssh-add -K ~/.ssh/id_ed25519
-ssh-add -K ~/.ssh/id_rsa_gh
+if test "$(uname)" = "Darwin"
+then
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa_gh
+fi

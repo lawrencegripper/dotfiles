@@ -5,6 +5,12 @@
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
+# Hack setup zsh for codespaces to use right dir
+if test "$CODESPACES" = "true"
+then
+  sed -i 's#$HOME/source/personal/dotfiles#$CODESPACE_VSCODE_FOLDER/../.codespaces/.persistedshare/dotfiles#g' zsh/zshrc.symlink
+fi
+
 set -e
 
 echo ''

@@ -97,6 +97,10 @@ link_file () {
     fi
 
     overwrite=${overwrite:-$overwrite_all}
+    if test "$CODESPACES" = "true"
+    then
+      overwrite="true"
+    fi
     backup=${backup:-$backup_all}
     skip=${skip:-$skip_all}
 
@@ -141,7 +145,12 @@ info 'Makesure brews can write to zsh config'
 sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
 chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
 
-setup_gitconfig
+if test "$CODESPACES" = "true"
+then
+  echo "Skipping gitconfig in codespaces"
+else
+  setup_gitconfig
+fi
 install_dotfiles
 
 # If we're on a Mac, let's install and setup homebrew.

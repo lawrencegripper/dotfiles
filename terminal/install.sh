@@ -2,7 +2,7 @@
 ln -sf $ZSH/terminal/starship.toml.symlink ~/.config/starship.toml
 
 # Configure alacritty if installed
-if test ! $(which alacritty)
+if test $(which alacritty)
 then
     # Link alacritty settings
     mkdir -p ~/.config/alacritty

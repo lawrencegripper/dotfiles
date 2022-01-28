@@ -23,3 +23,6 @@ eval "$(starship init zsh)"
 
 # wire up rbenv
 eval "$(rbenv init -)"
+
+# auto complete gh 
+eval "$(gh completion -s zsh)"

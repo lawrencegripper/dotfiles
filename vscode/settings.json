@@ -130,7 +130,7 @@
         "*": false,
         "yaml": false,
         "plaintext": true,
-        "markdown": true,
+        "markdown": false,
         "jsonc": false,
         "ruby": true,
         "python": true,

@@ -1,4 +1,5 @@
 # Install starship config
+mkdir -p ~/.config
 ln -sf $ZSH/terminal/starship.toml.symlink ~/.config/starship.toml
 
 # Configure alacritty if installed

@@ -72,7 +72,10 @@
         "editor.defaultFormatter": "misogi.ruby-rubocop",
         "editor.codeActionsOnSave": {
             "editor.action.formatDocument": true
-        }
+        },
+        "editor.formatOnSave": true,
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
     },
     // "ruby.interpreter.commandPath": "bin/safe-ruby-quick",
     // "ruby.pathToBundler": "bin/bundle",

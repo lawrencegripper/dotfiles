@@ -2,15 +2,22 @@ if test "$CODESPACES" = "true"
 then
   echo "Skipping VSCode config as in codespaces"
 else
-  ln -sf "$ZSH/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  if test "$(uname)" = "Darwin"
+  then
+    ln -sf "$ZSH/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+  then
+    ln -sf "$ZSH/vscode/settings.json" "$HOME/.var/app/com.visualstudio.code/config/Code/User/settings.json"
+  fi
 
-  # Install VSCode extensions
-  while read ex; do
-    code --install-extension $ex
-  done <$ZSH/vscode/extensions.txt
-
-  # Install requried local tooling
-  gem install solargraph # Supports castwide.solargraph
-  gem install rubocop 
-  gem install ruby-debug-ide debase # Support debugging in vscode for ruby
+  if test "$(expr substr $(uname -s) 1 5)" = "Linux"
+  then
+    while read ex; do
+      flatpak run com.visualstudio.code --install-extension $ex
+    done <$ZSH/vscode/extensions.txt
+  else
+    while read ex; do
+      code --install-extension $ex
+    done <$ZSH/vscode/extensions.txt
+  fi
 fi

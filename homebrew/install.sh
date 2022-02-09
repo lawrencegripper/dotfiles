@@ -13,6 +13,16 @@ then
   # Install the correct homebrew for each OS type
   if test "$(uname)" = "Darwin"
   then
+    if test $(which sudo)
+    then
+      info 'Makesure brews can write to zsh config'
+      sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
+      chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+    else
+      info 'Makesure brews can write to zsh config'
+      chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
+      chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+    fi
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
   then

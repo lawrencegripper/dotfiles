@@ -3,12 +3,22 @@
 # bootstrap installs things.
 
 cd "$(dirname "$0")/.."
+
+#Set zsh as default shell on linux
+if test "$(expr substr $(uname -s) 1 5)" = "Linux"
+then
+    echo "setting zsh default"
+    chsh -s $(which zsh)
+fi
+
 DOTFILES_ROOT=$(pwd -P)
 
 # Hack setup zsh for codespaces to use right dir
 if test "$CODESPACES" = "true"
 then
   ln -s "/workspaces/.codespaces/.persistedshare/dotfiles/" "$HOME/.dotfiles"
+else
+  ln -s "$HOME/source/personal/dotfiles" "$HOME/.dotfiles"
 fi
 
 set -e
@@ -146,16 +156,6 @@ install_dotfiles () {
   done
 }
 
-if test $(which sudo)
-then
-  info 'Makesure brews can write to zsh config'
-  sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
-  chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
-else
-  info 'Makesure brews can write to zsh config'
-  chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
-  chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
-fi
 
 if test "$CODESPACES" = "true"
 then

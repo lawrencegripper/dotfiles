@@ -2,6 +2,8 @@
 
 Based on [holman's dotfiles repo](https://github.com/holman/dotfiles). Very rough first shot at automating Mac dev setup.
 
+These have become a mess. Don't copy them I need a better solution to handle codespace, linux desktop and osx...
+
 ## components
 
 There's a few special files in the hierarchy.

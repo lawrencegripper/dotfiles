@@ -144,7 +144,7 @@
         "occurrance"
     ],
     "go.toolsManagement.autoUpdate": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 3,
     "workbench.startupEditor": "none",
     "diffEditor.ignoreTrimWhitespace": false,
 }

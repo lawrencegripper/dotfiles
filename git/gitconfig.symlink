@@ -28,3 +28,5 @@
         email = info@grippers.co.uk
 [credential]
         helper = osxkeychain
+[gpg]
+	program = gpg

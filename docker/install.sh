@@ -8,6 +8,7 @@ else
                             --user=65534:65534 \
                             --read-only \
                             --mount type=bind,src=/tmp,dst=/tmp \
+                            --mount type=bind,src=$HOME/lanagugetools/ngrams,dst=/ngrams \
                             --restart=always \
                             -p 8081:8010 \
                             -d \

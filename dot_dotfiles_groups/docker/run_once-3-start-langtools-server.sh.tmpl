@@ -1,0 +1,21 @@
+#!/bin/bash
+
+{{- if eq (env "CODESPACES") "true" }}
+
+  echo "Skipping VSCode config as in codespaces"
+
+{{- else }}
+
+echo "Start language tools spelling/grammer tool"
+sudo docker start languagetool || sudo docker run --name languagetool \
+                        --cap-drop=ALL \
+                        --user=65534:65534 \
+                        --read-only \
+                        --mount type=bind,src=/tmp,dst=/tmp \
+                        --mount type=bind,src=$HOME/lanagugetools/ngrams,dst=/ngrams \
+                        --restart=always \
+                        -p 8081:8010 \
+                        -d \
+                        silviof/docker-languagetool:latest@sha256:7337f7ec954e1e4302866c788ebf9049cf3a081ad069ab42a77a42d5dd996369
+
+{{- end }}

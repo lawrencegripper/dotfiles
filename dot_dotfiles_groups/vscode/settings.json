@@ -1,0 +1,149 @@
+{
+    "editor.semanticHighlighting.enabled": true,
+    "editor.semanticTokenColorCustomizations": {
+        "[Arc Dark Theme]": {
+            "enabled": true
+        }
+    },
+    // "rubyTestExplorer.debugCommand": "rdebug-ide",
+    "rubyTestExplorer.logpanel": true,
+    "workbench.colorTheme": "Arc Dark Theme",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+          "path": "zsh",
+          "args": ["-l"]
+        }
+    },
+    "remote.SSH.showLoginTerminal": true,
+    // "yaml.schemas": {
+    //     "kubernetes": "*.yaml",
+    //     "kubernetes": "*.yml"
+    // },
+    "yaml.completion": true,
+    "yaml.schemaStore.enable": true,
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "workbench.sideBar.location": "right",
+    "languageToolLinter.languageTool.language": "en-GB",
+    "languageToolLinter.languageTool.motherTongue": "en-GB",
+    "languageToolLinter.lintOnOpen": true,
+    "languageToolLinter.lintOnChange": true,
+    "dotfiles.repository": "lawrencegripper/dotfiles",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/dotfiles/install.sh",
+    "github.codespaces.defaultExtensions": [
+        "GitHub.codespaces",
+        "GitHub.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "2gua.rainbow-brackets",
+        "redhat.vscode-yaml",
+        "github.copilot",
+        "humao.rest-client",
+        "oderwat.indent-rainbow"
+    ],
+    "remote.containers.defaultExtensions": [
+        "davidlday.languagetool-linter",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow",
+        "2gua.rainbow-brackets",
+        "redhat.vscode-yaml",
+        "github.copilot",
+        "humao.rest-client",
+        "oderwat.indent-rainbow"
+    ],
+    "editor.fontFamily": "'FiraMono Nerd Font', monospace",
+    "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
+    "editor.codeLensFontFamily": "'FiraMono Nerd Font', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 16,
+    "editor.fontSize": 16,
+    "terminal.integrated.scrollback": 100000,
+    "ruby.useLanguageServer": false,
+    "ruby.lint": {
+        "rubocop": false
+    },
+    "ruby.format": false,
+    "ruby.intellisense": false,
+    "[ruby]": {
+        "editor.defaultFormatter": "misogi.ruby-rubocop",
+        "editor.codeActionsOnSave": {
+            "editor.action.formatDocument": true
+        },
+        "editor.formatOnSave": true,
+        "editor.detectIndentation": false,
+        "editor.tabSize": 2
+    },
+    // "ruby.interpreter.commandPath": "bin/safe-ruby-quick",
+    // "ruby.pathToBundler": "bin/bundle",
+    "ruby.useBundler": false,
+    // "solargraph.commandPath": "bin/solargraph",
+    "solargraph.checkGemVersion": false,
+    "remote.containers.workspaceMountConsistency": "delegated",
+    // "go.delveConfig": {
+    //     "dlvLoadConfig": {
+    //         "followPointers": true,
+    //         "maxVariableRecurse": 1,
+    //         "maxStringLen": 8192,
+    //         "maxArrayValues": 64,
+    //         "maxStructFields": -1
+    //     },
+    //     "apiVersion": 2,
+    //     "showGlobalVariables": true
+    // },
+    "go.testFlags": [
+        "-v"
+    ],
+    "go.lintTool": "golangci-lint",
+    "go.lintFlags": [
+        "--enable-all",
+        "--new",
+        "--disable=forbidigo",
+        "--disable=wsl",
+        "--disable=exhaustivestruct"
+    ],
+    "go.lintOnSave": "workspace",
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.autoClosingBrackets": "never",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
+    "shellcheck.enableQuickFix": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "editor.renderWhitespace": "trailing",
+    "workbench.editor.enablePreview": true,
+    "sqltools.useNodeRuntime": true,
+    "jupyter.askForKernelRestart": false,
+    "editor.inlineSuggest.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "github.copilot.enable": {
+        "*": false,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false,
+        "jsonc": false,
+        "ruby": false,
+        "python": true,
+        "shellscript": true
+    },
+    "explorer.confirmDragAndDrop": false,
+    "languageToolLinter.languageTool.ignoredWordsGlobal": [
+        "occurrance"
+    ],
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.startupEditor": "none",
+    "diffEditor.ignoreTrimWhitespace": false,
+}

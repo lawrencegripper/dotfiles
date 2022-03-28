@@ -1,0 +1,11 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+
+# Terminal stuff
+brew "diff-so-fancy"
+brew "z"
+brew "jq"
+brew "starship"
+brew "fzf"
+brew "htop"

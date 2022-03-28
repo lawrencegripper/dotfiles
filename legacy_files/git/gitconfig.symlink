@@ -1,0 +1,32 @@
+# Local/private config goes in the include
+[include]
+        path = ~/.gitconfig.local
+[hub]
+        protocol = https
+[alias]
+	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://www.toptal.com/developers/gitignore/api/$*\" | tee .gitignore;}; \\\ngi"
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = nano
+[credential]
+	helper = osxkeychain
+[push]
+	default = current
+[commit]
+	gpgsign = true
+[user]
+	signingkey = 398C19D5AEA2D28A
+[init]
+	defaultBranch = main
+[user]
+        name = lawrencegripper
+        email = info@grippers.co.uk
+[credential]
+        helper = osxkeychain
+[gpg]
+	program = gpg

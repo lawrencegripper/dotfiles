@@ -1,0 +1,64 @@
+# Which is equivalent to
+format = """
+$username\
+$hostname\
+$shlvl\
+$time\
+$directory\
+$kubernetes\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$ruby\
+$helm\
+$terraform\
+$memory_usage\
+$cmd_duration\
+$custom\
+$battery\
+$line_break\
+$jobs\
+$status\
+$character"""
+
+[time]
+disabled = false
+format = '[$time]($style) '
+style = '$fg_bold[$time]'
+
+[jobs]
+threshold = 1
+format = "$number"
+
+[directory]
+truncate_to_repo = false
+truncation_symbol = '…'
+home_symbol = '🏠'
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+[[battery.display]]
+threshold = 50
+
+[git_status]
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+ahead = " ⬆️ ${count}"
+diverged = " 😱 ⬆️ ${ahead_count} ⬇️ ${behind_count}"
+behind = " ⬇️ ${count}"
+modified = " [📝 ${count}](blue)" 
+staged = " [🔏️ ${count}](green)"
+renamed = " [↩️ ${count}](green)"
+deleted = "[🗑 ${count}](red)"
+untracked = " [👻️ ${count}](blue)"
+stashed = " [📦 ${count}](cyan)"
+conflicted = " [💥 ${count}](red)"
+
+[kubernetes]
+format = '[⛵ $context>$namespace](dimmed green) '
+disabled = false
+[kubernetes.context_aliases]
+"homenet" = "hn"
+"docker-desktop" = "dd"

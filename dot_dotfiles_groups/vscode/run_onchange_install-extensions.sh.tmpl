@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Add extension ID below
+extensions=(
+  "ms-vscode-remote.vscode-remote-extensionpack"
+  "2gua.rainbow-brackets"
+  "ms-python.python"
+  "oderwat.indent-rainbow"
+  "redhat.vscode-yaml"
+  "alvesvaren.arc-dark"
+  "ms-vsliveshare.vsliveshare-pack"
+  "mattlott.copy-github-url"
+  "davidlday.languagetool-linter"
+  "eamodio.gitlens"
+  "github.codespaces"
+  "castwide.solargraph"
+  "kaiwood.endwise"
+  "misogi.ruby-rubocop"
+  "rebornix.ruby"
+  "wingrunr21.vscode-ruby"
+  "timonwong.shellcheck"
+  "noku.rails-run-spec-vscode"
+  "connorshea.vscode-ruby-test-adapter"
+  "sporto.rails-go-to-spec"
+  "lunuan.kubernetes-templates"
+  "ethan-reesor.vscode-byebug"
+  "lunuan.kubernetes-templates"
+  "golang.Go"
+)
+
+
+{{- if eq (env "CODESPACES") "true" }}
+
+  echo "Skipping VSCode config as in codespaces"
+
+{{- else }}
+  
+  for ext in "${extensions[@]}"
+  do
+    code --install-extension "$ext"
+  done
+  
+{{ end }}

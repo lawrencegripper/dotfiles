@@ -1,0 +1,9 @@
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "debian") -}}
+
+{{ .chezmoi.sourceDir }}/dot_dotfiles_groups/homebrew/Brewfile.codespaces
+
+{{ else if eq .chezmoi.os "darwin" -}}
+
+{{ .chezmoi.sourceDir }}/dot_dotfiles_groups/homebrew/Brewfile.mac
+
+{{ end -}}

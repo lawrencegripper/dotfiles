@@ -1,0 +1,76 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/cask-drivers"
+tap 'homebrew/services'
+tap "sachaos/tap"
+brew "mas"
+
+# Terminal stuff
+brew "diff-so-fancy"
+brew "viddy" # watch substitue
+brew "golangci-lint"
+brew "kind"
+brew "z"
+brew "jq"
+brew "starship"
+brew "kubectl"
+brew "kubectx"
+brew "gh"
+brew "fzf"
+brew "htop"
+brew "git"
+brew "azure-cli"
+brew "iftop"
+brew "tldr"
+cask "alacritty"
+brew "stuartleeks/tap/devcontainer"
+brew "lawrencegripper/tap/azbrowse"
+tap "homebrew/cask-fonts"
+cask "font-jetbrains-mono"
+cask "font-cascadia-code"
+cask "font-fira-mono-nerd-font" # Mostly using this one
+brew "rbenv"
+brew "jfrog-cli-go"
+brew "telnet"
+brew "shellcheck"
+brew "golang"
+brew "nodenv"
+brew "ruby-build"
+
+# Gui tools/Utils
+brew "firefoxpwa"
+cask "powershell"
+cask "dbeaver-community"
+cask "another-redis-desktop-manager"
+cask "yubico-yubikey-manager"
+cask "mysqlworkbench"
+cask "notable"
+cask "onedrive"
+cask "1password"
+cask "visual-studio-code"
+cask "microsoft-edge" #Edge installed from brew seems to fail to install pages as standalone apps
+cask "firefox"
+cask "drawio"
+cask "gpg-suite"
+cask "docker"
+cask "kap"
+cask "handbrake"
+cask "zoom"
+cask "pinta"
+cask "insomnia"
+cask "microsoft-azure-storage-explorer"
+cask "signal"
+cask "vlc"
+mas "Slack", id: 803453959
+mas "WhatsApp Desktop", id: 1147396723
+mas "Menu World Time", id: 1446377255
+cask "microsoft-remote-desktop"
+brew "yt-dlp"
+
+# Window manager 
+# Disabled Yabai due to requirement to partially disable IPS to install
+# brew "koekeishiya/formulae/yabai", restart_service: true
+# brew "koekeishiya/formulae/skhd", restart_service: true
+cask "amethyst"
+# cask "alt-tab"

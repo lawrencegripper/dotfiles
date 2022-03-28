@@ -9,4 +9,3 @@ nerd-fonts-complete
 
 # Dev bits
 visual-studio-code-bin
-powershell-bin 

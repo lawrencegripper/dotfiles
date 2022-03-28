@@ -1,0 +1,11 @@
+#!/bin/bash
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
+
+# Install AUR packages
+{{ range include "dot_dotfiles_groups/arch_packages/aur_packages.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+    yay -S --noredownload --norebuild {{.}} --noconfirm --needed
+{{end}}
+{{ end }}
+
+{{ end -}}

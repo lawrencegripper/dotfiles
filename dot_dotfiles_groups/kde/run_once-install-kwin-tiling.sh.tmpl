@@ -1,9 +1,13 @@
 #!/bin/bash
 {{- if eq (env "XDG_SESSION_DESKTOP") "KDE" }}
 
-echo "Found KDE session, install kwin-tiling"
-git clone https://github.com/kwin-scripts/kwin-tiling.git
-cd kwin-tiling/
-plasmapkg2 --type kwinscript -i .
+if [ ! -d "$HOME/.local/share/kwin/scripts/kwin-script-tiling" ]
+then
+    echo "Found KDE session, install kwin-tiling"
+    git clone https://github.com/kwin-scripts/kwin-tiling.git
+    cd kwin-tiling/
+    plasmapkg2 --type kwinscript -i .
+fi
+kwriteconfig5 --file kwinrc --group Plugins --key kwin-script-tilingEnabled true
 
 {{- end }}

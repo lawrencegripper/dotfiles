@@ -3,3 +3,6 @@ test-template:
 
 view-template-data:
 	chezmoi data 
+
+update:
+	chezmoi apply -v

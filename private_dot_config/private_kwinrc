@@ -1,0 +1,13 @@
+[$Version]
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage,kwin.upd:make-translucency-effect-disabled-by-default,kwin.upd:remove-flip-switch-effect,kwin.upd:remove-cover-switch-effect,kwin.upd:remove-cubeslide-effect,kwin.upd:remove-xrender-backend,kwin.upd:enable-scale-effect-by-default
+
+[Compositing]
+OpenGLIsUnsafe=false
+
+[Desktops]
+Id_1=00d12762-bfde-43dc-a8ec-f5711b591a32
+Id_2=eacc0d13-5132-484d-abb2-a006d6cf9e00
+Rows=2
+
+[Plugins]
+kwin-script-tilingEnabled=true

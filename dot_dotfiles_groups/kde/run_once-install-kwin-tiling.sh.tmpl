@@ -1,0 +1,9 @@
+#!/bin/bash
+{{- if eq (env "XDG_SESSION_DESKTOP") "KDE" }}
+
+echo "Found KDE session, install kwin-tiling"
+git clone https://github.com/kwin-scripts/kwin-tiling.git
+cd kwin-tiling/
+plasmapkg2 --type kwinscript -i .
+
+{{- end }}

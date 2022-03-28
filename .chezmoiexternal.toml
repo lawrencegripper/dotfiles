@@ -1,0 +1,6 @@
+[".fzf"]
+    type = "archive"
+    url = "https://github.com/junegunn/fzf/archive/refs/tags/0.29.0.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"

@@ -15,6 +15,7 @@ tldr
 # Dev bits
 go
 kubectl
+docker
 
 # General bits
 bash-completion

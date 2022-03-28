@@ -1,0 +1,42 @@
+# Required for vscode to handle logins
+gnome-keyring
+# GitHub CLI
+github-cli
+# Console
+kitty
+
+# Desktop bits
+pinta
+xclip
+peek
+handbrake
+tldr
+
+# Dev bits
+go
+kubectl
+
+# General bits
+bash-completion
+bzip2
+curl
+diffutils
+gcc
+git
+git-core
+grep
+gzip
+unzip
+htop
+httping
+iftop
+iotop
+less
+make
+openssl
+rsync
+tar
+wget
+whois
+zip
+jq

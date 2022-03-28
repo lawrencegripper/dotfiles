@@ -1,0 +1,18 @@
+#!/bin/bash
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
+
+if ! command -v yay &> /dev/null
+then
+    echo "yay not found... installing"
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay-bin.git
+    cd yay-bin
+    makepkg -si
+
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+fi
+
+{{ end -}}

@@ -1,0 +1,6 @@
+# Signal desktop
+org.signal.Signal
+# Remote desktop
+org.remmina.Remmina
+# Rest testing tool
+rest.insomnia.Insomnia

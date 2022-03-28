@@ -1,5 +1,5 @@
 test-template:
-	chezmoi execute-template < ./homebrew/run_once_install-brew-file.sh.tmpl
+	chezmoi execute-template < ./dot_dotfiles_groups/arch_packages/run_onchange_2_install-packages.sh.tmpl
 
 view-template-data:
-	chezmoi data
+	chezmoi data 

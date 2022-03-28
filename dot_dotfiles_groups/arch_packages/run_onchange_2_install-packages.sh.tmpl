@@ -1,0 +1,25 @@
+#!/bin/bash
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
+
+# Install pacman package
+{{ range include "dot_dotfiles_groups/arch_packages/packages.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+    sudo pacman -S {{.}} --noconfirm
+{{ end }}
+{{ end }}
+
+# Install AUR packages
+{{ range include "dot_dotfiles_groups/arch_packages/aur_packages.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+    yay -S {{.}} --noconfirm
+{{end}}
+{{ end }}
+
+# Install flatpak packages
+{{ range include "dot_dotfiles_groups/arch_packages/flatpak.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+    flatpak install flathub -S {{.}} --noninteractive
+{{ end }}
+{{ end }}
+
+{{ end -}}

@@ -1,0 +1,12 @@
+zoom
+
+# Handle switching between intel and nvidia graphics
+optimus-manager
+optimus-manager-qt
+
+# Nerd fonts for starship
+nerd-fonts-complete
+
+# Dev bits
+visual-studio-code-bin
+powershell-bin 

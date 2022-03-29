@@ -9,3 +9,11 @@ view-template-data:
 
 update:
 	chezmoi apply -v
+
+test-codespace:
+	docker run -v ${PWD}:${PWD} \
+		--entrypoint /bin/bash \
+		-e CODESPACE="true" \
+		--workdir ${PWD} \
+		ubuntu:20.04 \
+		${PWD}/script/bootstrap-ubuntu-curl

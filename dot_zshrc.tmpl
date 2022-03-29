@@ -1,0 +1,43 @@
+# leave cmds starting with a space out of history
+setopt HIST_IGNORE_SPACE
+
+if [[ -a $HOME/.profile ]]
+then
+  source $HOME/.profile
+fi
+
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit && compinit
+{{/* What does this do? It iterestes over all the commands in auto_complete_commands.txt and if present on the path runs the autocompletion command associated */}}
+{{- range include "auto_complete_commands.txt" | splitList "\n" }}
+{{- if contains "#" . | not }}
+{{- with $x := split "," . }}
+{{- if lookPath $x._0 }}
+{{ $x._1 | trim }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+# Enable fzf fuzzy matching
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Better history
+# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey "^[OF" end-of-line
+bindkey "^[OH" beginning-of-line

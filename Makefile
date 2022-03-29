@@ -13,7 +13,7 @@ update:
 test-codespace:
 	docker run -it -v ${PWD}:${PWD} \
 		--entrypoint /bin/bash \
-		-e CODESPACE="true" \
+		-e CODESPACES="true" \
 		--workdir ${PWD} \
 		ubuntu:20.04 \
 		${PWD}/script/bootstrap-ubuntu-curl

@@ -1,11 +1,22 @@
 #!/bin/bash
 
+# Ensure unattended install for Brew
+export NONINTERACTIVE=1
+
 {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "debian") -}}
+
+{{ if lookPath "brew" | not }}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+{{ end }}
 
 # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.codespaces" | sha256sum }}
 brew bundle --file=~/.homebrew/.Brewfile.codespaces -v
 
 {{ else if eq .chezmoi.os "darwin" -}}
+
+{{ if lookPath "brew" | not }}
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+{{ end }}
 
 # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.mac" | sha256sum }}
 brew bundle --file=~/.homebrew/.Brewfile -v

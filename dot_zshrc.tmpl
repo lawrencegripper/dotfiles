@@ -6,7 +6,6 @@ then
   source $HOME/.profile
 fi
 
-
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -40,8 +39,29 @@ eval $(keychain -q --noask --eval id_rsa_gh) # Work
 eval $(keychain -q --noask --eval id_ed25519) # Updated GH Key
 {{- end }}
 
+# Add aliases 
+[ -f ~/.aliases ] && source ~/.aliases
+
 # Enable fzf fuzzy matching
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Enable z for jumping to commonly used folders
 [ -f ~/.config/z/z.sh ] && source ~/.config/z/z.sh
+
+# Zsh config
+setopt PROMPT_SUBST
+setopt CORRECT
+setopt COMPLETE_IN_WORD
+setopt IGNORE_EOF
+
+# Configure history
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt HIST_VERIFY
+setopt SHARE_HISTORY # share history between sessions ???
+setopt EXTENDED_HISTORY # add timestamps to history
+setopt APPEND_HISTORY # adds history
+setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
+setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt HIST_REDUCE_BLANKS

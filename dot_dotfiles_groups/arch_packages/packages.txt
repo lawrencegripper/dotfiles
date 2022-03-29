@@ -11,6 +11,7 @@ xclip
 peek
 handbrake
 tldr
+kalendar
 
 # Dev bits
 go

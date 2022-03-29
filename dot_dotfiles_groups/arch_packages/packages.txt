@@ -18,6 +18,9 @@ go
 kubectl
 docker
 
+# ssh agent manager 
+keychain
+
 # General bits
 bash-completion
 bzip2

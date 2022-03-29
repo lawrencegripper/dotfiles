@@ -28,16 +28,20 @@ autoload -Uz compinit && compinit
 {{- end }}
 {{- end }}
 
+# Setup ssh agent
+{{- if eq (env "CODESPACES") "true" }}
+# Skipped sshagent config in codespaces
+{{- else if eq .chezmoi.os "darwin" -}}
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+ssh-add --apple-use-keychain ~/.ssh/id_rsa_gh
+{{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") }}
+eval $(keychain -q --noask --eval id_rsa_2018) # Personal
+eval $(keychain -q --noask --eval id_rsa_gh) # Work
+eval $(keychain -q --noask --eval id_ed25519) # Updated GH Key
+{{- end }}
+
 # Enable fzf fuzzy matching
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Better history
-# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
-bindkey "^[OF" end-of-line
-bindkey "^[OH" beginning-of-line
+# Enable z for jumping to commonly used folders
+[ -f ~/.config/z/z.sh ] && source ~/.config/z/z.sh

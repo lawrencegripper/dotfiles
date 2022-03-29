@@ -11,7 +11,7 @@ update:
 	chezmoi apply -v
 
 test-codespace:
-	docker run -v ${PWD}:${PWD} \
+	docker run -it -v ${PWD}:${PWD} \
 		--entrypoint /bin/bash \
 		-e CODESPACE="true" \
 		--workdir ${PWD} \

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-apt update && apt install curl && sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
+apt update && apt install curl -y && sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
+
+/bin/bash

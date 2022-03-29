@@ -9,3 +9,6 @@ nerd-fonts-complete
 
 # Dev bits
 visual-studio-code-bin
+
+1password-beta
+# 1password-cli ... not from 1pw folks... maybe wait

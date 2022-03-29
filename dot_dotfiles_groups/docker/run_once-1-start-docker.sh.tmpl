@@ -2,5 +2,6 @@
 
 {{- if eq (env "CODESPACES") "true" | not }}
 sudo usermod -aG docker $USER
+sudo systemctl enable docker.service
 sudo systemctl start docker.service
 {{- end }}

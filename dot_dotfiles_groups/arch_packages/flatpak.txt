@@ -4,3 +4,4 @@ org.signal.Signal
 org.remmina.Remmina
 # Rest testing tool
 rest.insomnia.Insomnia
+io.github.mimbrero.WhatsAppDesktop

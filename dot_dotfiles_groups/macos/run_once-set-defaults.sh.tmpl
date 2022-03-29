@@ -1,3 +1,6 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" -}}
+
 # Sets reasonable macOS defaults.
 #
 # The original idea (and a couple settings) were grabbed from:
@@ -50,3 +53,5 @@ defaults write com.lwouis.alt-tab-macos '{
     }';
 
 defaults write com.apple.Finder AppleShowAllFiles true
+
+{{ end -}}

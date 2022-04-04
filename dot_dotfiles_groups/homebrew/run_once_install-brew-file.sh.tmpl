@@ -10,7 +10,7 @@ export NONINTERACTIVE=1
 {{ end }}
 
 # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.codespaces" | sha256sum }}
-brew bundle --file=~/.dotfile_groups/homebrew/Brewfile.codespaces -v
+brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.codespaces -v
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
@@ -19,6 +19,6 @@ brew bundle --file=~/.dotfile_groups/homebrew/Brewfile.codespaces -v
 {{ end }}
 
 # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.mac" | sha256sum }}
-brew bundle --file=~/.dotfile_groups/homebrew/Brewfile.mac -v
+brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.mac -v
 
 {{ end -}}

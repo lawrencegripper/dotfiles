@@ -14,3 +14,6 @@ visual-studio-code-bin
 # 1password-cli ... not from 1pw folks... maybe wait
 
 onedrive-abraunegg
+
+# Firefox pwa local extension
+firefox-pwa-bin

@@ -1,9 +1,9 @@
 #!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "arch") -}}
 
 sudo pacman -S starship --noconfirm
 
-{{ else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "debian") -}}
+{{ else if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") -}}
 
 brew install starship
 

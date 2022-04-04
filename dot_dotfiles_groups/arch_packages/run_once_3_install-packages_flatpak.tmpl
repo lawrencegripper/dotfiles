@@ -1,5 +1,5 @@
 #!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "arch") -}}
 
 # Install flatpak packages
 {{ range include "dot_dotfiles_groups/arch_packages/flatpak.txt" | splitList "\n" }}

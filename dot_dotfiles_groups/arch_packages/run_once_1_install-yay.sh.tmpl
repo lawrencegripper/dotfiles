@@ -1,5 +1,5 @@
 #!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") -}}
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "arch") -}}
 {{ if lookPath "yay" | not }}
     echo "yay not found... installing"
     sudo pacman -S --needed git base-devel

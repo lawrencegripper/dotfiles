@@ -17,6 +17,7 @@ kalendar
 go
 kubectl
 docker
+docker-compose
 
 # ssh agent manager 
 keychain

@@ -34,9 +34,9 @@ autoload -Uz compinit && compinit
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ssh-add --apple-use-keychain ~/.ssh/id_rsa_gh
 {{- else if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") }}
-eval $(keychain -q --noask --eval id_rsa_2018) # Personal
-eval $(keychain -q --noask --eval id_rsa_gh) # Work
-eval $(keychain -q --noask --eval id_ed25519) # Updated GH Key
+eval $(keychain -q --eval id_rsa_2018) # Personal
+eval $(keychain -q --eval id_rsa_gh) # Work
+eval $(keychain -q --eval id_ed25519) # Updated GH Key
 {{- end }}
 
 # Add aliases 

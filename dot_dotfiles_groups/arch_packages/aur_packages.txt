@@ -15,5 +15,7 @@ visual-studio-code-bin
 
 onedrive-abraunegg
 
+# Browser stuff
 # Firefox pwa local extension
 firefox-pwa-bin
+microsoft-edge-stable-bin 

@@ -7,6 +7,8 @@ export NONINTERACTIVE=1
 
 {{ if lookPath "brew" | not }}
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
 
 # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.codespaces" | sha256sum }}

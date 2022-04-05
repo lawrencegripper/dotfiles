@@ -27,6 +27,12 @@ autoload -Uz compinit && compinit
 {{- end }}
 {{- end }}
 
+{{- if eq (env "CODESPACES") "true" | not }}
+# Setup codespaces ssh
+echo "Setting up codespaces ssh"
+gh codespace ssh --config > ~/.ssh/codespaces
+{{- end }}
+
 # Setup ssh agent
 {{- if eq (env "CODESPACES") "true" }}
 # Skipped sshagent config in codespaces

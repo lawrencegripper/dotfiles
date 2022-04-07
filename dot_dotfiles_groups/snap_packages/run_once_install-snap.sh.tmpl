@@ -1,0 +1,8 @@
+{{- if lookPath "snap" -}}
+#!/bin/bash
+{{- range include "dot_dotfiles_groups/snap_packages/packages.txt" | splitList "\n" }}
+{{- if contains "#" . | not }}
+sudo snap install {{.}}
+{{- end }}
+{{- end }}
+{{- end }}

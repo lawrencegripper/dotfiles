@@ -1,3 +1,6 @@
+# git notifications
+gitify-bin
+
 zoom
 
 # Handle switching between intel and nvidia graphics

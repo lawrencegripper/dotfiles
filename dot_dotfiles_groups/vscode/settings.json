@@ -146,4 +146,5 @@
     "go.toolsManagement.autoUpdate": true,
     "workbench.startupEditor": "none",
     "diffEditor.ignoreTrimWhitespace": false,
+    "githubPullRequests.commentExpandState": "collapseAll"
 }

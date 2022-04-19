@@ -14,6 +14,20 @@ then
   source ~/.localrc
 fi
 
+# Setup ssh agent
+{{- if eq (env "CODESPACES") "true" }}
+# Skipped sshagent config in codespaces
+# Setting up brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- else if eq .chezmoi.os "darwin" -}}
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+ssh-add --apple-use-keychain ~/.ssh/id_rsa_gh
+{{- else if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "arch") }}
+eval $(keychain -q --eval id_rsa_2018) # Personal
+eval $(keychain -q --eval id_rsa_gh) # Work
+eval $(keychain -q --eval id_ed25519) # Updated GH Key
+{{- end }}
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -Uz compinit && compinit
 {{/* What does this do? It iterestes over all the commands in auto_complete_commands.txt and if present on the path runs the autocompletion command associated */}}
@@ -31,18 +45,6 @@ autoload -Uz compinit && compinit
 # Setup codespaces ssh
 echo "Setting up codespaces ssh"
 gh codespace ssh --config > ~/.ssh/codespaces
-{{- end }}
-
-# Setup ssh agent
-{{- if eq (env "CODESPACES") "true" }}
-# Skipped sshagent config in codespaces
-{{- else if eq .chezmoi.os "darwin" -}}
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-ssh-add --apple-use-keychain ~/.ssh/id_rsa_gh
-{{- else if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "arch") }}
-eval $(keychain -q --eval id_rsa_2018) # Personal
-eval $(keychain -q --eval id_rsa_gh) # Work
-eval $(keychain -q --eval id_ed25519) # Updated GH Key
 {{- end }}
 
 # Add aliases 

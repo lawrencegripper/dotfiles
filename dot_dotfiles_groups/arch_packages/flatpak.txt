@@ -5,3 +5,5 @@ org.remmina.Remmina
 # Rest testing tool
 rest.insomnia.Insomnia
 io.github.mimbrero.WhatsAppDesktop
+# libvirt vm manager
+org.gnome.Boxes

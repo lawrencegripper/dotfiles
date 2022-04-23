@@ -22,6 +22,9 @@ docker-compose
 # ssh agent manager 
 keychain
 
+# virtualisation
+libvirt
+
 # General bits
 bash-completion
 bzip2

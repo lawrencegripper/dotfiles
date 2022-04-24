@@ -15,6 +15,7 @@ tldr
 # Dev bits
 go
 kubectl
+helm
 docker
 docker-compose
 

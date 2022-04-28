@@ -41,12 +41,6 @@ autoload -Uz compinit && compinit
 {{- end }}
 {{- end }}
 
-{{- if eq (env "CODESPACES") "true" | not }}
-# Setup codespaces ssh
-echo "Setting up codespaces ssh"
-gh codespace ssh --config > ~/.ssh/codespaces
-{{- end }}
-
 # Add aliases 
 [ -f ~/.aliases ] && source ~/.aliases
 

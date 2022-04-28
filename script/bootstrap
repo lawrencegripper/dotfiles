@@ -1,3 +1,5 @@
 #!/bin/bash
 
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
+# don't ask
+sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper

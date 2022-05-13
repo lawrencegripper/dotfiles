@@ -34,10 +34,10 @@ autoload -Uz compinit && compinit
 {{- range include "auto_complete_commands.txt" | splitList "\n" }}
 {{- if contains "#" . | not }}
 {{- with $x := split "," . }}
-{{- if lookPath $x._0 }}
-{{ $x._1 | trim }}
-{{- end }}
-{{- end }}
+if ! type "$x._0" > /dev/null; then
+  {{ $x._1 | trim }}
+fi
+{{ end }}
 {{- end }}
 {{- end }}
 

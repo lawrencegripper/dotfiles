@@ -49,3 +49,4 @@ wget
 whois
 zip
 jq
+libheif

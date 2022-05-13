@@ -1,6 +1,8 @@
 # reverse proxy https
 charles
 
+mullvad-vpn
+
 # git notifications
 gitify-bin
 
@@ -24,4 +26,4 @@ onedrive-abraunegg
 # Browser stuff
 # Firefox pwa local extension
 firefox-pwa-bin
-microsoft-edge-stable-bin 
+microsoft-edge-stable-bin

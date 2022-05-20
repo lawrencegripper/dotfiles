@@ -2,6 +2,7 @@
 
 # Ensure unattended install for Brew
 export NONINTERACTIVE=1
+export HOMEBREW_INSTALL_FROM_API=1
 
 {{ if and (eq .chezmoi.os "linux") (eq (env "CODESPACES") "true") -}}
 

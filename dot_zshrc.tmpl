@@ -34,7 +34,7 @@ autoload -Uz compinit && compinit
 {{- range include "auto_complete_commands.txt" | splitList "\n" }}
 {{- if contains "#" . | not }}
 {{- with $x := split "," . }}
-if ! type "{{ $x._0 | trim }}" > /dev/null; then
+if type "{{ $x._0 | trim }}" > /dev/null; then
   {{ $x._1 | trim }}
 fi
 {{ end }}

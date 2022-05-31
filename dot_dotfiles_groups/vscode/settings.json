@@ -140,7 +140,7 @@
         "jsonc": false,
         "ruby": false,
         "python": true,
-        "shellscript": true
+        "shellscript": false
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [

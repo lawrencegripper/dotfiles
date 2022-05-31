@@ -1,7 +1,7 @@
 # reverse proxy https
 charles
 
-mullvad-vpn
+mullvad-vpn-bin
 
 # git notifications
 gitify-bin

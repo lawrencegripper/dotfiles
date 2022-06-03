@@ -2,3 +2,4 @@ legacy_files
 script
 Makefile
 auto_complete_commands.txt
+device_config

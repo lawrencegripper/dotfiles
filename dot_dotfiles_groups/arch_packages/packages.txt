@@ -25,6 +25,9 @@ keychain
 # virtualisation
 libvirt
 
+#optimus nvidia
+linux515-bbswitch
+
 # General bits
 bash-completion
 bzip2

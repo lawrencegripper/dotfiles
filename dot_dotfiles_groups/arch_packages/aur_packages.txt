@@ -8,6 +8,9 @@ gitify-bin
 
 zoom
 
+# backups
+duplicati-latest
+
 # Handle switching between intel and nvidia graphics
 optimus-manager
 optimus-manager-qt

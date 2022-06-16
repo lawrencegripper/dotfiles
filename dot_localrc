@@ -5,3 +5,5 @@ export GEM_HOME="$HOME/.gem"
 export DEV_USER=lawrencegripper
 export PATH="$HOME/.gem/bin:$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/flatpak/exports/share:$PATH"
+export PATH="/var/lib/flatpak/exports/share:$PATH"

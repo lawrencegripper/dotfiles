@@ -3,6 +3,8 @@ gnome-keyring
 # Console
 kitty
 
+flatpak
+
 # Desktop bits
 pinta
 xclip

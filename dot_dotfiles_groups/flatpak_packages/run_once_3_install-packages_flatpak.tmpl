@@ -1,0 +1,18 @@
+#!/bin/bash
+{{ if and (eq .chezmoi.os "linux") | not -}}
+exit 0
+{{ end }}
+
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# hash: {{ include "dot_dotfiles_groups/flatpak_packages/flatpak.txt" | sha256sum }}
+
+# Install flatpak packages
+{{ range include "dot_dotfiles_groups/flatpak_packages/flatpak.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+    flatpak install flathub {{.}} --noninteractive
+{{ end }}
+{{ end }}

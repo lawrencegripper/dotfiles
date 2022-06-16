@@ -4,16 +4,17 @@
 export NONINTERACTIVE=1
 export HOMEBREW_INSTALL_FROM_API=1
 
-{{ if and (eq .chezmoi.os "linux") (eq (env "CODESPACES") "true") -}}
+{{ if (eq .chezmoi.os "linux") -}}
 
 {{ if lookPath "brew" | not }}
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
 
-# Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.codespaces" | sha256sum }}
-brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.codespaces -v
+# Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.linux" | sha256sum }}
+brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.linux -v
 
 {{ else if eq .chezmoi.os "darwin" -}}
 

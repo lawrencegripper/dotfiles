@@ -1,0 +1,47 @@
+ 
+# Required for vscode to handle logins
+gnome-keyring
+# Console
+kitty
+
+# Desktop bits
+pinta
+xclip
+peek
+handbrake
+tldr
+
+# Dev bits
+docker
+docker-compose
+
+# ssh agent manager
+keychain
+
+# General bits
+bash-completion
+bzip2
+curl
+diffutils
+gcc
+git
+git-core
+grep
+gzip
+unzip
+htop
+httping
+iftop
+iotop
+less
+make
+openssl
+rsync
+tar
+wget
+whois
+zip
+jq
+zsh
+gpg
+apt-transport-https

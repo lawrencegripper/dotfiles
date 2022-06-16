@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") -}}
+
+# Install package
+{{ range include "dot_dotfiles_groups/a_ubuntu_packages/packages.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+    sudo apt install -y {{.}}
+{{ end }}
+{{ end }}
+
+{{ end -}}

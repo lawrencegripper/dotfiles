@@ -6,8 +6,6 @@ mullvad-vpn-bin
 # git notifications
 gitify-bin
 
-zoom
-
 # backups
 duplicati-latest
 

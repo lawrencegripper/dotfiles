@@ -1,7 +1,12 @@
 #!/bin/bash
 set -e
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") -}}
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") | not -}}
+exit 0
+{{ end }}
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
 
 # Install package
 {{ range include "dot_dotfiles_groups/a_ubuntu_packages/packages.txt" | splitList "\n" }}
@@ -9,5 +14,3 @@ set -e
     sudo apt install -y {{.}}
 {{ end }}
 {{ end }}
-
-{{ end -}}

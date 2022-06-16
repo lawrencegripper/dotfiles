@@ -9,3 +9,8 @@ io.github.mimbrero.WhatsAppDesktop
 org.gnome.Boxes
 # video editor
 org.pitivi.Pitivi
+
+us.zoom.Zoom
+
+# apple music player
+sh.cider.Cider

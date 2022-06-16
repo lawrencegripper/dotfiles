@@ -149,5 +149,6 @@
     "go.toolsManagement.autoUpdate": true,
     "workbench.startupEditor": "none",
     "diffEditor.ignoreTrimWhitespace": false,
-    "comments.openView": "never"
+    "comments.openView": "never",
+    "window.menuBarVisibility": "toggle"
 }

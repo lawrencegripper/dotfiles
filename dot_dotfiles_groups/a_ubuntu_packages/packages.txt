@@ -1,4 +1,3 @@
- 
 # Required for vscode to handle logins
 gnome-keyring
 # Console
@@ -45,3 +44,6 @@ jq
 zsh
 gpg
 apt-transport-https
+
+#virualisation
+gnome-boxes

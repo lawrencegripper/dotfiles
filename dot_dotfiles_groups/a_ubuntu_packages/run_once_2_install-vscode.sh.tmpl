@@ -5,6 +5,10 @@ export DEBIAN_FRONTEND=noninteractive
 {{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") | not -}}
 exit 0
 {{ end }}
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
+
 
 sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg

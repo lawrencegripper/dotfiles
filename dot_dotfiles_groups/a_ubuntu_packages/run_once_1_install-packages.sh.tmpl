@@ -10,6 +10,8 @@ exit 0
 
 # hash: {{ include "dot_dotfiles_groups/a_ubuntu_packages/packages.txt" | sha256sum }}
 
+sudo apt update
+
 # Install package
 {{ range include "dot_dotfiles_groups/a_ubuntu_packages/packages.txt" | splitList "\n" }}
 {{ if contains "#" . | not }}

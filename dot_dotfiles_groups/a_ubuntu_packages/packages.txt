@@ -49,3 +49,5 @@ apt-transport-https
 
 #virualisation
 gnome-boxes
+
+ruby

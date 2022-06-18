@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+# Replace snap firefox with deb for 1password integration
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not -}}
+exit 0
+{{ end }}
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
+
+if [ $(snap list | grep firefox | wc -l) -lt 1 ]; then;
+    echo "Firefox snap not installed skipping"
+    exit 0
+fi
+
+sudo add-apt-repository ppa:mozillateam/ppa
+
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+
+sudo snap remove firefox
+
+sudo apt install firefox
+
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox

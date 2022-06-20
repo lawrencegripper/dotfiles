@@ -46,6 +46,7 @@ jq
 zsh
 gpg
 apt-transport-https
+gnupg
 
 #virualisation
 gnome-boxes

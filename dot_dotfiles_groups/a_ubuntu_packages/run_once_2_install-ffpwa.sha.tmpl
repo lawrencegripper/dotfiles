@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") | not -}}
+exit 0
+{{ end }}
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
+
+# Import GPG key and enable the repository
+curl -fsSL https://packagecloud.io/filips/FirefoxPWA/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/firefoxpwa-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/firefoxpwa-keyring.gpg] https://packagecloud.io/filips/FirefoxPWA/any any main" | sudo tee /etc/apt/sources.list.d/firefoxpwa.list > /dev/null
+
+# Refresh repositories and install the package
+sudo apt update
+sudo apt install firefoxpwa -y

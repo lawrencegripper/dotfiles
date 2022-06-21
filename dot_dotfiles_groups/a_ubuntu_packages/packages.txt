@@ -52,3 +52,4 @@ gnupg
 gnome-boxes
 
 ruby
+network-manager-openvpn

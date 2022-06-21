@@ -150,5 +150,5 @@
     "workbench.startupEditor": "none",
     "diffEditor.ignoreTrimWhitespace": false,
     "comments.openView": "never",
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
 }

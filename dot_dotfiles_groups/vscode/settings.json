@@ -151,4 +151,5 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "comments.openView": "never",
     "window.menuBarVisibility": "toggle",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
 }

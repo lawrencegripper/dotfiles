@@ -20,12 +20,7 @@ fi
 # Setting up brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- else if eq .chezmoi.os "darwin" -}}
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-ssh-add --apple-use-keychain ~/.ssh/id_rsa_gh
 {{- else if and (eq .chezmoi.os "linux") }}
-eval $(keychain -q --eval id_rsa_2018) # Personal
-eval $(keychain -q --eval id_rsa_gh) # Work
-eval $(keychain -q --eval id_ed25519) # Updated GH Key
 {{- end }}
 
 # initialize autocomplete here, otherwise functions won't be loaded

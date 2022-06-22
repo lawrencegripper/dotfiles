@@ -7,3 +7,7 @@ export PATH="$HOME/.gem/bin:$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/flatpak/exports/share:$PATH"
 export PATH="/var/lib/flatpak/exports/share:$PATH"
+if [[ -a ~/.1password/agent.sock ]]
+then
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi

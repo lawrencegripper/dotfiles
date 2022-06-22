@@ -53,3 +53,7 @@ gnome-boxes
 
 ruby
 network-manager-openvpn
+
+#notify-send
+libnotify-bin
+notify-osd

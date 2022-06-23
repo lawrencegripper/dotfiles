@@ -16,3 +16,5 @@ us.zoom.Zoom
 sh.cider.Cider
 # edge browser
 com.microsoft.Edge
+
+tv.plex.PlexDesktop

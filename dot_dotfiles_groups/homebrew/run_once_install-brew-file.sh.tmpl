@@ -4,25 +4,37 @@
 export NONINTERACTIVE=1
 export HOMEBREW_INSTALL_FROM_API=1
 
-{{ if (eq .chezmoi.os "linux") -}}
+{{- if eq (env "CODESPACES") "true" }}
 
-{{ if lookPath "brew" | not }}
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-{{ end }}
+    {{ if lookPath "brew" | not }}
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    {{ end }}
 
-# Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.linux" | sha256sum }}
-brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.linux -v
+    # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.codespace" | sha256sum }}
+    brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.codespace -v
+
+{{ else if (eq .chezmoi.os "linux") -}}
+
+    {{ if lookPath "brew" | not }}
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    {{ end }}
+
+    # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.linux" | sha256sum }}
+    brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.linux -v
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
-{{ if lookPath "brew" | not }}
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-{{ end }}
+    {{ if lookPath "brew" | not }}
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    {{ end }}
 
-# Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.mac" | sha256sum }}
-brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.mac -v
+    # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.mac" | sha256sum }}
+    brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.mac -v
 
 {{ end -}}

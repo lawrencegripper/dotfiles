@@ -1,10 +1,7 @@
 tap "homebrew/core"
-tap "homebrew/cask"
 
 # Terminal stuff
 brew "jq"
 brew "starship"
 brew "htop"
 brew "chezmoi"
-brew "gh"
-brew "kubectx"

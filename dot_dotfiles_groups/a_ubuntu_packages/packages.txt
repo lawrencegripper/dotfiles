@@ -12,10 +12,6 @@ peek
 handbrake
 tldr
 
-# Dev bits
-docker
-docker-compose
-
 # ssh agent manager
 keychain
 

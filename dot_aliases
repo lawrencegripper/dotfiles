@@ -20,3 +20,6 @@ alias k='kubectl'
 alias h-create-ghcs='gh cs create --repo github/heaven -b master -m largePremiumLinux -s | xargs gh cs code -c'
 alias h-open-ghcs='gh cs list --json "repository,name" -q ".[0].name" | xargs gh cs code -c'
 alias h-ssh-ghcs='gh cs list --json "repository,name" -q ".[0].name" | xargs gh cs ssh -c'
+
+# Update all the things
+alias upd-linux='flatpak update -y && sudo apt update && sudo apt upgrade -y && brew update && brew upgrade'

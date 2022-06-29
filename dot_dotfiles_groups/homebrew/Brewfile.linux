@@ -1,10 +1,13 @@
 tap "homebrew/core"
-tap "homebrew/cask"
+tap "linuxbrew/fonts"
 
 # Terminal stuff
-brew "jq"
 brew "starship"
-brew "htop"
 brew "chezmoi"
 brew "gh"
 brew "kubectx"
+
+# Fonts
+brew "font-jetbrains-mono"
+brew "font-cascadia-code"
+brew "font-fira-mono-nerd-font" # Mostly using this

@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") | not -}}
+exit 0
+{{ end }}
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash

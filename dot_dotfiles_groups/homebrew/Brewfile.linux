@@ -6,6 +6,7 @@ brew "starship"
 brew "chezmoi"
 brew "gh"
 brew "kubectx"
+brew "k9s"
 
 # Fonts
 brew "font-jetbrains-mono"

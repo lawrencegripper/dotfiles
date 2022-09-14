@@ -146,6 +146,7 @@
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
+        "everythying",
         "occurrance"
     ],
     "go.toolsManagement.autoUpdate": true,
@@ -154,4 +155,6 @@
     "comments.openView": "never",
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.enableMultiLinePasteWarning": false,
+    "window.zoomLevel": 1,
+    "githubPullRequests.pullBranch": "never",
 }

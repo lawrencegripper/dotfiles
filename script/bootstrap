@@ -3,3 +3,10 @@
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
 # don't ask
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
+
+# Set zsh if available
+zsh_installed=$(grep /bin/zsh -m 1 -c /etc/shells)
+if ((zsh_installed == 1)); then
+    echo "Setting shell to zsh"
+    chsh -s /bin/zsh "$USERNAME"
+fi

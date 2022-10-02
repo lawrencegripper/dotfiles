@@ -3,17 +3,59 @@
         protocol = https
 [alias]
 	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://www.toptal.com/developers/gitignore/api/$*\" | tee .gitignore;}; \\\ngi"
+        # Commit staged changes with amend no edit
+        am = commit --amend --no-edit
+        # Commit all changes with amend no edit
+        aam = commit --amend -a --no-edit
+        # Force push with least
+        fp = push --force-with-lease
+        # Checkout
+        co = checkout
+        c = commit
+        nbu = new-branch-from-upstream
+        wip = work-in-progress
+        
+        # Default branch 
+        default-branch = !git remote show origin | awk '/HEAD branch/ {print $NF}'
+        # New branch from up-to-date upstream default branch
+        new-branch-from-upstream = !git checkout $(git default-branch) && git pull && git checkout -b 
+        # Unstage the changes in a given file.
+	unstage = reset HEAD --
+        # Push the current branch upstream to origin using the same branch
+	# name for the remote branch.
+        rebase-against-head = !git fetch --all \
+	                      && git rebase $(git upstream)/HEAD
+        # Delete all non-master/main branches
+	delete-merged = !git branch --merged | grep -v 'master' | grep -v 'main' | grep -v '*' | xargs -n 1 git branch -D
+
+        # Commit any changes to files, squash them into the last commit
+	# and update its date.
+	fix-up-previous-commit = !git commit --all --amend \
+	                                --date=\"$(date)\" #"
+	# Commit a work-in-progress commit (to use with
+	# fix-up-previous-commit)
+	work-in-progress = commit -a -m 'WIP'
 [color]
         diff = auto
         status = auto
         branch = auto
         ui = true
+[help]
+        # Autocorrect mistyped commands.
+	autocorrect = 1
+[diff]
+	# Use the slower but better patience diff algorithm
+	algorithm = patience
+	# Use new diff algorithm to make e.g. function diffs look better.
+	compactionheuristic = true
 [core]
         excludesfile = ~/.config/git/ignore
 {{- if eq (env "CODESPACES") "true" }}
-        editor = nano
+        editor = code --wait
+{{- else if lookPath "code" }}
+        editor = code --wait
 {{- else }}
-        editor = code
+        editor = nano
 {{- end }}
 
 [push]

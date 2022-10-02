@@ -1,21 +1,13 @@
 alias reload!='. ~/.zshrc'
 
 ## Git
-# Remove `+` and `-` from start of diff lines; just rely upon color.
-alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
-alias gc='git commit -m'
-alias gca='git commit -a'
-alias gco='git checkout'
-alias gcb='git copy-branch-name'
-alias gb='git branch'
-alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
-alias gac='git add -A && git commit -m'
-alias ge='git-edit-new'
-alias gam='git commit --amend --no-edit'
-
+alias g=git
 alias d='docker $*'
+
+# Bad workaround for kitty terminal
 alias ssh='TERM=xterm-256color ssh'
 alias gh='TERM=xterm-256color gh'
+
 alias k='kubectl'
 alias h-create-ghcs='gh cs create --repo github/heaven -b master -m largePremiumLinux -s | xargs gh cs code -c'
 alias h-open-ghcs='gh cs list --json "repository,name" -q ".[0].name" | xargs gh cs code -c'

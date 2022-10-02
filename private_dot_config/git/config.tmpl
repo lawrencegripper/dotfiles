@@ -10,11 +10,14 @@
         # Force push with least
         fp = push --force-with-lease
         # Checkout
-        co = checkout
+        cob = checkout -b
         c = commit
         nbu = new-branch-from-upstream
         wip = work-in-progress
+        s = status
         
+        # Show staged diff
+        staged = diff --staged
         # Default branch 
         default-branch = !git remote show origin | awk '/HEAD branch/ {print $NF}'
         # New branch from up-to-date upstream default branch
@@ -27,7 +30,6 @@
 	                      && git rebase $(git upstream)/HEAD
         # Delete all non-master/main branches
 	delete-merged = !git branch --merged | grep -v 'master' | grep -v 'main' | grep -v '*' | xargs -n 1 git branch -D
-
         # Commit any changes to files, squash them into the last commit
 	# and update its date.
 	fix-up-previous-commit = !git commit --all --amend \

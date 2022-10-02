@@ -1,8 +1,11 @@
 alias reload!='. ~/.zshrc'
 
-## Git
 alias g=git
 alias d='docker $*'
+# grep case insensitive 
+alias gri='grep -i $*'
+# grep recursive
+# alias grr='grep -i -R $* .'
 
 # Bad workaround for kitty terminal
 alias ssh='TERM=xterm-256color ssh'

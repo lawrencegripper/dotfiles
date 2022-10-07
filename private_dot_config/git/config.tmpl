@@ -4,17 +4,26 @@
 [alias]
 	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://www.toptal.com/developers/gitignore/api/$*\" | tee .gitignore;}; \\\ngi"
         # Commit staged changes with amend no edit
-        am = commit --amend --no-edit
+        cam = commit-amend-no-edit
         # Commit all changes with amend no edit
-        aam = commit --amend -a --no-edit
+        caam = commit-amend-no-edit -a
         # Force push with least
         fp = push --force-with-lease
         # Checkout
-        co = checkout
-        c = commit
+        cb = checkout -b
+        cob = checkout -b
+        pl = pull
+        ph = push
+        co = commit
         nbu = new-branch-from-upstream
         wip = work-in-progress
+        s = status
+        ss = staged
         
+        # Commit amending to last commit with same msg
+        commit-amend-no-edit = commit --amend --no-edit
+        # Show staged diff
+        staged = diff --staged
         # Default branch 
         default-branch = !git remote show origin | awk '/HEAD branch/ {print $NF}'
         # New branch from up-to-date upstream default branch
@@ -27,7 +36,6 @@
 	                      && git rebase $(git upstream)/HEAD
         # Delete all non-master/main branches
 	delete-merged = !git branch --merged | grep -v 'master' | grep -v 'main' | grep -v '*' | xargs -n 1 git branch -D
-
         # Commit any changes to files, squash them into the last commit
 	# and update its date.
 	fix-up-previous-commit = !git commit --all --amend \
@@ -63,7 +71,9 @@
 
 # Configure signing
 {{- if eq (env "CODESPACES") "true" }}
-# Skipped code signing handled by codespace
+# Disable code signing handled by codespace
+[commit]
+	gpgsign = false
 {{- else }}
 [gpg]
         format = ssh

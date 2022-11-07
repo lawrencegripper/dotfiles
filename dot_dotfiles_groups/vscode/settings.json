@@ -123,7 +123,8 @@
     },
     "shellcheck.enableQuickFix": true,
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
+        "*.ipynb": "jupyter-notebook",
+        "git-rebase-todo": "default"
     },
     "editor.renderWhitespace": "trailing",
     "workbench.editor.enablePreview": true,

@@ -157,6 +157,5 @@
     "comments.openView": "never",
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "window.zoomLevel": 1,
     "githubPullRequests.pullBranch": "never",
 }

@@ -80,6 +80,7 @@
         program = /.codespaces/bin/gh-gpgsign
 [user]
         name = Lawrence Gripper
+        email = lawrencegripper@github.com
 {{- else }}
 [gpg]
         format = ssh
@@ -87,13 +88,13 @@
 	gpgsign = true
 [user]
 	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1td8RpuG3ckEnC0OqKkq4Mcl8Hv8+4LERN8dEIxGr4
+[user]
+        name = lawrencegripper
+        email = info@grippers.co.uk
 {{- end }}
 
 [init]
 	defaultBranch = main
-[user]
-        name = lawrencegripper
-        email = info@grippers.co.uk
 
 {{- if eq .chezmoi.os "darwin" -}}
 [credential]

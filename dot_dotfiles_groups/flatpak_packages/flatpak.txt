@@ -18,3 +18,5 @@ sh.cider.Cider
 com.microsoft.Edge
 
 tv.plex.PlexDesktop
+
+org.flameshot.Flameshot

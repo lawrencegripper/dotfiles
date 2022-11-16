@@ -21,13 +21,4 @@
         "command": "testing.runAtCursor",
         "when": "editorTextFocus"
     },
-    {
-        "key": "ctrl+; c",
-        "command": "-testing.runAtCursor",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+r ctrl+t",
-        "command": "test-explorer.run-test-at-cursor"
-    }
 ]

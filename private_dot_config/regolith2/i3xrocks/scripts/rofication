@@ -15,7 +15,7 @@ get_info() {
 
 get_info
 
-
+touch  /tmp/lastroficationcount.txt
 LAST_COUNT=$(cat /tmp/lastroficationcount.txt)
 echo $NOTIFICATION_COUNT > /tmp/lastroficationcount.txt
 

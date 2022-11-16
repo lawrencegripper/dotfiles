@@ -1,0 +1,52 @@
+#!/bin/bash
+set -Eeu -o pipefail
+
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "JetBrains Mono Medium 13")}
+
+BUTTON="${button:-}"
+export LABEL BUTTON
+
+get_info() {
+    response=$(echo "num" | nc -U /tmp/rofi_notification_daemon)
+    NOTIFICATION_COUNT=$(echo $response | cut -d, -f1)
+    CRIT_NOTIFICATION_COUNT=$(echo $response | cut -d, -f2)
+}
+
+get_info
+
+
+LAST_COUNT=$(cat /tmp/lastroficationcount.txt)
+echo $NOTIFICATION_COUNT > /tmp/lastroficationcount.txt
+
+COLOR="blue"
+
+if [ $CRIT_NOTIFICATION_COUNT -gt 0 ]; then 
+    VALUE_COLOR=${color:-$(xrescat i3xrocks.critical.color "#D8DEE9")}
+    LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.some N)}
+    NOTIFICATION_LABEL="$CRIT_NOTIFICATION_COUNT/$NOTIFICATION_COUNT"
+    COLOR="red"
+elif [ $NOTIFICATION_COUNT -gt 0 ]; then
+    VALUE_COLOR=${color:-$(xrescat i3xrocks.warning "#D8DEE9")}
+    LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.some N)}
+    NOTIFICATION_LABEL="$NOTIFICATION_COUNT"
+    blinkstick --set-color=blue --brightness 100
+else
+    VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
+    LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.none N)}
+    NOTIFICATION_LABEL="0"
+    COLOR="off"
+fi
+
+if [ $NOTIFICATION_COUNT -gt $LAST_COUNT ]; then
+    (blinkstick --set-color=$COLOR --brightness 100 --blink --duration=1000 --repeats=7 & blinkstick --set-color $COLOR &)
+else
+    blinkstick --set-color=$COLOR --brightness 100
+fi
+
+echo "<span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\">${LABEL_ICON}</span><span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$NOTIFICATION_LABEL</span>"
+
+if [ "x${BUTTON}" == "x1" ]; then
+    ACTION=$(xrescat i3xrocks.action.rofication "ilia -p notifications")
+    /usr/bin/i3-msg -q "exec --no-startup-id $ACTION"
+fi

@@ -18,10 +18,10 @@
         }
     },
     "remote.SSH.showLoginTerminal": true,
-    // "yaml.schemas": {
-    //     "kubernetes": "*.yaml",
-    //     "kubernetes": "*.yml"
-    // },
+    "yaml.schemas": {
+        "kubernetes": "*.yaml",
+        "kubernetes": "*.yml"
+    },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
     "zenMode.centerLayout": false,
@@ -158,4 +158,5 @@
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
+    "window.zoomLevel": 1,
 }

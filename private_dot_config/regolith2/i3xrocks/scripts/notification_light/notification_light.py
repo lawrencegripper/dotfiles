@@ -104,7 +104,7 @@ class RoficationClient:
 
 notificationsClient: RoficationClient = RoficationClient()
 blinkStickClient: blinkstick.BlinkStick = blinkstick.find_first()
-storage = dbm.open('notifications_store', 'c')
+storage = dbm.open('/tmp/notifications_store', 'c')
 
 class Color(Enum):
     RED = 5
@@ -148,7 +148,7 @@ for index, notification in notifications:
         count -= 1
     if notification.application == "NetworkManager":
         notificationsClient.delete(notification.id)
-        count -= count-1
+        count -= 1
 
     # Slack triage
     if notification.application == "Firefox" and notification.summary.startswith("New message"):
@@ -160,7 +160,10 @@ if count == 0:
 last_color: Color = Color[bytes.decode(storage["last_color"])]
 last_count: int= int(bytes.decode(storage['last_count']))
     
-if last_color != color_to_set or last_count > count:
+if color_to_set != Color.OFF and (last_color != color_to_set or last_count > count):
     blinkStickClient.blink(name= color_to_set.name.lower(), repeats=7, delay=1000)
 
 blinkStickClient.set_color(name = color_to_set.name.lower())
+
+storage["last_color"] = color_to_set.name
+storage["last_count"] = str(count)

@@ -20,3 +20,5 @@ com.microsoft.Edge
 tv.plex.PlexDesktop
 
 org.flameshot.Flameshot
+
+net.hovancik.Stretchly

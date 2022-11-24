@@ -3,10 +3,12 @@
 import json
 import socket
 from typing import TextIO, Sequence
-from enum import IntEnum
+from enum import IntEnum, Enum
 from typing import Sequence, Optional, Mapping, Tuple
 import io
-
+from blinkstick import blinkstick
+import dbm
+import os
 
 class Urgency(IntEnum):
     LOW = 0
@@ -100,9 +102,65 @@ class RoficationClient:
    def see(self, nid: int) -> None:
        self._send('see', nid)
 
-client: RoficationClient = RoficationClient()
+notificationsClient: RoficationClient = RoficationClient()
+blinkStickClient: blinkstick.BlinkStick = blinkstick.find_first()
+storage = dbm.open('notifications_store', 'c')
 
-print('hi')
-for index, notification in enumerate(client.list()):
-    print(notification.application)
-    print(notification.summary)
+class Color(Enum):
+    RED = 5
+    YELLOW = 3
+    BLUE = 1
+    OFF = 0
+
+color_to_set: Color = Color.OFF
+
+if 'last_color' not in storage:
+    storage['last_color'] = Color.OFF.name
+
+if 'last_count' not in storage:
+    storage['last_count'] = "0"
+
+
+def set_if_higher(color: Color):
+    global color_to_set
+    if color.value > color_to_set.value:
+        color_to_set = color
+
+notifications: enumerate = enumerate(notificationsClient.list())
+count = 0
+for index, notification in notifications:
+    count += 1
+    if os.environ.get('DEBUG', False):
+        print(f'App:     {notification.application}')
+        print(f'Summary: {notification.summary}')
+        print(f'Body:    {notification.body}')
+        print("----")
+        
+    # Set priorities
+    if notification.application == "Morgen":
+        set_if_higher(Color.RED)
+    if notification.application == "gitify":
+        set_if_higher(Color.BLUE)
+    
+    # Clear out stuff
+    if notification.application == "Stretchly":
+        notificationsClient.delete(notification.id)
+        count -= 1
+    if notification.application == "NetworkManager":
+        notificationsClient.delete(notification.id)
+        count -= count-1
+
+    # Slack triage
+    if notification.application == "Firefox" and notification.summary.startswith("New message"):
+        set_if_higher(Color.YELLOW)
+
+if count == 0:
+    color_to_set = Color.OFF
+
+last_color: Color = Color[bytes.decode(storage["last_color"])]
+last_count: int= int(bytes.decode(storage['last_count']))
+    
+if last_color != color_to_set or last_count > count:
+    blinkStickClient.blink(name= color_to_set.name.lower(), repeats=7, delay=1000)
+
+blinkStickClient.set_color(name = color_to_set.name.lower())

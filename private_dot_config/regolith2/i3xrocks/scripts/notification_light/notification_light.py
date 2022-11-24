@@ -103,4 +103,6 @@ class RoficationClient:
 client: RoficationClient = RoficationClient()
 
 print('hi')
-print(client.list[0])
+for index, notification in enumerate(client.list()):
+    print(notification.application)
+    print(notification.summary)

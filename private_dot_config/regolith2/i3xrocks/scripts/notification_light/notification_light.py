@@ -128,9 +128,11 @@ def set_if_higher(color: Color):
         color_to_set = color
 
 notifications: enumerate = enumerate(notificationsClient.list())
+
 count = 0
 for index, notification in notifications:
     count += 1
+    color_to_set = Color.BLUE
     if os.environ.get('DEBUG', False):
         print(f'App:     {notification.application}')
         print(f'Summary: {notification.summary}')
@@ -164,7 +166,7 @@ for index, notification in notifications:
         if "#" not in notification.summary:
             set_if_higher(Color.ORANGE)
     
-    color_to_set = Color.BLUE
+    set_if_higher(Color.BLUE)
 
 if count == 0:
     color_to_set = Color.OFF

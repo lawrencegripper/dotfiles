@@ -108,6 +108,7 @@ storage = dbm.open('/tmp/notifications_store', 'c')
 
 class Color(Enum):
     RED = 5
+    ORANGE = 4
     YELLOW = 3
     BLUE = 1
     OFF = 0
@@ -152,7 +153,18 @@ for index, notification in notifications:
 
     # Slack triage
     if notification.application == "Firefox" and notification.summary.startswith("New message"):
+        # Chatop response lower priority
+        if "-ops" in notification.summary:
+            set_if_higher(Color.BLUE)
+            continue
+
+        # Default for slack
         set_if_higher(Color.YELLOW)
+        # It's a DM from someone
+        if "#" not in notification.summary:
+            set_if_higher(Color.ORANGE)
+    
+    color_to_set = Color.BLUE
 
 if count == 0:
     color_to_set = Color.OFF

@@ -10,8 +10,9 @@
         # Force push with least
         fp = push --force-with-lease
         # Checkout
-        cb = checkout -b
-        cob = checkout -b
+        co = checkout
+        cnb = checkout -b
+        cod = checkout-default-branch
         pl = pull
         ph = push
         co = commit
@@ -26,6 +27,8 @@
         staged = diff --staged
         # Default branch 
         default-branch = !git remote show origin | awk '/HEAD branch/ {print $NF}'
+        # Checkout default branch
+        checkout-default-branch = !git checkout $(git default-branch)
         # New branch from up-to-date upstream default branch
         new-branch-from-upstream = !git checkout $(git default-branch) && git pull && git checkout -b 
         # Unstage the changes in a given file.

@@ -140,6 +140,8 @@ for index, notification in notifications:
         print("----")
         
     # Set priorities
+    if notification.application == "Signal":
+        set_if_higher(Color.RED)
     if notification.application == "Morgen":
         set_if_higher(Color.RED)
     if notification.application == "gitify":

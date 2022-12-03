@@ -55,3 +55,6 @@ libnotify-bin
 notify-osd
 
 golang
+
+#restic for backups 
+restic

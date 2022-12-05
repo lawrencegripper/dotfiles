@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+# Replace snap firefox with deb for 1password integration
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
+exit 0
+{{ end }}
+{{- if eq (env "CODESPACES") "true" }}
+exit 0
+{{ end }}
+
+gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"

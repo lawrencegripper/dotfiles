@@ -47,7 +47,10 @@
         "humao.rest-client",
         "oderwat.indent-rainbow",
         "github.vscode-pull-request-github",
-        "mutantdino.resourcemonitor"
+        "mutantdino.resourcemonitor",
+        "itarato.byesig",
+        "aaron-bond.better-comments",
+        "adpyke.codesnap"
     ],
     "remote.containers.defaultExtensions": [
         "davidlday.languagetool-linter",
@@ -59,7 +62,10 @@
         "humao.rest-client",
         "oderwat.indent-rainbow",
         "github.vscode-pull-request-github",
-        "mutantdino.resourcemonitor"
+        "mutantdino.resourcemonitor",
+        "itarato.byesig",
+        "aaron-bond.better-comments",
+        "adpyke.codesnap"
     ],
     "remote.containers.dotfiles.repository": "",
     "editor.fontFamily": "'FiraMono Nerd Font', monospace",
@@ -159,4 +165,6 @@
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
     "window.zoomLevel": 1,
+    "byesig.opacity": 0.4,
+    "byesig.showIcon": false,
 }

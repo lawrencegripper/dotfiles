@@ -164,7 +164,7 @@
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,
 }

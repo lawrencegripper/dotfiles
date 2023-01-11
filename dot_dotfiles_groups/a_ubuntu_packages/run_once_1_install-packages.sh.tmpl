@@ -14,7 +14,16 @@ sudo apt update
 
 # Install package
 {{ range include "dot_dotfiles_groups/a_ubuntu_packages/packages.txt" | splitList "\n" }}
+{{ if . }}
 {{ if contains "#" . | not }}
-    sudo apt install -y {{.}}
+    echo "Package: {{.}}"
+    package_installed=$(dpkg-query -W -f='${Status}' {{.}} 2>/dev/null | grep -c "ok installed")
+    if [ $package_installed -eq 0 ]; then
+        echo "Package {{.}} not installed, installing"
+        sudo apt install -y {{.}}
+    else
+        echo "Package {{.}} already installed, skipping"
+    fi
+{{ end }}
 {{ end }}
 {{ end }}

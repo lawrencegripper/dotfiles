@@ -2,10 +2,8 @@
 gnome-keyring
 # Console
 kitty
-
-flatpak
-
 # Desktop bits
+flatpak
 pinta
 xclip
 peek
@@ -14,7 +12,6 @@ tldr
 
 # ssh agent manager
 keychain
-
 # General bits
 bash-completion
 bzip2
@@ -22,7 +19,6 @@ curl
 diffutils
 gcc
 git
-git-core
 grep
 gzip
 unzip
@@ -56,5 +52,8 @@ notify-osd
 
 golang
 
-#restic for backups 
+# restic for backups 
 restic
+
+# Rest timer
+workrave

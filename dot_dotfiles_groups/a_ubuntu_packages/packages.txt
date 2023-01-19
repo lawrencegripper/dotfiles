@@ -48,7 +48,7 @@ network-manager-openvpn
 
 #notify-send
 libnotify-bin
-notify-osd
+# notify-osd using rotification now
 
 golang
 
@@ -57,3 +57,5 @@ restic
 
 # Rest timer
 workrave
+
+polybar

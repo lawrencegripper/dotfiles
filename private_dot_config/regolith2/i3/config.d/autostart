@@ -1,2 +1,2 @@
-exec flatpak /usr/bin/stretchly
+exec workrave --no-sandbox
 exec /home/lawrencegripper/Applications/Gitify-4.3.1_5c94ab60448dc7703151b606307be85f.AppImage --no-sandbox

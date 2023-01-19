@@ -183,3 +183,10 @@ blinkStickClient.set_color(name = color_to_set.name.lower())
 
 storage["last_color"] = color_to_set.name
 storage["last_count"] = str(count)
+
+match color_to_set:
+    case Color.RED: print("#ff3333")
+    case Color.ORANGE: print("#ffb31a")
+    case Color.YELLOW: print("#ffff1a")
+    case Color.BLUE: print("#66b3ff")
+    case Color.OFF: print("#e6e6e6")

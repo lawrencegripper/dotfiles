@@ -1,5 +1,6 @@
 {
-    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    // "terminal.integrated.sendKeybindingsToShell": true,
     "editor.semanticHighlighting.enabled": true,
     "editor.semanticTokenColorCustomizations": {
         "[Arc Dark Theme]": {
@@ -10,7 +11,6 @@
     "rubyTestExplorer.logpanel": true,
     "workbench.colorTheme": "Arc Dark Theme",
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.profiles.linux": {
         "zsh": {
           "path": "zsh",
@@ -164,7 +164,6 @@
     "window.menuBarVisibility": "toggle",
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
-    "window.zoomLevel": 2,
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,
 }

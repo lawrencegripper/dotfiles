@@ -1,0 +1,8 @@
+#!/bin/bash
+
+FIELD=$1
+if type "op" > /dev/null; then
+    export GH_PAT=$(op read "op://Personal/github.com/PATS/${FIELD:="gh-read-repo"}")
+else
+    echo "Failed not available"
+fi

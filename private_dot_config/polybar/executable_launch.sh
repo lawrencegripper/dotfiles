@@ -6,6 +6,9 @@ polybar-msg cmd quit
 # Otherwise you can use the nuclear option:
 # killall -q polybar
 
+# Get ghpat for notifications
+. $HOME/.gh_pat gh-notifications
+
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 polybar -r -c ~/.config/polybar/config.ini bar1 2>&1 | tee -a /tmp/polybar1.log & disown

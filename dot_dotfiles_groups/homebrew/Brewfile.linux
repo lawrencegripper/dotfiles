@@ -3,7 +3,6 @@ tap "linuxbrew/fonts"
 
 # Terminal stuff
 brew "starship"
-brew "chezmoi"
 brew "gh"
 brew "kubectx"
 brew "k9s"

@@ -22,3 +22,6 @@ alias h-ssh-ghcs='gh cs list --json "repository,name" -q ".[0].name" | xargs gh 
 
 # Update all the things
 alias upd-linux='flatpak update -y && sudo apt update && sudo apt upgrade -y && brew update && brew upgrade && sudo snap refresh'
+
+# load gh pat from 1pw
+alias ghpat='. ~/.gh_pat'

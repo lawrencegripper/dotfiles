@@ -4,6 +4,9 @@ test-template:
 test-zsh-template:
 	chezmoi execute-template < ./dot_zshrc.tmpl
 
+test-localrc-template:
+	chezmoi execute-template < ./dot_localrc.tmpl
+
 view-template-data:
 	chezmoi data 
 

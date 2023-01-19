@@ -30,7 +30,7 @@ display_player_prefix = {
 }
 
 # (list) : list of metadata fields based on mpris sepecification.
-# For more details/ field names, refer [mpris sepecification](https://www.freedesktop.org/wiki/Specifications/mpris-spec/metadata/)
+# For more details/ field names, refer [mpis sepecification](https://www.freedesktop.org/wiki/Specifications/mpris-spec/metadata/)
 metadata_fields = ["xesam:title", "xesam:artist"]
 
 # (char) : separator for metadata fields
@@ -146,7 +146,7 @@ def update_message():
             metadata_string_list.append(str(result))
         metadata_string = (" "+metadata_separator+" ").join(metadata_string_list)
         if visual_len(metadata_string) > message_display_len:
-            metadata_string = " " + metadata_string + " |"
+            metadata_string = " " + metadata_string + " n"
         update_prefix_suffix(name,status)
         tmp_message = ""
         if metadata_string:
@@ -198,10 +198,10 @@ def print_text():
         print("", flush = True)
         return
     scroll()
-    print(display_prefix + " " +
+    print(display_suffix + " | " + display_prefix + " " +
         "%%{T%d}" % (font_index) +
         make_visual_len(display_text, message_display_len) +
-        "%{T-}" + display_suffix, flush=True)
+        "%{T-}", flush=True)
 
 def main():
     global current_player, players

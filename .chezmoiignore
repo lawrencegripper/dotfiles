@@ -3,3 +3,4 @@ script
 Makefile
 auto_complete_commands.txt
 device_config
+private_dot_config/polybar/config.ini

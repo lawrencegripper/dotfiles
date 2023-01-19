@@ -46,7 +46,7 @@ fi
 
 /home/lawrencegripper/.local/share/chezmoi/private_dot_config/regolith2/i3xrocks/scripts/notification_light/notification_light.py
 
-echo "<span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\">${LABEL_ICON}</span><span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\"></span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">$NOTIFICATION_LABEL</span>"
+echo "${LABEL_ICON} $NOTIFICATION_LABEL"
 
 if [ "x${BUTTON}" == "x1" ]; then
     ACTION=$(xrescat i3xrocks.action.rofication "ilia -p notifications")

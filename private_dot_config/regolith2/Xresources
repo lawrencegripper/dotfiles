@@ -1,0 +1,2 @@
+i3-wm.program.notification_ui: ilia -p notifications
+i3-wm.binding.notification_ui: n

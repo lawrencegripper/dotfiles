@@ -17,13 +17,9 @@ sudo apt update
 {{ if . }}
 {{ if contains "#" . | not }}
     echo "Package: {{.}}"
-    package_installed=$(dpkg-query -W -f='${Status}' {{.}} 2>/dev/null | grep -c "ok installed")
-    if [ $package_installed -eq 0 ]; then
-        echo "Package {{.}} not installed, installing"
-        sudo apt install -y {{.}}
-    else
-        echo "Package {{.}} already installed, skipping"
-    fi
+    dpkg -s "{{.}}" >/dev/null 2>&1 || (echo "Package {{.}} not installed, installing" && sudo apt install -y {{.}})
 {{ end }}
 {{ end }}
 {{ end }}
+
+echo "Finished"

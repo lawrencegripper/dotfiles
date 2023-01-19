@@ -35,16 +35,10 @@ else
     VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
     LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.none N)}
     NOTIFICATION_LABEL="0"
-    COLOR="off"
 fi
 
-# if [ $NOTIFICATION_COUNT -gt $LAST_COUNT ]; then
-#     (blinkstick --set-color=$COLOR --brightness 100 --blink --duration=1000 --repeats=7 & blinkstick --set-color $COLOR &)
-# else
-#     blinkstick --set-color=$COLOR --brightness 100
-# fi
-
-/home/lawrencegripper/.local/share/chezmoi/private_dot_config/regolith2/i3xrocks/scripts/notification_light/notification_light.py
+# Update the blinksick;
+$HOME/.config/polybar/notification_light.py
 
 echo "${LABEL_ICON} $NOTIFICATION_LABEL"
 

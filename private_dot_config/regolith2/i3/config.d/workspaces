@@ -1,0 +1,35 @@
+# Use this to find clases: xprop | grep WM_CLASS
+
+#set $music "1: 🎵"
+#workspace $music output DP-1.2
+#assign [class="Cider" instance="cider"] → $web
+## bindsym $mod+1 workspace $music
+#
+#set $messages "2: 甆"
+#set $slack "5: "
+#set $firefox "6: "
+#set $code1 "7: "
+#set $code2 "8: "
+#set $meetings "9: "
+#set $terminal "0: "
+#
+#
+#workspace 0 output DP-0
+#workspace 2 output DP-1.2
+#workspace 3 output DP-1.2
+#workspace 4 output DP-1.2
+#workspace 5 output DP-1.2
+#workspace 6 output DP-0
+#workspace 7 output DP-0
+#workspace 8 output DP-0
+#workspace 9 output DP-0
+
+# bindsym $mod+2 workspace $messages
+# bindsym $mod+3 workspace 3
+# bindsym $mod+4 workspace 4
+# bindsym $mod+5 workspace $slack
+# bindsym $mod+6 workspace $firefox
+# bindsym $mod+7 workspace $code1
+# bindsym $mod+8 workspace $code2
+# bindsym $mod+9 workspace $meetings
+# bindsym $mod+0 workspace $terminal

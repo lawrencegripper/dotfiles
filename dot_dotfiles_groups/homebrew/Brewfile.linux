@@ -1,5 +1,5 @@
 tap "homebrew/core"
-tap "linuxbrew/fonts"
+#tap "linuxbrew/fonts"
 
 # Terminal stuff
 brew "starship"
@@ -8,6 +8,6 @@ brew "kubectx"
 brew "k9s"
 
 # Fonts
-brew "font-jetbrains-mono"
+#brew "font-jetbrains-mono"
 brew "font-cascadia-code"
 brew "font-fira-mono-nerd-font" # Mostly using this

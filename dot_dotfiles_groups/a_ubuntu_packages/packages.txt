@@ -44,6 +44,7 @@ gnupg
 gnome-boxes
 
 ruby
+python3-pip
 network-manager-openvpn
 
 #notify-send

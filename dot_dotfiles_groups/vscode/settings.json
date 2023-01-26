@@ -167,4 +167,5 @@
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,
     "window.zoomLevel": 1,
+    "security.workspace.trust.untrustedFiles": "open",
 }

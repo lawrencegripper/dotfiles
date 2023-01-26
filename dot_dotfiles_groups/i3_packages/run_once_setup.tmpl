@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+# Install stuff when running regolith2
+{{- if lookPath "regolith-look" }}
+
+# rofi ui for emoji and clipboard
+sudo apt install rofi
+
+# clipboard manager
+wget https://github.com/erebe/greenclip/releases/download/v4.2/greenclip
+chmod +x greenclip
+mv greenclip ~/bin
+
+# emoji picker
+pip install --user rofimoji
+
+# blinkstick to control notifications light on desk
+pip install BlinkStick
+echo "SUBSYSTEM==\"usb\", ATTR{idVendor}==\"20a0\", ATTR{idProduct}==\"41e5\", MODE:=\"0666\"" | sudo tee /etc/udev/rules.d/85-blinkstick.rules
+
+
+{{ end }}

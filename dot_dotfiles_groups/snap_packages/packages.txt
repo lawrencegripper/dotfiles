@@ -1,4 +1,4 @@
 # Todo list for MS live account
 ao
 # Calendar app
-# morgen (moved to using appimage https://dl.todesktop.com/210203cqcj00tw1/linux/appImage/x64)
+morgen

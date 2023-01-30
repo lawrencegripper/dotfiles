@@ -2,7 +2,6 @@ alias reload!='. ~/.zshrc'
 
 alias g=git
 alias d='docker $*'
-alias be='bundle exec $*'
 # grep case insensitive 
 alias gri='grep -i $*'
 # grep recursive
@@ -25,3 +24,8 @@ alias upd-linux='flatpak update -y && sudo apt update && sudo apt upgrade -y && 
 
 # load gh pat from 1pw
 alias ghpat='. ~/.gh_pat'
+
+# Ruby things
+alias be='bundle exec $*'
+alias bi='bundle install'
+alias hci='scripts/cibuild'

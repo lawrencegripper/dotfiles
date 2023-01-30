@@ -1,7 +1,7 @@
 exec workrave --no-sandbox
 # i3 layout alternating
 exec --no-startup-id ~/.config/regolith2/i3/scripts/alternating_layouts.py
-exec --no-startup-id mogen
-exec --no-startup-id 1password
-exec --no-startup-id flatpak run org.signal.Signal
-exec --no-startup-id flatpak run io.github.mimbrero.WhatsAppDesktop
+exec --no-startup-id mogen --no-sandbox
+exec --no-startup-id 1password --no-sandbox
+exec --no-startup-id flatpak run org.signal.Signal --no-sandbox
+exec --no-startup-id flatpak run io.github.mimbrero.WhatsAppDesktop --no-sandbox

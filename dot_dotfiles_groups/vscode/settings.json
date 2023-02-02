@@ -76,7 +76,7 @@
     "terminal.integrated.scrollback": 100000,
     "ruby.useLanguageServer": false,
     "ruby.lint": {
-        "rubocop": false
+        "rubocop": true
     },
     "ruby.format": false,
     "ruby.intellisense": false,

@@ -60,3 +60,4 @@ restic
 workrave
 
 polybar
+cpufrequtils

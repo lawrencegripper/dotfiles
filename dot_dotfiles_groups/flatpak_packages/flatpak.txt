@@ -22,4 +22,5 @@ tv.plex.PlexDesktop
 org.flameshot.Flameshot
 
 net.hovancik.Stretchly
-
+# cpu temp tracker
+org.coolero.Coolero

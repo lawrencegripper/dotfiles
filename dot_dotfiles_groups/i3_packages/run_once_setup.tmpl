@@ -15,10 +15,6 @@ mv greenclip ~/bin
 # emoji picker
 pip install --user rofimoji
 
-# blinkstick to control notifications light on desk
-pip install BlinkStick
-echo "SUBSYSTEM==\"usb\", ATTR{idVendor}==\"20a0\", ATTR{idProduct}==\"41e5\", MODE:=\"0666\"" | sudo tee /etc/udev/rules.d/85-blinkstick.rules
-
 # install regolith looks
 sudo apt install "regolith-look-*"
 

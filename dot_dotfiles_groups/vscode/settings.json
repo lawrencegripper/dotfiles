@@ -68,9 +68,9 @@
         "adpyke.codesnap"
     ],
     "remote.containers.dotfiles.repository": "",
-    "editor.fontFamily": "'FiraMono Nerd Font', monospace",
-    "terminal.integrated.fontFamily": "'FiraMono Nerd Font', monospace",
-    "editor.codeLensFontFamily": "'FiraMono Nerd Font', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'FiraCode Nerd Font Mono'",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono'",
+    "editor.codeLensFontFamily": "'FiraCode Nerd Font Mono'",
     "terminal.integrated.fontSize": 16,
     "editor.fontSize": 16,
     "terminal.integrated.scrollback": 100000,

@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+# Install stuff when running regolith2
+{{- if lookPath "polybar" }}
+
+# blinkstick to control notifications light on desk
+pip install BlinkStick
+echo "SUBSYSTEM==\"usb\", ATTR{idVendor}==\"20a0\", ATTR{idProduct}==\"41e5\", MODE:=\"0666\"" | sudo tee /etc/udev/rules.d/85-blinkstick.rules
+
+# Install package for getting givenergy status
+pip install "givenergy-modbus==0.10.1"
+
+{{ end }}

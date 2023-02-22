@@ -1,5 +1,9 @@
 {
-    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "zsh"
+        },
+    },
     // "terminal.integrated.sendKeybindingsToShell": true,
     "editor.semanticHighlighting.enabled": true,
     "editor.semanticTokenColorCustomizations": {
@@ -11,12 +15,6 @@
     "rubyTestExplorer.logpanel": true,
     "workbench.colorTheme": "Arc Dark Theme",
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.profiles.linux": {
-        "zsh": {
-          "path": "zsh",
-          "args": ["-l"]
-        }
-    },
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
         "kubernetes": "*.yaml",
@@ -52,7 +50,7 @@
         "aaron-bond.better-comments",
         "adpyke.codesnap"
     ],
-    "remote.containers.defaultExtensions": [
+    "dev.containers.defaultExtensions": [
         "davidlday.languagetool-linter",
         "eamodio.gitlens",
         "oderwat.indent-rainbow",
@@ -67,7 +65,6 @@
         "aaron-bond.better-comments",
         "adpyke.codesnap"
     ],
-    "remote.containers.dotfiles.repository": "",
     "editor.fontFamily": "'FiraCode Nerd Font Mono'",
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono'",
     "editor.codeLensFontFamily": "'FiraCode Nerd Font Mono'",
@@ -94,7 +91,6 @@
     "ruby.useBundler": false,
     // "solargraph.commandPath": "bin/solargraph",
     "solargraph.checkGemVersion": false,
-    "remote.containers.workspaceMountConsistency": "delegated",
     // "go.delveConfig": {
     //     "dlvLoadConfig": {
     //         "followPointers": true,
@@ -148,7 +144,7 @@
         "plaintext": true,
         "markdown": false,
         "jsonc": false,
-        "ruby": true,
+        "ruby": false,
         "python": true,
         "shellscript": false
     },

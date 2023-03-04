@@ -6,3 +6,5 @@ exec --no-startup-id mogen --no-sandbox
 # exec --no-startup-id 1password --no-sandbox
 exec --no-startup-id flatpak run org.signal.Signal --no-sandbox
 exec --no-startup-id flatpak run io.github.mimbrero.WhatsAppDesktop --no-sandbox
+# cpu temps
+exec --no-startup-id flatpak run org.coolero.Coolero --no-sandbox

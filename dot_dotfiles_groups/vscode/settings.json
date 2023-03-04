@@ -164,4 +164,9 @@
     "byesig.showIcon": false,
     "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications",
+    "[python]": {
+        "editor.formatOnType": true
+    },
 }

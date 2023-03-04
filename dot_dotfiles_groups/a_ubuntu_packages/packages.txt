@@ -6,9 +6,12 @@ kitty
 flatpak
 pinta
 xclip
-peek
+# peek - No longer working
 handbrake
 tldr
+
+# screen recorder
+kazam
 
 # ssh agent manager
 keychain

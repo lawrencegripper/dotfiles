@@ -161,6 +161,8 @@ for index, notification in notifications:
         if "-ops" in notification.summary:
             set_if_higher(Color.BLUE)
             continue
+        if "@lawrencegripper" in notification.body:
+            set_if_higher(Color.RED)
 
         # Default for slack
         set_if_higher(Color.YELLOW)

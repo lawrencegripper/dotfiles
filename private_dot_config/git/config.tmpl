@@ -62,7 +62,7 @@
 	compactionheuristic = true
 [core]
         excludesfile = ~/.config/git/ignore
-{{- if eq (env "CODESPACES") "true" }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
         editor = code --wait
 {{- else if lookPath "code" }}
         editor = code --wait

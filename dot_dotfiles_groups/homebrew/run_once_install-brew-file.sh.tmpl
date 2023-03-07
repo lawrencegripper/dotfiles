@@ -4,11 +4,10 @@
 export NONINTERACTIVE=1
 export HOMEBREW_INSTALL_FROM_API=1
 
-{{- if eq (env "CODESPACES") "true" }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
 
     {{ if lookPath "brew" | not }}
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     {{ end }}
@@ -20,7 +19,6 @@ export HOMEBREW_INSTALL_FROM_API=1
 
     {{ if lookPath "brew" | not }}
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /root/.profile
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     {{ end }}

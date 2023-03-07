@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{{- if eq (env "CODESPACES") "true" | not }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") | not }}
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl start docker.service

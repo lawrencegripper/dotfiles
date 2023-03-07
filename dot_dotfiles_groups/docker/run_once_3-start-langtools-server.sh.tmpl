@@ -1,6 +1,6 @@
 #!/bin/bash
 
-{{- if eq (env "CODESPACES") "true" }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
 
   echo "Skipping VSCode config as in codespaces"
 

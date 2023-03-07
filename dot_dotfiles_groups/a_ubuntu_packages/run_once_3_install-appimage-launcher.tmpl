@@ -6,7 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 {{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
 exit 0
 {{ end }}
-{{- if eq (env "CODESPACES") "true" }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
 exit 0
 {{ end }}
 

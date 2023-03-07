@@ -26,4 +26,8 @@
         "command": "test-explorer.run-test-at-cursor",
         "when": "editorTextFocus"
     },
+    {
+        "key": "ctrl+d ctrl+t",
+        "command": "test-explorer.debug-test-at-cursor"
+    },
 ]

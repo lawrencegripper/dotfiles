@@ -8,5 +8,6 @@ sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
 zsh_installed=$(grep /bin/zsh -m 1 -c /etc/shells)
 if ((zsh_installed == 1)); then
     echo "Setting shell to zsh"
-    sudo chsh -s /bin/zsh "$USERNAME"
+    $AS_USER=$(whoami)
+    sudo chsh -s /bin/zsh "$AS_USER"
 fi

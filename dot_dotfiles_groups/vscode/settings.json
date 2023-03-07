@@ -4,6 +4,7 @@
             "path": "zsh"
         },
     },
+    "terminal.integrated.defaultProfile.linux": "zsh",
     // "terminal.integrated.sendKeybindingsToShell": true,
     "editor.semanticHighlighting.enabled": true,
     "editor.semanticTokenColorCustomizations": {

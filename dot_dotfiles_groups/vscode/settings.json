@@ -4,6 +4,7 @@
             "path": "zsh"
         },
     },
+    "rust-analyzer.completion.limit": 12000,
     "terminal.integrated.defaultProfile.linux": "zsh",
     // "terminal.integrated.sendKeybindingsToShell": true,
     "editor.semanticHighlighting.enabled": true,
@@ -145,9 +146,10 @@
         "plaintext": true,
         "markdown": false,
         "jsonc": false,
-        "ruby": false,
+        "ruby": true,
         "python": true,
-        "shellscript": false
+        "shellscript": false,
+        "rust": true
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [

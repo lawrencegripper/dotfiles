@@ -30,4 +30,8 @@
         "key": "ctrl+d ctrl+t",
         "command": "test-explorer.debug-test-at-cursor"
     },
+    // {
+    //     "key": "ctrl+r ctrl+t",
+    //     "command": "dotnet-test-explorer.runTest"
+    // },
 ]

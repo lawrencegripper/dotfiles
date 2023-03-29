@@ -1,11 +1,11 @@
-# Which is equivalent to
+# left
 format = """
+$time\
 $username\
 $hostname\
+$container\
 $shlvl\
-$time\
 $directory\
-$kubernetes\
 $git_branch\
 $git_commit\
 $git_state\
@@ -13,14 +13,39 @@ $git_status\
 $ruby\
 $helm\
 $terraform\
-$memory_usage\
-$cmd_duration\
 $custom\
 $battery\
 $line_break\
 $jobs\
+$character\
+"""
+
+# right
+right_format = """
+$kubernetes\
+$cmd_duration\
+$sudo\
 $status\
-$character"""
+"""
+
+[sudo]
+disabled = false
+format = ' [$symbol]($style) '
+symbol = ' 🥪⚡ '
+
+[container]
+format = '[$symbol \[$name\]]($style) '
+
+[status]
+#style = 'bg:blue'
+symbol = '❌'
+success_symbol = '✅'
+format = '[$symbol$common_meaning$signal_name$maybe_int]($style) '
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+min_time = 1
 
 [time]
 disabled = false
@@ -59,6 +84,7 @@ conflicted = " [💥 ${count}](red)"
 [kubernetes]
 format = '[⛵ $context>$namespace](dimmed green) '
 disabled = false
+detect_extensions = [".yaml", ".yml"]
 [kubernetes.context_aliases]
 "homenet" = "hn"
 "docker-desktop" = "dd"

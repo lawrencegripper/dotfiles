@@ -1,6 +1,5 @@
 # left
 format = """
-$time\
 $username\
 $hostname\
 $container\
@@ -22,13 +21,19 @@ $character\
 
 # right
 right_format = """
+[](fg:#1d2230)
+[
 $kubernetes\
 $cmd_duration\
 $sudo\
 $status\
+$time\
+](fg:#a0a9cb bg:#1d2230)
 """
 
+
 [sudo]
+style = 'bg:#1d2230'
 disabled = false
 format = ' [$symbol]($style) '
 symbol = ' 🥪⚡ '
@@ -37,7 +42,7 @@ symbol = ' 🥪⚡ '
 format = '[$symbol \[$name\]]($style) '
 
 [status]
-#style = 'bg:blue'
+style = 'bg:#1d2230'
 symbol = '❌'
 success_symbol = '✅'
 format = '[$symbol$common_meaning$signal_name$maybe_int]($style) '
@@ -49,8 +54,8 @@ min_time = 1
 
 [time]
 disabled = false
-format = '[$time]($style) '
-style = '$fg_bold[$time]'
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [jobs]
 threshold = 1
@@ -73,7 +78,7 @@ format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_
 ahead = " ⬆️ ${count}"
 diverged = " 😱 ⬆️ ${ahead_count} ⬇️ ${behind_count}"
 behind = " ⬇️ ${count}"
-modified = " [📝 ${count}](blue)" 
+modified = " [📝 ${count}](blue)"
 staged = " [🔏️ ${count}](green)"
 renamed = " [↩️ ${count}](green)"
 deleted = "[🗑 ${count}](red)"

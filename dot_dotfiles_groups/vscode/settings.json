@@ -77,13 +77,8 @@
     "ruby.lint": {
         "rubocop": true
     },
-    "ruby.format": false,
-    "ruby.intellisense": false,
+
     "[ruby]": {
-        "editor.defaultFormatter": "misogi.ruby-rubocop",
-        "editor.codeActionsOnSave": {
-            "editor.action.formatDocument": true
-        },
         "editor.formatOnSave": true,
         "editor.detectIndentation": false,
         "editor.tabSize": 2
@@ -167,9 +162,10 @@
     "byesig.showIcon": false,
     "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modifications",
+    // "editor.formatOnSave": true,
+    // "editor.formatOnSaveMode": "file",
     "[python]": {
         "editor.formatOnType": true
     },
+    "editor.stickyScroll.enabled": true,
 }

@@ -24,3 +24,5 @@ org.flameshot.Flameshot
 net.hovancik.Stretchly
 # cpu temp tracker
 org.coolero.Coolero
+org.onlyoffice.desktopeditors
+org.gnome.DejaDup

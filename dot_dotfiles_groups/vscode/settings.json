@@ -35,9 +35,6 @@
     "dotfiles.repository": "lawrencegripper/dotfiles",
     "dotfiles.targetPath": "~/dotfiles",
     "dotfiles.installCommand": "~/dotfiles/script/bootstrap",
-    "github.codespaces.defaultFeatures": {
-        "ghcr.io/tailscale/codespace": {}
-    },
     "github.codespaces.defaultExtensions": [
         "GitHub.codespaces",
         "GitHub.vscode-pull-request-github",

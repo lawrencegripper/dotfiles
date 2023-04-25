@@ -15,7 +15,7 @@ then
 fi
 
 # Configure tailscale and atuin for shell history
-{{- if eq (env "CODESPACES") "true" }}
+{{- if eq (env "CODESPACES") "ignorefornow" }}
 
 echo "Login to tailscale to access atuin for shell history"
 tailscale up

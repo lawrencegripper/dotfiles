@@ -14,10 +14,13 @@ then
   source ~/.localrc
 fi
 
-# Configure tailscale
+# Configure tailscale and atuin for shell history
 {{- if eq (env "CODESPACES") "true" }}
 
-tailscale status || tailscale login
+echo "Login to tailscale to access atuin for shell history"
+tailscale up
+echo "Login to atuin via tailscale for shell history"
+atuin status || atuin login
 
 {{- end }}
 

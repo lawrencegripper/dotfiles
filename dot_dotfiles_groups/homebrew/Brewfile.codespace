@@ -1,4 +1,3 @@
-tap "homebrew/core"
 
 # Terminal stuff
 brew "jq"

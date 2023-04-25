@@ -37,6 +37,7 @@ brew "shellcheck"
 brew "golang"
 brew "nodenv"
 brew "ruby-build"
+brew "atuin"
 
 # Gui tools/Utils
 brew "firefoxpwa"
@@ -74,3 +75,6 @@ brew "yt-dlp"
 # brew "koekeishiya/formulae/skhd", restart_service: true
 cask "amethyst"
 # cask "alt-tab"
+
+brew "tailscale"
+

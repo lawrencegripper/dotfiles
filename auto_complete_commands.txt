@@ -3,3 +3,4 @@ starship, eval "$(starship init zsh)"
 azbrowse, . <(azbrowse completion zsh)
 gh, eval "$(gh completion -s zsh)"
 chezmoi, eval "$(chezmoi completion zsh)"
+atiun, eval "$(atuin init zsh)"

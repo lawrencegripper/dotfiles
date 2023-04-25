@@ -6,6 +6,7 @@ brew "starship"
 brew "gh"
 brew "kubectx"
 brew "k9s"
+brew "atuin"
 
 # Fonts
 #brew "font-jetbrains-mono"

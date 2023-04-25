@@ -20,7 +20,6 @@
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
         "kubernetes": "*.yaml",
-        "kubernetes": "*.yml"
     },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
@@ -136,10 +135,11 @@
         "jupyter-notebook": "left"
     },
     "github.copilot.enable": {
-        "*": false,
-        "yaml": false,
+        "*": true,
         "plaintext": true,
         "markdown": false,
+        "scminput": false,
+        "yaml": true,
         "jsonc": false,
         "ruby": true,
         "python": true,
@@ -168,4 +168,7 @@
         "editor.formatOnType": true
     },
     "editor.stickyScroll.enabled": true,
+    "dev.containers.defaultFeatures": {
+        "ghcr.io/tailscale/codespace": {}
+    },
 }

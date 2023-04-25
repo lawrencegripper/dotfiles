@@ -14,6 +14,13 @@ then
   source ~/.localrc
 fi
 
+# Configure tailscale
+{{- if eq (env "CODESPACES") "true" }}
+
+tailscale status || tailscale login
+
+{{- end }}
+
 # Setup ssh agent
 {{- if eq (env "CODESPACES") "true" }}
 # Skipped sshagent config in codespaces

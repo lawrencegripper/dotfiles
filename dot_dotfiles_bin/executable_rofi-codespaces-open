@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+
+function get_recent_workspaces()
+{
+    gh codespace list --json name,gitStatus,lastUsedAt \
+        --template "{{range .}}{{.name}}, {{.gitStatus.ref}}, last used: {{ slice .lastUsedAt 8 }};{{end}}" \
+        | tr ';' '\n' 
+}
+
+
+WORKSPACE=$( (echo empty; get_recent_workspaces)  | rofi -dmenu -p "Select Codespace:")
+
+if [ x"empty" = x"${WORKSPACE}" ]
+then
+    code
+elif [ -n "${WORKSPACE}" ]
+then
+    NAME=$(echo $WORKSPACE | cut --delimiter="," --fields=1) 
+    gh cs code --codespace $NAME
+fi

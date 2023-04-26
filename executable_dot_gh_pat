@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Usage run '. ~/.gh_pat' then GH_PAT will be exported to your env"
+
 FIELD=$1
 if type "op" > /dev/null; then
     export GH_PAT=$(op read "op://Personal/github.com/PATS/${FIELD:="gh-read-repo"}")

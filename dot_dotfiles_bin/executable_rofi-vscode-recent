@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+
+function get_recent_workspaces()
+{
+    grep -h -r -s --only-matching '"vscode[-remote]*:.*"' ~/.config/Code/User/workspaceStorage
+}
+
+
+WORKSPACE=$( (echo empty; get_recent_workspaces)  | rofi -dmenu -p "Select Codespace:")
+
+if [ x"empty" = x"${WORKSPACE}" ]
+then
+    code
+elif [ -n "${WORKSPACE}" ]
+then
+    code --folder-uri
+fi

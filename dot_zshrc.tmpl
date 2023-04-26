@@ -14,16 +14,6 @@ then
   source ~/.localrc
 fi
 
-# Configure tailscale and atuin for shell history
-{{- if eq (env "CODESPACES") "ignorefornow" }}
-
-echo "Login to tailscale to access atuin for shell history"
-tailscale up
-echo "Login to atuin via tailscale for shell history"
-atuin status || atuin login
-
-{{- end }}
-
 # Setup ssh agent
 {{- if eq (env "CODESPACES") "true" }}
 # Skipped sshagent config in codespaces
@@ -49,11 +39,16 @@ fi
 # Add aliases 
 [ -f ~/.aliases ] && source ~/.aliases
 
-# Enable fzf fuzzy matching
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Enable z for jumping to commonly used folders
 [ -f ~/.config/z/z.sh ] && source ~/.config/z/z.sh
+
+# Configure atuin if it's installed
+if type "atuin" > /dev/null; then
+  atuin status > /dev/null || atuin login -u $(op read "op://Personal/Atuin/username") -p $(op read "op://Personal/Atuin/password") --key "$(op read "op://Personal/Atuin/key")"
+else
+  # Enable fzf fuzzy matching
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fi
 
 # Zsh config
 setopt PROMPT_SUBST

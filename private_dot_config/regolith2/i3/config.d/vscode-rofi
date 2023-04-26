@@ -1,0 +1,4 @@
+# Codespaces
+bindsym $mod+p exec --no-startup-id /home/lawrencegripper/.dotfiles_bin/rofi-codespaces-open
+bindsym $mod+shift+o exec --no-startup-id /home/lawrencegripper/.dotfiles_bin/rofi-vscode-recent
+

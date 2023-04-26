@@ -4,5 +4,3 @@
 *.lgpriv.*
 .env
 .vscode
-*private*
-private*

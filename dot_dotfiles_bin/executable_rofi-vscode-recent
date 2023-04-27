@@ -8,6 +8,5 @@ function get_recent_workspaces()
     grep -h -r -s --only-matching -e '"vscode[-remote]*:.*"' -e '"file:///.*"' ~/.config/Code/User/workspaceStorage 
 }
 
-
 WORKSPACE=$( (echo empty; get_recent_workspaces)  | rofi -dmenu -p "Select workspace:")
 code --folder-uri $(echo $WORKSPACE |tr -d '"')

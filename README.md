@@ -4,5 +4,6 @@ I'm using Chezmoi to handle them but have ported over to this from an old approa
 
 They handle setup for: 
 - Mac
-- Arch linux
+- Ubuntu
+- Arch linux (out of date)
 - Codespaces

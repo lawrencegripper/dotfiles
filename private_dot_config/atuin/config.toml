@@ -1,6 +1,0 @@
-db_path = "~/.config/atuin/history.db"
-dialect = "uk"
-sync_address = "http://100.120.65.104"
-style = "compact"
-inline_height = 25
-update_check = false

@@ -44,7 +44,11 @@ fi
 
 # Configure atuin if it's installed
 if type "atuin" > /dev/null; then
+  {{- if eq (env "CODESPACES") "true" }}
+  # Skipped login
+  {{- else }}
   atuin status > /dev/null || atuin login -u $(op read "op://Personal/Atuin/username") -p $(op read "op://Personal/Atuin/password") --key "$(op read "op://Personal/Atuin/key")"
+  {{- end }}
 else
   # Enable fzf fuzzy matching
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

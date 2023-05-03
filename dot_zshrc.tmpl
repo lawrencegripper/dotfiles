@@ -24,12 +24,13 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- end }}
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 {{/* What does this do? It iterestes over all the commands in auto_complete_commands.txt and if present on the path runs the autocompletion command associated */}}
 {{- range include "auto_complete_commands.txt" | splitList "\n" }}
 {{- if contains "#" . | not }}
 {{- with $x := split "," . }}
 if type "{{ $x._0 | trim }}" > /dev/null; then
+  autoload -U is-at-least
   {{ $x._1 | trim }}
 fi
 {{ end }}

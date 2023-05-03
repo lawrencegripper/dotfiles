@@ -1,6 +1,6 @@
-kubectl, source <(kubectl completion zsh)
-starship, eval "$(starship init zsh)"
-azbrowse, . <(azbrowse completion zsh)
-gh, eval "$(gh completion -s zsh)"
+kubectl, source <(kubectl completion zsh) && compdef _kubectl kubectl && compdef _kubectl k
+starship, eval "$(starship init zsh)" && eval "$(starship completions zsh)"
+gh, eval "$(gh completion -s zsh)" && compdef _gh gh
 chezmoi, eval "$(chezmoi completion zsh)"
-atuin, eval "$(atuin init zsh)"
+atuin, eval "$(atuin init zsh)" && eval "$(atuin gen-completions --shell zsh)" && compdef _atuin atuin
+azbrowse, eval "$(azbrowse completion zsh)" && compdef _azbrowse azbrowse && compdef _azbrowse azb

@@ -34,6 +34,8 @@ extensions=(
   "adpyke.codesnap"
 )
 
+# "GitHub.copilot-chat" but currently only prerelease
+
 
 {{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
 
@@ -43,7 +45,7 @@ extensions=(
   
   for ext in "${extensions[@]}"
   do
-    code --install-extension "$ext"
+    code --install-extension $ext
   done
   
 {{ end }}

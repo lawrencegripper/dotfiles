@@ -43,20 +43,21 @@ fi
 # Enable z for jumping to commonly used folders
 [ -f ~/.config/z/z.sh ] && source ~/.config/z/z.sh
 
+# Configure fzf as fallback 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Configure atuin if it's installed
 if type "atuin" > /dev/null; then
   {{- if eq (env "CODESPACES") "true" }}
   # Skipped login
   {{- else }}
-  if (curl --max-time 2 "http://100.120.65.104"); then
+  if (curl -s -o /dev/null --max-time 2 "http://100.120.65.104"); then
     atuin status > /dev/null || atuin login -u $(op read "op://Personal/Atuin/username") -p $(op read "op://Personal/Atuin/password") --key "$(op read "op://Personal/Atuin/key")"
   else
     echo "Atuin sync server timed out";
   fi;
   {{- end }}
-else
-  # Enable fzf fuzzy matching
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  # Steal history ctrlR from fzf as we want atuin for that but to keep fzf for ctrl+t file search
+  bindkey "^R" _atuin_search_widget
 fi
 
 # Zsh config

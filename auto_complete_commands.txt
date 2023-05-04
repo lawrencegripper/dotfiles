@@ -2,5 +2,5 @@ kubectl, source <(kubectl completion zsh) && compdef _kubectl kubectl && compdef
 starship, eval "$(starship init zsh)" && eval "$(starship completions zsh)"
 gh, eval "$(gh completion -s zsh)" && compdef _gh gh
 chezmoi, eval "$(chezmoi completion zsh)"
-atuin, eval "$(atuin init zsh)" && eval "$(atuin gen-completions --shell zsh)" && compdef _atuin atuin
+atuin, eval "$(atuin init zsh --disable-up-arrow)" && eval "$(atuin gen-completions --shell zsh)" && compdef _atuin atuin
 azbrowse, eval "$(azbrowse completion zsh)" && compdef _azbrowse azbrowse && compdef _azbrowse azb

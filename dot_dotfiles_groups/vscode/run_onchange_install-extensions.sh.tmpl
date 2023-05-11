@@ -46,6 +46,9 @@ extensions=(
   for ext in "${extensions[@]}"
   do
     code --install-extension $ext
+    if type "code-insiders" > /dev/null; then
+      code-insiders --install-extension $ext
+    fi
   done
   
 {{ end }}

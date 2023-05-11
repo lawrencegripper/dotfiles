@@ -143,7 +143,7 @@
         "jsonc": false,
         "ruby": true,
         "python": true,
-        "shellscript": false,
+        "shellscript": true,
         "rust": true
     },
     "explorer.confirmDragAndDrop": false,
@@ -168,4 +168,5 @@
         "editor.formatOnType": true
     },
     "editor.stickyScroll.enabled": true,
+    "git.openRepositoryInParentFolders": "always",
 }

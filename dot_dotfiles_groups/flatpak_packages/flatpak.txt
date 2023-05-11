@@ -26,3 +26,6 @@ net.hovancik.Stretchly
 org.coolero.Coolero
 org.onlyoffice.desktopeditors
 org.gnome.DejaDup
+
+com.github.tchx84.Flatseal
+org.kde.kalk

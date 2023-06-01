@@ -19,6 +19,7 @@ keychain
 bash-completion
 bzip2
 curl
+ca-certificates
 diffutils
 gcc
 git

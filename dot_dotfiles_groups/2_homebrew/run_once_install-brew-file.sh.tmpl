@@ -12,8 +12,8 @@ export HOMEBREW_INSTALL_FROM_API=1
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     {{ end }}
 
-    # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.codespace" | sha256sum }}
-    brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.codespace -v
+    # Brewfile hash: {{ include "dot_dotfiles_groups/2_homebrew/Brewfile.codespace" | sha256sum }}
+    brew bundle --file=~/.dotfiles_groups/2_homebrew/Brewfile.codespace -v
 
 {{ else if (eq .chezmoi.os "linux") -}}
 
@@ -27,8 +27,8 @@ export HOMEBREW_INSTALL_FROM_API=1
     sudo ln -s /home/linuxbrew/.linuxbrew/share/fonts /usr/local/share/fonts/
     sudo fc-cache -fv
 
-    # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.linux" | sha256sum }}
-    brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.linux -v
+    # Brewfile hash: {{ include "dot_dotfiles_groups/2_homebrew/Brewfile.linux" | sha256sum }}
+    brew bundle --file=~/.dotfiles_groups/2_homebrew/Brewfile.linux -v
 
 {{ else if eq .chezmoi.os "darwin" -}}
 
@@ -36,7 +36,7 @@ export HOMEBREW_INSTALL_FROM_API=1
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     {{ end }}
 
-    # Brewfile hash: {{ include "dot_dotfiles_groups/homebrew/Brewfile.mac" | sha256sum }}
-    brew bundle --file=~/.dotfiles_groups/homebrew/Brewfile.mac -v
+    # Brewfile hash: {{ include "dot_dotfiles_groups/2_homebrew/Brewfile.mac" | sha256sum }}
+    brew bundle --file=~/.dotfiles_groups/2_homebrew/Brewfile.mac -v
 
 {{ end -}}

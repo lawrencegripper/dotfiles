@@ -1,5 +1,7 @@
 #!/bin/bash
 
+{{- if lookPath "gh" }}
+
 # Add extension ID below
 extensions=(
   "github/gh-net"
@@ -14,3 +16,5 @@ do
     gh extension upgrade "$ext"
   fi
 done
+
+{{ end }}

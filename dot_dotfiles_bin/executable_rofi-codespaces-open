@@ -5,8 +5,8 @@ set -e
 
 function get_recent_workspaces()
 {
-    gh codespace list --json name,gitStatus,lastUsedAt \
-        --template "{{range .}}{{.name}}, {{.gitStatus.ref}}, last used: {{ slice .lastUsedAt 8 }};{{end}}" \
+    gh codespace list --json name,gitStatus,lastUsedAt,repository \
+        --template "{{range .}}{{.repository}} {{.gitStatus.ref}} last used: {{ slice .lastUsedAt 8 }} {{.name}};{{end}}" \
         | tr ';' '\n' 
 }
 

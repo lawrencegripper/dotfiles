@@ -49,7 +49,9 @@
         "mutantdino.resourcemonitor",
         "itarato.byesig",
         "aaron-bond.better-comments",
-        "adpyke.codesnap"
+        "adpyke.codesnap",
+        "GitHub.copilot-chat@prerelease",
+        "GitHub.copilot-nightly"
     ],
     "dev.containers.defaultExtensions": [
         "davidlday.languagetool-linter",
@@ -64,7 +66,9 @@
         "mutantdino.resourcemonitor",
         "itarato.byesig",
         "aaron-bond.better-comments",
-        "adpyke.codesnap"
+        "adpyke.codesnap",
+        "GitHub.copilot-chat@prerelease",
+        "GitHub.copilot-nightly"
     ],
     "editor.fontFamily": "'FiraCode Nerd Font Mono'",
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono'",

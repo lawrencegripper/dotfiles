@@ -3,12 +3,4 @@
 
 sudo pacman -S starship --noconfirm
 
-{{ else if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") -}}
-
-brew install starship
-
-{{ else if eq .chezmoi.os "darwin" -}}
-
-brew install starship
-
 {{ end -}}

@@ -1,2 +1,13 @@
 i3-wm.program.notification_ui: ilia -p notifications
 i3-wm.binding.notification_ui: n
+
+i3-wm.workspace.01.name: 1 msg
+i3-wm.workspace.02.name: 2 cal
+i3-wm.workspace.03.name: 3 music
+i3-wm.workspace.04.name: 4 email
+i3-wm.workspace.05.name: 5
+i3-wm.workspace.06.name: 6 web
+i3-wm.workspace.07.name: 7 code
+i3-wm.workspace.08.name: 8 code
+i3-wm.workspace.09.name: 9 zoom
+i3-wm.workspace.10.name: 10 terminal

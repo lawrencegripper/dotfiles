@@ -13,3 +13,5 @@ exec --no-startup-id birdtray
 exec --no-startup-id 1password --no-sandbox
 # Onedrive 
 exec --no-startup-id /home/lawrencegripper/.local/bin/onedrivegui --no-sandbox
+
+exec --no-startup-id firefox

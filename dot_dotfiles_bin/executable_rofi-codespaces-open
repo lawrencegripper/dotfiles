@@ -18,9 +18,11 @@ then
     code
 elif [ -n "${WORKSPACE}" ]
 then
-    NAME=$(echo $WORKSPACE | cut --delimiter="_" --fields=2) 
+    NAME=$(echo $WORKSPACE | cut --delimiter="_" --fields=2)
     echo "Opening codespace $NAME"
     gh cs code --codespace $NAME --insiders
+    # Copy auth details for atuin
+    gh cs cp --codespace $NAME -e ~/.local/share/atuin/session 'remote:/workspaces/atuin_session'
     # start network sharing from local to codespace
     kitty sudo bash -c "PATH=$PATH:/home/linuxbrew/.linuxbrew/bin gh net --codespace $NAME"
 fi

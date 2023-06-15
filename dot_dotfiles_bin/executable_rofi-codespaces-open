@@ -21,4 +21,6 @@ then
     NAME=$(echo $WORKSPACE | cut --delimiter="_" --fields=2) 
     echo "Opening codespace $NAME"
     gh cs code --codespace $NAME --insiders
+    # start network sharing from local to codespace
+    kitty sudo bash -c "PATH=$PATH:/home/linuxbrew/.linuxbrew/bin gh net --codespace $NAME"
 fi

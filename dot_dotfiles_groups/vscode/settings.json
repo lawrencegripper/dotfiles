@@ -15,7 +15,7 @@
     },
     // "rubyTestExplorer.debugCommand": "rdebug-ide",
     "rubyTestExplorer.logpanel": true,
-    "workbench.colorTheme": "Arc Dark Theme",
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
@@ -185,4 +185,5 @@
         "rgba(231, 111, 81,0.025)"
     ],
     "editor.guides.bracketPairs": true,
+    "workbench.iconTheme": "Monokai Pro Icons",
 }

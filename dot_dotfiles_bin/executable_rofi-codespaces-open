@@ -23,6 +23,7 @@ then
     gh cs code --codespace $NAME --insiders
     # Copy auth details for atuin
     gh cs cp --codespace $NAME -e ~/.local/share/atuin/session 'remote:/workspaces/atuin_session'
+    gh cs cp --codespace $NAME -e ~/.local/share/atuin/key 'remote:/workspaces/atuin_key'
     # start network sharing from local to codespace
     kitty sudo bash -c "PATH=$PATH:/home/linuxbrew/.linuxbrew/bin gh net --codespace $NAME"
 fi

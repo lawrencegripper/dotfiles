@@ -6,7 +6,7 @@ set -e
 function get_recent_workspaces()
 {
     gh codespace list --json name,gitStatus,lastUsedAt,repository \
-        --template "{{range .}}{{.repository}} {{.gitStatus.ref}} last used: {{ slice .lastUsedAt 8 }} {{.name}};{{end}}" \
+        --template "{{range .}}{{.repository}} {{.gitStatus.ref}} last used: {{ slice .lastUsedAt 8 }} _ {{.name}};{{end}}" \
         | tr ';' '\n' 
 }
 
@@ -18,6 +18,7 @@ then
     code
 elif [ -n "${WORKSPACE}" ]
 then
-    NAME=$(echo $WORKSPACE | cut --delimiter="," --fields=1) 
-    gh cs code --codespace $NAME
+    NAME=$(echo $WORKSPACE | cut --delimiter="_" --fields=2) 
+    echo "Opening codespace $NAME"
+    gh cs code --codespace $NAME --insiders
 fi

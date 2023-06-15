@@ -12,7 +12,6 @@ workspace "$ws10" output DisplayPort-3
 
 assign [class="whatsapp-desktop-linux"] "$ws1"
 assign [class="signal"] "$ws1"
-assign [class="morgen"] "$ws2"
-assign [class="thunderbird"] "$ws3"
-
+assign [class="Morgen"] "$ws2"
+assign [class="thunderbird"] "$ws4"
 assign [class="Firefox"] "$ws6"

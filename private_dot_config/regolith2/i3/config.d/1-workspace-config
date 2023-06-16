@@ -19,3 +19,6 @@ assign [class="Firefox"] "$ws6"
 # Setup layouts for coding workspaces to have terminal and editor tabbed
 for_window [workspace="$ws7"] layout tabbed
 for_window [workspace="$ws8"] layout tabbed
+
+# Jump to window when it takes focus
+focus_on_window_activation focus

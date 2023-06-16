@@ -8,11 +8,11 @@ alias gri='grep -i $*'
 alias grr='grep -i -R $* .'
 
 # Bad workaround for kitty terminal
-alias ssh='TERM=xterm-256color ssh'
+#alias ssh='TERM=xterm-256color ssh'
 alias gh='TERM=xterm-256color gh'
 # Better way to handle kitty term information
 # alias ssh='TERM=xterm-256color ssh'
-# alias ssh="kitty +kitten ssh"
+alias ssh="kitty +kitten ssh"
 
 alias k='kubectl'
 alias h-create-ghcs='gh cs create --repo github/heaven -b master -m largePremiumLinux -s | xargs gh cs code -c'

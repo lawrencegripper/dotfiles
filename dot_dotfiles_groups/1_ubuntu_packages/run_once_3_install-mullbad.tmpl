@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
+exit 0
+{{ end }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
+exit 0
+{{ end }}
+
+wget --content-disposition https://mullvad.net/download/app/deb/latest
+sudo apt install -y ./MullvadVPN*_amd64.deb

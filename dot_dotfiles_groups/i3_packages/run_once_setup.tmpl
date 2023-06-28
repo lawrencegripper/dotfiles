@@ -13,15 +13,15 @@ chmod +x greenclip
 mv greenclip ~/bin
 
 # emoji picker
-pip install --user rofimoji
+pip install --user rofimoji --break-system-packages
 
 # install regolith looks
-sudo apt install "regolith-look-*"
+sudo apt install gnome-themes-standard "regolith-look-*"
 
 regolith-look set lascaille
 
 # Fix screen blank issue on Ubuntu 22.04 https://github.com/regolith-linux/regolith-desktop/issues/785#issuecomment-1371747858
-# sudo apt install gnome-session-flashback
+# sudo apt install gnome-session-flashback 
 # sudo apt remove indicator-application
 
 {{ end }}

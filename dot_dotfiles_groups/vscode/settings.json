@@ -187,4 +187,5 @@
     "editor.guides.bracketPairs": true,
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "testExplorer.useNativeTesting": false,
+    "githubPullRequests.createOnPublishBranch": "never",
 }

@@ -49,6 +49,9 @@ fi
 if type "atuin" > /dev/null; then
   {{- if eq (env "CODESPACES") "true" }}
   # Skipped login
+  # Configures hostname and user for synced commands
+  ATUIN_HOST_NAME="codespace/$GITHUB_REPOSITORY"
+  ATUIN_HOST_USER=$GITHUB_USER
   {{- else }}
   if (curl -s -o /dev/null --max-time 2 "http://100.120.65.104"); then
     atuin status > /dev/null || atuin login -u $(op read "op://Personal/Atuin/username") -p $(op read "op://Personal/Atuin/password") --key "$(op read "op://Personal/Atuin/key")"

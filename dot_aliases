@@ -11,8 +11,8 @@ alias grr='grep -i -R $* .'
 #alias ssh='TERM=xterm-256color ssh'
 alias gh='TERM=xterm-256color gh'
 # Better way to handle kitty term information
-# alias ssh='TERM=xterm-256color ssh'
-alias ssh="kitty +kitten ssh"
+alias ssh='TERM=xterm-256color ssh'
+# alias ssh="kitty +kitten ssh"
 
 alias k='kubectl'
 alias h-create-ghcs='gh cs create --repo github/heaven -b master -m largePremiumLinux -s | xargs gh cs code -c'
@@ -28,4 +28,6 @@ alias ghpat='. ~/.gh_pat'
 # Ruby things
 alias be='bundle exec $*'
 alias bi='bundle install'
-alias hci='scripts/cibuild'
+alias ci='scripts/cibuild'
+
+alias code='code-insiders'

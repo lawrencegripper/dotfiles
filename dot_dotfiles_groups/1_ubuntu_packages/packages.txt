@@ -49,6 +49,11 @@ gnome-boxes
 
 ruby
 python3-pip
+build-essential
+cmake
+libpython3-dev
+libdbus-1-dev
+libdbus-glib-1-dev
 network-manager-openvpn
 
 #notify-send

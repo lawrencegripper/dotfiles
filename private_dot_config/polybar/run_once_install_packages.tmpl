@@ -4,6 +4,9 @@ set -e
 # Install stuff when running regolith2
 {{- if lookPath "polybar" }}
 
+# python dbus 
+pip3 install dbus-python
+
 # blinkstick to control notifications light on desk
 pip install BlinkStick
 pip3 install BlinkStick310

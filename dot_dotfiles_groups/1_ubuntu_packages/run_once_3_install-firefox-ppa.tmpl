@@ -10,21 +10,25 @@ exit 0
 exit 0
 {{ end }}
 
-# if [ $(snap list | grep firefox | wc -l) -lt 1 ]; then
-#     echo "Firefox snap not installed skipping"
-#     exit 0
-# fi
+if [ $(snap list | grep firefox | wc -l) -lt 1 ]; then
+    echo "Firefox snap not installed skipping"
+    exit 0
+fi
 
-# sudo add-apt-repository ppa:mozillateam/ppa
+sudo add-apt-repository ppa:mozillateam/ppa
 
-# echo '
-# Package: *
-# Pin: release o=LP-PPA-mozillateam
-# Pin-Priority: 1001
-# ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 
-# sudo snap remove firefox
+sudo snap remove firefox
 
-# sudo apt install firefox
+sudo apt install firefox
 
-# echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefoxs
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefoxs
+
+# set app armour to allow yubi key and 1pw integration
+sudo ln -s /etc/apparmor.d/usr.bin.firefox /etc/apparmor.d/disable/
+sudo apparmor_parser -R /etc/apparmor.d/usr.bin.firefox

@@ -23,10 +23,6 @@ export HOMEBREW_INSTALL_FROM_API=1
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     {{ end }}
 
-    # Allow fonts install
-    sudo ln -s /home/linuxbrew/.linuxbrew/share/fonts /usr/local/share/fonts/
-    sudo fc-cache -fv
-
     # Brewfile hash: {{ include "dot_dotfiles_groups/2_homebrew/Brewfile.linux" | sha256sum }}
     brew bundle --file=~/.dotfiles_groups/2_homebrew/Brewfile.linux -v
 

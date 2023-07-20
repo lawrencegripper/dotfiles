@@ -71,9 +71,9 @@
         "GitHub.copilot-chat@prerelease",
         "GitHub.copilot-nightly"
     ],
-    "editor.fontFamily": "'FiraCode Nerd Font Mono'",
-    "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono'",
-    "editor.codeLensFontFamily": "'FiraCode Nerd Font Mono'",
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
     "terminal.integrated.fontSize": 16,
     "editor.fontSize": 16,
     "terminal.integrated.scrollback": 100000,

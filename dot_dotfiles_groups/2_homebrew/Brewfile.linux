@@ -1,4 +1,4 @@
-tap "homebrew/core"
+#tap "homebrew/core"
 #tap "homebrew/linux-fonts"
 
 # Terminal stuff
@@ -7,6 +7,7 @@ brew "gh"
 brew "kubectx"
 brew "k9s"
 brew "atuin"
+brew "chezmoi"
 
 # Fonts
 #brew "font-inconsolata"

@@ -1,3 +1,5 @@
+i3-wm.bar.mode: hide
+i3-wm.bar.trayoutput: false
 i3-wm.program.notification_ui: ilia -p notifications
 i3-wm.binding.notification_ui: n
 

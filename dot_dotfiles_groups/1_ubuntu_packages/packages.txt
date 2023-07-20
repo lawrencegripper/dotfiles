@@ -46,6 +46,9 @@ gnupg
 
 #virualisation
 gnome-boxes
+virt-manager
+qemu-kvm
+libvirt-daemon-system
 
 ruby
 python3-pip

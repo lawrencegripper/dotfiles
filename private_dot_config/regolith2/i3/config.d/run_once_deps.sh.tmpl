@@ -4,6 +4,8 @@
 echo "Installing i3pc"
 pip3 install i3ipc
 
+# Disable the built in i3bar as we're using polybar
+# https://github.com/orgs/regolith-linux/discussions/824
 sudo rm -f /usr/share/regolith/i3/config.d/70_bar
 
 {{end}}

@@ -107,6 +107,7 @@ blinkStickClient: blinkstick.BlinkStick = blinkstick.find_first()
 storage = dbm.open('/tmp/notifications_store', 'c')
 
 class Color(Enum):
+    PURPLE = 6
     RED = 5
     ORANGE = 4
     YELLOW = 3
@@ -141,7 +142,9 @@ for index, notification in notifications:
         
     # Set priorities
     if notification.application == "Signal":
-        set_if_higher(Color.RED)
+        set_if_higher(Color.ORANGE)
+        if notification.summary == "Minty RB":
+            set_if_higher(Color.PURPLE)
     if notification.application == "Morgen":
         set_if_higher(Color.RED)
     if notification.application == "gitify":
@@ -161,9 +164,10 @@ for index, notification in notifications:
         if "-ops" in notification.summary:
             set_if_higher(Color.BLUE)
             continue
-        if "@lawrencegripper" in notification.body:
+        elif "@lawrencegripper" in notification.body:
             set_if_higher(Color.RED)
-
+        else:
+            notificationsClient.delete(notification.id)
         # Default for slack
         set_if_higher(Color.YELLOW)
         # It's a DM from someone

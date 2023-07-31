@@ -27,8 +27,8 @@ try:
         lightening_color = "#b30000"
 
     output = format_color(lightening_color, "")
-    output += format_icon("") + format_wattage(p.inverter.p_load_demand)
-    output += format_icon("󰶛") + format_wattage(p.inverter.p_pv1 + p.inverter.p_pv2)
+    output += format_icon("") + format_wattage(p.inverter.p_load_demand)
+    output += format_icon("") + format_wattage(p.inverter.p_pv1 + p.inverter.p_pv2)
     output += format_icon("") + str(p.inverter.battery_percent) + "%"
     output += format_icon("") + format_wattage(p.inverter.p_grid_out)
 

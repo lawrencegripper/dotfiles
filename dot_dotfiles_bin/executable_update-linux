@@ -8,6 +8,8 @@ set -e
 # 3. update-linux-1 - n-1 update
 
 # Take new snapshot
+sudo zfs destroy -r bpool@update-linux-current || true
+sudo zfs destroy -r rpool@update-linux-current || true
 sudo zfs snapshot -r bpool@update-linux-current
 sudo zfs snapshot -r rpool@update-linux-current
 
@@ -24,9 +26,9 @@ sudo zfs destroy -r bpool@update-linux-1 || true
 sudo zfs destroy -r rpool@update-linux-1 || true
 
 # Move last snapshot to oldest
-sudo zfs rename -r bpool@update-linux-0 @update-linux-1
-sudo zfs rename -r rpool@update-linux-0 @update-linux-1
+sudo zfs rename -r bpool@update-linux-0 @update-linux-1 || true
+sudo zfs rename -r rpool@update-linux-0 @update-linux-1 || true
 
-# Move current to persisted snapshot\``
+# Move current to persisted snapshot
 sudo zfs rename -r bpool@update-linux-current @update-linux-0
 sudo zfs rename -r rpool@update-linux-current @update-linux-0

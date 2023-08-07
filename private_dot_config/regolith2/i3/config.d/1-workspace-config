@@ -22,3 +22,6 @@ for_window [workspace="$ws8"] layout tabbed
 
 # Jump to window when it takes focus
 focus_on_window_activation focus
+
+# Jump to last workspace
+bindsym $mod+u workspace back_and_forth

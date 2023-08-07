@@ -76,3 +76,6 @@ cpufrequtils
 
 # thunderbird tray manager
 birdtray
+
+# moonlander
+sudo apt install libusb-1.0-0-dev

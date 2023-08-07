@@ -11,7 +11,7 @@ alias grr='grep -i -R $* .'
 #alias ssh='TERM=xterm-256color ssh'
 alias gh='TERM=xterm-256color gh'
 # Better way to handle kitty term information
-alias sshraw='TERM=xterm-256color ssh'
+alias ssh='TERM=xterm-256color ssh'
 alias s="kitty +kitten ssh"
 
 alias k='kubectl'

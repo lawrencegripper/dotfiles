@@ -1,0 +1,13 @@
+# Config used by atuin when connected over ssh with kitty ssh integration
+db_path = "~/.config/atuin/history.db"
+dialect = "uk"
+style = "compact"
+inline_height = 25
+invert = true
+update_check = false
+sync_frequency = "5m"
+auto_sync = true
+sync_address = "http://localhost:3123"
+session_path = "/workspaces/atuin_session"
+key_path = "/workspaces/atuin_key"
+show_preview = true

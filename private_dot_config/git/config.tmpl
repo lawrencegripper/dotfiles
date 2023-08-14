@@ -3,12 +3,14 @@
         protocol = https
 [alias]
 	ignore = "!gi() { IFS=\",\"; curl -L -s \"https://www.toptal.com/developers/gitignore/api/$*\" | tee .gitignore;}; \\\ngi"
-        # Commit staged changes with amend no edit
-        cam = commit-amend-no-edit
         # Commit all changes with amend no edit
         caam = commit-amend-no-edit -a
+        # Commit staged changes with amend no edit
+        cam = commit-amend-no-edit
         # Commit all changes 
-        com = commit -am 
+        coam = commit -am
+        # Commit staged changes 
+        com = commit -m 
         # Force push with least
         fp = push --force-with-lease
         # Checkout

@@ -13,7 +13,6 @@ org.pitivi.Pitivi
 us.zoom.Zoom
 
 # apple music player
-#sh.cider.Cider - Now pre-release of cider2 available in their discord server
 #edge browser
 com.microsoft.Edge
 
@@ -30,3 +29,5 @@ org.gnome.DejaDup
 com.github.tchx84.Flatseal
 org.kde.kalk
 com.discordapp.Discord
+# Element matrix client
+im.riot.Riot

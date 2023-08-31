@@ -10,11 +10,28 @@ workspace "$ws8" output DisplayPort-3
 workspace "$ws9" output DisplayPort-3
 workspace "$ws10" output DisplayPort-3
 
-assign [class="whatsapp-desktop-linux"] "$ws1"
-assign [class="signal"] "$ws1"
+
+# i3 layout alternating
+exec --no-startup-id ~/.config/regolith2/i3/scripts/alternating_layouts.py
+
+assign [class="element"] "$ws1"
+exec --no-startup-id flatpak run im.riot.Riot --no-sandbox
+
 assign [class="Morgen"] "$ws2"
+exec --no-startup-id morgen --no-sandbox
+
 assign [class="thunderbird"] "$ws4"
-assign [class="Firefox"] "$ws6"
+exec --no-startup-id birdtray
+exec --no-startup-id thunderbird
+
+assign [class="firefox"] "$ws6"
+exec --no-startup-id firefox
+
+exec --no-startup-id workrave --no-sandbox
+exec --no-startup-id 1password --no-sandbox
+
+# assign [class="kitty"] "$ws10"
+exec --no-startup-id kitty --no-sandbox
 
 # Setup layouts for coding workspaces to have terminal and editor tabbed
 for_window [workspace="$ws7"] layout tabbed

@@ -141,10 +141,8 @@ for index, notification in notifications:
         print("----")
         
     # Set priorities
-    if notification.application == "Signal":
-        set_if_higher(Color.ORANGE)
-        if notification.summary == "Minty RB":
-            set_if_higher(Color.PURPLE)
+    if notification.summary == "Minty":
+        set_if_higher(Color.PURPLE)
     if notification.application == "Morgen":
         set_if_higher(Color.RED)
     if notification.application == "gitify":
@@ -161,11 +159,11 @@ for index, notification in notifications:
     # Slack triage
     if notification.application == "Firefox" and notification.summary.startswith("New message"):
         # Chatop response lower priority
-        if "-ops" in notification.summary:
+        if "@lawrencegripper" in notification.body:
+            set_if_higher(Color.RED)
+        elif "-ops" in notification.summary:
             set_if_higher(Color.BLUE)
             continue
-        elif "@lawrencegripper" in notification.body:
-            set_if_higher(Color.RED)
         else:
             notificationsClient.delete(notification.id)
         # Default for slack

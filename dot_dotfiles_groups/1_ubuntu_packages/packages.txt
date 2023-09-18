@@ -79,3 +79,6 @@ birdtray
 
 # moonlander https://github.com/zsa/wally/wiki/Linux-install
 libusb-1.0-0-dev
+
+# isolate appimage and other progams
+firejail

@@ -12,15 +12,23 @@ exit 0
 
 sudo apt update
 
+TO_INSTALL=()
+
 # Install package
 {{ range include "dot_dotfiles_groups/1_ubuntu_packages/packages.txt" | splitList "\n" }}
 {{ if . }}
 {{ if contains "#" . | not }}
     echo "Package: {{.}}"
-    dpkg -s "{{.}}" >/dev/null 2>&1 || (echo "Package {{.}} not installed, installing" && sudo apt install -y {{.}})
+    dpkg -s "{{.}}" >/dev/null 2>&1 || TO_INSTALL+=("{{.}}")
 {{ end }}
 {{ end }}
 {{ end }}
+
+# Concatenate TO_INSTALL into a string
+echo "Packages to install: $TO_INSTALL"
+TO_INSTALL_STR=$(printf "%s " "${TO_INSTALL[@]}")
+echo "Packages to install: $TO_INSTALL_STR"
+sudo apt install -y $TO_INSTALL_STR
 
 # Add libvirt user
 sudo adduser $USER libvirt

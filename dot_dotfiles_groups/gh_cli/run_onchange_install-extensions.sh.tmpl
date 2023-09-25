@@ -7,10 +7,13 @@ extensions=(
   "github/gh-net"
 )
 
+# Login
+gh auth status || gh auth login
+
 # Install extensions
 for ext in "${extensions[@]}"
 do
-  if [ $(gh extension list | grep net | wc -l) -lt 1 ]; then
+  if [ $(gh extension list | grep $ext | wc -l) -lt 1 ]; then
     gh extension install "$ext"
   else
     gh extension upgrade "$ext"

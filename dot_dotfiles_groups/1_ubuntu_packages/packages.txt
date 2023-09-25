@@ -47,7 +47,7 @@ gnupg
 #virualisation
 gnome-boxes
 virt-manager
-qemu-kvm
+qemu-system-x86
 libvirt-daemon-system
 
 ruby
@@ -82,3 +82,11 @@ libusb-1.0-0-dev
 
 # isolate appimage and other progams
 firejail
+
+# Used for pythong clis
+pipx 
+# control zfs 
+zsys
+
+# video things
+v4l2loopback-dkms

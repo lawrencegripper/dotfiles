@@ -1,10 +1,7 @@
 #!/bin/bash
 
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-
-  echo "Skipping VSCode config as in codespaces"
-
-{{- else }}
+{{ template "skip-unless-local-debian.tmpl" . }}
+{{ template "skip-unless-docker.tmpl" . }}
 
 echo "Start language tools spelling/grammer tool"
 sudo docker start languagetool || sudo docker run --name languagetool \
@@ -16,6 +13,5 @@ sudo docker start languagetool || sudo docker run --name languagetool \
                         --restart=always \
                         -p 8081:8010 \
                         -d \
-                        silviof/docker-languagetool:latest@sha256:7337f7ec954e1e4302866c788ebf9049cf3a081ad069ab42a77a42d5dd996369
+                        silviof/docker-languagetool:latest@sha256:7337f7ec954e1e4302866c788ebf9049cf3a081ad069ab42a77a42d5dd996369 || true
 
-{{- end }}

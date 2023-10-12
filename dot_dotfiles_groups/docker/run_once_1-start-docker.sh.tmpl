@@ -1,7 +1,8 @@
 #!/bin/bash
 
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") | not }}
+{{ template "skip-unless-local-debian.tmpl" . }}
+{{ template "skip-unless-docker.tmpl" . }}
+
 sudo usermod -aG docker $USER
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
-{{- end }}
+sudo systemctl enable docker.service || true
+sudo systemctl start docker.service || true

@@ -2,9 +2,6 @@
 
 set -e
 
-# Take new snapshot
-zsysctl save -s
-
 # Get latest dotfiles
 chezmoi update
 

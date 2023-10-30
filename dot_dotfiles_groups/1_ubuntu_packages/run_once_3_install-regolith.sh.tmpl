@@ -2,20 +2,22 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
-exit 0
-{{ end }}
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-exit 0
-{{ end }}
+{{ template "skip-unless-local-debian.tmpl" . }}
 
 wget -qO - https://regolith-desktop.org/regolith.key | \
 gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
 
 echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-https://regolith-desktop.org/release-ubuntu-jammy-amd64 jammy main" | \
+https://regolith-desktop.org/release-3_0-ubuntu-jammy-amd64 jammy main" | \
 sudo tee /etc/apt/sources.list.d/regolith.list
-
+ 
 sudo apt update
-sudo apt install regolith-desktop
-sudo apt upgrade
+sudo apt install regolith-desktop regolith-session-flashback
+
+# remove compositor as it causes lag and I don't mind missing the effects
+sudo apt remove regolith-compositor-picom-glx
+
+# disable the bar as we're using polybar
+mkdir -p ~/scratch/i3
+sudo mv /usr/share/regolith/i3/config.d/70_bar ~/scratch/i3/70_bar || echo "bar already disabled"
+

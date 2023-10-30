@@ -2,15 +2,10 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
-exit 0
-{{ end }}
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-exit 0
-{{ end }}
+{{ template "skip-unless-local-debian.tmpl" . }}
 
 # workaround for bug https://github.com/evilsocket/opensnitch/issues/647
-python3 -m pip install --ignore-installed grpcio
+# no longer needed in 23.04
 
 wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.0/opensnitch_1.6.0.1-1_amd64.deb
 wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.0/python3-opensnitch-ui_1.6.0.1-1_all.deb

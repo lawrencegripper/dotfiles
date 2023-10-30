@@ -37,6 +37,12 @@ fi
 {{- end }}
 {{- end }}
 
+# Configure a scratch python venv 
+if [[ ! -d ~/.scratch_venv ]]; then
+  python3 -m venv ~/.scratch_venv
+  source ~/.scratch_venv/bin/activate
+fi
+
 # Add aliases 
 [ -f ~/.aliases ] && source ~/.aliases
 

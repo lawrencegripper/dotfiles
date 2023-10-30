@@ -13,6 +13,6 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 # Install flatpak packages
 {{ range include "dot_dotfiles_groups/flatpak_packages/flatpak.txt" | splitList "\n" }}
 {{ if contains "#" . | not }}
-    flatpak install flathub {{.}} --noninteractive
+    flatpak install flathub {{.}} --noninteractive --user
 {{ end }}
 {{ end }}

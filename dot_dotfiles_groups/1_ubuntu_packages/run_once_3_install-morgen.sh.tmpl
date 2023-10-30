@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ template "skip-unless-local-debian.tmpl" . }}
+
+# from https://www.morgen.so/onboarding/download
+wget -O morgen.deb https://dl.todesktop.com/210203cqcj00tw1/linux/deb/x64
+
+sudo apt install ./morgen.deb

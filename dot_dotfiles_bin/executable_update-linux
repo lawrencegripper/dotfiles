@@ -2,16 +2,10 @@
 
 set -e
 
-# Snapshot management
-# 1. update-linux-current - before an update
-# 2. update-linux-0 - after an update
-# 3. update-linux-1 - n-1 update
+sudo timeshift --create --comments "before exec update-linux" --tags W
 
-# Take new snapshot
-sudo zfs destroy -r bpool@update-linux-current || true
-sudo zfs destroy -r rpool@update-linux-current || true
-sudo zfs snapshot -r bpool@update-linux-current
-sudo zfs snapshot -r rpool@update-linux-current
+# Get latest dotfiles
+chezmoi update
 
 # Do updating
 flatpak update -y
@@ -19,16 +13,4 @@ sudo apt update
 sudo apt upgrade -y
 brew update
 brew upgrade
-sudo snap refresh
-
-# Clean oldest snapshot
-sudo zfs destroy -r bpool@update-linux-1 || true
-sudo zfs destroy -r rpool@update-linux-1 || true
-
-# Move last snapshot to oldest
-sudo zfs rename -r bpool@update-linux-0 @update-linux-1 || true
-sudo zfs rename -r rpool@update-linux-0 @update-linux-1 || true
-
-# Move current to persisted snapshot
-sudo zfs rename -r bpool@update-linux-current @update-linux-0
-sudo zfs rename -r rpool@update-linux-current @update-linux-0
+#sudo snap refresh

@@ -1,0 +1,8 @@
+{{ if and (eq .chezmoi.os "linux") (contains "debian" (get .chezmoi.osRelease "idLike")) | not -}}
+echo "Skipping on {{get .chezmoi.osRelease "idLike"}}"
+exit 0
+{{ end }}
+{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
+echo "Skipping on codespace"
+exit 0
+{{ end }}

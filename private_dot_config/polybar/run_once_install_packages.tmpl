@@ -8,6 +8,7 @@ set -e
 python3 -m venv ~/.venv-polybar
 
 # # blinkstick to control notifications light on desk
+~/.venv-polybar/bin/pip install pyusb libusb
 ~/.venv-polybar/bin/pip install BlinkStick
 ~/.venv-polybar/bin/pip install dbus-python
 ~/.venv-polybar/bin/pip install givenergy-modbus==0.10.1

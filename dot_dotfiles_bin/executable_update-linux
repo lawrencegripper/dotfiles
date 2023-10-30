@@ -2,6 +2,8 @@
 
 set -e
 
+sudo timeshift --create --comments "before exec update-linux" --tags W
+
 # Get latest dotfiles
 chezmoi update
 
@@ -11,4 +13,4 @@ sudo apt update
 sudo apt upgrade -y
 brew update
 brew upgrade
-sudo snap refresh
+#sudo snap refresh

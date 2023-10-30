@@ -2,12 +2,7 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") | not -}}
-exit 0
-{{ end }}
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-exit 0
-{{ end }}
+{{ template "skip-unless-local-debian.tmpl" . }}
 
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list

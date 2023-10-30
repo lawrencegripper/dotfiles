@@ -2,12 +2,7 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "debian") | not -}}
-exit 0
-{{ end }}
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-exit 0
-{{ end }}
+{{ template "skip-unless-local-debian.tmpl" . }}
 
 
 sudo apt-get install wget gpg

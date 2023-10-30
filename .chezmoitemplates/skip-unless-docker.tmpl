@@ -1,0 +1,4 @@
+{{ if lookPath "docker" | not }}
+echo "Skipping no docker"
+exit 0
+{{ end }}

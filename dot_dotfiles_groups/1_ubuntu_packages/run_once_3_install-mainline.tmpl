@@ -2,12 +2,7 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
-exit 0
-{{ end }}
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-exit 0
-{{ end }}
+{{ template "skip-unless-local-debian.tmpl" . }}
 
 sudo add-apt-repository ppa:cappelikan/ppa
 sudo apt update

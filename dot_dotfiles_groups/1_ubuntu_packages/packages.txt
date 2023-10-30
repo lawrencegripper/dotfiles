@@ -47,7 +47,7 @@ gnupg
 #virualisation
 gnome-boxes
 virt-manager
-qemu-kvm
+qemu-system-x86
 libvirt-daemon-system
 
 ruby
@@ -79,3 +79,15 @@ birdtray
 
 # moonlander https://github.com/zsa/wally/wiki/Linux-install
 libusb-1.0-0-dev
+
+# isolate appimage and other progams
+firejail
+
+# Used for pythong clis
+pipx 
+
+# video things
+v4l2loopback-dkms
+
+# backup snapshots
+timeshift

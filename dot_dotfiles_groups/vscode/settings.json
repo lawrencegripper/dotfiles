@@ -188,4 +188,5 @@
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
+    "simplecov-vscode.enabled": false,
 }

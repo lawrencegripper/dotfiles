@@ -2,12 +2,7 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "id") "ubuntu") | not}}
-exit 0
-{{ end }}
-{{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
-exit 0
-{{ end }}
+{{ template "skip-unless-local-debian.tmpl" . }}
 
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/docker.gpg

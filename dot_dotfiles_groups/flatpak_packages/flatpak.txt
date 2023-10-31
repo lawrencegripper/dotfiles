@@ -31,3 +31,5 @@ org.kde.kalk
 com.discordapp.Discord
 # Element matrix client
 im.riot.Riot
+
+com.slack.Slack

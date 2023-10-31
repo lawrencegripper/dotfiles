@@ -7,6 +7,7 @@ export DEBIAN_FRONTEND=noninteractive
 # workaround for bug https://github.com/evilsocket/opensnitch/issues/647
 # no longer needed in 23.04
 
-wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.0/opensnitch_1.6.0.1-1_amd64.deb
-wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.0/python3-opensnitch-ui_1.6.0.1-1_all.deb
+wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.2/opensnitch_1.6.2-1_amd64.deb
+wget https://github.com/evilsocket/opensnitch/releases/download/v1.6.3/python3-opensnitch-ui_1.6.3-1_all.deb
 sudo apt install ./opensnitch*.deb ./python3-opensnitch-ui*.deb
+pip3 install --ignore-installed grpcio==1.44.0

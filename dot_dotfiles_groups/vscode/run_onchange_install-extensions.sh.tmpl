@@ -42,7 +42,7 @@ extensions=(
   echo "Skipping VSCode config as in codespaces"
 
 {{- else }}
-  
+  echo "Install vscode extensions"
   for ext in "${extensions[@]}"
   do
     code --install-extension $ext

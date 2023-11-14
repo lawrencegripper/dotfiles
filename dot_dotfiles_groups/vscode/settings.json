@@ -53,7 +53,9 @@
         "aaron-bond.better-comments",
         "adpyke.codesnap",
         "GitHub.copilot-chat@prerelease",
-        "GitHub.copilot-nightly"
+        "GitHub.copilot-nightly",
+        "SangsooNam.vscode-extension-quick-grep",
+        "anykeyh.simplecov-vscode"
     ],
     "dev.containers.defaultExtensions": [
         "davidlday.languagetool-linter",
@@ -69,7 +71,8 @@
         "aaron-bond.better-comments",
         "adpyke.codesnap",
         "GitHub.copilot-chat@prerelease",
-        "GitHub.copilot-nightly"
+        "GitHub.copilot-nightly",
+        "SangsooNam.vscode-extension-quick-grep"
     ],
     "editor.fontFamily": "FiraCode Nerd Font Mono",
     "editor.fontLigatures": true,
@@ -189,4 +192,6 @@
     "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
     "simplecov-vscode.enabled": false,
+    "quickgrep.preview": true,
+    "quickgrep.grep": "Ripgrep"
 }

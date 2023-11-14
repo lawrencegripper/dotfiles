@@ -43,6 +43,7 @@ zsh
 gpg
 apt-transport-https
 gnupg
+ripgrep
 
 #virualisation
 gnome-boxes
@@ -52,6 +53,7 @@ libvirt-daemon-system
 
 ruby
 python3-pip
+python3-venv
 build-essential
 cmake
 libpython3-dev

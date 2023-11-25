@@ -10,13 +10,15 @@ from typing import Any
 from dataclasses import dataclass
 import json
 from typing import List
+from difflib import SequenceMatcher
+import arrow
 
 md_iid = '2.0'
 md_version = '1.0'
 md_name = 'Codespaces'
 md_description = 'Find and lauch your codespaces'
 md_url = 'https://github.com/lawrencegripper/dotfiles'
-md_lib_dependencies = []
+md_lib_dependencies = ['arrow']
 
 
 @dataclass
@@ -69,29 +71,38 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                                      id=md_id,
                                      name=md_name,
                                      description=md_description,
-                                     synopsis="<query>",
-                                     defaultTrigger='cs ')
+                                     synopsis="<codespace name, branch or repo>",
+                                     defaultTrigger='cs ',
+                                     supportsFuzzyMatching=True)
         PluginInstance.__init__(self, extensions=[self])
         self.iconUrls = [f"file:{Path(__file__).parent}/codespace.svg"]
 
     def handleTriggerQuery(self, query):
 
+        ranked_items: List[RankItem] = []
         stripped = query.string.strip()
-        if stripped:
 
-            # dont flood
-            for number in range(25):
-                sleep(0.01)
-                if not query.isValid:
-                    return
-
-            for c in get_codespaces():
-                query.add(
+        for c in get_codespaces():
+            full_type = c.repository+c.gitStatus.ref+c.name
+            has_uncommitted_changes = '💡' if c.gitStatus.hasUncommittedChanges else ' '
+            last_used_at = arrow.get(c.lastUsedAt).humanize()
+            score = SequenceMatcher(None, stripped, full_type).ratio()
+            ranked_items.append(
+                RankItem(
                     StandardItem(
                         id=md_id,
-                        text=c.repository,
-                        subtext=c.name,
+                        text=f'{c.repository} {c.gitStatus.ref} {has_uncommitted_changes}',
+                        subtext=f'{c.name} {last_used_at}',
                         iconUrls=self.iconUrls,
-                        actions=[Action("open", "Open link", lambda n=c.name: runDetachedProcess(['codespace-launch', n]))]
-                    )
+                        actions=[
+                            Action("open", "Open", lambda n=c.name: runDetachedProcess(['codespace-launch', n])),
+                            Action("ssh", "SSH", lambda n=c.name: runTerminal(f'gh codespace ssh --codespace {n}')),
+                            Action("delete", "Delete", lambda n=c.name: runTerminal(f'gh codespace delete --codespace {n}', close_on_exit=True)),
+                        ]
+                    ),
+                    score
                 )
+            )
+        ranked_items.sort(key=lambda x: x.score, reverse=True)
+        for i in map(lambda x: x.item, ranked_items):
+            query.add(i)

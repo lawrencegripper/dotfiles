@@ -168,13 +168,14 @@
     "githubPullRequests.pullBranch": "never",
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
     // "editor.formatOnSave": true,
     // "editor.formatOnSaveMode": "file",
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
     },
+    "python.analysis.typeCheckingMode": "basic",
     "editor.stickyScroll.enabled": true,
     "git.openRepositoryInParentFolders": "always",
     "indentRainbow.colors": [

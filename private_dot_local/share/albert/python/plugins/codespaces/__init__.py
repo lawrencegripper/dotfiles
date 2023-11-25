@@ -92,6 +92,6 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         text=c.repository,
                         subtext=c.name,
                         iconUrls=self.iconUrls,
-                        actions=[Action("open", "Open link", lambda u=c.name: runDetachedProcess('codespace-launch', u))]
+                        actions=[Action("open", "Open link", lambda n=c.name: runDetachedProcess(['codespace-launch', n]))]
                     )
                 )

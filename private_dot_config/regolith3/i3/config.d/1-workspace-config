@@ -17,6 +17,7 @@ exec --no-startup-id ~/.config/regolith2/i3/scripts/alternating_layouts.py
 # Auto start appliations
 assign [class="element"] "$ws1"
 exec --no-startup-id flatpak run im.riot.Riot --no-sandbox
+exec --no-startup-id flatpak net.hovancik.Stretchly --no-sandbox
 
 assign [class="Morgen"] "$ws2"
 exec --no-startup-id morgen --no-sandbox
@@ -28,7 +29,7 @@ exec --no-startup-id thunderbird
 assign [class="firefox"] "$ws6"
 exec --no-startup-id firefox
 
-exec --no-startup-id workrave --no-sandbox
+#exec --no-startup-id workrave --no-sandbox
 exec --no-startup-id 1password --no-sandbox
 
 # assign [class="kitty"] "$ws10"

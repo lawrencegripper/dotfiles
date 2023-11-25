@@ -1,6 +1,6 @@
 wm.bar.mode: hide
 wm.bar.trayoutput: false
-wm.program.launcher.app: /usr/bin/albert toggle
+wm.binding.launcher.app: i
 wm.program.notification_ui: ilia -p notifications
 wm.binding.notification_ui: n
 

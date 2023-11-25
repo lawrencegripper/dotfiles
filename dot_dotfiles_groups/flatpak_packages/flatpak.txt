@@ -33,3 +33,4 @@ com.discordapp.Discord
 im.riot.Riot
 
 com.slack.Slack
+io.missioncenter.MissionCenter

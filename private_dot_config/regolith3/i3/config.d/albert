@@ -1,0 +1,2 @@
+# albert launcher
+exec --no-startup-id /usr/bin/albert

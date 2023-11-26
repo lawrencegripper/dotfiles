@@ -17,9 +17,12 @@ md_lib_dependencies = []
 
 
 def get_recent_workspaces() -> List[str]:
-    command: str = '''grep -h -r -s --only-matching -e '"vscode[-remote]*:.*"' -e '"file:///.*"' ~/.config/Code\ -\ Insiders/User/workspaceStorage'''
+    command: str = '''grep -h -r -s --only-matching -e '"vscode[-remote]*:.*"' -e '"file:///.*"' ~/.config/Code*/User/workspaceStorage'''
     response = subprocess.run(command, executable="/bin/bash", capture_output=True, shell=True)
-    return list(map(lambda x: x.replace('"', '', -1), response.stdout.decode('utf-8').splitlines()))
+    entries = response.stdout.decode('utf-8').splitlines()
+    entries = list(map(lambda x: x.replace('"', '', -1), entries))
+    entries.reverse()
+    return entries
 
 def score(query: TriggerQuery, item: Item) -> float:
     return SequenceMatcher(None, item.text.lower(), query.string.lower()).ratio()

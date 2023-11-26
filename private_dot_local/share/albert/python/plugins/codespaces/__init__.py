@@ -5,7 +5,6 @@ Inline codespace launcher.
 from albert import *
 import subprocess
 from pathlib import Path
-from time import sleep
 from typing import Any
 from dataclasses import dataclass
 import json
@@ -86,7 +85,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
             full_type = c.repository+c.gitStatus.ref+c.name
             has_uncommitted_changes = '💡' if c.gitStatus.hasUncommittedChanges else ' '
             last_used_at = arrow.get(c.lastUsedAt).humanize()
-            score = SequenceMatcher(None, stripped, full_type).ratio()
+            score = SequenceMatcher(None, stripped.lower(), full_type.lower()).ratio()
             ranked_items.append(
                 RankItem(
                     StandardItem(

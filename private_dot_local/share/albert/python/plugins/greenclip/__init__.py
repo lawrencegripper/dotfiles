@@ -21,6 +21,10 @@ def get_clipboard_history() -> List[str]:
     response = subprocess.run(command.split(' '), capture_output=True)
     return response.stdout.decode('utf-8').splitlines()
 
+
+def score(query: TriggerQuery, item: Item) -> float:
+    return SequenceMatcher(None, item.text.lower(), query.string.lower()).ratio()
+
 class Plugin(PluginInstance, TriggerQueryHandler):
 
     def __init__(self):
@@ -35,14 +39,12 @@ class Plugin(PluginInstance, TriggerQueryHandler):
         self.iconUrls = [f"file:{Path(__file__).parent}/clipboard.svg"]
 
     def handleTriggerQuery(self, query):
-        ranked_items: List[RankItem] = []
+        items: List[Item] = []
         stripped = query.string.strip()
 
         for clip in get_clipboard_history():
-            score = SequenceMatcher(None, stripped, clip).ratio()
-            ranked_items.append(
-                RankItem(
-                    StandardItem(
+            items.append(
+                StandardItem(
                         id=md_id,
                         text=clip,
                         iconUrls=self.iconUrls,
@@ -51,10 +53,8 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                             Action("set", "Set Clipboard", lambda c=clip: setClipboardText(c)),
                             Action("clearhistory", "Clear History", lambda: runTerminal(f'greenclip clear', close_on_exit=True)),
                         ]
-                    ),
-                    score
                 )
             )
-        ranked_items.sort(key=lambda x: x.score, reverse=True)
-        for i in map(lambda x: x.item, ranked_items):
+        items.sort(key=lambda i: score(query, i), reverse=True)
+        for i in items:
             query.add(i)

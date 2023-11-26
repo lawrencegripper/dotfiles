@@ -36,7 +36,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                                      name=md_name,
                                      description=md_description,
                                      synopsis="<workspace name>",
-                                     defaultTrigger='vscode ',
+                                     defaultTrigger='vsc ',
                                      supportsFuzzyMatching=True)
         PluginInstance.__init__(self, extensions=[self])
         self.iconUrls = [f"file:{Path(__file__).parent}/code.svg"]

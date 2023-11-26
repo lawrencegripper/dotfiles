@@ -33,7 +33,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                                      name=md_name,
                                      description=md_description,
                                      synopsis="<text in clipboard>",
-                                     defaultTrigger='cl ',
+                                     defaultTrigger='gc ',
                                      supportsFuzzyMatching=True)
         PluginInstance.__init__(self, extensions=[self])
         self.iconUrls = [f"file:{Path(__file__).parent}/clipboard.svg"]

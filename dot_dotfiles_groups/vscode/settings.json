@@ -123,7 +123,7 @@
         "editor.autoClosingBrackets": "never",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit"
         },
         "editor.suggest.snippetsPreventQuickSuggestions": false
     },
@@ -193,6 +193,6 @@
     "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
     "simplecov-vscode.enabled": false,
-    "quickgrep.preview": true,
+    "quickgrep.preview": false,
     "quickgrep.grep": "Ripgrep"
 }

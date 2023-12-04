@@ -10,16 +10,18 @@ from difflib import SequenceMatcher
 
 md_iid = '2.0'
 md_version = '1.0'
-md_name = 'GreenClip'
-md_description = 'Clipboard history for greenclip'
+md_name = 'Atuin'
+md_description = 'Search and run command from atuin history'
 md_url = 'https://github.com/lawrencegripper/dotfiles'
 md_lib_dependencies = []
 
 
-def get_clipboard_history() -> List[str]:
-    command: str = "greenclip print"
-    response = subprocess.run(command.split(' '), capture_output=True)
-    return response.stdout.decode('utf-8').splitlines()
+def get_command_history(query: str) -> List[str]:
+    command: str = f'atuin search --limit 10 --cmd-only "{query}"'
+    response = subprocess.run(command, executable="/bin/bash", capture_output=True, shell=True)
+    response = response.stdout.decode('utf-8').splitlines()
+    response.reverse
+    return response
 
 
 def score(query: TriggerQuery, item: Item) -> float:
@@ -32,28 +34,25 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                                      id=md_id,
                                      name=md_name,
                                      description=md_description,
-                                     synopsis="<text in clipboard>",
-                                     defaultTrigger='gc ',
-                                     supportsFuzzyMatching=True)
+                                     synopsis="<command from history>",
+                                     defaultTrigger='ch ')
         PluginInstance.__init__(self, extensions=[self])
-        self.iconUrls = [f"file:{Path(__file__).parent}/clipboard.svg"]
+        self.iconUrls = [f"file:{Path(__file__).parent}/bash.svg"]
 
     def handleTriggerQuery(self, query):
         items: List[Item] = []
         stripped = query.string.strip()
 
-        for clip in get_clipboard_history():
-            # Greenclip uses nonbreaking space for newline in output
-            clip = clip.replace(" ", "\n")
+        for command in get_command_history(stripped):
             items.append(
                 StandardItem(
                         id=md_id,
-                        text=clip,
+                        text=command,
                         iconUrls=self.iconUrls,
                         actions=[
-                            Action("paste", "Paste", lambda c=clip: setClipboardTextAndPaste(c)),
-                            Action("set", "Set Clipboard", lambda c=clip: setClipboardText(c)),
-                            Action("clearhistory", "Clear History", lambda: runTerminal(f'greenclip clear', close_on_exit=True)),
+                            Action("ssh", "SSH", lambda n=command: runTerminal(f'gh codespace ssh --codespace {n}')),
+                            Action("paste", "Paste", lambda c=command: setClipboardTextAndPaste(c)),
+                            Action("set", "Set Clipboard", lambda c=command: setClipboardText(c)),
                         ]
                 )
             )

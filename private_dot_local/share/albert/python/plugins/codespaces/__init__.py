@@ -2,6 +2,7 @@
 Inline codespace launcher.
 """
 
+from time import sleep
 from albert import *
 import subprocess
 from pathlib import Path
@@ -61,6 +62,7 @@ def get_codespaces() -> List[Codespace]:
     codespace_list: List[Codespace] = []
     for c in codespaces:
         codespace_list.append(Codespace.from_dict(c))
+    codespace_list.reverse()
     return codespace_list
 
 class Plugin(PluginInstance, TriggerQueryHandler):
@@ -71,7 +73,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                                      name=md_name,
                                      description=md_description,
                                      synopsis="<codespace name, branch or repo>",
-                                     defaultTrigger='cs ',
+                                     defaultTrigger='cs',
                                      supportsFuzzyMatching=True)
         PluginInstance.__init__(self, extensions=[self])
         self.iconUrls = [f"file:{Path(__file__).parent}/codespace.svg"]
@@ -80,6 +82,12 @@ class Plugin(PluginInstance, TriggerQueryHandler):
 
         ranked_items: List[RankItem] = []
         stripped = query.string.strip()
+
+        # avoid rate limiting
+        for _ in range(50):
+            sleep(0.01)
+            if not query.isValid:
+                return
 
         for c in get_codespaces():
             full_type = c.repository+c.gitStatus.ref+c.name

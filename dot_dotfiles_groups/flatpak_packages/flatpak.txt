@@ -10,7 +10,8 @@ org.gnome.Boxes
 # video editor
 org.pitivi.Pitivi
 
-us.zoom.Zoom
+# Flatpak install has graphics issue, moved to deb for a bit
+#us.zoom.Zoom
 
 # apple music player
 #edge browser

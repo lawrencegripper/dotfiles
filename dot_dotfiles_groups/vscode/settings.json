@@ -194,5 +194,6 @@
     "githubPullRequests.createOnPublishBranch": "never",
     "simplecov-vscode.enabled": false,
     "quickgrep.preview": false,
-    "quickgrep.grep": "Ripgrep"
+    "quickgrep.grep": "Ripgrep",
+    "remote.SSH.connectTimeout": 360
 }

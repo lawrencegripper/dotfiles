@@ -14,3 +14,7 @@ sudo apt upgrade -y
 brew update
 brew upgrade
 #sudo snap refresh
+
+# Todo: add optional fwupdmgr command based on "would you like to check and update firmware too? y/n" prompt
+
+echo "Update completed!"

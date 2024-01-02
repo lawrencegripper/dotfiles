@@ -36,4 +36,7 @@ im.riot.Riot
 com.slack.Slack
 io.missioncenter.MissionCenter
 # scren recorder
-flathub sa.sy.bluerecorder
+sa.sy.bluerecorder
+
+# Notes and journaling
+com.logseq.Logseq

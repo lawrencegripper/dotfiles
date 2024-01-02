@@ -74,7 +74,7 @@
         "GitHub.copilot-nightly",
         "SangsooNam.vscode-extension-quick-grep"
     ],
-    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.fontFamily": "'Monaspace Neon', monospace",
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
     "terminal.integrated.fontSize": 16,

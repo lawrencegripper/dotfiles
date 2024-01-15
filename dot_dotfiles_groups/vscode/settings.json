@@ -28,7 +28,7 @@
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "workbench.sideBar.location": "right",
-    "languageToolLinter.external.url": "http://localhost:8081",
+    "languageToolLinter.external.url": "http://localhost:8123",
     "languageToolLinter.serviceType": "external",
     "languageToolLinter.languageTool.language": "en-GB",
     "languageToolLinter.languageTool.motherTongue": "en-GB",

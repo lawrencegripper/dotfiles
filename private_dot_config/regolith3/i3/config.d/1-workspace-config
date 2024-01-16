@@ -29,6 +29,9 @@ exec --no-startup-id thunderbird
 assign [class="firefox"] "$ws6"
 exec --no-startup-id firefox
 
+assign [class="logseq"] "$ws9"
+exec --no-startup-id flatpak run com.logseq.Logseq --no-sandbox
+
 #exec --no-startup-id workrave --no-sandbox
 exec --no-startup-id 1password --no-sandbox
 

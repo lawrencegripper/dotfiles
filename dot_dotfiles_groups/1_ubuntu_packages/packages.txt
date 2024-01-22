@@ -50,6 +50,7 @@ gnome-boxes
 virt-manager
 qemu-system-x86
 libvirt-daemon-system
+qemu-efi
 
 ruby
 python3-pip

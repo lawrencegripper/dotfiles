@@ -33,7 +33,7 @@ com.discordapp.Discord
 # Element matrix client
 im.riot.Riot
 
-com.slack.Slack
+# com.slack.Slack favour the deb installer
 io.missioncenter.MissionCenter
 # scren recorder
 sa.sy.bluerecorder

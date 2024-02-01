@@ -23,7 +23,12 @@
         wip = work-in-progress
         s = status
         ss = staged
-        
+        lc = last-commit
+        lcc = last-commit-clipboard
+        last-commit = git rev-parse head
+        last-commit-clipboard = git rev-parse head | xclip -selection clipboard
+        # Checkout all my branches (lg/*) locally (this can then be used with gh poi to clean up merged ones)
+        checkout-mine = git branch -r | grep lg/ | sed 's-origin/--' | xargs -I {} git checkout -b {} origin/{} 
         # Commit amending to last commit with same msg
         commit-amend-no-edit = commit --amend --no-edit
         # Show staged diff

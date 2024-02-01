@@ -94,3 +94,7 @@ v4l2loopback-dkms
 
 # backup snapshots
 timeshift
+
+# cargo deps for coreos-installer
+libzstd-dev
+libssl-dev

@@ -4,6 +4,6 @@ NAME=$1
 echo "Opening codespace $NAME"
 gh cs code --codespace $NAME --insiders
 # Copy auth details for atuin
-gh cs cp --codespace $NAME -e ~/.config/atuin_login 'remote:./.config/.atuin_login'
+gh cs cp --codespace $NAME -e ~/.config/atuin_login 'remote:/workspaces/.atuin_login'
 #                                                                                  atuin server               languagetool grammer/spellcheck
 kitty bash -c "export TERM=xterm-256color; gh codespace ssh --codespace $NAME -- -R 3123:100.102.135.78:80 -R 8123:localhost:8123"

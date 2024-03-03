@@ -1,8 +1,9 @@
-{{ template "skip-unless-local-debian.tmpl" . }}
-
 #!/bin/bash
 
-atuin login -u {{ onepasswordRead "op://Personal/Atuin/username" .onePasswordAccount }} \
- -p {{ onepasswordRead "op://Personal/Atuin/password" .onePasswordAccount }} \
- --key "{{ onepasswordRead "op://Personal/Atuin/key" .onePasswordAccount }}"
-
+{{- if eq (env "CODESPACES") "true" }}
+    echo "Will be replaced by codespace-execute"
+{{ else }}
+    atuin login -u {{ onepasswordRead "op://Personal/Atuin/username" .onePasswordAccount }} \
+    -p {{ onepasswordRead "op://Personal/Atuin/password" .onePasswordAccount }} \
+    --key "{{ onepasswordRead "op://Personal/Atuin/key" .onePasswordAccount }}"
+{{ end }}

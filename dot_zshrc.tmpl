@@ -55,8 +55,8 @@ source ~/.scratch_venv/bin/activate
 if type "atuin" > /dev/null; then
   {{- if eq (env "CODESPACES") "true" }}
     # Configures hostname and user for synced commands
-    ATUIN_HOST_NAME="codespace/$GITHUB_REPOSITORY"
-    ATUIN_HOST_USER=$GITHUB_USER
+    export ATUIN_HOST_NAME="codespace/$GITHUB_REPOSITORY"
+    export ATUIN_HOST_USER=$GITHUB_USER
     if (curl -s -o /dev/null --max-time 2 "http://localhost:3123"); then
       atuin status > /dev/null || /workspaces/.atuin_login
     else

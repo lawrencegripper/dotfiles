@@ -1,3 +1,5 @@
+{{ template "skip-unless-local-debian.tmpl" . }}
+
 #!/bin/bash
 
 atuin login -u {{ onepasswordRead "op://Personal/Atuin/username" .onePasswordAccount }} \

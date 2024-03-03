@@ -4,7 +4,6 @@ NAME=$1
 echo "Opening codespace $NAME"
 gh cs code --codespace $NAME --insiders
 # Copy auth details for atuin
-gh cs cp --codespace $NAME -e ~/.local/share/atuin/session 'remote:/workspaces/atuin_session'
-gh cs cp --codespace $NAME -e ~/.local/share/atuin/key 'remote:/workspaces/atuin_key'
+gh cs cp --codespace $NAME "/home/linuxbrew/.linuxbrew/bin/atuin login -u $(op read "op://Personal/Atuin/username") -p $(op read "op://Personal/Atuin/password") --key '$(op read "op://Personal/Atuin/key")'"
 #                                                                                  atuin server               languagetool grammer/spellcheck
 kitty bash -c "export TERM=xterm-256color; gh codespace ssh --codespace $NAME -- -R 3123:100.102.135.78:80 -R 8123:localhost:8123"

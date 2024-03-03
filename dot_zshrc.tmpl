@@ -57,7 +57,7 @@ if type "atuin" > /dev/null; then
     # Configures hostname and user for synced commands
     ATUIN_HOST_NAME="codespace/$GITHUB_REPOSITORY"
     ATUIN_HOST_USER=$GITHUB_USER
-    if (curl -s -o /dev/null --max-time 2 "http://atuin-api.unicorn-tailor.ts.net"); then
+    if (curl -s -o /dev/null --max-time 2 "http://localhost:3123"); then
       atuin status > /dev/null || /workspaces/.atuin_login
     else
       echo "Atuin sync server timed out";

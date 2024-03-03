@@ -54,7 +54,8 @@ source ~/.scratch_venv/bin/activate
 # Configure atuin if it's installed
 if type "atuin" > /dev/null; then
   {{- if eq (env "CODESPACES") "true" }}
-  # Skipped login
+  # Login
+  bash ~/.atuinrc
   # Configures hostname and user for synced commands
   ATUIN_HOST_NAME="codespace/$GITHUB_REPOSITORY"
   ATUIN_HOST_USER=$GITHUB_USER

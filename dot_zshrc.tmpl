@@ -41,7 +41,7 @@ fi
 if [[ ! -d ~/.scratch_venv ]]; then
   python3 -m venv ~/.scratch_venv
 fi
-source ~/.scratch_venv/bin/activate
+source ~/.scratch_venv/bin/activate > /dev/null
 
 # Add aliases 
 [ -f ~/.aliases ] && source ~/.aliases

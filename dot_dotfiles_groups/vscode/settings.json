@@ -1,4 +1,13 @@
 {
+    "files.associations": {
+        "*.hujson": "jsonc"
+    },
+    "json.schemas": [{
+        "fileMatch": ["*.hujson"],
+        "schema": {
+            "allowTrailingCommas": true
+        }
+    }],
     "terminal.integrated.profiles.linux": {
         "zsh": {
             "path": "zsh"

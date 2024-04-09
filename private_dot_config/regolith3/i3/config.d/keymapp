@@ -1,4 +1,4 @@
-for_window [class="Keymapp"] floating enable
-for_window [class="Keymapp"] sticky enable
-for_window [class="Keymapp"] move position 6270 px 1550 px
-exec --no-startup-id ~/bin/keymapp
+# for_window [class="Keymapp"] floating enable
+# for_window [class="Keymapp"] sticky enable
+# for_window [class="Keymapp"] move position 6270 px 1550 px
+# exec --no-startup-id ~/bin/keymapp

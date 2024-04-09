@@ -40,3 +40,6 @@ sa.sy.bluerecorder
 
 # Notes and journaling
 com.logseq.Logseq
+
+# Paint.net replacement
+com.github.PintaProject.Pinta

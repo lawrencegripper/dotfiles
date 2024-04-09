@@ -6,7 +6,7 @@ github-cli
 kitty
 
 # Desktop bits
-pinta
+#pinta
 xclip
 peek
 handbrake

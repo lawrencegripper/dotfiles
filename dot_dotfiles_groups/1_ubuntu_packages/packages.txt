@@ -78,7 +78,11 @@ polybar
 cpufrequtils
 
 # thunderbird tray manager
-birdtray
+# birdtray
+
+# Moved to evlution
+evolution
+evolution-ews
 
 # moonlander https://github.com/zsa/wally/wiki/Linux-install
 libusb-1.0-0-dev

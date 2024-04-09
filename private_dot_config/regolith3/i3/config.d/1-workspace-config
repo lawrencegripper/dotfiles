@@ -10,7 +10,7 @@ workspace "$ws8" output DisplayPort-3
 workspace "$ws9" output DisplayPort-3
 workspace "$ws10" output DisplayPort-3
 
-
+# REM: Find a window class by doing `xprop`
 # i3 layout alternating
 exec --no-startup-id ~/.config/regolith2/i3/scripts/alternating_layouts.py
 
@@ -22,9 +22,8 @@ exec --no-startup-id flatpak run net.hovancik.Stretchly --no-sandbox
 assign [class="Morgen"] "$ws2"
 exec --no-startup-id morgen --no-sandbox
 
-assign [class="thunderbird"] "$ws4"
-exec --no-startup-id birdtray
-exec --no-startup-id thunderbird
+assign [class="evolution"] "$ws4"
+exec --no-startup-id evolution
 
 assign [class="firefox"] "$ws6"
 exec --no-startup-id firefox

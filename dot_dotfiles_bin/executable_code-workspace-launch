@@ -1,0 +1,6 @@
+#!/bin/bash
+
+folder=$1
+
+echo "Opening local $folder"
+code-insiders --folder-uri $folder

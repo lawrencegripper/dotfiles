@@ -51,7 +51,7 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         text=workspace_uri,
                         iconUrls=self.iconUrls,
                         actions=[
-                            Action("open", "Open", lambda w=workspace_uri: runDetachedProcess(['code-insiders', '--folder-uri', w])),
+                            Action("open", "Open", lambda w=workspace_uri: runDetachedProcess(['code-workspace-launch', w])),
                         ]
                 )
             )

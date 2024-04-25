@@ -3,4 +3,4 @@
 folder=$1
 
 echo "Opening local $folder"
-code-insiders --folder-uri $folder
+SSH_AUTH_SOCK=/home/lawrencegripper/.1password/agent.sock code-insiders --folder-uri $folder

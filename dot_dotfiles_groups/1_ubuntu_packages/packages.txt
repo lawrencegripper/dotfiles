@@ -102,3 +102,7 @@ timeshift
 # cargo deps for coreos-installer
 libzstd-dev
 libssl-dev
+
+# yubikey pam 
+libpam-yubico
+libpam-u2f

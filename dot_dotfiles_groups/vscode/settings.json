@@ -165,8 +165,6 @@
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
-        "everythying",
-        "occurrance"
     ],
     "go.toolsManagement.autoUpdate": true,
     "workbench.startupEditor": "none",

@@ -25,7 +25,6 @@ right_format = """
 [
 $kubernetes\
 $cmd_duration\
-$sudo\
 $status\
 $time\
 ](fg:#a0a9cb bg:#1d2230)

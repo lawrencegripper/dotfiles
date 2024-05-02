@@ -1,0 +1,2 @@
+# flameshot
+bindsym $mod+Print exec flatpak run org.flameshot.Flameshot gui

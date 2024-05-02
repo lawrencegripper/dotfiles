@@ -1,0 +1,3 @@
+# Greenclip
+bindsym $mod+Shift+v exec rofi -modi "clipboard:greenclip print" -show clipboard
+exec --no-startup-id greenclip daemon

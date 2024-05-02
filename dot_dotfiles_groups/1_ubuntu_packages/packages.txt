@@ -106,3 +106,11 @@ libssl-dev
 # yubikey pam 
 libpam-yubico
 libpam-u2f
+
+flameshot
+# see https://github.com/regolith-linux/regolith-desktop/issues/920
+slurp 
+# see https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
+grim 
+# make qt waylayd https://stackoverflow.com/questions/69994530/qt-qpa-plugin-could-not-find-the-qt-platform-plugin-wayland
+qtwayland5

@@ -43,3 +43,4 @@ com.logseq.Logseq
 
 # Paint.net replacement
 com.github.PintaProject.Pinta
+

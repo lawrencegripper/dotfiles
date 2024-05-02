@@ -34,8 +34,8 @@ exec --no-startup-id 1password --no-sandbox
 exec --no-startup-id kitty --no-sandbox
 
 # # Setup layouts for coding workspaces to have terminal and editor tabbed
-# for_window [workspace="$ws7"] layout tabbed
-# for_window [workspace="$ws8"] layout tabbed
+for_window [workspace="7 code"] layout tabbed
+for_window [workspace="8 code"] layout tabbed
 
 # Jump to window when it takes focus
 focus_on_window_activation focus

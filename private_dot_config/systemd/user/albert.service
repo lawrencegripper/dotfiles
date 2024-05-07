@@ -1,0 +1,11 @@
+[Unit]
+Description=Albert launcher
+Documentation=https://github.com/albertlauncher/albert
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/albert
+
+[Install]
+WantedBy=sway-session.target

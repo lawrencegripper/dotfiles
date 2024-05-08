@@ -1,0 +1,10 @@
+[Unit]
+Description=Flameshot
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/flameshot
+
+[Install]
+WantedBy=sway-session.target

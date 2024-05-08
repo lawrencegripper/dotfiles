@@ -1,0 +1,2 @@
+# Launch albert
+bindsym $mod+space exec albert toggle

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# TODO: Make this templated and find the service files in the directory
+
+echo "Restarting user systemd services"
+
+systemctl --user daemon-reload
+
+# Find all .service files in the directory
+
+{{ $services := glob (printf "%s/private_dot_config/systemd/user/*.service" .chezmoi.sourceDir) }}
+
+# Enable and restart each service
+{{ range $services }}
+
+systemctl --user enable {{ base . }}
+systemctl --user restart {{ base . }}
+
+{{ end }}

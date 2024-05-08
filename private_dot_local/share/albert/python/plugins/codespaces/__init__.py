@@ -53,9 +53,8 @@ class Codespace:
         _repository = str(obj.get("repository"))
         return Codespace(_gitStatus, _lastUsedAt, _name, _repository)
 
-
 def get_codespaces() -> List[Codespace]:
-    command: str = "gh codespace list --json name,gitStatus,lastUsedAt,repository"
+    command: str = "/home/linuxbrew/.linuxbrew/bin/gh codespace list --json name,gitStatus,lastUsedAt,repository"
     response = subprocess.run(command.split(' '), capture_output=True)
     codespaces: List[dict] = json.loads(response.stdout)
 

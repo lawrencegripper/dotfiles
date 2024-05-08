@@ -45,13 +45,14 @@ class Plugin(PluginInstance, TriggerQueryHandler):
         items: List[Item] = []
 
         for workspace_uri in get_recent_workspaces():
+            file_path = workspace_uri.replace('file://', '', -1)
             items.append(
                 StandardItem(
                         id=md_id,
                         text=workspace_uri,
                         iconUrls=self.iconUrls,
                         actions=[
-                            Action("open", "Open", lambda w=workspace_uri: runDetachedProcess(['code-workspace-launch', w])),
+                            Action("open", "Open", lambda w=workspace_uri, f=file_path: runTerminal('~/.dotfiles_bin/code-workspace-launch ' + w + ' && cd ' + f, close_on_exit=False)),
                         ]
                 )
             )

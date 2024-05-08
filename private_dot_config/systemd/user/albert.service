@@ -6,6 +6,7 @@ PartOf=graphical-session.target
 [Service]
 Type=simple
 ExecStart=/bin/bash -c /usr/bin/albert
+WorkingDirectory=/home/lawrencegripper
 
 [Install]
 WantedBy=sway-session.target

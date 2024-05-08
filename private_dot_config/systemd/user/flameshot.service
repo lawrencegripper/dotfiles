@@ -4,6 +4,8 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
+# Wait for the system tray to be ready
+ExecStartPre=/bin/sleep 30
 ExecStart=/usr/bin/flameshot
 
 [Install]

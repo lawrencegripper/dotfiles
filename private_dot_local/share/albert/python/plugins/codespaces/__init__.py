@@ -101,9 +101,9 @@ class Plugin(PluginInstance, TriggerQueryHandler):
                         subtext=f'{c.name} {last_used_at}',
                         iconUrls=self.iconUrls,
                         actions=[
-                            Action("open", "Open", lambda n=c.name: runDetachedProcess(['codespace-launch', n])),
-                            Action("ssh", "SSH", lambda n=c.name: runTerminal(f'gh codespace ssh --codespace {n}')),
-                            Action("delete", "Delete", lambda n=c.name: runTerminal(f'gh codespace delete --codespace {n}', close_on_exit=True)),
+                            Action("open", "Open", lambda n=c.name: runDetachedProcess(['/home/lawrencegripper/.dotfiles_bin/codespace-launch', n])),
+                            Action("ssh", "SSH", lambda n=c.name: runTerminal(f'/home/linuxbrew/.linuxbrew/bin/gh codespace ssh --codespace {n}')),
+                            Action("delete", "Delete", lambda n=c.name: runTerminal(f'/home/linuxbrew/.linuxbrew/bin/gh codespace delete --codespace {n}', close_on_exit=True)),
                         ]
                     ),
                     score

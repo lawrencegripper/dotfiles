@@ -1,0 +1,13 @@
+[Unit]
+Description=Dark mode hack
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 30
+ExecStart=/bin/bash -c gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+ExecStart=/bin/bash -c gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+
+[Install]
+WantedBy=sway-session.target

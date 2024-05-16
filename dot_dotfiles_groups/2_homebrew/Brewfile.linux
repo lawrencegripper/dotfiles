@@ -10,3 +10,6 @@ brew "atuin"
 brew "chezmoi"
 brew "stuartleeks/tap/devcontainer"
 brew "lawrencegripper/tap/azbrowse"
+
+# ollama
+brew "ollama"

@@ -115,18 +115,22 @@
     //     "apiVersion": 2,
     //     "showGlobalVariables": true
     // },
-    "go.testFlags": [
-        "-v"
-    ],
+    // "go.testFlags": [
+    //     "-v"
+    // ],
     "go.lintTool": "golangci-lint",
-    "go.lintFlags": [
-        "--enable-all",
-        "--new",
-        "--disable=forbidigo",
-        "--disable=wsl",
-        "--disable=exhaustivestruct"
-    ],
+    // "go.lintFlags": [],
     "go.lintOnSave": "workspace",
+    "go.coverOnSave": true,
+    "go.coverageOptions": "showUncoveredCodeOnly",
+    "go.coverageDecorator": {
+        "type": "highlight"
+        // "coveredHighlightColor": "rgba(64,128,128,0.5)",
+        // "uncoveredHighlightColor": "rgba(128,64,64,0.25)",
+        // "coveredGutterStyle": "blockgreen",
+        // "uncoveredGutterStyle": "blockred"
+    },
+    "go.coverOnSingleTest": true,
     "[go]": {
         "editor.insertSpaces": false,
         "editor.autoClosingBrackets": "never",
@@ -171,7 +175,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "comments.openView": "never",
     "window.menuBarVisibility": "toggle",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
+    // "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,

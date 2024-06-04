@@ -1,0 +1,11 @@
+[Unit]
+Description=Stretchly
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/flatpak run net.hovancik.Stretchly 
+WorkingDirectory=/home/lawrencegripper
+
+[Install]
+WantedBy=sway-session.target

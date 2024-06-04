@@ -206,5 +206,6 @@
     "simplecov-vscode.enabled": false,
     "quickgrep.preview": false,
     "quickgrep.grep": "Ripgrep",
-    "remote.SSH.connectTimeout": 360
+    "remote.SSH.connectTimeout": 360,
+    "github.copilot.editor.enableAutoCompletions": true
 }

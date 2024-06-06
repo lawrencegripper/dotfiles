@@ -1,0 +1,4 @@
+# Borred from sway setup which isn't quite stable enough yet
+# See https://github.com/swaywm/sway/wiki/Systemd-integration
+exec "systemctl --user start i3-session.target"
+exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop i3-session.target

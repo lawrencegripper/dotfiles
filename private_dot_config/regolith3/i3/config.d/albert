@@ -1,4 +1,4 @@
 # albert launcher
-exec_always --no-startup-id albert
+#exec_always --no-startup-id albert
 
 bindsym $mod+space exec albert toggle

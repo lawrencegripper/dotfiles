@@ -11,3 +11,4 @@ ExecStart=/bin/bash -c "gsettings set org.gnome.desktop.interface color-scheme '
 
 [Install]
 WantedBy=sway-session.target
+WantedBy=i3-session.target

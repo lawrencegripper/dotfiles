@@ -9,3 +9,4 @@ Environment="GDK_BACKEND=x11"
 
 [Install]
 WantedBy=sway-session.target
+WantedBy=i3-session.target

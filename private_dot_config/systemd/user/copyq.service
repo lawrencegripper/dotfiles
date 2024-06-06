@@ -8,3 +8,4 @@ ExecStart=/usr/bin/copyq
 
 [Install]
 WantedBy=sway-session.target
+WantedBy=i3-session.target

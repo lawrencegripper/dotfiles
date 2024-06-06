@@ -10,3 +10,4 @@ ExecStart=/usr/bin/flameshot
 
 [Install]
 WantedBy=sway-session.target
+WantedBy=i3-session.target

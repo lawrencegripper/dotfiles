@@ -1,4 +1,4 @@
 # rofimoji
 # requires pip install --user rofimoji
-bindsym $mod+shift+period exec --no-startup-id /home/lawrencegripper/.local/bin/rofimoji
+#bindsym $mod+shift+period exec --no-startup-id /home/lawrencegripper/.local/bin/rofimoji
 

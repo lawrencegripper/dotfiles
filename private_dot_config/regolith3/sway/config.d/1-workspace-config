@@ -13,7 +13,7 @@ workspace "$ws10" output DisplayPort-3
 
 # # Auto start appliations
 # assign [class="element"] "$ws1"
-exec --no-startup-id flatpak run im.riot.Riot --no-sandbox
+# exec --no-startup-id flatpak run im.riot.Riot --no-sandbox
 # exec --no-startup-id flatpak run net.hovancik.Stretchly --no-sandbox
 
 # assign [class="Morgen"] "$ws2"

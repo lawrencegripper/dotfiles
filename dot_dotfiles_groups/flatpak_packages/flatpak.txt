@@ -31,7 +31,7 @@ com.github.tchx84.Flatseal
 org.kde.kalk
 com.discordapp.Discord
 # Element matrix client
-im.riot.Riot
+# im.riot.Riot -> Moved to apt package as kept losing local state
 
 # com.slack.Slack favour the deb installer
 io.missioncenter.MissionCenter

@@ -4,6 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
+ExecStartPre=/bin/sleep 3
 ExecStart=/usr/bin/element-desktop
 WorkingDirectory=/home/lawrencegripper
 

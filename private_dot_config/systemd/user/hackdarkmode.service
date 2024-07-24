@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/sleep 5
+ExecStartPre=/bin/sleep 1
 ExecStart=/bin/bash -c "gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'"
 ExecStart=/bin/bash -c "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 

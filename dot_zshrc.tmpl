@@ -14,13 +14,14 @@ then
   source ~/.localrc
 fi
 
-# Setup ssh agent
+# Setup env
 {{- if eq (env "CODESPACES") "true" }}
 # Skipped sshagent config in codespaces
 # Setting up brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- else if eq .chezmoi.os "darwin" -}}
 {{- else if and (eq .chezmoi.os "linux") }}
+SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 {{- end }}
 
 # initialize autocomplete here, otherwise functions won't be loaded

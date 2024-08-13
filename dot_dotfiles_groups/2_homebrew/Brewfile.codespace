@@ -1,5 +1,7 @@
+tap "wez/wezterm-linuxbrew"
 
 # Terminal stuff
+brew "wezterm"
 brew "jq"
 brew "starship"
 brew "htop"

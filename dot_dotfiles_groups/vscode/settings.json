@@ -24,7 +24,7 @@
     },
     // "rubyTestExplorer.debugCommand": "rdebug-ide",
     "rubyTestExplorer.logpanel": true,
-    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "Monokai Pro",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
@@ -200,12 +200,40 @@
         "rgba(231, 111, 81,0.025)"
     ],
     "editor.guides.bracketPairs": true,
-    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "workbench.iconTheme": "Monokai Pro Icons",
     "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
     "simplecov-vscode.enabled": false,
     "quickgrep.preview": false,
     "quickgrep.grep": "Ripgrep",
     "remote.SSH.connectTimeout": 360,
-    "github.copilot.editor.enableAutoCompletions": true
+    "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.colorCustomizations": {
+        "[Material Theme]": {
+            "activityBarBadge.background": "#64FFDA",
+            "activityBar.activeBorder": "#64FFDA",
+            "list.activeSelectionForeground": "#64FFDA",
+            "list.inactiveSelectionForeground": "#64FFDA",
+            "list.highlightForeground": "#64FFDA",
+            "scrollbarSlider.activeBackground": "#64FFDA50",
+            "editorSuggestWidget.highlightForeground": "#64FFDA",
+            "textLink.foreground": "#64FFDA",
+            "progressBar.background": "#64FFDA",
+            "pickerGroup.foreground": "#64FFDA",
+            "tab.activeBorder": "#64FFDA",
+            "notificationLink.foreground": "#64FFDA",
+            "editorWidget.resizeBorder": "#64FFDA",
+            "editorWidget.border": "#64FFDA",
+            "settings.modifiedItemIndicator": "#64FFDA",
+            "settings.headerForeground": "#64FFDA",
+            "panelTitle.activeBorder": "#64FFDA",
+            "breadcrumb.activeSelectionForeground": "#64FFDA",
+            "menu.selectionForeground": "#64FFDA",
+            "menubar.selectionForeground": "#64FFDA",
+            "editor.findMatchBorder": "#64FFDA",
+            "selection.background": "#64FFDA40",
+            "statusBarItem.remoteBackground": "#64FFDA"
+        }
+    },
+    "materialTheme.accent": "Bright Teal"
 }

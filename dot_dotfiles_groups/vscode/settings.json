@@ -24,7 +24,7 @@
     },
     // "rubyTestExplorer.debugCommand": "rdebug-ide",
     "rubyTestExplorer.logpanel": true,
-    "workbench.colorTheme": "Monokai Pro",
+    "workbench.colorTheme": "Monokai Pro (Filter Machine)",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
@@ -200,7 +200,7 @@
         "rgba(231, 111, 81,0.025)"
     ],
     "editor.guides.bracketPairs": true,
-    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
     "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
     "simplecov-vscode.enabled": false,

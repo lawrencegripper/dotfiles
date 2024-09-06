@@ -14,8 +14,8 @@ alias clip='xclip -selection clipboard'
 #alias ssh='TERM=xterm-256color ssh'
 alias gh='TERM=xterm-256color gh'
 # Better way to handle kitty term information
-alias ssh='TERM=xterm-256color ssh'
-alias s="kitty +kitten ssh"
+# alias ssh='wezterm ssh'
+alias s="wezterm ssh"
 
 alias k='kubectl'
 alias h-create-ghcs='gh cs create --repo github/heaven -b master -m largePremiumLinux -s | xargs gh cs code -c'

@@ -203,7 +203,6 @@
     "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
     "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
-    "simplecov-vscode.enabled": false,
     "quickgrep.preview": false,
     "quickgrep.grep": "Ripgrep",
     "remote.SSH.connectTimeout": 360,
@@ -235,5 +234,25 @@
             "statusBarItem.remoteBackground": "#64FFDA"
         }
     },
-    "materialTheme.accent": "Bright Teal"
+    "materialTheme.accent": "Bright Teal",
+    "rubyLsp.enabledFeatures": {
+        "codeActions": true,
+        "diagnostics": true,
+        "documentHighlights": true,
+        "documentLink": true,
+        "documentSymbols": true,
+        "foldingRanges": true,
+        "formatting": false,
+        "hover": true,
+        "inlayHint": true,
+        "onTypeFormatting": true,
+        "selectionRanges": true,
+        "semanticHighlighting": true,
+        "completion": false,
+        "codeLens": true,
+        "definition": false,
+        "workspaceSymbol": false,
+        "signatureHelp": true,
+        "typeHierarchy": true
+    }
 }

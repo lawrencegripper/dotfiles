@@ -121,7 +121,6 @@
     "go.lintTool": "golangci-lint",
     // "go.lintFlags": [],
     "go.lintOnSave": "workspace",
-    "go.coverOnSave": true,
     "go.coverageOptions": "showUncoveredCodeOnly",
     "go.coverageDecorator": {
         "type": "highlight"

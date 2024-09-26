@@ -3,6 +3,7 @@ local wezterm = require 'wezterm'
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 -- This is where you actually apply your config choices
 
@@ -22,9 +23,79 @@ config.ssh_domains = {
       remote_address = 'libvirt',
       -- The username to use on the remote host
       username = 'lawrencegripper',
-    },
+    }
   }
-  
+
+
+
+
+-- CTRL SHIFT P to open links
+-- https://github.com/wez/wezterm/issues/1362
+config.keys = {
+  -- show the pane selection mode, but have it swap the active and selected panes
+  {
+    key = 'S',
+    mods = 'CTRL',
+    action = act.PaneSelect {
+      mode = 'SwapWithActive',
+    },
+  },
+  {
+    key = 'w',
+    mods = 'CMD|CTRL|SHIFT|ALT',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
+  -- This will create a new split and run the `top` program inside it
+  {
+    key = 'e',
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitPane {
+      direction = 'Up',
+      -- command = { args = { 'top' } },
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key = 'd',
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitPane {
+      direction = 'Down',
+      -- command = { args = { 'top' } },
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key = 's',
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitPane {
+      direction = 'Left',
+      -- command = { args = { 'top' } },
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key = 'f',
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitPane {
+      direction = 'Right',
+      -- command = { args = { 'top' } },
+      size = { Percent = 50 },
+    },
+  },
+  {
+    key="Y", mods="CTRL",
+     action=wezterm.action{QuickSelectArgs={
+       patterns={
+          "https?://\\S+"
+       },
+       action = wezterm.action_callback(function(window, pane)
+          local url = window:get_selection_text_for_pane(pane)
+          wezterm.log_info("opening: " .. url)
+          wezterm.open_with(url)
+       end)
+     }}
+   }, 
+}
 
 -- and finally, return the configuration to wezterm
 return config

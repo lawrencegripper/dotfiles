@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ template "skip-unless-local-debian.tmpl" . }}
+
+# Enable firewall
+sudo ufw enable
+
+# Validate it's blocking incoming by detauls
+output=$(sudo ufw status verbose)
+
+# Check if the output contains "deny (incoming)"
+if echo "$output" | grep -q "deny (incoming)"; then
+    echo "Confirmed: The output contains 'deny (incoming)'"
+else
+    echo "Not found: The output does not contain 'deny (incoming)'"
+    exit 1
+fi

@@ -19,6 +19,9 @@ helm
 docker
 docker-compose
 
+# gui for ufw 
+gufw
+
 # ssh agent manager 
 keychain
 

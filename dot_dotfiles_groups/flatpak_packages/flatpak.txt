@@ -25,6 +25,8 @@ net.hovancik.Stretchly
 # cpu temp tracker
 org.coolero.Coolero
 org.onlyoffice.desktopeditors
+
+# Backups
 org.gnome.DejaDup
 
 com.github.tchx84.Flatseal

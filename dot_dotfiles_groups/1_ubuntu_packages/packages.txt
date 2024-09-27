@@ -1,7 +1,5 @@
 # Required for vscode to handle logins
 gnome-keyring
-# Console
-kitty
 # Desktop bits
 flatpak
 pinta
@@ -68,21 +66,8 @@ libnotify-bin
 
 golang
 
-# restic for backups 
-restic
-
-# Rest timer
-workrave
-
 polybar
 cpufrequtils
-
-# thunderbird tray manager
-# birdtray
-
-# Moved to evlution
-evolution
-evolution-ews
 
 # moonlander https://github.com/zsa/wally/wiki/Linux-install
 libusb-1.0-0-dev

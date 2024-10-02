@@ -99,3 +99,9 @@ slurp
 grim 
 # make qt waylayd https://stackoverflow.com/questions/69994530/qt-qpa-plugin-could-not-find-the-qt-platform-plugin-wayland
 qtwayland5
+
+# clipboard history
+copyq
+
+# nslookup and tools
+dnsutils

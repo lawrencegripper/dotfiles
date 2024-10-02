@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+# Set zsh if available
+zsh_installed=$(grep /bin/zsh -m 1 -c /etc/shells)
+if ((zsh_installed == 1)); then
+    echo "Setting shell to zsh"
+    AS_USER=$(whoami)
+    sudo chsh -s /bin/zsh "$AS_USER"
+fi

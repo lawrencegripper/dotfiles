@@ -101,7 +101,7 @@ grim
 qtwayland5
 
 # clipboard history
-copyq-
+copyq
 
 # nslookup and tools
 dnsutils

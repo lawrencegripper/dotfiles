@@ -32,6 +32,12 @@ config.ssh_domains = {
 -- CTRL SHIFT P to open links
 -- https://github.com/wez/wezterm/issues/1362
 config.keys = {
+  -- Move quick select so it doesn't clash with 1 password
+  {
+    key = 'm',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.QuickSelect, 
+  },
   -- show the pane selection mode, but have it swap the active and selected panes
   {
     key = 'S',

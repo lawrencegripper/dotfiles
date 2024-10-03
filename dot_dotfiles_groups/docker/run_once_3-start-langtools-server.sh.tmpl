@@ -3,6 +3,8 @@
 {{ template "skip-unless-local-debian.tmpl" . }}
 {{ template "skip-unless-docker.tmpl" . }}
 
+echo "Make sure you set langugage server to http://127.0.0.1:8123/v2 in the extension settings"
+
 echo "Start language tools spelling/grammer tool"
 sudo docker start languagetool || sudo docker run --name languagetool \
                         --cap-drop=ALL \

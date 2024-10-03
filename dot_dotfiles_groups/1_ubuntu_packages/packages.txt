@@ -101,7 +101,14 @@ grim
 qtwayland5
 
 # clipboard history
-copyq
+copyq-
 
 # nslookup and tools
 dnsutils
+
+# media player
+vlc
+
+# emoji font for albert and gtk apps on popos
+# see: https://www.reddit.com/r/pop_os/comments/gnh2g7/enable_color_emojis_in_pop_os/
+fonts-noto-color-emoji

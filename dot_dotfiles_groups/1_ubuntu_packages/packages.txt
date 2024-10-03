@@ -112,3 +112,8 @@ vlc
 # emoji font for albert and gtk apps on popos
 # see: https://www.reddit.com/r/pop_os/comments/gnh2g7/enable_color_emojis_in_pop_os/
 fonts-noto-color-emoji
+
+# packages for keymapp to flash moonlander 
+libwebkit2gtk-4.1-0
+libgtk-3-0
+libusb-1.0-0

@@ -200,7 +200,7 @@
     ],
     "editor.guides.bracketPairs": true,
     "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
-    "testExplorer.useNativeTesting": true,
+    "testExplorer.useNativeTesting": false,
     "githubPullRequests.createOnPublishBranch": "never",
     "quickgrep.preview": false,
     "quickgrep.grep": "Git Grep",

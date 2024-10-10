@@ -15,7 +15,7 @@ sudo apt update
 sudo apt install regolith-desktop regolith-session-flashback regolith-look-lascaille
 
 # remove compositor as it causes lag and I don't mind missing the effects
-sudo apt remove regolith-compositor-picom-glx
+# sudo apt remove regolith-compositor-picom-glx
 
 # disable the bar as we're using polybar
 mkdir -p ~/scratch/i3
@@ -27,6 +27,6 @@ sudo apt install regolith-compositor-picom-glx -y
 # setup popup notifications
 wget https://launchpad.net/ubuntu/+archive/primary/+files/dunst_1.9.2-1_amd64.deb
 sudo apt install ./dunst_1.9.2-1_amd64.deb -y
-sudo apt purge regolith-rofication
+sudo apt purge regolith-rofication || true
 pkill rofication
 systemctl --user restart dunst && notify-send "hello there"

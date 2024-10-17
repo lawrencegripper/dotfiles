@@ -21,6 +21,10 @@ sudo mv /usr/share/regolith/i3/config.d/70_bar ~/scratch/i3/70_bar || echo "bar 
 # enable compositor this makes zoom sharing work by allowing overlay between windows
 sudo apt install regolith-compositor-picom-glx -y
 
+# Configure compositor for zoom https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060527
+sudo apt install xcompmgr
+xcompmgr -c -l0 -t0 -r0 -o.00
+
 # setup popup notifications
 if dpkg -l | grep -q regolith-rofication; then
     sudo apt purge regolith-rofication

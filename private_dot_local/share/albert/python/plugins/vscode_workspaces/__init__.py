@@ -22,9 +22,10 @@ def get_recent_workspaces() -> List[str]:
     entries = response.stdout.decode('utf-8').splitlines()
     entries = list(map(lambda x: x.replace('"', '', -1), entries))
     entries.reverse()
+    entries = [entry for entry in entries if 'vscode-remote' not in entry]
     return entries
 
-def score(query: TriggerQuery, item: Item) -> float:
+def score(query: Query, item: Item) -> float:
     return SequenceMatcher(None, item.text.lower(), query.string.lower()).ratio()
 
 

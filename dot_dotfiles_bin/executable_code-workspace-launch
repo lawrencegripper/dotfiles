@@ -3,4 +3,5 @@
 folder=$1
 
 echo "Opening local $folder"
+wezterm start &
 SSH_AUTH_SOCK=/home/lawrencegripper/.1password/agent.sock code-insiders --folder-uri $folder

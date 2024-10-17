@@ -1,6 +1,5 @@
 """
-
-# Albert Python interface v2.1
+# Albert Python interface v2.4
 
 
 The Python interface is a subset of the internal C++ interface exposed to Python with some minor adjustments. A Python
@@ -19,11 +18,11 @@ md_description: str | A brief, imperative description. (Like "Launch apps" or "O
 
 ## Optional metadata variables:
 
-md_id                                | Identifier overwrite. [a-zA-Z0-9_]. Defaults to module name.
-__doc__                              | The docstring of the module is used as long description/readme of the extension.
-md_license: str                      | Short form e.g. BSD-2-Clause or GPL-3.0
+[Deprecated] md_id                   | Identifier overwrite. [a-zA-Z0-9_]. Note: This variable is attached at runtime
+                                     | if it is unset and defaults to the module name.
+md_license: str                      | Short form e.g. MIT or BSD-2
 md_url: str                          | Browsable source, issues etc
-md_maintainers: [str|List(str)]      | Active maintainer(s). Preferrably using mentionable Github usernames.
+md_authors: [str|List(str)]          | The authors. Preferably using mentionable Github usernames.
 md_bin_dependencies: [str|List(str)] | Required executable(s). Have to match the name of the executable in $PATH.
 md_lib_dependencies: [str|List(str)] | Required Python package(s). Have to match the PyPI package name.
 md_credits: [str|List(str)]          | Third party credit(s) and license notes
@@ -35,10 +34,63 @@ The plugin class is the entry point for a Python plugin. It is instantiated on p
 PluginInstance. Implement extensions by subclassing _one_ extension class (TriggerQueryHandler etc…) provided by the
 built-in `albert` module and pass the list of your extensions to the PluginInstance init function. Due to the
 differences in type systems multiple inheritance of extensions is not supported. (Python does not support virtual
-inheritance, which is used in the C++ space to inherit from 'Extension'). For more details see
+inheritance, which is used in the C++ space to inherit from 'Extension').
+
+Changes in 2.1
+
+ - Add PluginInstance.readConfig
+ - Add PluginInstance.writeConfig
+ - Add PluginInstance.configWidget
+
+Changes in 2.2:
+
+ - PluginInstance.configWidget supports 'label'
+ - __doc__ is not used anymore, since 0.23 drops long_description metadata
+ - md_maintainers not used anymore
+ - md_authors new optional field
+
+Changes in 2.3:
+
+- Module:
+    - Deprecate md_id. Use PluginInstance.id.
+- PluginInstance:
+    - Add read only property id.
+    - Add read only property name.
+    - Add read only property description.
+    - Add instance method registerExtension(…).
+    - Add instance method deregisterExtension(…).
+    - Deprecate initialize(…). Use __init__(…).
+    - Deprecate finalize(…). Use __del__(…).
+    - Deprecate __init__ extensions parameter. Use (de)registerExtension(…).
+    - Auto(de)register plugin extension (if isinstance(Plugin, Extension)).
+- Use Query instead of TriggerQuery and GlobalQuery.
+    - The interface is backward compatible, however type hints may break.
+- Add Matcher and Match convenience classes.
+- Notification:
+    - Add property title.
+    - Add property text.
+    - Add instance method send().
+    - Add instance method dismiss().
+    - Note: Notification does not display unless send(…) has been called.
+
+Changes in 2.4:
+
+- Deprecate parameter `workdir` of runTerminal. Prepend `cd <workdir>;` to your script.
+- Deprecate parameter `close_on_exit` of runTerminal. Append `exec $SHELL;` to your script.
+
+## List of things 3.0 will break
+
+- Drop PluginInstance.initialize. Use PluginInstance.__init__(…).
+- Drop PluginInstance.finalize. Use PluginInstance.__del__(…).
+- Drop PluginInstance.__init__ extensions parameter. Use PluginInstance.(de)registerExtension(…).
+- Drop implicit directory creation in cacheLocation.
+- Drop implicit directory creation in configLocation.
+- Drop implicit directory creation in dataLocation.
+- Drop md_id.
+- Drop parameter `workdir` in runTerminal.
+- Drop parameter `close_on_exit` in runTerminal.
 
 """
-
 
 from abc import abstractmethod, ABC
 from enum import Enum
@@ -48,47 +100,89 @@ from typing import List
 from typing import Optional
 from typing import Union
 from typing import overload
-
+from pathlib import Path
 
 class PluginInstance(ABC):
-    """https://albertlauncher.github.io/reference/classalbert_1_1PluginInstance.html"""
-
-    def __init__(self, extensions: List[Extension] = []):
-        ...
+    """
+    https://albertlauncher.github.io/reference/classalbert_1_1PluginInstance.html
+    """
 
     @property
     def id(self) -> str:
+        """
+        The id of the plugin. Taken from the metadata.
+
+        Since 2.3
+        """
         ...
 
     @property
     def name(self) -> str:
-        ...
+        """
+        The name of the plugin. Taken from the metadata.
+
+        Since 2.3
+        """
 
     @property
     def description(self) -> str:
-        ...
+        """
+        The description of the plugin. Taken from the metadata.
+
+        Since 2.3
+        """
 
     @property
-    def cacheLocation(self) -> pathlib.Path:
-        ...
+    def cacheLocation(self) -> Path:
+        """
+        The recommended location for cache files of the plugin.
+
+        Note:
+            Will not be implicitly created anymore from v3.0 on.
+        """
 
     @property
-    def configLocation(self) -> pathlib.Path:
-        ...
+    def configLocation(self) -> Path:
+        """
+        The recommended location for config files of the plugin.
+
+        Note:
+            Will not be implicitly created anymore from v3.0 on.
+        """
 
     @property
-    def dataLocation(self) -> pathlib.Path:
-        ...
+    def dataLocation(self) -> Path:
+        """
+        The recommended location for data files of the plugin.
 
-    @property
-    def extensions(self) -> List[Extension]:
-        ...
+        Note:
+            Will not be implicitly created anymore from v3.0 on.
+        """
 
-    def initialize(self):
-        ...
+    def registerExtension(self, extension: Extension):
+        """
+        Register an additional extension.
 
-    def finalize(self):
-        ...
+        Note:
+            Internally holds a C++ weak reference. You are responsible to keep the extension alive for the time it is
+            registered as well as unregistering it whenever desired, but especially before plugin destruction. If you
+            dont the app will crash on next query.
+
+        Args:
+            extension: The extension to be registered
+
+        Since 2.3
+        """
+
+    def deregisterExtension(self, extension: Extension):
+        """
+        Deregister an additional extension.
+
+        Args:
+            extension: The extension to be deregistered
+
+        Since 2.3
+        """
 
     def readConfig(self, key: str, type: type[str|int|float|bool]) -> str|int|float|bool|None:
         """
@@ -101,30 +195,77 @@ class PluginInstance(ABC):
         """
 
     def writeConfig(self, key: str, value: str|int|float|bool):
-        """Write a config value to the Albert settings."""
+        """
+        Write a config value to the Albert settings.
+
+        Args:
+            key: The key of the config value
+            value: The value to be stored
+        """
 
     def configWidget(self) -> List[dict]:
         """
-        Descriptive config widget factory.
+        **Descriptive config widget factory.**
 
-        Define a static config widget using a list of dicts, each defining a row in the resulting form layout.
-        Supported keys are:
+        Define a static config widget using a list of dicts, each defining a row in the resulting form layout. Each dict
+        must contain key 'type' having one of the supported types specified below. Each type may define further
+        keys.
 
-        - 'property' The name of the property that will be set upon editing the forms.
-        - 'label' The text displayed in front of the the editor widget.
-        - 'type' The type of editor widget used. See the supported types below.
-        - 'items' The list of strings used for 'type': 'combobox'.
-        - 'widget_properties' Dict setting the widget properties of the editor widget.
-          See the links along the editor types below (but also the base classes) to find available properties.
-          Note that due to the restricted type conversion only properties of type str|int|float|bool are settable.
+        **A note on 'widget_properties'**
 
-        The supported editor widget types are:
+        This is a dict setting the widget properties of a QWidget or one of its derived classes. See Qt documentation
+        for a particular class. Note that due to the restricted type conversion only properties of type
+        str|int|float|bool are settable.
 
-        * 'checkbox' for boolean properties (See https://doc.qt.io/qt-6/qcheckbox.html)
-        * 'spinbox' for integer properties. (See https://doc.qt.io/qt-6/qspinbox.html)
-        * 'doublespinbox' for float properties. (See https://doc.qt.io/qt-6/qdoublespinbox.html)
-        * 'lineedit' if you want the user to input any string. (See https://doc.qt.io/qt-6/qlineedit.html)
-        * 'combobox' if you want the user to choose a string. (See https://doc.qt.io/qt-6/qcombobox.html)
+        **Supported row 'type's**
+
+        * 'label' (since 2.2)
+
+          Display text spanning both columns. Additional keys:
+
+          - 'text': The text to display
+          - 'widget_properties': https://doc.qt.io/qt-6/qlabel.html.
+
+        * 'checkbox'
+
+          A form layout item to edit boolean properties. Additional keys:
+
+          - 'label': The text displayed in front of the the editor widget.
+          - 'property': The name of the property that will be set on changes.
+          - 'widget_properties': https://doc.qt.io/qt-6/qcheckbox.html
+
+        * 'lineedit'
+
+          A form layout item to edit string properties. Additional keys:
+
+          - 'label': The text displayed in front of the the editor widget.
+          - 'property': The name of the property that will be set on changes.
+          - 'widget_properties': https://doc.qt.io/qt-6/qlineedit.html
+
+        * 'combobox'
+
+          A form layout item to set string properties using a list of options. Additional keys:
+
+          - 'label': The text displayed in front of the the editor widget.
+          - 'property': The name of the property that will be set on changes.
+          - 'items': The list of strings used to populate the combobox.
+          - 'widget_properties': https://doc.qt.io/qt-6/qcombobox.html
+
+        * 'spinbox'
+
+          A form layout item to edit integer properties. Additional keys:
+
+          - 'label': The text displayed in front of the the editor widget.
+          - 'property': The name of the property that will be set on changes.
+          - 'widget_properties': https://doc.qt.io/qt-6/qspinbox.html
+
+        * 'doublespinbox'
+
+          A form layout item to edit float properties. Additional keys:
+
+          - 'label': The text displayed in front of the the editor widget.
+          - 'property': The name of the property that will be set on changes.
+          - 'widget_properties': https://doc.qt.io/qt-6/qdoublespinbox.html
 
         Returns:
             A list of dicts, describing a form layout as defined above.
@@ -161,7 +302,9 @@ class Item(ABC):
 
     @abstractmethod
     def iconUrls(self) -> List[str]:
-        """See https://albertlauncher.github.io/reference/classalbert_1_1IconProvider.html"""
+        """
+        See https://albertlauncher.github.io/reference/classalbert_1_1IconProvider.html
+        """
 
     @abstractmethod
     def actions(self) -> List[Action]:
@@ -191,29 +334,47 @@ class StandardItem(Item):
 class Extension(ABC):
     """https://albertlauncher.github.io/reference/classalbert_1_1Extension.html"""
 
+    def __init__(self,
+                 id: str,
+                 name: str,
+                 description: str):
+        ...
+
     @property
     def id(self) -> str:
-        ...
+        """
+        The id of the extension.
+        """
 
     @property
     def name(self) -> str:
-        ...
+        """
+        The name of the extension.
+        """
 
     @property
     def description(self) -> str:
-        ...
+        """
+        The description of the extension.
+        """
 
 
-class FallbackHandler(ABC):
+class FallbackHandler(Extension):
     """https://albertlauncher.github.io/reference/classalbert_1_1FallbackHandler.html"""
+
+    def __init__(self,
+                 id: str,
+                 name: str,
+                 description: str):
+        ...
 
     @abstractmethod
     def fallbacks(self, query: str ) ->List[Item]:
         ...
 
 
-class TriggerQuery(ABC):
-    """https://albertlauncher.github.io/reference/classalbert_1_1TriggerQueryHandler_1_1TriggerQuery.html"""
+class Query():
+    """https://albertlauncher.github.io/reference/classalbert_1_1Query.html"""
 
     @property
     def trigger(self) -> str:
@@ -245,7 +406,7 @@ class TriggerQueryHandler(Extension):
                  description: str,
                  synopsis: str = '',
                  defaultTrigger: str = f'{id} ',
-                 allowTriggerRemap: str = true,
+                 allowTriggerRemap: str = True,
                  supportsFuzzyMatching: bool = False):
         ...
 
@@ -269,16 +430,12 @@ class TriggerQueryHandler(Extension):
     def supportsFuzzyMatching(self) -> bool:
         ...
 
-    @property
-    def fuzzyMatching(self) -> bool:
-        ...
-
     @fuzzyMatching.setter
     def setFuzzyMatching(self, enabled: bool):
         ...
 
     @abstractmethod
-    def handleTriggerQuery(self, query: TriggerQuery):
+    def handleTriggerQuery(self, query: Query):
         ...
 
 
@@ -292,18 +449,6 @@ class RankItem:
     score: float
 
 
-class GlobalQuery(ABC):
-    """https://albertlauncher.github.io/reference/classalbert_1_1GlobalQueryHandler_1_1GlobalQuery.html"""
-
-    @property
-    def string(self) -> str:
-        ...
-
-    @property
-    def isValid(self) -> bool:
-        ...
-
-
 class GlobalQueryHandler(TriggerQueryHandler):
     """https://albertlauncher.github.io/reference/classalbert_1_1GlobalQueryHandler.html"""
 
@@ -313,13 +458,16 @@ class GlobalQueryHandler(TriggerQueryHandler):
                  description: str,
                  synopsis: str = '',
                  defaultTrigger: str = f'{id} ',
-                 allowTriggerRemap: str = true,
+                 allowTriggerRemap: str = True,
                  supportsFuzzyMatching: bool = False):
         ...
 
     @abstractmethod
-    def handleGlobalQuery(self, query: GlobalQuery) -> List[RankItem]:
-        ...
+    def handleGlobalQuery(self, query: Query) -> List[RankItem]:
+        """
+        Note that underlying C++ type of query is `const Query`.
+        Behavior on non const access (e.g. add) is undefined.
+        """
 
     def applyUsageScore(self, rank_items:  List[RankItem]):
         ...
@@ -331,10 +479,10 @@ class GlobalQueryHandler(TriggerQueryHandler):
 class IndexItem:
     """https://albertlauncher.github.io/reference/classalbert_1_1IndexItem.html"""
 
-    def __init__(self, item: AbstractItem, string: str):
+    def __init__(self, item: Item, string: str):
         ...
 
-    item: AbstractItem
+    item: Item
     string: str
 
 
@@ -345,7 +493,7 @@ class IndexQueryHandler(GlobalQueryHandler):
     def updateIndexItems(self):
         ...
 
-    def setIndexItems(self, indexItems: List[RankItem]):
+    def setIndexItems(self, indexItems: List[IndexItem]):
         ...
 
     def handleGlobalQuery(self, query: GlobalQuery) -> List[RankItem]:
@@ -353,9 +501,61 @@ class IndexQueryHandler(GlobalQueryHandler):
 
 
 class Notification:
+    """https://albertlauncher.github.io/reference/classalbert_1_1Notification.html"""
 
-    def __init__(self, title: str, subtitle: str = '', text: str = ''):
+    def __init__(self, title: str = '', text: str = ''):
         ...
+
+    @property
+    def title(self) -> str:
+        """Since 2.3"""
+
+    @title.setter
+    def title(self, value : str):
+        """Since 2.3"""
+
+    @property
+    def text(self) -> str:
+        """Since 2.3"""
+
+    @text.setter
+    def text(self, value : str):
+        """Since 2.3"""
+
+    def send(self):
+        """Since 2.3"""
+
+    def dismiss(self):
+        """Since 2.3"""
+
+
+class Match:
+    """Since 2.3"""
+
+    @property
+    def score(self) -> float:
+        """Since 2.3"""
+
+    def isMatch(self) -> bool:
+        """Since 2.3"""
+
+    def __bool__(self) -> bool:
+        """Since 2.3"""
+
+
+class Matcher:
+    """Since 2.3"""
+
+    def __init__(self, query: str):
+        ...
+
+    @overload
+    def match(self, item: Item) -> Match:
+        """Since 2.3"""
+
+    @overload
+    def match(self, string: str) -> Match:
+        """Since 2.3"""
 
 
 def debug(arg: Any):
@@ -382,9 +582,20 @@ def setClipboardText(text: str=''):
     """
 
 
+def havePasteSupport() -> bool:
+    """
+    Check paste support of the platform.
+    Returns:
+        True if requirements for setClipboardTextAndPaste(…) are met.
+    Since:
+        2.3
+    """
+
+
 def setClipboardTextAndPaste(text: str=''):
     """
-    Set the system clipboard text and paste to the front-most window
+    Set the system clipboard text and paste to the front-most window.
+    Check for support using havePasteSupport()
     Args:
         text: The text used to set the clipboard
     """

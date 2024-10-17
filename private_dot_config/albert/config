@@ -7,7 +7,7 @@ showTray=true
 telemetry=false
 terminal=wezterm
 
-[applications_xdg]
+[applications]
 enabled=true
 fuzzy=true
 
@@ -45,6 +45,29 @@ fuzzy=true
 [python]
 enabled=true
 watchSources=false
+
+[python.atuin]
+enabled=true
+trigger=at
+
+[python.codespaces]
+enabled=true
+
+[python.copyq]
+enabled=true
+trigger="cl "
+
+[python.duckduckgo]
+enabled=false
+
+[python.emoji]
+enabled=true
+fuzzy=true
+global_handler_enabled=false
+
+[python.vscode_workspaces]
+enabled=true
+trigger=vs
 
 [qmlboxmodel]
 windowPosition=@Point(579 216)

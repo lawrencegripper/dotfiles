@@ -24,7 +24,7 @@ def get_command_history(query: str) -> List[str]:
     return response
 
 
-def score(query: TriggerQuery, item: Item) -> float:
+def score(query: Query, item: Item) -> float:
     return SequenceMatcher(None, item.text.lower(), query.string.lower()).ratio()
 
 class Plugin(PluginInstance, TriggerQueryHandler):

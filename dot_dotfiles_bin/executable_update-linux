@@ -4,9 +4,6 @@ set -e
 
 sudo timeshift --create --comments "before exec update-linux" --tags W || echo "Failed to take timeshift snapshot"
 
-# Get latest dotfiles
-chezmoi update
-
 # Do updating
 flatpak update -y
 sudo apt update
@@ -15,6 +12,10 @@ brew update
 brew upgrade
 sudo snap refresh || true
 
+# Get latest dotfiles
+chezmoi update
+
+# Get firmware updates
 fwupdmgr get-updates
 
 echo "Update completed!"

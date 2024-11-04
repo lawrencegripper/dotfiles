@@ -178,7 +178,7 @@
     "githubPullRequests.pullBranch": "never",
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,
-    "window.zoomLevel": 3,
+    // "window.zoomLevel": 3,
     "security.workspace.trust.untrustedFiles": "open",
     // "editor.formatOnSave": true,
     // "editor.formatOnSaveMode": "file",

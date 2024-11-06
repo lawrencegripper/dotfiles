@@ -8,7 +8,7 @@ wget -qO - https://regolith-desktop.org/regolith.key | \
 gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
 
 echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-https://regolith-desktop.org/release-3_1-ubuntu-jammy-amd64 jammy main" | \
+https://regolith-desktop.org/release-3_2-ubuntu-jammy-amd64 jammy main" | \
 sudo tee /etc/apt/sources.list.d/regolith.list
  
 sudo apt update
@@ -22,7 +22,8 @@ sudo mv /usr/share/regolith/i3/config.d/70_bar ~/scratch/i3/70_bar || echo "bar 
 sudo apt install regolith-compositor-picom-glx -y
 
 # Configure compositor for zoom https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060527
-sudo apt install xcompmgr
+# don't do this think it breaks things
+#sudo apt install xcompmgr
 #xcompmgr -c -l0 -t0 -r0 -o.00
 
 # setup popup notifications

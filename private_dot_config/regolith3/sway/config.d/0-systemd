@@ -1,5 +1,7 @@
 # See https://github.com/swaywm/sway/wiki/Systemd-integration
 exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
+# Set envs for the sway session
+exec systemctl --user set-environment SDL_VIDEODRIVER=wayland _JAVA_AWT_WM_NONREPARENTING=1 QT_QPA_PLATFORM=wayland XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
 # With this you can do `journalctl --user --identifier sway` to see logs from sway
 exec systemd-cat --identifier=sway sway

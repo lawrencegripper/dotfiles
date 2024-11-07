@@ -9,7 +9,7 @@ local act = wezterm.action
 
 -- config.color_scheme = 'Monokai Pro (Gogh)'
 config.color_scheme = 'MaterialDesignColors'
-config.font_size = 18
+config.font_size = 13
 config.font = wezterm.font('JetBrains Mono Nerd Font', { italic = false })
 
 config.scrollback_lines = 90000

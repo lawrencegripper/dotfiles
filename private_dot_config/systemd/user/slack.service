@@ -1,0 +1,12 @@
+[Unit]
+Description=Slack
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+# Wait for the system tray to be ready
+ExecStartPre=/bin/sleep 1
+ExecStart=/usr/bin/flatpak run --socket=wayland com.slack.Slack --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations
+
+[Install]
+WantedBy=sway-session.target

@@ -29,7 +29,7 @@ workspace "$ws10" output DisplayPort-3
 # exec --no-startup-id flatpak run com.logseq.Logseq --no-sandbox
 
 # #exec --no-startup-id workrave --no-sandbox
-exec --no-startup-id 1password --no-sandbox
+# exec --no-startup-id 1password --no-sandbox
 
 # # assign [class="kitty"] "$ws10"
 # exec --no-startup-id kitty --no-sandbox

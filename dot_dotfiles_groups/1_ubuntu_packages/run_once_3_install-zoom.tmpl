@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ template "skip-unless-local-debian.tmpl" . }}
+
+# Newer version of zoom break screen sharing on wayland
+# See https://community.zoom.com/t5/Zoom-Meetings/share-screen-linux-wayland-broken/m-p/191795
+wget https://cdn.zoom.us/prod/6.0.12.5501/zoom_amd64.deb -O /tmp/zoom_amd64.deb
+
+# To find older versions look in 
+# https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061222
+# then make a url like https://cdn.zoom.us/prod/6.0.12.5501/zoom_amd64.deb with the version number
+
+sudo apt install /tmp/zoom_amd64.deb -y

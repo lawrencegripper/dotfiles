@@ -9,5 +9,5 @@ ExecStartPre=/bin/sleep 30
 ExecStart=/usr/bin/flameshot
 
 [Install]
-WantedBy=sway-session.target
+# WantedBy=sway-session.target don't start in sway - using grim and satty instead
 WantedBy=i3-session.target

@@ -44,6 +44,9 @@ focus_on_window_activation focus
 # Jump to last workspace
 bindsym $mod+u workspace back_and_forth
 
+# Bind Win+SysRq to take a screenshot with grim and satty
+bindsym $mod+Print exec grim -g "$(slurp '#ff0000ff')" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+
 # Ensure dark mode - For sway on regolith we have to chagne to light and then dark again to make this work
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'

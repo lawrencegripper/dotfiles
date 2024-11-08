@@ -1,6 +1,6 @@
 #wm.bar.mode: show
 #wm.bar.trayoutput: false
-wm.binding.launcher.app: i
+wm.binding.launcher.app: o
 wm.program.notification_ui: ilia -p notifications
 wm.binding.notification_ui: n
 

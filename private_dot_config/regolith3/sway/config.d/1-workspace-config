@@ -11,28 +11,11 @@ workspace "$ws9" output DisplayPort-3
 workspace "$ws10" output DisplayPort-3
 
 
-# # Auto start appliations
-# assign [class="element"] "$ws1"
-# exec --no-startup-id flatpak run im.riot.Riot --no-sandbox
-# exec --no-startup-id flatpak run net.hovancik.Stretchly --no-sandbox
-
-# assign [class="Morgen"] "$ws2"
-# exec --no-startup-id morgen --no-sandbox
-
-# assign [class="evolution"] "$ws4"
-# exec --no-startup-id evolution
-
-# assign [class="firefox"] "$ws6"
-# exec --no-startup-id firefox
-
-# assign [class="logseq"] "$ws9"
-# exec --no-startup-id flatpak run com.logseq.Logseq --no-sandbox
-
-# #exec --no-startup-id workrave --no-sandbox
-# exec --no-startup-id 1password --no-sandbox
-
-# # assign [class="kitty"] "$ws10"
-# exec --no-startup-id kitty --no-sandbox
+# # Put apps in right workspace
+assign [class="element"] "$ws1"
+assign [class="Morgen"] "$ws1"
+assign [class="firefox"] "$ws6"
+assign [class="logseq"] "$ws4"
 
 # # Setup layouts for coding workspaces to have terminal and editor tabbed
 for_window [workspace="7 code"] layout tabbed

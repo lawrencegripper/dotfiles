@@ -1,0 +1,17 @@
+{
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "space",
+        description: Some("Albert"),
+    ): Spawn("albert toggle"),
+    (
+        modifiers: [
+            Ctrl,
+            Shift,
+        ],
+        key: "space",
+        description: Some("1Password"),
+    ): Spawn("1password --quick-access"),
+}

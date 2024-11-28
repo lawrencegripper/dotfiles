@@ -12,6 +12,8 @@ brew "stuartleeks/tap/devcontainer"
 brew "lawrencegripper/tap/azbrowse"
 brew "hugo"
 brew "node"
+# File manager for terminal stuff
+brew "yazi"
 
 # ollama
 brew "ollama"

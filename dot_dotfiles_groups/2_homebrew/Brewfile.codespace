@@ -10,3 +10,5 @@ brew "gh"
 cask "kitty"
 brew "atuin"
 brew "ripgrep"
+# File manager for terminal stuff
+brew "yazi"

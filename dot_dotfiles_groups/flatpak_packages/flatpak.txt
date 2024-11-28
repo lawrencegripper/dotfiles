@@ -10,8 +10,9 @@ org.gnome.Boxes
 # video editor
 org.pitivi.Pitivi
 
+# ~~Nov2024: Screen share issues in deb moving back to flatpak~~ nope
 # Flatpak install has graphics issue, moved to deb for a bit
-#us.zoom.Zoom
+# us.zoom.Zoom
 
 # apple music player
 #edge browser

@@ -5,6 +5,9 @@ tap "homebrew/cask-drivers"
 tap 'homebrew/services'
 tap "sachaos/tap"
 brew "mas"
+# File manager for terminal stuff
+brew "yazi"
+
 
 # Terminal stuff
 brew "diff-so-fancy"

@@ -10,4 +10,4 @@ ExecStart=/usr/bin/flameshot
 
 [Install]
 # WantedBy=sway-session.target don't start in sway - using grim and satty instead
-WantedBy=i3-session.targetq
+WantedBy=i3-session.target

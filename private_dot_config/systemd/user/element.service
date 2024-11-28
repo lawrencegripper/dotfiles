@@ -4,10 +4,10 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStartPre=/bin/sleep 3
 ExecStart=/usr/bin/element-desktop
 WorkingDirectory=/home/lawrencegripper
 
 [Install]
 WantedBy=sway-session.target
 WantedBy=i3-session.target
+WantedBy=cosmic-session.target

@@ -11,3 +11,4 @@ WorkingDirectory=/home/lawrencegripper
 [Install]
 WantedBy=sway-session.target
 WantedBy=i3-session.target
+WantedBy=cosmic-session.target

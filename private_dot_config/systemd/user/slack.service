@@ -10,3 +10,4 @@ ExecStart=/usr/bin/flatpak run --socket=wayland com.slack.Slack --ozone-platform
 
 [Install]
 WantedBy=sway-session.target
+WantedBy=cosmic-session.target

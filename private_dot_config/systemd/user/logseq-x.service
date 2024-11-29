@@ -9,4 +9,3 @@ WorkingDirectory=/home/lawrencegripper
 
 [Install]
 WantedBy=i3-session.target
-WantedBy=cosmic-session.target

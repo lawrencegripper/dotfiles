@@ -173,7 +173,6 @@
     "workbench.startupEditor": "none",
     "diffEditor.ignoreTrimWhitespace": false,
     "comments.openView": "never",
-    "window.menuBarVisibility": "toggle",
     // "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
     "byesig.opacity": 0.4,
@@ -253,5 +252,6 @@
         "workspaceSymbol": false,
         "signatureHelp": true,
         "typeHierarchy": true
-    }
+    },
+    "window.menuBarVisibility": "toggle"
 }

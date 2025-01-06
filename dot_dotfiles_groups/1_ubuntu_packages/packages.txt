@@ -120,3 +120,6 @@ libusb-1.0-0
 
 # sway logout
 wlogout
+
+# sway screen recorder
+wf-recorder

@@ -253,5 +253,6 @@
         "workspaceSymbol": false,
         "signatureHelp": true,
         "typeHierarchy": true
-    }
+    },
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
 }

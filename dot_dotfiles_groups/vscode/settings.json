@@ -173,7 +173,6 @@
     "workbench.startupEditor": "none",
     "diffEditor.ignoreTrimWhitespace": false,
     "comments.openView": "never",
-    "window.menuBarVisibility": "toggle",
     // "terminal.integrated.enableMultiLinePasteWarning": false,
     "githubPullRequests.pullBranch": "never",
     "byesig.opacity": 0.4,
@@ -254,5 +253,6 @@
         "signatureHelp": true,
         "typeHierarchy": true
     },
-    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "window.menuBarVisibility": "toggle"
 }

@@ -29,3 +29,14 @@ alias bi='bundle install'
 alias ci='scripts/cibuild'
 
 alias code='code-insiders'
+
+# Better core tools
+EZA_ARGS="--hyperlink --icons --git --octal-permissions --time-style=relative --mounts"
+alias ls="eza $EZA_ARGS"
+alias la="eza -lha $EZA_ARGS"
+alias lt="eza -lha --tree $EZA_ARGS"
+alias ld="eza -lha --tree --only-dirs $EZA_ARGS"
+alias lf="eza -lha --only-files $EZA_ARGS"
+alias lmod="eza -lha --sort=modified $EZA_ARGS"
+
+alias cat='bat'

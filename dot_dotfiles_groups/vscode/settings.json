@@ -199,7 +199,7 @@
     ],
     "editor.guides.bracketPairs": true,
     "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
-    "testExplorer.useNativeTesting": false,
+    "testExplorer.useNativeTesting": true,
     "githubPullRequests.createOnPublishBranch": "never",
     "quickgrep.preview": false,
     "quickgrep.grep": "Git Grep",
@@ -254,5 +254,6 @@
         "typeHierarchy": true
     },
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "chat.editing.alwaysSaveWithGeneratedChanges": true
 }

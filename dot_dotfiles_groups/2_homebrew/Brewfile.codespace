@@ -12,3 +12,7 @@ brew "atuin"
 brew "ripgrep"
 # File manager for terminal stuff
 brew "yazi"
+# ls replacement
+brew "eza"
+# cat replacement
+brew "bat"

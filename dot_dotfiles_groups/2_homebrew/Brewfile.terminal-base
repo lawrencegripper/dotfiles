@@ -1,4 +1,3 @@
-tap "wez/wezterm-linuxbrew"
 
 # Terminal stuff
 brew "wezterm"
@@ -7,12 +6,17 @@ brew "starship"
 brew "htop"
 brew "chezmoi"
 brew "gh"
-cask "kitty"
 brew "atuin"
 brew "ripgrep"
+brew "z"
+# kube bits
+brew "kubectx"
+brew "k9s"
 # File manager for terminal stuff
 brew "yazi"
 # ls replacement
 brew "eza"
 # cat replacement
 brew "bat"
+# nano replacement
+brew "micro"

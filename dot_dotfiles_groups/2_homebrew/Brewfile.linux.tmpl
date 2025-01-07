@@ -1,0 +1,12 @@
+#tap "homebrew/core"
+#tap "homebrew/linux-fonts"
+tap "wez/wezterm-linuxbrew"
+
+{{ include "dot_dotfiles_groups/2_homebrew/Brewfile.terminal-base" }}
+
+# Desktop bits
+brew "ollama"
+brew "stuartleeks/tap/devcontainer"
+brew "lawrencegripper/tap/azbrowse"
+brew "hugo"
+brew "node"

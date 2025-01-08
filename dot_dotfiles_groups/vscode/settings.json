@@ -255,5 +255,6 @@
     },
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
     "window.menuBarVisibility": "toggle",
-    "chat.editing.alwaysSaveWithGeneratedChanges": true
+    "chat.editing.alwaysSaveWithGeneratedChanges": true,
+    "remote.autoForwardPortsSource": "hybrid"
 }

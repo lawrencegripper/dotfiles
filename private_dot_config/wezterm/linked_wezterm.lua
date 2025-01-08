@@ -7,6 +7,12 @@ local act = wezterm.action
 
 -- This is where you actually apply your config choices
 
+-- Hook up bell to notifications
+wezterm.on('bell', function(window, pane)
+  -- wezterm.log_info('the bell was rung in pane ' .. pane:pane_id() .. '!')
+  window:toast_notification('wezterm', 'Bell at Pane@' .. pane:pane_id(), nil, 1000)
+end)
+
 -- config.color_scheme = 'Monokai Pro (Gogh)'
 config.color_scheme = 'MaterialDesignColors'
 config.font_size = 13

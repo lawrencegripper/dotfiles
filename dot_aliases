@@ -53,3 +53,11 @@ if command -v micro &> /dev/null
 then
     alias nano='micro'
 fi
+
+# Send a notification with wezterm use like `do think && beep`
+if command -v tput &> /dev/null
+then
+    alias beep='tput bel'
+else
+    alias beep='echo -e "\a"'
+fi

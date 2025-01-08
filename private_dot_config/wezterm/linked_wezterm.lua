@@ -7,10 +7,15 @@ local act = wezterm.action
 
 -- This is where you actually apply your config choices
 
--- Hook up bell to notifications
-wezterm.on('bell', function(window, pane)
-  -- wezterm.log_info('the bell was rung in pane ' .. pane:pane_id() .. '!')
-  window:toast_notification('wezterm', 'Bell at Pane@' .. pane:pane_id(), nil, 1000)
+wezterm.on('user-var-changed', function(window, pane, name, value)
+  wezterm.log_info('var', name, value)
+  if name == 'wez_toast_notify' then
+    window:toast_notification('wezterm', 'msg: ' .. value, nil, 1000)
+  end
+
+  if name == 'wez_copy' then
+    window:copy_to_clipboard(value, 'Clipboard')
+  end
 end)
 
 -- config.color_scheme = 'Monokai Pro (Gogh)'

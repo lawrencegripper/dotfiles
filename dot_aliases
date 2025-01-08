@@ -54,10 +54,14 @@ then
     alias nano='micro'
 fi
 
-# Send a notification with wezterm use like `do think && beep`
-if command -v tput &> /dev/null
-then
-    alias beep='tput bel'
-else
-    alias beep='echo -e "\a"'
-fi
+# Send a notification with wezterm use like `do think && weznot "think is done"`
+function weznot() {
+    title=$1
+    printf "\033]1337;SetUserVar=%s=%s\007" wez_toast_notify $(echo -n "$title" | base64)
+}
+
+# Pipeline content to the clipboard
+function wezcopy() {
+    read clip_stuff
+    printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64)
+}

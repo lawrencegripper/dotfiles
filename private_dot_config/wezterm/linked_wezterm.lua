@@ -10,7 +10,7 @@ local act = wezterm.action
 wezterm.on('user-var-changed', function(window, pane, name, value)
   wezterm.log_info('var', name, value)
   if name == 'wez_toast_notify' then
-    window:toast_notification('wezterm', 'msg: ' .. value, nil, 1000)
+    window:toast_notification('wezterm', 'msg: ' .. value)
   end
 
   if name == 'wez_copy' then

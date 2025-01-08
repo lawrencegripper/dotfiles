@@ -65,3 +65,16 @@ function wezcopy() {
     read clip_stuff
     printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64)
 }
+
+function wezmon() {
+    command=$*
+    
+    eval $command
+    
+    last_exit_code=$?
+    if [ $last_exit_code -eq 0 ]; then
+        weznot "✅ $command completed successfully"
+    else
+        weznot "❌ $command failed"
+    fi
+}

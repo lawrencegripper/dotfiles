@@ -18,6 +18,13 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
   end
 end)
 
+-- Domains that can be used for stuff see: private_dot_config/regolith3/sway/executable_sway_dropdown_terminal.sh
+config.unix_domains = {
+  {
+    name = 'unix-dropdown',
+  },
+}
+
 -- config.color_scheme = 'Monokai Pro (Gogh)'
 config.color_scheme = 'MaterialDesignColors'
 config.font_size = 13

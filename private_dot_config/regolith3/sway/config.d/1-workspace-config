@@ -27,6 +27,9 @@ focus_on_window_activation focus
 # Jump to last workspace
 bindsym $mod+u workspace back_and_forth
 
+# Dropdown wezterm
+bindsym $mod+grave exec /home/lawrencegripper/.config/regolith3/sway/sway_dropdown_terminal.sh
+
 # Start 1Password Quick Access
 bindsym Control+Shift+Space exec /usr/bin/1password --quick-access
 

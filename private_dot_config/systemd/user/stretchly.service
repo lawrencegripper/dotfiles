@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/flatpak run net.hovancik.Stretchly 
+ExecStart=/usr/bin/stretchly
 WorkingDirectory=/home/lawrencegripper
 
 [Install]

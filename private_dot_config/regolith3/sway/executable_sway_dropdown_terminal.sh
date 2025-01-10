@@ -1,13 +1,11 @@
 #!/bin/bash
 
-TERM_PIDFILE="/tmp/sway_dropdown_terminal.pid"
-TERM_PID="$(<"$TERM_PIDFILE")"
-if swaymsg "[ pid=$TERM_PID ] scratchpad show"
+if swaymsg "[ pid=$(cat "/tmp/sway_dropdown_terminal.pid") ] scratchpad show"
 then
     # If multi-monitor configuration: resize on each monitor
-    swaymsg "[ pid=$TERM_PID ] resize set 100ppt , move position 0 0"
+    swaymsg "[ pid=$(cat "/tmp/sway_dropdown_terminal.pid") ] resize set 100ppt , move position 0 0"
 else
-    echo "$$" > "$TERM_PIDFILE"
+    wezterm connect unix-dropdown &
+    echo "$!" > "$TERM_PIDFILE"
     swaymsg "for_window [ pid=$$ ] 'floating enable ; resize set 100ppt 50ppt ; move position 0 0 ; move to scratchpad ; scratchpad show'"
-    exec wezterm connect unix-dropdown
 fi

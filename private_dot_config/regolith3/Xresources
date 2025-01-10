@@ -8,8 +8,8 @@ wm.workspace.01.name: 1 msg
 wm.workspace.02.name: 2 cal
 wm.workspace.03.name: 3 music
 wm.workspace.04.name: 4 email
-wm.workspace.05.name: 5
-wm.workspace.06.name: 6 web
+wm.workspace.05.name: 5 slack
+wm.workspace.06.name: 6 webo
 wm.workspace.07.name: 7 code
 wm.workspace.08.name: 8 code
 wm.workspace.09.name: 9 zoom

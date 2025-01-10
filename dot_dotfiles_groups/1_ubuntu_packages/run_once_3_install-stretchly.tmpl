@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ template "skip-unless-local-debian.tmpl" . }}
+
+wget https://github.com/hovancik/stretchly/releases/download/v1.17.1/Stretchly_1.17.1_amd64.deb" -O /tmp/stretchly.deb
+
+sudo apt install /tmp/stretchly.deb -y

@@ -63,7 +63,7 @@ function weznot() {
 # Pipeline content to the clipboard `echo "hello" | wezcopy`
 function wezcopy() {
     read clip_stuff
-    printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64)
+    printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64 -w 0)
 }
 
 # Notify cmd result use like `wezmon do_thing`

@@ -18,6 +18,22 @@ wezterm.on('user-var-changed', function(window, pane, name, value)
   end
 end)
 
+config.enable_scroll_bar = true
+
+-- Change mouse scroll amount https://github.com/wez/wezterm/discussions/4947
+config.mouse_bindings = {
+  {
+    event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(-3),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(3),
+  },
+}
+
 -- Domains that can be used for stuff see: private_dot_config/regolith3/sway/executable_sway_dropdown_terminal.sh
 config.unix_domains = {
   {

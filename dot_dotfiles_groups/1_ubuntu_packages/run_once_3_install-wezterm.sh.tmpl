@@ -9,3 +9,7 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 
 sudo apt update
 sudo apt install -y wezterm
+
+# Requires libfuse to be installed
+sudo add-apt-repository universe
+sudo apt install libfuse2t64

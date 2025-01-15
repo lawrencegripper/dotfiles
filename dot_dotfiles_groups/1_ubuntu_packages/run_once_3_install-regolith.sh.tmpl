@@ -8,11 +8,11 @@ wget -qO - https://regolith-desktop.org/regolith.key | \
 gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
 
 echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-https://regolith-desktop.org/release-3_2-ubuntu-jammy-amd64 jammy main" | \
+https://regolith-desktop.org/release-3_2-ubuntu-noble-amd64 noble main" | \
 sudo tee /etc/apt/sources.list.d/regolith.list
- 
+
 sudo apt update
-sudo apt install regolith-desktop regolith-session-flashback regolith-look-lascaille
+sudo apt install regolith-desktop regolith-session-flashback regolith-session-sway regolith-look-lascaille
 
 # disable the bar as we're using polybar
 mkdir -p ~/scratch/i3
@@ -35,6 +35,6 @@ fi
 if ! dpkg -l | grep -q dunst; then
     wget https://launchpad.net/ubuntu/+archive/primary/+files/dunst_1.9.2-1_amd64.deb
     sudo apt install ./dunst_1.9.2-1_amd64.deb -y
-    systemctl --user restart dunst && notify-send "notification configured"
+    systemctl --user restart dunst && notify-send "notification configured" || echo "Dunst failed to start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 fi
 

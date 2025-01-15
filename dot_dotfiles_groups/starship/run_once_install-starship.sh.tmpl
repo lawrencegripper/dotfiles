@@ -1,6 +1,0 @@
-#!/bin/bash
-{{ if and (eq .chezmoi.os "linux") (eq (get .chezmoi.osRelease "idLike") "arch") -}}
-
-sudo pacman -S starship --noconfirm
-
-{{ end -}}

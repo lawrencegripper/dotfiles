@@ -57,12 +57,12 @@ fi
 # Send a notification with wezterm use like `do think && weznot "think is done"`
 function weznot() {
     title=$1
-    printf "\033]1337;SetUserVar=%s=%s\007" wez_not $(echo -n "$title" | base64)
+    printf "\033]1337;SetUserVar=%s=%s\007" wez_not $(echo -n "$title" | base64 -w 0)
 }
 
 # Pipeline content to the clipboard `echo "hello" | wezcopy`
 function wezcopy() {
-    read clip_stuff
+    clip_stuff=$(cat)
     printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64 -w 0)
 }
 

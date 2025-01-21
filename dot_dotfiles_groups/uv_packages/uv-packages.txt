@@ -1,0 +1,2 @@
+# Really cool TUI for editing and controlling systemd stuff
+--python=3.12 git+https://github.com/isd-project/isd

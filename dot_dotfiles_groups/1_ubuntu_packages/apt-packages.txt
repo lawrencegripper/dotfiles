@@ -2,7 +2,7 @@
 gnome-keyring
 # Desktop bits
 flatpak
-pinta
+# pinta Not available on 24.04
 xclip
 # peek - No longer working
 handbrake
@@ -48,7 +48,7 @@ gnome-boxes
 virt-manager
 qemu-system-x86
 libvirt-daemon-system
-qemu-efi
+# qemu-efi Not available on 24.04
 
 ruby
 python3-pip

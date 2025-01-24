@@ -168,6 +168,8 @@
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
+        "dotcom",
+        "proxima"
     ],
     "go.toolsManagement.autoUpdate": true,
     "workbench.startupEditor": "none",

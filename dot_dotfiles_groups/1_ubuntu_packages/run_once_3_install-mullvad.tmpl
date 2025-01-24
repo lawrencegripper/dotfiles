@@ -1,8 +1,0 @@
-#!/bin/bash
-set -e
-export DEBIAN_FRONTEND=noninteractive
-
-{{ template "skip-unless-local-debian.tmpl" . }}
-
-wget --content-disposition https://mullvad.net/download/app/deb/latest
-sudo apt install -y ./MullvadVPN*_amd64.deb

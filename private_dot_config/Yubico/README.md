@@ -1,11 +1,19 @@
 # Setup manully
 
+Run 
+
+`pamu2fcfg > ~/.config/Yubico/u2f_keys`
+
+Then 
+
 ```
 auth      sufficient pam_u2f.so     cue
 auth      required  pam_unix.so     try_first_pass nullok
 ```
 
 in `/etc/pam.d/sudo` and `/etc/pam.d/polkit-1` at the top
+
+`/etc/pam.d/polkit-1` (This file might not exist just create it)
 
 Change ownership of the yubikey file so the current user can't add new keys
 

@@ -7,3 +7,6 @@ export DEBIAN_FRONTEND=noninteractive
 wget "https://github.com/hovancik/stretchly/releases/download/v1.17.1/Stretchly_1.17.1_amd64.deb" -O /tmp/stretchly.deb
 
 sudo apt install /tmp/stretchly.deb -y
+
+sudo mkdir -p /opt/Stretchly/chrome-sandbox || echo "chrome-sandbox already exists"
+sudo chmod 4755 /opt/Stretchly/chrome-sandbox

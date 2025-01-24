@@ -20,3 +20,5 @@ brew "eza"
 brew "bat"
 # nano replacement
 brew "micro"
+# interactive jq
+brew "jid"

@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+{{ template "skip-unless-local-debian.tmpl" . }}
+
+pipx install uv
+
+# hash: {{ include "dot_dotfiles_groups/uv_packages/uv-packages.txt" | sha256sum }}
+
+{{ range include "dot_dotfiles_groups/uv_packages/uv-packages.txt" | splitList "\n" }}
+{{ if . }}
+{{ if contains "#" . | not }}
+    echo "Package: {{.}}"
+    uv tool install {{ . }}
+{{- end }}
+{{- end }}
+{{- end }}

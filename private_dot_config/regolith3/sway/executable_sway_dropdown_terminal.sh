@@ -12,6 +12,7 @@ else
     echo "sway didn't find pid"
     rm -f "/tmp/sway_dropdown_terminal.pid"
     wezterm connect unix-dropdown > /dev/null 2>&1 &
+    sleep 2 # wait for the terminal to start
     top_level_process=$!
 
     tree=$(pstree -a -T -p $top_level_process)

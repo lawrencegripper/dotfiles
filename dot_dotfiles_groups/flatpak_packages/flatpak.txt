@@ -22,7 +22,7 @@ tv.plex.PlexDesktop
 
 org.flameshot.Flameshot
 
-net.hovancik.Stretchly
+# net.hovancik.Stretchly moved to deb for compat
 # cpu temp tracker
 org.coolero.Coolero
 org.onlyoffice.desktopeditors

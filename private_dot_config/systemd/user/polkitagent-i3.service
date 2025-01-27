@@ -4,9 +4,8 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1
+ExecStart=/usr/libexec/polkit-mate-authentication-agent-1
 Environment="GDK_BACKEND=x11"
 
 [Install]
-WantedBy=sway-session.target
 WantedBy=i3-session.target

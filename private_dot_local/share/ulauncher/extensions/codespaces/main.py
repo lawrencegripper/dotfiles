@@ -11,7 +11,7 @@ from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
-# from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
+from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 from ulauncher.api.shared.action.DoNothingAction import DoNothingAction
 
 
@@ -74,7 +74,8 @@ class KeywordQueryEventListener(EventListener):
             items.append(ExtensionResultItem(icon='images/codespace.png',
                                              name=f'{c.repository} {c.gitStatus.ref} {has_uncommitted_changes}',
                                              description=f'{c.name}',
-                                             on_enter=DoNothingAction()))
+                                             on_enter=RunScriptAction(f'/home/lawrencegripper/.dotfiles_bin/codespace-launch "{c.name}"'))
+            )
 
         return RenderResultListAction(items)
 

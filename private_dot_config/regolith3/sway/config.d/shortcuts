@@ -1,2 +1,2 @@
 # Launch albert
-bindsym $mod+space exec albert toggle
+bindsym $mod+space exec ulauncher toggle

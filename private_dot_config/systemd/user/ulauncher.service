@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/bin/bash -c /usr/bin/albert
+ExecStart=/bin/bash -c /usr/bin/ulauncher
 WorkingDirectory=/home/lawrencegripper
 
 [Install]

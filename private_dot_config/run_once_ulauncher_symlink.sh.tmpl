@@ -1,0 +1,7 @@
+#! /bin/bash
+
+set -e
+
+{{ template "skip-unless-local-debian.tmpl" . }}
+
+ln -sv  {{ .chezmoi.sourceDir }}/private_dot_config/ulauncher_symlink/ {{ .chezmoi.homeDir }}/.config/ulauncher

@@ -118,6 +118,8 @@
     // "go.testFlags": [
     //     "-v"
     // ],
+    "go.lintFlags": [
+    ],
     "go.lintTool": "golangci-lint",
     // "go.lintFlags": [],
     "go.lintOnSave": "workspace",
@@ -258,5 +260,8 @@
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
     "window.menuBarVisibility": "toggle",
     "chat.editing.alwaysSaveWithGeneratedChanges": true,
-    "remote.autoForwardPortsSource": "hybrid"
+	"remote.autoForwardPortsSource": "hybrid",
+	"extensions.trustedPublishers": [
+		"eamodio"
+	]
 }

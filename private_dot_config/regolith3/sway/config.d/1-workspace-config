@@ -15,7 +15,6 @@ workspace "$ws10" output DisplayPort-3
 # Use 'swaymsg -t get_tree | rg -i ghslack -C 10' to find stuff
 # Also very useful https://gist.github.com/3lpsy/9fc13dae3ba9c176013e3f6457b458e2
 # assign [app_id="Element"] "$ws1"
-# assign [app_id="Morgen"] "$ws2"
 # assign [app_id="Logseq"] "$ws4"
 # # Firefox PWA for slack
 # assign [title=".* - GitHub-grid - Slack"] "$ws6"
@@ -26,9 +25,6 @@ for_window [workspace="8 code"] layout tabbed
 
 # Jump to window when it takes focus
 focus_on_window_activation focus
-
-# start morgen 
-exec --no-startup-id morgen
 
 # Jump to last workspace
 bindsym $mod+u workspace back_and_forth

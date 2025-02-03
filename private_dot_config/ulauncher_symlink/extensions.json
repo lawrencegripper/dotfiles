@@ -33,5 +33,47 @@
         "updated_at": "2025-02-03T21:13:20.274815",
         "last_commit": "60a5106821478f965e4e24dbe1833f6af0d437f1",
         "last_commit_time": "2023-12-01T07:25:12"
+    },
+    "com.github.epholys.ultz": {
+        "id": "com.github.epholys.ultz",
+        "url": "https://github.com/Epholys/ultz",
+        "updated_at": "2025-02-03T21:51:33.769184",
+        "last_commit": "9f0749d6ab1fcb99545dae75934b698e5ff975b6",
+        "last_commit_time": "2021-05-12T14:01:01"
+    },
+    "com.github.ulauncher.ulauncher-timer": {
+        "id": "com.github.ulauncher.ulauncher-timer",
+        "url": "https://github.com/ulauncher/ulauncher-timer",
+        "updated_at": "2025-02-03T21:57:40.967366",
+        "last_commit": "2d3fe82fe1e38670e6eb8887cd2a4b4d1c2baa79",
+        "last_commit_time": "2023-03-25T08:07:41"
+    },
+    "com.github.ulauncher.ulauncher-hash": {
+        "id": "com.github.ulauncher.ulauncher-hash",
+        "url": "https://github.com/Ulauncher/ulauncher-hash",
+        "updated_at": "2025-02-03T21:58:53.586682",
+        "last_commit": "237dbb3610ff04df993c3223b12df42cb7df221f",
+        "last_commit_time": "2022-09-04T14:29:55"
+    },
+    "com.github.ulauncher.ulauncher-kill": {
+        "id": "com.github.ulauncher.ulauncher-kill",
+        "url": "https://github.com/Ulauncher/ulauncher-kill",
+        "updated_at": "2025-02-03T21:59:27.131603",
+        "last_commit": "00ffe8266dbb6c2aea7d86a6363e51cec4b1981f",
+        "last_commit_time": "2022-11-26T16:15:05"
+    },
+    "com.github.kuenzelit.ulauncher-firefox-bookmarks": {
+        "id": "com.github.kuenzelit.ulauncher-firefox-bookmarks",
+        "url": "https://github.com/KuenzelIT/ulauncher-firefox-bookmarks",
+        "updated_at": "2025-02-03T22:01:00.290094",
+        "last_commit": "77f1de0adfc2e79ce767f645ae8ad0a0dda2783e",
+        "last_commit_time": "2019-12-07T17:27:46"
+    },
+    "com.github.rmassidda.ulauncher-firefox-history": {
+        "id": "com.github.rmassidda.ulauncher-firefox-history",
+        "url": "https://github.com/rmassidda/ulauncher-firefox-history",
+        "updated_at": "2025-02-03T22:01:13.628797",
+        "last_commit": "b1d8e9399a466fe7c8dccd2f6d94ad014a260812",
+        "last_commit_time": "2024-03-01T22:15:25"
     }
 }

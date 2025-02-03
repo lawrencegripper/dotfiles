@@ -123,3 +123,6 @@ wlogout
 
 # sway screen recorder
 wf-recorder
+
+# used by ulauncher plugins
+python3-fuzzywuzzy

@@ -26,5 +26,12 @@
         "updated_at": "2025-02-03T20:52:48.614350",
         "last_commit": "9fe278bebb039c5150857f9b0cb34bcb28f35248",
         "last_commit_time": "2020-12-15T14:35:19"
+    },
+    "com.github.plibither8.ulauncher-vscode-recent": {
+        "id": "com.github.plibither8.ulauncher-vscode-recent",
+        "url": "https://github.com/plibither8/ulauncher-vscode-recent",
+        "updated_at": "2025-02-03T21:13:20.274815",
+        "last_commit": "60a5106821478f965e4e24dbe1833f6af0d437f1",
+        "last_commit_time": "2023-12-01T07:25:12"
     }
 }

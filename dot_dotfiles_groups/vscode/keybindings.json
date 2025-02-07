@@ -30,6 +30,16 @@
         "command": "-testing.runAtCursor",
         "when": "editorTextFocus"
     },
+    {
+        "key": "ctrl+d ctrl+t",
+        "command": "testing.debugAtCursor",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+; ctrl+c",
+        "command": "-testing.debugAtCursor",
+        "when": "editorTextFocus"
+    },
     // {
     //     "key": "ctrl+r ctrl+t",
     //     "command": "dotnet-test-explorer.runTest"

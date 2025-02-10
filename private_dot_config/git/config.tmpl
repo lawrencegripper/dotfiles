@@ -105,7 +105,7 @@
 	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1td8RpuG3ckEnC0OqKkq4Mcl8Hv8+4LERN8dEIxGr4
 [user]
         name = lawrencegripper
-        email = info@grippers.co.uk
+        email = i+gitgen@grippers.co.uk
 {{- end }}
 
 [init]
@@ -116,5 +116,23 @@
         helper = osxkeychain
 {{- end }}
 
-[includeIf "gitdir:~/source/gh/Az*/"]
+
+# Personal
+[includeIf "hasconfig:remote.*.url:https://github.com/lawrencegripper/**"]
+        path = ~/.config/git/personal
+[includeIf "hasconfig:remote.*.url:git@github.com:lawrencegripper/**"]
+        path = ~/.config/git/personal
+
+# Work
+## gh
+[includeIf "hasconfig:remote.*.url:git@github.com:actions/**"]
+        path = ~/.config/git/github
+[includeIf "hasconfig:remote.*.url:https://github.com/actions/**"]
+        path = ~/.config/git/github
+[includeIf "hasconfig:remote.*.url:https://github.com/github/**"]
+        path = ~/.config/git/github
+[includeIf "hasconfig:remote.*.url:git@github.com:github/**"]
+        path = ~/.config/git/github
+## Ado
+[includeIf "hasconfig:remote.*.url:https://*@dev.azure.com/mseng/**/*"]
         path = ~/.config/git/azdo

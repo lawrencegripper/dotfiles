@@ -2,3 +2,4 @@
 #exec_always --no-startup-id albert
 
 bindsym $mod+space exec ulauncher toggle
+bindsym $mod exec ulauncher toggle

@@ -41,6 +41,9 @@ config.unix_domains = {
   },
 }
 
+config.use_fancy_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
+
 -- config.color_scheme = 'Monokai Pro (Gogh)'
 config.color_scheme = 'MaterialDesignColors'
 config.font_size = 13

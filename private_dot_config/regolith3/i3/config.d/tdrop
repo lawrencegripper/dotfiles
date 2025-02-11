@@ -1,0 +1,1 @@
+bindsym $mod+grave exec tdrop -am --wm i3 -w -20 -x 5 --class wez-quake wezterm --config-file ~/.config/wezterm/quake.lua start --class wez-quake

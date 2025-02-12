@@ -263,5 +263,17 @@
 	"remote.autoForwardPortsSource": "hybrid",
 	"extensions.trustedPublishers": [
 		"eamodio"
-	]
+    ],
+    "gitlens.views.scm.grouped.views": {
+        "commits": false,
+        "branches": false,
+        "remotes": false,
+        "stashes": false,
+        "tags": false,
+        "worktrees": false,
+        "contributors": false,
+        "repositories": false,
+        "searchAndCompare": false,
+        "launchpad": false
+    }
 }

@@ -1,4 +1,6 @@
 #!/bin/bash
 
+{{ template "skip-unless-local-debian.tmpl" . }}
+
 # Window extension
 pip install --break-system-packages memoization

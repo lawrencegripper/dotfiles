@@ -2,70 +2,70 @@
     "com.github.ulauncher.ulauncher-emoji": {
         "id": "com.github.ulauncher.ulauncher-emoji",
         "url": "https://github.com/Ulauncher/ulauncher-emoji",
-        "updated_at": "2025-02-03T09:52:50.135811",
+        "updated_at": "2025-02-15T09:56:11.130829",
         "last_commit": "827cfe5e1d2f89f742f811f981759787b0654fa9",
         "last_commit_time": "2023-11-04T18:37:13"
     },
     "com.github.friday.ulauncher-clipboard": {
         "id": "com.github.friday.ulauncher-clipboard",
         "url": "https://github.com/friday/ulauncher-clipboard",
-        "updated_at": "2025-02-03T20:12:42.440296",
+        "updated_at": "2025-02-15T09:56:12.210326",
         "last_commit": "73420cf4816f925321db15379c9c981c8f28c6fe",
         "last_commit_time": "2022-08-03T20:22:13"
     },
     "com.github.plibither8.ulauncher-vscode-recent": {
         "id": "com.github.plibither8.ulauncher-vscode-recent",
         "url": "https://github.com/plibither8/ulauncher-vscode-recent",
-        "updated_at": "2025-02-03T21:13:20.274815",
+        "updated_at": "2025-02-15T09:56:13.338251",
         "last_commit": "60a5106821478f965e4e24dbe1833f6af0d437f1",
         "last_commit_time": "2023-12-01T07:25:12"
     },
     "com.github.epholys.ultz": {
         "id": "com.github.epholys.ultz",
         "url": "https://github.com/Epholys/ultz",
-        "updated_at": "2025-02-03T21:51:33.769184",
+        "updated_at": "2025-02-15T09:56:14.777036",
         "last_commit": "9f0749d6ab1fcb99545dae75934b698e5ff975b6",
         "last_commit_time": "2021-05-12T14:01:01"
     },
     "com.github.ulauncher.ulauncher-timer": {
         "id": "com.github.ulauncher.ulauncher-timer",
         "url": "https://github.com/ulauncher/ulauncher-timer",
-        "updated_at": "2025-02-03T21:57:40.967366",
+        "updated_at": "2025-02-15T09:56:15.990211",
         "last_commit": "2d3fe82fe1e38670e6eb8887cd2a4b4d1c2baa79",
         "last_commit_time": "2023-03-25T08:07:41"
     },
     "com.github.ulauncher.ulauncher-hash": {
         "id": "com.github.ulauncher.ulauncher-hash",
         "url": "https://github.com/Ulauncher/ulauncher-hash",
-        "updated_at": "2025-02-03T21:58:53.586682",
+        "updated_at": "2025-02-15T09:56:17.204394",
         "last_commit": "237dbb3610ff04df993c3223b12df42cb7df221f",
         "last_commit_time": "2022-09-04T14:29:55"
     },
     "com.github.ulauncher.ulauncher-kill": {
         "id": "com.github.ulauncher.ulauncher-kill",
         "url": "https://github.com/Ulauncher/ulauncher-kill",
-        "updated_at": "2025-02-03T21:59:27.131603",
+        "updated_at": "2025-02-15T09:56:18.293568",
         "last_commit": "00ffe8266dbb6c2aea7d86a6363e51cec4b1981f",
         "last_commit_time": "2022-11-26T16:15:05"
     },
     "com.github.kuenzelit.ulauncher-firefox-bookmarks": {
         "id": "com.github.kuenzelit.ulauncher-firefox-bookmarks",
         "url": "https://github.com/KuenzelIT/ulauncher-firefox-bookmarks",
-        "updated_at": "2025-02-03T22:01:00.290094",
-        "last_commit": "77f1de0adfc2e79ce767f645ae8ad0a0dda2783e",
-        "last_commit_time": "2019-12-07T17:27:46"
+        "updated_at": "2025-02-15T09:56:19.684440",
+        "last_commit": "6ad3d3164304faba358d9dfc89a6b664f6b0f747",
+        "last_commit_time": "2025-02-12T17:18:37"
     },
     "com.github.rmassidda.ulauncher-firefox-history": {
         "id": "com.github.rmassidda.ulauncher-firefox-history",
         "url": "https://github.com/rmassidda/ulauncher-firefox-history",
-        "updated_at": "2025-02-03T22:01:13.628797",
+        "updated_at": "2025-02-15T09:56:21.319974",
         "last_commit": "b1d8e9399a466fe7c8dccd2f6d94ad014a260812",
         "last_commit_time": "2024-03-01T22:15:25"
     },
     "com.github.psukys.ulauncher-plugin-windows": {
         "id": "com.github.psukys.ulauncher-plugin-windows",
         "url": "https://github.com/psukys/ulauncher-plugin-windows",
-        "updated_at": "2025-02-12T11:51:37.762682",
+        "updated_at": "2025-02-15T09:56:22.398499",
         "last_commit": "f9dcc60e1d54fa85f8ce009e87d0588104733ea0",
         "last_commit_time": "2021-02-15T07:07:53"
     }

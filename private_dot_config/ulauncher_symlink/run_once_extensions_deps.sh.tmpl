@@ -2,5 +2,7 @@
 
 {{ template "skip-unless-local-debian.tmpl" . }}
 
+{{ if lookPath "pip" }}
 # Window extension
 pip install --break-system-packages memoization
+{{ end }}

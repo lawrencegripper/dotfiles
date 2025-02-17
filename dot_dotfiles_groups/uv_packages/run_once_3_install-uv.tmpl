@@ -17,7 +17,7 @@ pipx install uv
 {{ if . }}
 {{ if contains "#" . | not }}
     echo "Package: {{.}}"
-    uv tool install {{ . }}
+    uv tool install {{ . }} --upgrade || true
 {{- end }}
 {{- end }}
 {{- end }}

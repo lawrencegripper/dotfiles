@@ -4,10 +4,16 @@
     email = 
     email = lawrencegripper@github.com
 
-[gpg]
-    format = ssh
+{{- if eq (env "CODESPACES") "true" }}
+# Disable code signing handled by codespace
+[commit]
+	gpgsign = false
+{{- else -}}
 [commit]
     gpgsign = true
+[gpg]
+    format = ssh
 [user]
     # "op://Private/id_ed25519_gh/public key"
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN2NaV+rUS0Nhy138GNVLSfFte4DMKoQnc+jZeRREw94
+{{ end }}

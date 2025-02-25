@@ -25,6 +25,7 @@ from humanize import naturaltime
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from blinkstick import blinkstick
 import pickle
+import re
 
 blinkStickClient: blinkstick.BlinkStick = blinkstick.find_first()
 
@@ -71,6 +72,26 @@ def sort_by_date(e: Event):
         return e.start.astimezone()
     else:
         return datetime.min.replace(tzinfo=tz.tzutc())
+    
+def extract_zoom_link(event: Event):
+    text = event.description or event.location
+    if text is None:
+        return None
+    
+    # Make regex see newlines
+    text = text.replace("<br>", "\n")
+    
+    match = re.search(r"https://.*\.zoom\.us/j/[^\s]*", text)
+    if match:
+        zoom_link = match.group(0)
+        trim = zoom_link.split("/j/")[1]
+        split = trim.split("?pwd=")
+        confno = split[0]
+        pwd = split[1]
+        zoom_launch_uri = f"zoommtg://zoom.us/join?action=join&confno={confno}&pwd={pwd}"
+
+        return zoom_launch_uri
+    return None
 
 def fetch_ical_file(app_password, username, url):
     cache_file = cache_all_events
@@ -106,6 +127,7 @@ fetch_ical_file(app_password, username, url)
 es = get_todays_events(sort_by_date)
 
 next_up = None
+after_that = None
 
 for event in es:
     if event.start is None:
@@ -116,14 +138,19 @@ for event in es:
 
     time_until_start = event.start - datetime.now(tz=tz.tzlocal())
     minutes_until_start = time_until_start.total_seconds() / 60
+
+    display_text = None
+    time_until_start = event.start - datetime.now(tz=tz.tzlocal())
+    human_time = naturaltime(event.start).replace(" from now", "")
+    if minutes_until_start < 5:
+        display_text = f"  %{{B#FF0000}}%{{F#FFFFFF}}󰃰 '{event.summary}' in {human_time}%{{F-}}%{{B-}}"
+    else:
+        display_text = f"  󰃰 '{format_color(forground, event.summary or '')}' in {format_color(blue, human_time)}"
     
     if next_up is None:
-        time_until_start = event.start - datetime.now(tz=tz.tzlocal())
-        human_time = naturaltime(event.start).replace(" from now", "")
-        if minutes_until_start < 5:
-            next_up = f"  %{{B#FF0000}}%{{F#FFFFFF}}󰃰 '{event.summary}' in {human_time}%{{F-}}%{{B-}}"
-        else:
-            next_up = f"  󰃰 '{format_color(forground, event.summary or '')}' in {format_color(blue, human_time)}"
+        next_up = display_text
+    elif after_that is None:
+        after_that = display_text
 
     if minutes_until_start < 2:
         app = QApplication([])
@@ -132,12 +159,19 @@ for event in es:
         msg_box.setWindowTitle("Meeting Reminder")
         msg_box.setText(f"'{event.summary}' is about to start.\n\nDo you acknowledge that you might miss it?")
         font = msg_box.font()
-        font.setPointSize(25)
+        font.setPointSize(18)
         msg_box.setFont(font)
         msg_box.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
         result = msg_box.exec_()
+
+        if result == QMessageBox.Ok:
+            zoom_launch_uri = extract_zoom_link(event)
+
+            if zoom_launch_uri:
+                subprocess.Popen(["xdg-open", zoom_launch_uri])
         
         if minutes_until_start < 1:
+            # Flash a big light under the screen to make sure I pay attention
             blinkStickClient.blink(name="red", repeats=7, delay=1000)
 
-print(next_up)
+print(f"{next_up} {after_that}")

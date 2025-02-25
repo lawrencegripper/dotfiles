@@ -24,13 +24,36 @@ import time
 from humanize import naturaltime
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from blinkstick import blinkstick
+import pickle
 
 blinkStickClient: blinkstick.BlinkStick = blinkstick.find_first()
 
+cache_dir = "/tmp/ghcal"
+cache_all_events = f"{cache_dir}/all.ics"
+cache_today_pkl = f"{cache_dir}/today.pkl"
+os.makedirs(cache_dir, exist_ok=True)
+os.chmod(cache_dir, 0o700)
+
+def get_todays_events(sort_by_date):
+    if os.path.exists(cache_today_pkl):
+        last_modified_time = os.path.getmtime(cache_today_pkl)
+        if time.time() - last_modified_time < 300:  # 300 seconds = 5 minutes
+            with open(cache_today_pkl, 'rb') as file:
+                es = pickle.load(file)
+            es.sort(key=sort_by_date)
+            return es
+
+    start_of_today = datetime.now(tz=tz.tzlocal()).replace(hour=0, minute=0, second=0, microsecond=0)
+    end_of_today = start_of_today.replace(hour=23, minute=59, second=59)
+
+    es = events(file=cache_all_events, start=start_of_today, end=end_of_today)
+    es.sort(key=sort_by_date)
+    os.makedirs(cache_dir, exist_ok=True)
+    with open(cache_today_pkl, 'wb') as file:
+        pickle.dump(es, file)
+    return es
 
 def get_op_value(path):
-    cache_dir = "/tmp/ghcal"
-    os.makedirs(cache_dir, exist_ok=True)
     cache_file = os.path.join(cache_dir, base64.urlsafe_b64encode(path.encode()).decode())
 
     if os.path.exists(cache_file):
@@ -50,7 +73,7 @@ def sort_by_date(e: Event):
         return datetime.min.replace(tzinfo=tz.tzutc())
 
 def fetch_ical_file(app_password, username, url):
-    cache_file = "/tmp/ghcal.ics"
+    cache_file = cache_all_events
     if os.path.exists(cache_file):
         last_modified_time = os.path.getmtime(cache_file)
         if time.time() - last_modified_time < 300:  # 300 seconds = 5 minutes
@@ -62,8 +85,16 @@ def fetch_ical_file(app_password, username, url):
         with open(cache_file, "wb") as file:
             file.write(response.content)
         os.chmod(cache_file, 0o600)
+        if os.path.exists(cache_today_pkl):
+            os.remove(cache_today_pkl)  # force a re-read of today's events from the new file
     else:
         raise Exception(f"Failed to download calendar: {response.status_code} {response.text}")
+    
+def format_color(color: str, text: str):
+        return "%{F" + color + "}" + text + "%{F-}"
+
+forground = "#F0C674"
+blue = "#61AFEF"
 
 app_password = get_op_value("op://Private/ghcal-app-password/password")
 username = get_op_value("op://Private/ghcal-app-password/username")
@@ -72,9 +103,9 @@ url = f"https://www.google.com/calendar/dav/{username}/events"
 
 fetch_ical_file(app_password, username, url)
 
-es = events(file="/tmp/calendar.ics")
+es = get_todays_events(sort_by_date)
 
-es.sort(key=sort_by_date)
+next_up = None
 
 for event in es:
     if event.start is None:
@@ -84,14 +115,17 @@ for event in es:
         continue
 
     time_until_start = event.start - datetime.now(tz=tz.tzlocal())
+    minutes_until_start = time_until_start.total_seconds() / 60
+    
+    if next_up is None:
+        time_until_start = event.start - datetime.now(tz=tz.tzlocal())
+        human_time = naturaltime(event.start).replace(" from now", "")
+        if minutes_until_start < 5:
+            next_up = f"  %{{B#FF0000}}%{{F#FFFFFF}}󰃰 '{event.summary}' in {human_time}%{{F-}}%{{B-}}"
+        else:
+            next_up = f"  󰃰 '{format_color(forground, event.summary or '')}' in {format_color(blue, human_time)}"
 
-    if time_until_start.total_seconds() > (60 * 60 * 8):
-        print(f"Event more than 8 hours away")
-        break
-
-    print(f"Event: {event.summary} in {naturaltime(event.start)}")
-
-    if time_until_start.total_seconds() < 120:
+    if minutes_until_start < 2:
         app = QApplication([])
         msg_box = QMessageBox()
         msg_box.setIcon(QMessageBox.Information)
@@ -103,7 +137,7 @@ for event in es:
         msg_box.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
         result = msg_box.exec_()
         
-        if time_until_start.total_seconds() < 60:
+        if minutes_until_start < 1:
             blinkStickClient.blink(name="red", repeats=7, delay=1000)
-    
-    # print(f"Starts in: {days} days, {hours} hours, and {minutes} minutes")
+
+print(next_up)

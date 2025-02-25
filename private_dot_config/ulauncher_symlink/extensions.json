@@ -68,5 +68,12 @@
         "updated_at": "2025-02-15T09:56:22.398499",
         "last_commit": "f9dcc60e1d54fa85f8ce009e87d0588104733ea0",
         "last_commit_time": "2021-02-15T07:07:53"
+    },
+    "com.github.dcervenkov.ulauncher-z-search": {
+        "id": "com.github.dcervenkov.ulauncher-z-search",
+        "url": "https://github.com/dcervenkov/ulauncher-z-search",
+        "updated_at": "2025-02-21T20:06:09.437241",
+        "last_commit": "d7fbd54a9fe63660464c05458baf4b8ff1ef5209",
+        "last_commit_time": "2025-02-15T11:11:04"
     }
 }

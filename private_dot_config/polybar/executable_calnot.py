@@ -161,8 +161,11 @@ def main():
                 # Your in the meeting already
                 joined = f"  %{{B#006400}} 󰏽 '{format_color(forground, event.summary or '')}' %{{B-}}"
                 continue
+            if has_skipped(event, zoom_launch_uri):
+                joined = f"  %{{B#FFFF00}}  Skipped '{format_color(forground, event.summary or '')}' %{{B-}}"
             else:
                 # Zoom Meeting already started but you haven't joined
+                joined = f"  %{{B#FF0000}}  Missing! '{format_color(forground, event.summary or '')}' %{{B-}}"
                 blinkStickClient.blink(name="red", repeats=10, delay=100)
                 prompt_to_join(event, zoom_launch_uri)
         

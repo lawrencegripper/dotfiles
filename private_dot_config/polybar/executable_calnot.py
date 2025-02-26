@@ -9,6 +9,7 @@
 #     "BlinkStick",
 #     "pyusb",
 #     "libusb",
+#     "psutil",
 # ]
 # ///
 
@@ -17,7 +18,7 @@ import subprocess
 import base64
 import requests
 from requests.auth import HTTPBasicAuth
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil import tz
 import time
 import pickle
@@ -26,12 +27,17 @@ from icalevents.icalevents import events, Event
 from humanize import naturaltime
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from blinkstick import blinkstick
+import psutil
 
 CACHE_DIR = "/tmp/ghcal"
-CACHE_ALL_EVENTS = f"{CACHE_DIR}/all.ics"
-CACHE_TODAY_PKL = f"{CACHE_DIR}/today.pkl"
+CACHE_ALL_EVENTS = os.path.join(CACHE_DIR, "all.ics")
+CACHE_TODAY_PKL = os.path.join(CACHE_DIR, "today.pkl")
+SKIPPED_DIR = os.path.join(CACHE_DIR, "skipped")
+JOINED_DIR = os.path.join(CACHE_DIR, "joined")
 os.makedirs(CACHE_DIR, exist_ok=True)
 os.chmod(CACHE_DIR, 0o700)
+os.makedirs(SKIPPED_DIR, exist_ok=True)
+os.makedirs(JOINED_DIR, exist_ok=True)
 
 blinkStickClient = blinkstick.find_first()
 
@@ -87,6 +93,42 @@ def fetch_ical_file(app_password, username, url):
 def format_color(color, text):
     return f"%{{F{color}}}{text}%{{F-}}"
 
+def prompt_to_join(event, zoom_launch_uri):
+    if has_joined(event, zoom_launch_uri) or has_skipped(event, zoom_launch_uri):
+        return
+    app = QApplication([])
+    msg_box = QMessageBox()
+    msg_box.setIcon(QMessageBox.Information)
+    msg_box.setWindowTitle("Meeting Reminder")
+    msg_box.setText(f"'{event.summary}' is about to start.\n\nDo you acknowledge that you might miss it?")
+            # msg_box.setFont(msg_box.font().setPointSize(18))
+    msg_box.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+    msg_box.addButton("Ignore for now", QMessageBox.NoRole)
+    if msg_box.exec_() == QMessageBox.Ok:
+        if zoom_launch_uri:
+            subprocess.Popen(["xdg-open", zoom_launch_uri])
+            mark_joined(event, zoom_launch_uri)
+    elif msg_box.exec_() == QMessageBox.Cancel and zoom_launch_uri:
+        mark_skipped(event, zoom_launch_uri)
+
+def mark_skipped(event, zoom_launch_uri):
+    skipped_file = os.path.join(SKIPPED_DIR, base64.urlsafe_b64encode(zoom_launch_uri.encode()).decode())
+    with open(skipped_file, 'w') as file:
+        file.write(f"Skipped: {event.summary} at {datetime.now(tz=tz.tzlocal())}")
+
+def has_skipped(event, zoom_launch_uri):
+    skipped_file = os.path.join(SKIPPED_DIR, base64.urlsafe_b64encode(zoom_launch_uri.encode()).decode())
+    return os.path.exists(skipped_file)
+
+def mark_joined(event, zoom_launch_uri):
+    joined_file = os.path.join(JOINED_DIR, base64.urlsafe_b64encode(zoom_launch_uri.encode()).decode())
+    with open(joined_file, 'w') as file:
+        file.write(f"Joined: {event.summary} at {datetime.now(tz=tz.tzlocal())}")
+
+def has_joined(event, zoom_launch_uri):
+    joined_file = os.path.join(JOINED_DIR, base64.urlsafe_b64encode(zoom_launch_uri.encode()).decode())
+    return os.path.exists(joined_file)
+
 def main():
     forground = "#F0C674"
     blue = "#61AFEF"
@@ -98,16 +140,37 @@ def main():
     fetch_ical_file(app_password, username, url)
     es = get_todays_events()
 
-    next_up, after_that = None, None
+    joined, next_up, after_that = None, None, None
 
     for event in es:
-        if not event.start or event.start < datetime.now(tz=tz.tzlocal()):
+        if not event.start or not event.end:
+            continue
+
+        # Find out if we're in a meeting atm
+        if event.start < datetime.now(tz=tz.tzlocal()) - timedelta(minutes=30) and event.end < datetime.now(tz=tz.tzlocal()):
             continue
 
         minutes_until_start = (event.start - datetime.now(tz=tz.tzlocal())).total_seconds() / 60
         human_time = naturaltime(event.start).replace(" from now", "")
+
+        zoom_launch_uri = extract_zoom_link(event)
+
+        # Should we be in a meeting already?
+        if zoom_launch_uri and event.start < (datetime.now(tz=tz.tzlocal())):
+            if has_joined(event, zoom_launch_uri):
+                # Your in the meeting already
+                joined = f"  %{{B#006400}} 󰏽 '{format_color(forground, event.summary or '')}' %{{B-}}"
+                continue
+            else:
+                # Zoom Meeting already started but you haven't joined
+                blinkStickClient.blink(name="red", repeats=10, delay=100)
+                prompt_to_join(event, zoom_launch_uri)
         
-        display_text = f"  %{{B#FF0000}}%{{F#FFFFFF}}󰃰 '{event.summary}' in {human_time}%{{F-}}%{{B-}}"
+        # What meetings are coming up?
+        if event.start < (datetime.now(tz=tz.tzlocal())):
+            continue
+
+        display_text = f"  %{{B#FF0000}}%{{F#FFFFFF}} 󰃰 '{event.summary}' in {human_time} %{{F-}}%{{B-}}"
         if minutes_until_start > 5: 
             display_text = f"  󰃰 '{format_color(forground, event.summary or '')}' in {format_color(blue, human_time)}"
 
@@ -116,22 +179,22 @@ def main():
         elif not after_that:
             after_that = display_text
 
-        if minutes_until_start < 2:
-            app = QApplication([])
-            msg_box = QMessageBox()
-            msg_box.setIcon(QMessageBox.Information)
-            msg_box.setWindowTitle("Meeting Reminder")
-            msg_box.setText(f"'{event.summary}' is about to start.\n\nDo you acknowledge that you might miss it?")
-            msg_box.setFont(msg_box.font().setPointSize(18))
-            msg_box.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-            if msg_box.exec_() == QMessageBox.Ok:
-                zoom_launch_uri = extract_zoom_link(event)
-                if zoom_launch_uri:
-                    subprocess.Popen(["xdg-open", zoom_launch_uri])
-            if minutes_until_start < 1:
-                blinkStickClient.blink(name="red", repeats=7, delay=1000)
+        if minutes_until_start < 3:
+            blinkStickClient.blink(name="yellow", repeats=7, delay=500)
 
-    print(f"{next_up} {after_that}")
+        if minutes_until_start < 1 and zoom_launch_uri and not has_joined(event, zoom_launch_uri):
+            prompt_to_join(event, zoom_launch_uri)
+
+    if joined:
+        print(f"{joined} {next_up}")
+    elif next_up:
+        print(f"{next_up} {after_that}")
+    else: 
+        print("No more events today")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"Error: {e}")
+

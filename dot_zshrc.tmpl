@@ -75,6 +75,14 @@ if type "atuin" > /dev/null; then
   bindkey "^R" _atuin_search_widget
 fi
 
+
+# Configure auto-suggestions
+if type "brew" > /dev/null; then
+  if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  fi
+fi
+
 # Zsh config
 setopt PROMPT_SUBST
 setopt CORRECT

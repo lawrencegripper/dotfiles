@@ -181,7 +181,7 @@
     "githubPullRequests.pullBranch": "never",
     "byesig.opacity": 0.4,
     "byesig.showIcon": false,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "security.workspace.trust.untrustedFiles": "open",
     // "editor.formatOnSave": true,
     // "editor.formatOnSaveMode": "file",
@@ -275,5 +275,6 @@
         "repositories": false,
         "searchAndCompare": false,
         "launchpad": false
-    }
+    },
+    "git.blame.editorDecoration.enabled": true
 }

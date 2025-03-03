@@ -22,3 +22,5 @@ brew "bat"
 brew "micro"
 # interactive jq
 brew "jid"
+# Zsh auto suggestions
+brew "zsh-autosuggestions"

@@ -9,6 +9,7 @@ from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
 from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
+from ulauncher.api.shared.item.ExtensionSmallResultItem import ExtensionSmallResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
@@ -70,10 +71,10 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         items = []
         for c in get_codespaces():
-            has_uncommitted_changes = '💡' if c.gitStatus.hasUncommittedChanges else ' '
+            has_uncommitted_changes = '📝' if c.gitStatus.hasUncommittedChanges else ' '
             items.append(ExtensionResultItem(icon='images/codespace.png',
-                                             name=f'{c.repository} {c.gitStatus.ref} {has_uncommitted_changes}',
-                                             description=f'{c.name}',
+                                             name=f'{c.repository.replace("github/", "")} {has_uncommitted_changes}',
+                                             description=f'{c.name} {c.gitStatus.ref}',
                                              on_enter=RunScriptAction(f'/home/lawrencegripper/.dotfiles_bin/codespace-launch "{c.name}"'))
             )
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
+# see glibc workaround https://github.com/twpayne/chezmoi/issues/4303#issuecomment-2689193489
+sh -c "$(curl -fsLS get.chezmoi.io | sed -e 's/${GOOS_EXTRA}_${arch}/-musl_${arch}/')" -- init --apply lawrencegripper
 # don't ask
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply lawrencegripper
+sh -c "$(curl -fsLS get.chezmoi.io | sed -e 's/${GOOS_EXTRA}_${arch}/-musl_${arch}/')" -- init --apply lawrencegripper

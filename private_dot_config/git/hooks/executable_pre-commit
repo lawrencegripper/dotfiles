@@ -1,0 +1,60 @@
+#!/bin/bash
+
+###
+### File size checking
+###
+### This script checks the size of files being committed and prompts
+### the user to confirm the commit if the file size exceeds a certain size.
+###
+hard_limit=$(git config hooks.filesizehardlimit)
+soft_limit=$(git config hooks.filesizesoftlimit)
+: ${hard_limit:=10000000}
+: ${soft_limit:=1000000}
+
+status=0
+
+bytesToHuman() {
+  b=${1:-0}; d=''; s=0; S=({,K,M,G,T,P,E,Z,Y}B)
+  while ((b > 1000)); do
+    d="$(printf ".%01d" $((b % 1000 * 10 / 1000)))"
+    b=$((b / 1000))
+    let s++
+  done
+  echo "$b$d${S[$s]}"
+}
+
+# Iterate over the zero-delimited list of staged files.
+while IFS= read -r -d '' file ; do
+  hash=$(git ls-files -s "$file" | cut -d ' ' -f 2)
+  size=$(git cat-file -s "$hash")
+
+  if (( $size > $hard_limit )); then
+    echo "Error: Cannot commit '$file' because it is $(bytesToHuman $size), which exceeds the hard size limit of $(bytesToHuman $hard_limit)."
+    # Allows us to read user input below, assigns stdin to keyboard
+    exec < /dev/tty
+    read -p "Do you want to continue committing this file? (y/N): " choice
+    case "$choice" in 
+      y|Y ) echo "Continuing with commit...";;
+      * ) 
+        echo "Removing '$file' from staged commits..."
+        git reset HEAD "$file"
+
+        read -p "Do you want to delete this file? (y/N): " delete_choice
+        case "$delete_choice" in
+          y|Y ) 
+            echo "Deleting '$file'..."
+            rm "$file"
+            exit 1
+            ;;
+          * ) 
+            echo "File not deleted."
+            exit 1
+            ;;
+        esac
+        ;;
+    esac
+  elif (( $size > $soft_limit )); then
+    echo "Warning: '$file' is $(bytesToHuman $size), which exceeds the soft size limit of $(bytesToHuman $soft_limit). Please double check that you intended to commit this file."
+  fi
+done < <(git diff -z --staged --name-only --diff-filter=d)
+exit $status

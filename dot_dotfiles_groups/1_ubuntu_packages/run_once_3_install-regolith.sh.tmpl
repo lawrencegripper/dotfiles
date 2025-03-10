@@ -19,7 +19,8 @@ mkdir -p ~/scratch/i3
 sudo mv /usr/share/regolith/i3/config.d/70_bar ~/scratch/i3/70_bar || echo "bar already disabled"
 
 # enable compositor this makes zoom sharing work by allowing overlay between windows
-sudo apt install regolith-compositor-picom-glx -y
+# sudo apt install regolith-compositor-picom-glx -y # Disabled as doesn't play nice with 7600XT card I have
+sudo apt install regolith-compositor-xcompmgr -y
 
 # Configure compositor for zoom https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060527
 # don't do this think it breaks things

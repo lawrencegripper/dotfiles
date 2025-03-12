@@ -73,8 +73,12 @@ def extract_zoom_link(event):
     match = re.search(r"https://.*\.zoom\.us/j/[^\s]*", text)
     if match:
         zoom_link = match.group(0)
-        confno, pwd = zoom_link.split("/j/")[1].split("?pwd=")
-        return f"zoommtg://zoom.us/join?action=join&confno={confno}&pwd={pwd}"
+        try:
+            confno, pwd = zoom_link.split("/j/")[1].split("?pwd=")
+            return f"zoommtg://zoom.us/join?action=join&confno={confno}&pwd={pwd}"
+        except ValueError:
+            confno = zoom_link.split("/j/")[1].split("?")[0]
+            return f"zoommtg://zoom.us/join?action=join&confno={confno}"
     return None
 
 def fetch_ical_file(app_password, username, url):
@@ -196,8 +200,8 @@ def main():
         print("No more events today")
 
 if __name__ == "__main__":
-    try:
+    # try:
         main()
-    except Exception as e:
-        print(f"Error: {e}")
+    # except Exception as e:
+    #     print(f"Error: {e}")
 

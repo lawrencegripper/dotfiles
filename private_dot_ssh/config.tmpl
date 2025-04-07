@@ -1,3 +1,4 @@
+Include ~/.ssh/1Password/config
 {{- if lookPath "op" }}
 {{ onepasswordRead "op://Personal/dotfiles-ssh-config/notes" .onePasswordAccount }}
 {{end}}

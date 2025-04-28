@@ -5,4 +5,13 @@ export DEBIAN_FRONTEND=noninteractive
 {{ template "skip-unless-local-debian.tmpl" . }}
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-#cargo install --git https://github.com/oknozor/onagre
+
+# Install tools via cargo
+# hash: {{ include "dot_dotfiles_groups/1_ubuntu_packages/cargo.txt" | sha256sum }}
+
+# Install cargo packages
+{{ range include "dot_dotfiles_groups/1_ubuntu_packages/cargo.txt" | splitList "\n" }}
+{{ if contains "#" . | not }}
+cargo install {{.}}
+{{ end }}
+{{ end }}

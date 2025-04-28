@@ -10,11 +10,12 @@ sudo apt update
 sudo apt upgrade -y
 brew update
 brew upgrade
-sudo snap refresh || true
 
 # Get latest dotfiles
 chezmoi update
 
+sudo snap refresh || echo "failed to update snap packages"
+rustup update || echo "failed to update rust tooling" 
 # Get firmware updates
 fwupdmgr get-updates
 

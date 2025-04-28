@@ -4,24 +4,22 @@
 
 # Skip for now as back to running on x11
 # Deps
-#sudo apt install libgtk-4-1 libadwaita-1-0 libepoxy-dev fontconfig libfontconfig1-dev libgraphene-1.0-dev libgtk-4-dev libadwaita-1-dev -y
+sudo apt install libgtk-4-1 libadwaita-1-0 libepoxy-dev fontconfig libfontconfig1-dev libgraphene-1.0-dev libgtk-4-dev libadwaita-1-dev -y
 #
-## Install satty
-#mkdir -p $HOME/scratch
-#cd $HOME/scratch
-#
-#git clone https://github.com/gabm/Satty.git
-#
-#cd Satty
-#
-## Build
-## see: https://github.com/automattic/node-canvas/issues/246
-#export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
-#
-## build release binary, located in ./target/release/satty
-#make build-release
-#
-## optional: install to /usr/local
-#sudo PREFIX=/usr/local make install
-#
-#
+# Install satty
+mkdir -p $HOME/scratch
+cd $HOME/scratch
+
+git clone https://github.com/gabm/Satty.git
+
+cd Satty
+
+# Build
+# see: https://github.com/automattic/node-canvas/issues/246
+export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
+
+# build release binary, located in ./target/release/satty
+make build-release
+
+# optional: install to /usr/local
+sudo PREFIX=/usr/local make install

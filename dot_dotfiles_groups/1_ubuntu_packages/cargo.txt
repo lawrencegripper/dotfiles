@@ -1,0 +1,2 @@
+# Add things here as needed
+# Wanted https://github.com/Umio-Yasuno/amdgpu_top?tab=readme-ov-file#installation but not working

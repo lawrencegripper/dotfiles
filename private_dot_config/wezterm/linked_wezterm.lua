@@ -47,8 +47,53 @@ config.hide_tab_bar_if_only_one_tab = true
 -- config.color_scheme = 'Monokai Pro (Gogh)'
 -- config.color_scheme = 'MaterialDesignColors'
 config.color_scheme = "Ayu Dark (Gogh)"
-config.font_size = 10
-config.font = wezterm.font('JetBrains Mono Nerd Font', { italic = false })
+config.font_size = 11
+config.freetype_load_target = 'HorizontalLcd' -- https://wezfurlong.org/wezterm/config/lua/config/freetype_load_target.html
+
+-- See: https://github.com/githubnext/monaspace/issues/133
+-- Monaspace:  https://monaspace.githubnext.com/
+-- Based upon, contributed to:  https://gist.github.com/ErebusBat/9744f25f3735c1e0491f6ef7f3a9ddc3
+config.font = wezterm.font(
+{ -- Normal text
+  family='Monaspace Neon',
+  harfbuzz_features={ 'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08' },
+  stretch='UltraCondensed', -- This doesn't seem to do anything
+  weight='Medium'
+})
+
+config.font_rules = {
+  { -- Italic
+    intensity = 'Normal',
+    italic = true,
+    font = wezterm.font({
+      -- family="Monaspace Radon",  -- script style
+      family='Monaspace Neon', -- courier-like
+      style = 'Italic',
+    })
+  },
+
+  { -- Bold
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font( {
+      family='Monaspace Neon',
+      family='Monaspace Neon',
+      -- weight='ExtraBold',
+      weight='Bold',
+      })
+  },
+
+  { -- Bold Italic
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font( {
+      family='Monaspace Neon',
+      style='Italic',
+      weight='Bold',
+      }
+    )
+  },
+}
 
 config.scrollback_lines = 90000
 

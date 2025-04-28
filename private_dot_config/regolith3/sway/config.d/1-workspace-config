@@ -36,7 +36,10 @@ bindsym $mod+ctrl+shift+down move workspace to output down
 bindsym $mod+grave exec /home/lawrencegripper/.config/regolith3/sway/sway_dropdown_terminal.sh
 
 # Start 1Password Quick Access
-bindsym Control+Shift+Space exec /usr/bin/1password --quick-access
+bindsym Control+Shift+Space exec /usr/bin/1password
+# Make 1Password windows float
+for_window [class="1Password"] floating enable
+for_window [app_id="1Password"] floating enable
 
 # Bind Win+SysRq to take a screenshot with grim and satty
 bindsym $mod+Print exec grim -g "$(slurp '#ff0000ff')" -t ppm - | satty --filename - --fullscreen --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png --copy-command wl-copy

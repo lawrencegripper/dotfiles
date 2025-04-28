@@ -26,6 +26,9 @@ export HOMEBREW_INSTALL_FROM_API=1
     # Brewfile hash: {{ includeTemplate "dot_dotfiles_groups/2_homebrew/Brewfile.linux.tmpl" | sha256sum }}
     brew bundle --file=~/.dotfiles_groups/2_homebrew/Brewfile.linux -v
 
+    # Update the fonts that are installed
+    fc-cache -f -v
+
 {{ else if eq .chezmoi.os "darwin" -}}
 
     {{ if lookPath "brew" | not }}

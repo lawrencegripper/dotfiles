@@ -24,11 +24,11 @@
     },
     // "rubyTestExplorer.debugCommand": "rdebug-ide",
     "rubyTestExplorer.logpanel": true,
-    "workbench.colorTheme": "Monokai Pro (Filter Machine)",
+    "workbench.colorTheme": "Ayu Dark Bordered",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
-        "kubernetes": "*.yaml",
+        // "kubernetes": "*.yaml",
     },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
@@ -84,8 +84,13 @@
         "SangsooNam.vscode-extension-quick-grep"
     ],
     "editor.fontFamily": "'Monaspace Neon', monospace",
-    "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.inlineSuggest.fontFamily": "'Monaspace Krypton', monospace",
+    // "editor.fontFamily": "FiraMono Nerd Font Mono",
+    // "editor.fontFamily": "'Monaspace Krypton', monospace",
+    // "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
+    // "editor.fontFamily": "Monaspace Argon Frozen",
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+    // "editor.fontLigatures": true,
     "terminal.integrated.fontSize": 14,
     "editor.fontSize": 14,
     "terminal.integrated.scrollback": 100000,
@@ -157,7 +162,7 @@
         "jupyter-notebook": "left"
     },
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": true,
         "markdown": false,
         "scminput": false,
@@ -166,7 +171,8 @@
         "ruby": true,
         "python": true,
         "shellscript": true,
-        "rust": true
+        "rust": true,
+        "go": false
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [
@@ -202,7 +208,7 @@
         "rgba(231, 111, 81,0.025)"
     ],
     "editor.guides.bracketPairs": true,
-    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
+    "workbench.iconTheme": "Monokai Pro Icons",
     "testExplorer.useNativeTesting": true,
     "githubPullRequests.createOnPublishBranch": "never",
     "quickgrep.preview": false,
@@ -276,5 +282,6 @@
         "searchAndCompare": false,
         "launchpad": false
     },
-    "git.blame.editorDecoration.enabled": true
+    "git.blame.editorDecoration.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": false
 }

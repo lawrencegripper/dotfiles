@@ -24,7 +24,7 @@
     },
     // "rubyTestExplorer.debugCommand": "rdebug-ide",
     "rubyTestExplorer.logpanel": true,
-    "workbench.colorTheme": "Ayu Dark Bordered",
+    "workbench.colorTheme": "Ayu Mirage Bordered",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {

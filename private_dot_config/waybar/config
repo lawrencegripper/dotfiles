@@ -7,10 +7,10 @@
         "height": 32,
         "position": "top",
         "modules-left": [
-            "custom/ghcal"
+            "sway/workspaces", "custom/ghcal"
         ],
         "modules-center": [
-            "sway/workspaces"
+            
         ],
         "modules-right": [  
             "cpu",
@@ -76,7 +76,7 @@
         },
         "custom/ghcal": {
             "exec": "$HOME/.config/waybar/calnot.py",
-            "interval": 30
+            "interval": 8
         }
     },
     {
@@ -87,19 +87,14 @@
         "height": 32,
         "position": "top",
         "modules-left": [
+            "sway/workspaces",
             "network",
             "custom/givenergy"
         ],
         "modules-center": [
-            "sway/workspaces"
+            
         ],
         "modules-right": [
-            "clock#pst",
-            "clock#est",
-            "clock#utc",
-            "clock#berlin",
-            "clock",
-            "clock#date",
             "tray"
         ],
         "tray": {
@@ -116,47 +111,8 @@
                 "default": ""
             }
         },
-        "clock#pst": {
-            "timezone": "America/Los_Angeles",
-            "format": "🇺🇸 PST {:%H:%M}",
-            "interval": 60,
-            "tooltip": true,
-            "tooltip-format": "Los Angeles: {:%Y-%m-%d %H:%M:%S}"
-        },
-        "clock#est": {
-            "timezone": "America/New_York",
-            "format": "🇺🇸 EST {:%H:%M}",
-            "interval": 60,
-            "tooltip": true,
-            "tooltip-format": "New York: {:%Y-%m-%d %H:%M:%S}"
-        },
-        "clock#utc": {
-            "timezone": "UTC",
-            "format": "🌐 UTC {:%H:%M}",
-            "interval": 60,
-            "tooltip": true,
-            "tooltip-format": "Coordinated Universal Time: {:%Y-%m-%d %H:%M:%S}"
-        },
-        "clock#berlin": {
-            "timezone": "Europe/Berlin",
-            "format": "🇩🇪 CET {:%H:%M}",
-            "interval": 60,
-            "tooltip": true,
-            "tooltip-format": "Berlin: {:%Y-%m-%d %H:%M:%S}"
-        },
-        "clock": {
-            "interval": 60,
-            "format": "🇬🇧 {:%H:%M:%S}",
-            "tooltip": true,
-            "tooltip-format": "London: {:%Y-%m-%d}"
-        },
-        "clock#date": {
-            "interval": 60,
-            "format": "📆 {:%Y-%m-%d}",
-            "tooltip": true,
-            "tooltip-format": "London: {:%Y-%m-%d}"
-        },
         "network": {
+            "interval": 2,
             "format-wifi": "wlan {essid} {ipaddr}",
             "format-ethernet": "eth 📥 {bandwidthDownBits} 📤 {bandwidthUpBits}",
             "tooltip-format": "{ifname} via {gwaddr}",
@@ -180,12 +136,53 @@
         "height": 32,
         "position": "top",
         "modules-left": [
-        ],
-        "modules-center": [
             "sway/workspaces"
         ],
-        "modules-right": [
+        "modules-center": [
             
-        ]
+        ],
+        "modules-right": [
+            "clock#pst",
+            "clock#est",
+            "clock#utc",
+            "clock#berlin",
+            "clock",
+            "clock#date"
+        ],
+        "clock#pst": {
+            "timezone": "America/Los_Angeles",
+            "format": "🇺🇸 PST {:%H:%M}",
+            "tooltip": true,
+            "tooltip-format": "Los Angeles: {:%Y-%m-%d %H:%M:%S}"
+        },
+        "clock#est": {
+            "timezone": "America/New_York",
+            "format": "🇺🇸 EST {:%H:%M}",
+            "tooltip": true,
+            "tooltip-format": "New York: {:%Y-%m-%d %H:%M:%S}"
+        },
+        "clock#utc": {
+            "timezone": "UTC",
+            "format": "🌐 UTC {:%H:%M}",
+            "tooltip": true,
+            "tooltip-format": "Coordinated Universal Time: {:%Y-%m-%d %H:%M:%S}"
+        },
+        "clock#berlin": {
+            "timezone": "Europe/Berlin",
+            "format": "🇩🇪 CET {:%H:%M}",
+            "interval": 60,
+            "tooltip": true,
+            "tooltip-format": "Berlin: {:%Y-%m-%d %H:%M:%S}"
+        },
+        "clock": {
+            "format": "🇬🇧 {:%H:%M:%S}",
+            "tooltip": true,
+            "tooltip-format": "London: {:%Y-%m-%d}"
+        },
+        "clock#date": {
+            "format": "📆 {:%Y-%m-%d}",
+            "tooltip": true,
+            "tooltip-format": "London: {:%Y-%m-%d}"
+        },
     }
 ]

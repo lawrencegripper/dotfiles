@@ -8,6 +8,8 @@
     font-family: 'JetBrainsMono Nerd Font', 'Ubuntu', sans-serif;
     font-size: 13px;
     min-height: 0;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 window#waybar {
@@ -68,12 +70,84 @@ window#waybar.hidden {
     margin: 3px;
     padding: 0 10px;
     background-color: rgba(55, 55, 80, 0.5);
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-#clock.berlin, #clock.pst, #clock.est, #clock.utc {
-    background-color: rgba(55, 55, 80, 0.3);
-    padding: 0 5px;
-    margin-right: 5px;
+#clock:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#clock.pst {
+    background-color: rgba(100, 130, 180, 0.6);
+    padding: 0 8px;
+    margin-right: 4px;
+    border-bottom: 2px solid #4682B4;
+}
+
+#clock.est {
+    background-color: rgba(65, 105, 225, 0.6);
+    padding: 0 8px;
+    margin-right: 4px;
+    border-bottom: 2px solid #4169E1;
+}
+
+#clock.utc {
+    background-color: rgba(70, 130, 180, 0.6);
+    padding: 0 8px;
+    margin-right: 4px;
+    border-bottom: 2px solid #4682B4;
+}
+
+#clock.berlin {
+    background-color: rgba(255, 204, 0, 0.4);
+    padding: 0 8px;
+    margin-right: 4px;
+    border-bottom: 2px solid #FFA500;
+}
+
+#clock.date {
+    background-color: rgba(189, 147, 249, 0.4);
+    padding: 0 8px;
+    margin-right: 4px;
+    border-bottom: 2px solid #bd93f9;
+}
+
+/* System modules (CPU, load, memory) */
+#cpu {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(139, 233, 253, 0.2);
+    border-bottom: 2px solid #8be9fd;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#load {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(80, 250, 123, 0.2); 
+    border-bottom: 2px solid #50fa7b;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#memory {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(255, 121, 198, 0.2);
+    border-bottom: 2px solid #ff79c6;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#cpu:hover, #load:hover, #memory:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Network module */
@@ -81,11 +155,67 @@ window#waybar.hidden {
     border-radius: 10px;
     margin: 3px;
     padding: 0 10px;
-    background: rgba(55, 55, 80, 0.5);
+    background-color: rgba(139, 233, 253, 0.3);
+    border-bottom: 2px solid rgba(139, 233, 253, 0.7);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#network:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 #network.disconnected {
     background-color: rgba(247, 118, 142, 0.5);
+    border-bottom: 2px solid #f7768e;
+    animation: blink 1s infinite alternate;
+}
+
+/* Battery and Temperature modules */
+#battery {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(241, 250, 140, 0.2);
+    border-bottom: 2px solid #f1fa8c;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#temperature {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(189, 147, 249, 0.2);
+    border-bottom: 2px solid #bd93f9;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#battery:hover, #temperature:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#battery.warning {
+    background-color: rgba(241, 250, 140, 0.5);
+    color: #282a36;
+    border-bottom: 2px solid #f1fa8c;
+}
+
+#battery.critical {
+    background-color: rgba(247, 118, 142, 0.5);
+    color: #f8f8f2;
+    border-bottom: 2px solid #f7768e;
+    animation: blink 1s infinite alternate;
+}
+
+#temperature.critical {
+    background-color: rgba(247, 118, 142, 0.5);
+    color: #f8f8f2;
+    border-bottom: 2px solid #f7768e;
+    animation: blink 1s infinite alternate;
 }
 
 /* Tray module */
@@ -94,14 +224,44 @@ window#waybar.hidden {
     margin: 3px;
     padding: 0 5px;
     background-color: rgba(55, 55, 80, 0.3);
+    border-bottom: 2px solid rgba(100, 114, 125, 0.5);
+    transition: all 0.3s ease;
 }
 
-/* Calendar module */
+#tray:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Modules */
 #custom-ghcal {
     border-radius: 10px;
     margin: 3px;
     padding: 0 10px;
-    background-color: rgba(55, 55, 80, 0.5);
+    background-color: rgba(189, 147, 249, 0.3);
+    border-bottom: 2px solid #bd93f9;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#custom-ghcal:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#custom-givenergy {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(189, 147, 249, 0.3);
+    border-bottom: 2px solid #bd93f9;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#custom-givenergy:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Style tooltips for all modules */

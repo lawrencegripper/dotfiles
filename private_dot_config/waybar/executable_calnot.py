@@ -200,7 +200,7 @@ def main():
     elif next_up:
         print(f"{next_up} {after_that}")
     else: 
-        print("No more events today")
+        print("📆 No more events today 🥳")
 
 if __name__ == "__main__":
     # try:

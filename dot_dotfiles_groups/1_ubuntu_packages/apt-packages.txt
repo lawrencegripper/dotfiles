@@ -67,6 +67,8 @@ libnotify-bin
 golang
 
 polybar
+# status bar when in sway, replaces polybar
+waybar
 cpufrequtils
 
 # moonlander https://github.com/zsa/wally/wiki/Linux-install

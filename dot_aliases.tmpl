@@ -1,5 +1,7 @@
 alias reload!='. ~/.zshrc'
 
+alias reload-waybar='killall -SIGUSR2 waybar'
+
 alias g=git
 alias d='docker $*'
 # grep case insensitive 
@@ -7,8 +9,8 @@ alias gri='grep -i $*'
 # grep recursive
 alias grr='grep -i -R $* .'
 
-# copy to clipboard
-alias clip='xclip -selection clipboard'
+# copy to clipboard - replaced by wezcopy
+# alias clip='xclip -selection clipboard'
 
 alias s="sshrc"
 

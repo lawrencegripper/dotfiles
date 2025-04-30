@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e
+
+# Install waybar on systems that support it
+{{- if eq (env "XDG_SESSION_DESKTOP") "sway" }}
+ 
+echo "Installing waybar"
+sudo apt install -y waybar 
+
+# Ensure the Python venv exists for scripts
+if [ ! -d ~/.venv-polybar ]; then
+  python3 -m venv ~/.venv-polybar
+  
+  # Install dependencies for scripts
+  ~/.venv-polybar/bin/pip install pyusb libusb
+  ~/.venv-polybar/bin/pip install BlinkStick
+  ~/.venv-polybar/bin/pip install dbus-python
+  ~/.venv-polybar/bin/pip install givenergy-modbus==0.10.1
+fi
+
+# Create appropriate symlinks for the config
+mkdir -p "$HOME/.config/waybar"
+ln -sf "$HOME/.config/waybar/config.jsonc" "$HOME/.config/waybar/config"
+ln -sf "$HOME/.config/waybar/style.css" "$HOME/.config/waybar/style.css"
+
+{{ end }}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Waybar - Wayland bar for Sway
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/waybar
+WorkingDirectory=/home/lawrencegripper
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=sway-session.target

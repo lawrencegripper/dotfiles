@@ -1,0 +1,126 @@
+[
+    {
+        "name": "bar1 - top left",
+        "output": [
+            "DP-1"
+        ],
+        "height": 35,
+        "position": "top",
+        "modules-left": [
+            "custom/ghcal"
+        ],
+        "modules-center": [
+            "sway/workspaces"
+        ],
+        "modules-right": [  
+        ],
+        "sway/workspaces": {
+            "disable-scroll": false,
+            "all-outputs": false,
+            "format": "{name}",
+            "format-icons": {
+                "urgent": " !",
+                "focused": "",
+                "default": ""
+            }
+        },
+        "custom/ghcal": {
+            "exec": "$HOME/.config/waybar/calnot.py",
+            "interval": 30
+        }
+    },
+    {
+        "name": "bar2 - top right",
+        "output": [
+            "DP-4"
+        ],
+        "height": 32,
+        "position": "top",
+        "modules-left": [
+            "network",
+            "custom/givenergy"
+        ],
+        "modules-center": [
+            "sway/workspaces"
+        ],
+        "modules-right": [
+            "clock#pst",
+            "clock#est",
+            "clock#utc",
+            "clock#berlin",
+            "clock",
+            "tray"
+        ],
+        "tray": {
+            "icon-size": 18,
+            "spacing": 10
+        },
+        "sway/workspaces": {
+            "disable-scroll": false,
+            "all-outputs": false,
+            "format": "{name}",
+            "format-icons": {
+                "urgent": " !",
+                "focused": "",
+                "default": ""
+            }
+        },
+        "clock#pst": {
+            "timezone": "America/Los_Angeles",
+            "format": "PST {:%H:%M}",
+            "interval": 60,
+            "tooltip": false
+        },
+        "clock#est": {
+            "timezone": "America/New_York",
+            "format": "EST {:%H:%M}",
+            "interval": 60,
+            "tooltip": false
+        },
+        "clock#utc": {
+            "timezone": "UTC",
+            "format": "UTC {:%H:%M}",
+            "interval": 60,
+            "tooltip": false
+        },
+        "clock#berlin": {
+            "timezone": "Europe/Berlin",
+            "format": "CET {:%H:%M}",
+            "interval": 60,
+            "tooltip": false
+        },
+        "clock": {
+            "interval": 60,
+            "format": "UK {:%Y-%m-%dT%H:%M:%S}",
+            "tooltip": false
+        },
+        "network": {
+            "format-wifi": "wlan {essid} {ipaddr}",
+            "format-ethernet": "eth {ipaddr}/{cidr}",
+            "tooltip-format": "{ifname} via {gwaddr}",
+            "format-linked": "{ifname} (No IP)",
+            "format-disconnected": "{ifname} disconnected",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "custom/givenergy": {
+            "exec": "$HOME/.config/waybar/givenergy.py",
+            "interval": 60
+        }
+    },
+    {
+        "name": "bar3 - bottom ultawide",
+        "output": [
+            "DP-2"
+        ],
+        "height": 32,
+        "position": "top",
+        "modules-left": [
+        ],
+        "modules-center": [
+            "sway/workspaces"
+        ],
+        "modules-right": [
+            
+        ]
+    }
+]

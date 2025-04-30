@@ -4,7 +4,7 @@
         "output": [
             "DP-1"
         ],
-        "height": 35,
+        "height": 32,
         "position": "top",
         "modules-left": [
             "custom/ghcal"
@@ -13,7 +13,33 @@
             "sway/workspaces"
         ],
         "modules-right": [  
+            "cpu",
+            "load",
+            "memory",
+            "battery",
+            "temperature"
         ],
+        "cpu": {
+            "format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+            "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+            "interval": 2
+        },
+        "load": {
+            "interval": 2,
+            "format": "load: {load1} {load5} {load15}"
+        },
+        "memory": {
+            "format": "{used:0.1f}GB/{total:0.1f}GB"
+        },
+        "battery": {
+            "format": "{capacity}% {icon}",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{temperatureC}°C {icon}",
+            "format-icons": ["", "", ""]
+        },
         "sway/workspaces": {
             "disable-scroll": false,
             "all-outputs": false,
@@ -91,7 +117,7 @@
         },
         "clock": {
             "interval": 60,
-            "format": "UK {:%Y-%m-%dT%H:%M:%S}",
+            "format": "UK 📅 {:%Y-%m-%d 🕓 %H:%M:%S}",
             "tooltip": false
         },
         "network": {
@@ -104,7 +130,10 @@
         },
         "custom/givenergy": {
             "exec": "$HOME/.config/waybar/givenergy.py",
-            "interval": 60
+            "interval": 60,
+            "return-type": "json",
+            "tooltip-format": "{tooltip}",
+            "on-click": "xdg-open http://givenergy.cloud/"
         }
     },
     {

@@ -27,9 +27,9 @@
     "workbench.colorTheme": "Ayu Mirage Bordered",
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
-    "yaml.schemas": {
-        "kubernetes": "*.yaml",
-    },
+    // "yaml.schemas": {
+    //     "kubernetes": "*.yaml",
+    // },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
     "zenMode.centerLayout": false,

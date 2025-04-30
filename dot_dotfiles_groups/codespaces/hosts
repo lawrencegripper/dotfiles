@@ -1,0 +1,10 @@
+# Make language tools work in Codespaces. See dot_dotfiles_bin/executable_codespace-launch
+127.0.0.1 languagetool-api.unicorn-tailor.ts.net
+
+# Normal codespace stuff
+127.0.0.1	localhost
+::1	localhost ip6-localhost ip6-loopback
+fe00::0	ip6-localnet
+ff00::0	ip6-mcastprefix
+ff02::1	ip6-allnodes
+ff02::2	ip6-allrouters

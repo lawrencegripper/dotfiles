@@ -28,7 +28,7 @@
     "terminal.integrated.copyOnSelection": true,
     "remote.SSH.showLoginTerminal": true,
     "yaml.schemas": {
-        // "kubernetes": "*.yaml",
+        "kubernetes": "*.yaml",
     },
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
@@ -37,7 +37,7 @@
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "workbench.sideBar.location": "right",
-    "languageToolLinter.external.url": "http://localhost:8123",
+    "languageToolLinter.external.url": "http://languagetool-api.unicorn-tailor.ts.net:8123",
     "languageToolLinter.serviceType": "external",
     "languageToolLinter.languageTool.language": "en-GB",
     "languageToolLinter.languageTool.motherTongue": "en-GB",

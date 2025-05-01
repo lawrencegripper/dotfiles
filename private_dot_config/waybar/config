@@ -7,18 +7,29 @@
         "height": 32,
         "position": "top",
         "modules-left": [
-            "sway/workspaces", "custom/ghcal"
+            "memory",
+            "load",
+            "cpu",
+            "battery",
+            "temperature",
+            "network",  
         ],
         "modules-center": [
             
         ],
         "modules-right": [  
-            "cpu",
-            "load",
-            "memory",
-            "battery",
-            "temperature"
+            "custom/ghcal",
+            "sway/workspaces"
         ],
+        "network": {
+            "interval": 2,
+            "format-wifi": "wlan {essid} {ipaddr}",
+            "format-ethernet": "eth 📥 {bandwidthDownBits} 📤 {bandwidthUpBits}",
+            "tooltip-format": "{ifname} via {gwaddr}",
+            "format-linked": "{ifname} (No IP)",
+            "format-disconnected": "{ifname} disconnected",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
         "cpu": {
             "format": "<span color='#ff79c6'>󰻠</span> {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
             "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -88,7 +99,6 @@
         "position": "top",
         "modules-left": [
             "sway/workspaces",
-            "network",
             "custom/givenergy"
         ],
         "modules-center": [
@@ -111,15 +121,6 @@
                 "default": ""
             }
         },
-        "network": {
-            "interval": 2,
-            "format-wifi": "wlan {essid} {ipaddr}",
-            "format-ethernet": "eth 📥 {bandwidthDownBits} 📤 {bandwidthUpBits}",
-            "tooltip-format": "{ifname} via {gwaddr}",
-            "format-linked": "{ifname} (No IP)",
-            "format-disconnected": "{ifname} disconnected",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}"
-        },
         "custom/givenergy": {
             "exec": "$HOME/.config/waybar/givenergy.py",
             "interval": 60,
@@ -136,10 +137,9 @@
         "height": 32,
         "position": "top",
         "modules-left": [
-            "sway/workspaces"
         ],
         "modules-center": [
-            
+            "sway/workspaces"
         ],
         "modules-right": [
             "clock#pst",
@@ -177,7 +177,8 @@
         "clock": {
             "format": "🇬🇧 {:%H:%M:%S}",
             "tooltip": true,
-            "tooltip-format": "London: {:%Y-%m-%d}"
+            "tooltip-format": "London: {:%Y-%m-%d}",
+            "interval": 1
         },
         "clock#date": {
             "format": "📆 {:%Y-%m-%d}",

@@ -114,6 +114,21 @@ window#waybar.hidden {
     border-bottom: 2px solid #bd93f9;
 }
 
+/* UK flag themed clock module (subtle red) */
+#clock {
+    background-color: rgba(207, 20, 43, 0.25); /* UK flag red with lower opacity */
+    padding: 0 8px;
+    margin-right: 4px;
+    border-bottom: 2px solid rgba(207, 20, 43, 0.7); /* UK flag red, semi-transparent */
+    color: #f0f0f0; /* Slightly off-white text for contrast */
+    font-weight: bold;
+}
+
+#clock:hover {
+    background-color: rgba(207, 20, 43, 0.4);
+    box-shadow: 0 0 5px rgba(207, 20, 43, 0.3);
+}
+
 /* System modules (CPU, load, memory) */
 #cpu {
     border-radius: 10px;

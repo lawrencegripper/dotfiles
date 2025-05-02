@@ -115,7 +115,7 @@ async def get_car_status():
             elif status.state == "CONNECT_CABLE":
                 human_readable = f"󱐤"
             elif status.state == "READY_FOR_CHARGING":
-                human_readable = f"🔌"l
+                human_readable = f"🔌"
 
             return f"{status.battery.state_of_charge_in_percent}% {human_readable}"
 

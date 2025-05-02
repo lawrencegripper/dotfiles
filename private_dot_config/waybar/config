@@ -105,8 +105,13 @@
             
         ],
         "modules-right": [
+            "custom/uptime-kuma",
             "tray"
         ],
+        "custom/uptime-kuma": {
+            "exec": "$HOME/.config/waybar/uptime-kuma.py",
+            "interval": "60"
+        },
         "tray": {
             "icon-size": 18,
             "spacing": 10
@@ -181,7 +186,7 @@
             "interval": 1
         },
         "clock#date": {
-            "format": "📆 {:%Y-%m-%d}",
+            "format": "📆 {:%b %Y-%m-%d}",
             "tooltip": true,
             "tooltip-format": "London: {:%Y-%m-%d}"
         },

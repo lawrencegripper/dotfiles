@@ -4,6 +4,7 @@
 # requires-python = ">=3.8"
 # dependencies = [
 #     "givenergy-modbus",
+#     "myskoda"
 # ]
 # ///
 
@@ -15,6 +16,11 @@ import pickle
 import traceback
 from givenergy_modbus.client import GivEnergyClient
 from givenergy_modbus.model.plant import Plant
+import asyncio
+from aiohttp import ClientSession
+from myskoda import MySkoda
+import subprocess
+import base64
 
 CACHE_DIR = "/tmp/givenergy"
 CACHE_LAST_PKL = os.path.join(CACHE_DIR, "last.pkl")
@@ -79,6 +85,39 @@ def get_inverter_status():
         # If we get here, either the cache doesn't exist, is too old, or couldn't be loaded
         print("Error talking to inverter or cache is too old")
         raise e
+    
+def get_op_value(path):
+    cache_file = os.path.join(CACHE_DIR, base64.urlsafe_b64encode(path.encode()).decode())
+    if os.path.exists(cache_file):
+        with open(cache_file, 'r') as file:
+            return file.read().strip()
+    value = subprocess.check_output(["/bin/bash", "-c", f"op read '{path}'"]).decode().strip()
+    with open(cache_file, 'w') as file:
+        file.write(value)
+    os.chmod(cache_file, 0o600)
+    return value
+    
+async def get_car_status():
+    async with ClientSession() as session:
+        myskoda = MySkoda(session)
+        await myskoda.connect(get_op_value("op://Shared/Vwgroup my skoda/username"), get_op_value("op://Shared/Vwgroup my skoda/password"))
+        for vin in await myskoda.list_vehicle_vins():
+            charging = await myskoda.get_charging(vin)
+            status = charging.status
+            if status is None:
+                return "No status"
+            if status.battery is None:
+                return "No battery status"
+
+            human_readable = ""
+            if status.state == "CHARGING":
+                human_readable = f"🔌 @ {status.charge_power_in_kw}kW"
+            elif status.state == "CONNECT_CABLE":
+                human_readable = f"󱐤"
+            elif status.state == "READY_FOR_CHARGING":
+                human_readable = f"🔌"l
+
+            return f"{status.battery.state_of_charge_in_percent}% {human_readable}"
 
 try:
     p = get_inverter_status()
@@ -89,12 +128,16 @@ try:
     grid_power = p.inverter.p_grid_out  # Grid import/export
     battery_power = p.inverter.p_battery  # Battery charge/discharge
     battery_percent = p.inverter.battery_percent
+
+    # Calculate percentage of home load supplied by battery
+    battery_discharge_percentage = round((battery_power / load_power) * 100) if load_power > 0 else 0
     
     # Calculate if we're currently in surplus
     solar_surplus = pv_power > load_power
     # We're using the grid
     min_load_grid = 90
-    importing_from_grid = grid_power > min_load_grid
+    importing_from_grid = grid_power < 0
+    exporting_to_grid = grid_power > min_load_grid
 
     # Create the output with direct styling for Waybar/Pango
     output = f'<span>'
@@ -110,22 +153,35 @@ try:
     batt_icon = get_battery_icon(battery_percent)
     
     # Set battery color based on charging/discharging status
+    batt_color = "#ffcc00"  # Yellow for discharging
     if battery_power < 0:  # Charging
         batt_color = "#2d862d"  # Green for charging
-    elif battery_power > 0:  # Discharging
-        batt_color = "#b30000"  # Red for discharging
+    elif battery_power == 0:  # Discharging
+        batt_color = "#92bdff"  # Blue for idle
         
     output += f'<span color="{batt_color}" font_weight="bold">{batt_icon}</span> {battery_percent}% '
+
+    # Add car status if available
+    car_status = asyncio.run(get_car_status())
+    output += f'<span font_weight="bold">🚗</span> {car_status} '
     
     # Add grid status
     grid_icon = "󰈏"
-    grid_color = "#92bdff" if importing_from_grid < 0 else "#b30000"
+    grid_color = "#2d862d" if not importing_from_grid else "#b30000"
     output += f'<span font_weight="bold" color="{grid_color}">{grid_icon}</span> {format_wattage(abs(grid_power))} '
 
-    # Generate the main display text with beautiful styling
-    main_icon = "✅ Off Grid " if not importing_from_grid else "❌ Importing"
-    main_color = "#2d862d" if solar_surplus else "#b30000"
-    output += f'<span color="{main_color}" font_weight="bold">{main_icon}</span> '
+    main_icon = ""
+    if exporting_to_grid:
+        main_icon = "✅ Exporting 💵💵💵"
+    elif importing_from_grid:
+        main_icon = "😭 Importing"
+    
+    if battery_power > 0:
+        main_icon += f"🔋 Battery providing ({battery_discharge_percentage}% of 🏡 load)"
+
+    
+    main_color = "#2d862d" if not importing_from_grid else "#b30000"
+    output += f'<span color="{main_color}" font_weight="bold">{main_icon}</span>'
     
     # Close the main span
     output += '</span>'
@@ -147,7 +203,7 @@ try:
 <span color="#ffcc00">SOLAR</span>: {format_wattage(pv_power)} ({solar_percentage}% of home use)
 <span color="#e95420">HOME</span>: {format_wattage(load_power)}
 <span color="{batt_color}">BATTERY</span>: {battery_percent}% ({'Charging' if battery_power < 0 else 'Discharging' if battery_power > 0 else 'Idle'}) {format_wattage(abs(battery_power))}
-<span color="#92bdff">GRID</span>: {'Importing' if grid_power > 0 else 'Exporting' if grid_power < 0 else 'Balanced'} {format_wattage(abs(grid_power))}
+<span color="#92bdff">GRID</span>: {'Importing' if importing_from_grid else 'Exporting 🚀'} {format_wattage(abs(grid_power))}
 
 <b>SOLAR DETAILS</b>
 PV1: {format_wattage(p.inverter.p_pv1)} • PV2: {format_wattage(p.inverter.p_pv2)}

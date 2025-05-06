@@ -110,7 +110,15 @@
         ],
         "custom/uptime-kuma": {
             "exec": "$HOME/.config/waybar/uptime-kuma.py",
-            "interval": "60"
+            "interval": "60",
+            "return-type": "json"
+        },
+        "custom/givenergy": {
+            "exec": "$HOME/.config/waybar/givenergy.py",
+            "interval": 60,
+            "return-type": "json",
+            "tooltip-format": "{tooltip}",
+            "on-click": "xdg-open http://givenergy.cloud/"
         },
         "tray": {
             "icon-size": 18,
@@ -125,13 +133,6 @@
                 "focused": "",
                 "default": ""
             }
-        },
-        "custom/givenergy": {
-            "exec": "$HOME/.config/waybar/givenergy.py",
-            "interval": 60,
-            "return-type": "json",
-            "tooltip-format": "{tooltip}",
-            "on-click": "xdg-open http://givenergy.cloud/"
         }
     },
     {

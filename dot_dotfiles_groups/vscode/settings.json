@@ -2,12 +2,16 @@
     "files.associations": {
         "*.hujson": "jsonc"
     },
-    "json.schemas": [{
-        "fileMatch": ["*.hujson"],
-        "schema": {
-            "allowTrailingCommas": true
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "*.hujson"
+            ],
+            "schema": {
+                "allowTrailingCommas": true
+            }
         }
-    }],
+    ],
     "terminal.integrated.profiles.linux": {
         "zsh": {
             "path": "zsh"
@@ -98,7 +102,6 @@
     "ruby.lint": {
         "rubocop": true
     },
-
     "[ruby]": {
         "editor.formatOnSave": true,
         "editor.detectIndentation": false,
@@ -123,8 +126,7 @@
     // "go.testFlags": [
     //     "-v"
     // ],
-    "go.lintFlags": [
-    ],
+    "go.lintFlags": [],
     "go.lintTool": "golangci-lint",
     // "go.lintFlags": [],
     "go.lintOnSave": "workspace",
@@ -266,9 +268,9 @@
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
     "window.menuBarVisibility": "toggle",
     "chat.editing.alwaysSaveWithGeneratedChanges": true,
-	"remote.autoForwardPortsSource": "hybrid",
-	"extensions.trustedPublishers": [
-		"eamodio"
+    "remote.autoForwardPortsSource": "hybrid",
+    "extensions.trustedPublishers": [
+        "eamodio"
     ],
     "gitlens.views.scm.grouped.views": {
         "commits": false,
@@ -283,5 +285,6 @@
         "launchpad": false
     },
     "git.blame.editorDecoration.enabled": true,
-    "github.copilot.nextEditSuggestions.enabled": false
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "@azure.argTenant": ""
 }

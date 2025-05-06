@@ -31,46 +31,33 @@ def get_op_value(path):
     os.chmod(cache_file, 0o600)
     return value
 
-def get_monitors(api):
-    import os.path
-    
-    cache_file = os.path.join(CACHE_DIR, "monitors.pkl")
-    cache_valid_seconds = 300  # 5 minutes
-    
-    # Check if cache exists and is still valid
-    if os.path.exists(cache_file):
-        file_age = time.time() - os.path.getmtime(cache_file)
-        if file_age < cache_valid_seconds:
-            try:
-                with open(cache_file, 'rb') as f:
-                    return pickle.load(f)
-            except (pickle.PickleError, EOFError):
-                pass  # If there's an error loading cache, continue to fetch data
-    
-    # Fetch new data
-    monitors = api.get_monitors()
-    
-    # Cache the result
-    with open(cache_file, 'wb') as f:
-        pickle.dump(monitors, f)
-    
-    return monitors
-
+def get_icon_for_status(status):
+    """Return appropriate icon based on monitor status"""
+    if status == MonitorStatus.UP:
+        return "🟢"
+    elif status == MonitorStatus.DOWN:
+        return "🔴"
+    elif status == MonitorStatus.PENDING:
+        return "🟡"
+    elif status == MonitorStatus.MAINTENANCE:
+        return "⚪"
+    else:
+        return "❓"
 
 def main():
     api = UptimeKumaApi(get_op_value("op://Private/uptime-kuma/website"))
     api.login(get_op_value("op://Private/uptime-kuma/username"), get_op_value("op://Private/uptime-kuma/password"))
 
     icon = "🟢"
-    monitors = get_monitors(api)
-    tooltip = f"<b>Uptime Kuma Status:</b> {icon} /n"
+    monitors = api.get_monitors()
+    tooltip = f"<b>Uptime Kuma Status:</b> {icon} \n"
     for monitor in monitors:
         status = api.get_monitor_status(monitor['id'])
-        tooltip += f"<b>{monitor['name']}</b>: {status.name} /n"
+        tooltip += f"<b>{monitor['name']}</b>: {get_icon_for_status(status)} \n"
         if status != MonitorStatus.UP:
             icon = "🔴"
 
-    output = f"""<span font_weight="bold" color="#e95420"> HomeNet Status {icon} </span>"""
+    output = f"""<span font_weight="bold"> <span color="#0080ff">󰒍</span> Homenet Status {icon} </span>"""
     waybar_data = {
         "text": output,
         "tooltip": tooltip,

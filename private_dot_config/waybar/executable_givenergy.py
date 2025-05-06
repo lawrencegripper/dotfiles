@@ -180,7 +180,7 @@ try:
         main_icon += f"🔋 Battery providing ({battery_discharge_percentage}% of 🏡 load)"
 
     
-    main_color = "#2d862d" if not importing_from_grid else "#FFFFF"
+    main_color = "#2d862d" if not importing_from_grid else "#ffffff"
     output += f'<span color="{main_color}" font_weight="bold">{main_icon}</span>'
     
     # Close the main span

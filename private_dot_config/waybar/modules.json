@@ -1,0 +1,150 @@
+{
+    "network": {
+        "interval": 2,
+        "format-wifi": "wlan {essid} {ipaddr}",
+        "format-ethernet": "eth 📥 {bandwidthDownBits} 📤 {bandwidthUpBits}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "{ifname} disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "cpu": {
+        "format": "<span color='#ff79c6'>󰻠</span> {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "CPU Usage: {usage}%",
+        "on-click": "wezterm start htop",
+        "color": "#8be9fd"
+    },
+    "load": {
+        "interval": 2,
+        "format": "📈 {load1} {load5} {load15}",
+        "tooltip": true,
+        "tooltip-format": "Load Average",
+        "color": "#50fa7b"
+    },
+    "memory": {
+        "format": "<span color='#ff79c6'>󰍛</span> {used:0.1f}GB/{total:0.1f}GB",
+        "tooltip": true,
+        "tooltip-format": "Memory Usage: {percentage}%",
+        "on-click": "alacritty -e htop",
+        "color": "#ff79c6"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂"
+        ],
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰚥",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "color": "#f1fa8c",
+        "format-warning": "{capacity}% {icon}",
+        "format-critical": "{capacity}% {icon}"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "󱃃",
+            "󰔏",
+            "󱃂"
+        ],
+        "tooltip": true,
+        "tooltip-format": "Temperature: {temperatureC}°C",
+        "color": "#bd93f9",
+        "format-critical": "{temperatureC}°C 󱃂"
+    },
+    "sway/mode": {
+        "format": "<span color='#ff5555'> MODE: {}</span>",
+        "max-length": 50
+    },
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": false,
+        "format": "{name}",
+        "format-icons": {
+            "urgent": " !",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "custom/ghcal": {
+        "exec": "$HOME/.config/waybar/calnot.py",
+        "interval": 8
+    },
+    "custom/uptime-kuma": {
+        "exec": "$HOME/.config/waybar/uptime-kuma.py",
+        "interval": "60",
+        "return-type": "json"
+    },
+    "custom/givenergy": {
+        "exec": "$HOME/.config/waybar/givenergy.py",
+        "interval": 60,
+        "return-type": "json",
+        "tooltip-format": "{tooltip}",
+        "on-click": "xdg-open http://givenergy.cloud/"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock#pst": {
+        "timezone": "America/Los_Angeles",
+        "format": "🇺🇸 PST {:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "Los Angeles: {:%Y-%m-%d %H:%M:%S}"
+    },
+    "clock#est": {
+        "timezone": "America/New_York",
+        "format": "🇺🇸 EST {:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "New York: {:%Y-%m-%d %H:%M:%S}"
+    },
+    "clock#utc": {
+        "timezone": "UTC",
+        "format": "🌐 UTC {:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "Coordinated Universal Time: {:%Y-%m-%d %H:%M:%S}"
+    },
+    "clock#berlin": {
+        "timezone": "Europe/Berlin",
+        "format": "🇩🇪 CET {:%H:%M}",
+        "interval": 60,
+        "tooltip": true,
+        "tooltip-format": "Berlin: {:%Y-%m-%d %H:%M:%S}"
+    },
+    "clock": {
+        "format": "🇬🇧 {:%H:%M:%S}",
+        "tooltip": true,
+        "tooltip-format": "London: {:%Y-%m-%d}",
+        "interval": 1
+    },
+    "clock#date": {
+        "format": "📆 {:%b %Y-%m-%d}",
+        "tooltip": true,
+        "tooltip-format": "London: {:%Y-%m-%d}"
+    }
+}

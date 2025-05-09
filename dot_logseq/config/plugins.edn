@@ -1,0 +1,4 @@
+{:logseq-copy-code-plugin {:version "v.1.2.0", :repo "vyleung/logseq-copy-code-plugin", :effect true, :theme false}
+ :logseq-awesome-links {:version "v1.15.16", :repo "yoyurec/logseq-awesome-links", :effect true, :theme false}
+ :logseq-dev-theme {:version "v1.26.17", :repo "pengx17/logseq-dev-theme", :effect false, :theme true}
+ :logseq-cusgit-theme {:version "1.3.2", :repo "mendax1234/logseq-cusgit-theme", :effect false, :theme true}}

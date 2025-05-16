@@ -164,7 +164,7 @@
         "jupyter-notebook": "left"
     },
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": true,
         "markdown": false,
         "scminput": false,
@@ -174,7 +174,7 @@
         "python": true,
         "shellscript": true,
         "rust": true,
-        "go": false
+        "go": true
     },
     "explorer.confirmDragAndDrop": false,
     "languageToolLinter.languageTool.ignoredWordsGlobal": [

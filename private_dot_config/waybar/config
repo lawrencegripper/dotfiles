@@ -5,7 +5,8 @@
             "~/.config/waybar/modules.json"
         ],
         "output": [
-            "DP-1"
+            "DP-1",
+            "DP-6"
         ],
         "height": 32,
         "position": "top",
@@ -30,7 +31,8 @@
             "~/.config/waybar/modules.json"
         ],
         "output": [
-            "DP-4"
+            "DP-4",
+            "DP-6"
         ],
         "height": 32,
         "position": "top",

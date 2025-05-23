@@ -16,3 +16,6 @@ wm.workspace.10.name: 10 term
 wm.client.focused.color.border: #b4d273 
 wm.client.focused.color.child_border: #b4d273
 regolith.look.path: /usr/share/regolith-look/lascaille
+
+
+regolith.sway.unsupported_gpu: true

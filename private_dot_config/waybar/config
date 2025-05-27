@@ -53,7 +53,8 @@
             "~/.config/waybar/modules.json"
         ],
         "output": [
-            "DP-2"
+            "DP-2",
+            "DP-3"
         ],
         "height": 32,
         "position": "top",

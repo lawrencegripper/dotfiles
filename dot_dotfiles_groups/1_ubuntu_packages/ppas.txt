@@ -1,0 +1,3 @@
+# PPA repositories to add before package installation
+# Format: ppa:maintainer/ppa-name
+ppa:longsleep/golang-backports

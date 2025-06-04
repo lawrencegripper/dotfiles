@@ -7,6 +7,8 @@ xclip
 # peek - No longer working
 handbrake
 tldr
+# boxes - vm gui
+boxes
 
 # screen recorder
 kazam
@@ -64,6 +66,7 @@ network-manager-openvpn
 libnotify-bin
 # notify-osd using rotification now
 
+# golang - now installed via PPA ppa:longsleep/golang-backports
 golang
 
 polybar
@@ -126,5 +129,11 @@ wlogout
 # sway screen recorder
 wf-recorder
 
+# application launcher
+ulauncher
+
 # used by ulauncher plugins
 python3-fuzzywuzzy
+
+# mainline for kernel updates
+mainline

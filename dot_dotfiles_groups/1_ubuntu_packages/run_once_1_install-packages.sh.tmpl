@@ -4,7 +4,23 @@ set -e
 {{ template "skip-unless-local-debian.tmpl" . }}
 
 # hash: {{ include "dot_dotfiles_groups/1_ubuntu_packages/apt-packages.txt" | sha256sum }}
+# ppa-hash: {{ include "dot_dotfiles_groups/1_ubuntu_packages/apt-ppas.txt" | sha256sum }}
 
+echo "Adding universe repository..."
+sudo add-apt-repository universe -y
+
+echo "Adding PPAs..."
+# Add PPAs first
+{{ range include "dot_dotfiles_groups/1_ubuntu_packages/apt-ppas.txt" | splitList "\n" }}
+{{ if . }}
+{{ if contains "#" . | not }}
+    echo "Adding PPA: {{.}}"
+    sudo add-apt-repository -y "{{.}}"
+{{ end }}
+{{ end }}
+{{ end }}
+
+echo "Updating package lists..."
 sudo apt update
 
 TO_INSTALL=()
@@ -20,10 +36,15 @@ TO_INSTALL=()
 {{ end }}
 
 # Concatenate TO_INSTALL into a string
-echo "Packages to install: $TO_INSTALL"
+echo "Packages to install: ${TO_INSTALL[@]}"
 TO_INSTALL_STR=$(printf "%s " "${TO_INSTALL[@]}")
 echo "Packages to install: $TO_INSTALL_STR"
-sudo apt install -y $TO_INSTALL_STR
+
+if [ ${#TO_INSTALL[@]} -gt 0 ]; then
+    sudo apt install -y $TO_INSTALL_STR
+else
+    echo "No packages to install"
+fi
 
 # Add libvirt user
 sudo adduser $USER libvirt

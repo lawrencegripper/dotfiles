@@ -47,3 +47,5 @@ bindsym $mod+Print exec grim -g "$(slurp '#ff0000ff')" -t ppm - | satty --filena
 # Ensure dark mode - For sway on regolith we have to chagne to light and then dark again to make this work
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
 exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+exec --no-startup-id pkill swaybar

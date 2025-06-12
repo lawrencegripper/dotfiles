@@ -31,7 +31,8 @@
         ],
         "output": [
             "DP-4",
-            "DP-6"
+            "DP-6",
+            "DP-7"
         ],
         "height": 32,
         "position": "top",
@@ -42,6 +43,7 @@
         ],
         "modules-center": [],
         "modules-right": [
+            "custom/ghstatus",
             "custom/uptime-kuma",
             "tray"
         ],

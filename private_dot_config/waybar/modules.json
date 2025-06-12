@@ -1,4 +1,9 @@
 {
+    "custom/ghstatus": {
+        "exec": "$HOME/.config/waybar/ghstatus.py",
+        "interval": "60",
+        "return-type": "json"
+    },
     "network": {
         "interval": 2,
         "format-wifi": "wlan {essid} {ipaddr}",

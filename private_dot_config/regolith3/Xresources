@@ -19,3 +19,4 @@ regolith.look.path: /usr/share/regolith-look/lascaille
 
 
 regolith.sway.unsupported_gpu: true
+wm.bar.mode: hide

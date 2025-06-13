@@ -1,7 +1,7 @@
-#!/usr/bin/env -S uv run --with PyQt5 --script
+#!/usr/bin/env -S uv run --script
 
 # /// script
-# requires-python = ">=3.13"
+# requires-python = ">=3.8"
 # dependencies = [
 #     "requests",
 #     "uptime-kuma-api"
@@ -97,7 +97,7 @@ def main():
         api = UptimeKumaApi(get_op_value("op://Private/uptime-kuma/website"))
         api.login(get_op_value("op://Private/uptime-kuma/username"), get_op_value("op://Private/uptime-kuma/password"))
 
-        icon = "🟢"
+        icon = "All Systems Operational"
         monitors = api.get_monitors()
         tooltip = f"<b>Uptime Kuma Status:</b> {icon} \n"
         
@@ -134,7 +134,7 @@ def main():
         return json_output("❌", f"{error_message}\n\n{stack_trace}", error="Error")
 
 
-def json_output(icon, tooltip, error=None):
+def json_output(icon, tooltip, error=""):
     output = f"""<span font_weight="bold"> <span color="#0080ff">󰒍</span> Homenet: {icon} {error}</span>"""
     waybar_data = {
         "text": output,

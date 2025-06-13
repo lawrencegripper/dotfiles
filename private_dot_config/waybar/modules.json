@@ -1,9 +1,4 @@
 {
-    "custom/ghstatus": {
-        "exec": "$HOME/.config/waybar/ghstatus.py",
-        "interval": "60",
-        "return-type": "json"
-    },
     "network": {
         "interval": 2,
         "format-wifi": "wlan {essid} {ipaddr}",
@@ -98,19 +93,28 @@
     },
     "custom/ghcal": {
         "exec": "$HOME/.config/waybar/calnot.py",
-        "interval": 8
+        "interval": 8,
+        "restart-interval": 5
     },
     "custom/uptime-kuma": {
         "exec": "$HOME/.config/waybar/uptime-kuma.py",
         "interval": "60",
-        "return-type": "json"
+        "return-type": "json",
+        "restart-interval": 10
     },
     "custom/givenergy": {
         "exec": "$HOME/.config/waybar/givenergy.py",
         "interval": 60,
         "return-type": "json",
         "tooltip-format": "{tooltip}",
-        "on-click": "xdg-open http://givenergy.cloud/"
+        "on-click": "xdg-open http://givenergy.cloud/",
+        "restart-interval": 15
+    },
+    "custom/ghstatus": {
+        "exec": "$HOME/.config/waybar/ghstatus.py",
+        "interval": "60",
+        "return-type": "json",
+        "restart-interval": 15
     },
     "tray": {
         "icon-size": 18,

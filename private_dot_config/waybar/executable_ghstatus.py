@@ -101,7 +101,7 @@ def main():
 
         indicator_value = status_data.status.indicator if status_data.status.indicator != "none" else ""
 
-        output = f"""<span font_weight="bold"> <span color="#0080ff"> </span> GitHub: {status_data.status.description} {indicator_value}</span>"""
+        output = f"""<span font_weight="bold"> <span color="#0080ff"> </span>  GitHub: {status_data.status.description} {indicator_value}</span>"""
         waybar_data = {
             "text": output,
         }

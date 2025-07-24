@@ -1,0 +1,19 @@
+{
+    "required_api_version": "2",
+    "developer_name": "Lawrence Gripper",
+    "name": "Libvirt VMs",
+    "description": "Search and manage your libvirt virtual machines",
+    "icon": "images/vm.png",
+    "options": {
+        "query_debounce": 0.05
+    },
+    "preferences": [
+        {
+            "id": "kw",
+            "type": "keyword",
+            "name": "Virtual Machine",
+            "description": "Search your libvirt VMs",
+            "default_value": "vm"
+        }
+    ]
+}

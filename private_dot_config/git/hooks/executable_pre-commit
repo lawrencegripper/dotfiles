@@ -23,10 +23,18 @@ bytesToHuman() {
   echo "$b$d${S[$s]}"
 }
 
-# Iterate over the zero-delimited list of staged files.
-while IFS= read -r -d '' file ; do
-  hash=$(git ls-files -s "$file" | cut -d ' ' -f 2)
-  size=$(git cat-file -s "$hash")
+# Get list of staged files (excluding deleted files)
+staged_files=$(git diff --staged --name-only --diff-filter=d)
+
+# Iterate over the list of staged files
+for file in $staged_files; do
+  # Get file size from filesystem instead of git
+  if [[ -f "$file" ]]; then
+    size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file" 2>/dev/null)
+  else
+    # File doesn't exist in working directory (might be deleted), skip it
+    continue
+  fi
 
   if (( $size > $hard_limit )); then
     echo "Error: Cannot commit '$file' because it is $(bytesToHuman $size), which exceeds the hard size limit of $(bytesToHuman $hard_limit)."
@@ -56,5 +64,5 @@ while IFS= read -r -d '' file ; do
   elif (( $size > $soft_limit )); then
     echo "Warning: '$file' is $(bytesToHuman $size), which exceeds the soft size limit of $(bytesToHuman $soft_limit). Please double check that you intended to commit this file."
   fi
-done < <(git diff -z --staged --name-only --diff-filter=d)
+done
 exit $status

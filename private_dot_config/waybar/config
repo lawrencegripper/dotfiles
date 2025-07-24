@@ -59,12 +59,14 @@
         ],
         "height": 32,
         "position": "top",
-        "modules-left": [],
+        "modules-left": [
+            "custom/ghpr"
+        ],
         "modules-center": [
-            "sway/workspaces",
             "sway/mode"
         ],
         "modules-right": [
+            "sway/workspaces",
             "clock#pst",
             "clock#est",
             "clock#utc",

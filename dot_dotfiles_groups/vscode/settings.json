@@ -286,5 +286,10 @@
     },
     "git.blame.editorDecoration.enabled": true,
     "github.copilot.nextEditSuggestions.enabled": false,
-    "@azure.argTenant": ""
+    "@azure.argTenant": "",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "chat.tools.autoApprove": true,
+    // "editor.action.inlineSuggest.commit": ""
 }

@@ -93,18 +93,24 @@
     },
     "custom/ghcal": {
         "exec": "$HOME/.config/waybar/calnot.py",
-        "interval": 8,
+        "interval": 20,
         "restart-interval": 5
+    },
+    "custom/ghpr": {
+        "exec": "$HOME/.config/waybar/gh_pull_status.py",
+        "return-type": "json",
+        "interval": 60,
+        "restart-interval": 10
     },
     "custom/uptime-kuma": {
         "exec": "$HOME/.config/waybar/uptime-kuma.py",
-        "interval": "60",
+        "interval": "120",
         "return-type": "json",
         "restart-interval": 10
     },
     "custom/givenergy": {
         "exec": "$HOME/.config/waybar/givenergy.py",
-        "interval": 60,
+        "interval": 120,
         "return-type": "json",
         "tooltip-format": "{tooltip}",
         "on-click": "xdg-open http://givenergy.cloud/",
@@ -112,7 +118,7 @@
     },
     "custom/ghstatus": {
         "exec": "$HOME/.config/waybar/ghstatus.py",
-        "interval": "60",
+        "interval": "120",
         "return-type": "json",
         "restart-interval": 15
     },
@@ -133,7 +139,7 @@
         "tooltip-format": "New York: {:%Y-%m-%d %H:%M:%S}"
     },
     "clock#utc": {
-        "timezone": "UTC",
+        "timezone": "Etc/UTC",
         "format": "🌐 UTC {:%H:%M}",
         "tooltip": true,
         "tooltip-format": "Coordinated Universal Time: {:%Y-%m-%d %H:%M:%S}"
@@ -146,6 +152,7 @@
         "tooltip-format": "Berlin: {:%Y-%m-%d %H:%M:%S}"
     },
     "clock": {
+        "timezone": "Europe/London",
         "format": "🇬🇧 {:%H:%M:%S}",
         "tooltip": true,
         "tooltip-format": "London: {:%Y-%m-%d}",

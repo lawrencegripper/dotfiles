@@ -40,7 +40,7 @@ def get_virtual_machines() -> List[VirtualMachine]:
     
     try:
         # Get all VMs (running and stopped)
-        command = ["virsh", "list", "--all"]
+        command = ["virsh", "--connect", "qemu:///system", "list", "--all"]
         response = subprocess.run(command, capture_output=True, text=True)
         
         if response.returncode != 0:
@@ -58,16 +58,10 @@ def get_virtual_machines() -> List[VirtualMachine]:
         for vm in vms:
             try:
                 # Get UUID
-                uuid_cmd = ["virsh", "domuuid", vm.name]
+                uuid_cmd = ["virsh", "--connect", "qemu:///system", "domuuid", vm.name]
                 uuid_response = subprocess.run(uuid_cmd, capture_output=True, text=True)
                 if uuid_response.returncode == 0:
                     vm.uuid = uuid_response.stdout.strip()
-                
-                # Get autostart status
-                autostart_cmd = ["virsh", "dominfo", vm.name]
-                autostart_response = subprocess.run(autostart_cmd, capture_output=True, text=True)
-                if autostart_response.returncode == 0:
-                    vm.autostart = "enable" in autostart_response.stdout.lower()
             except:
                 pass  # Continue even if we can't get additional details
                 

@@ -7,14 +7,13 @@ export DEBIAN_FRONTEND=noninteractive
 wget -qO - https://regolith-desktop.org/regolith.key | \
 gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
 
-# Uncomment when we get to noble
-#echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-#https://regolith-desktop.org/release-3_2-ubuntu-noble-amd64 jammy main" | \
-#sudo tee /etc/apt/sources.list.d/regolith.list
-
 echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-https://archive.regolith-desktop.com/ubuntu/stable jammy v3.2" | \
+https://archive.regolith-desktop.com/ubuntu/stable noble v3.3" | \
 sudo tee /etc/apt/sources.list.d/regolith.list
+
+#echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
+#https://archive.regolith-desktop.com/ubuntu/stable jammy v3.2" | \
+#sudo tee /etc/apt/sources.list.d/regolith.list
 
 sudo apt update
 sudo apt install regolith-desktop regolith-session-flashback regolith-session-sway regolith-look-lascaille

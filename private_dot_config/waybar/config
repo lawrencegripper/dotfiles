@@ -6,6 +6,7 @@
         ],
         "output": [
             "DP-1",
+            "eDP-1",
         ],
         "height": 32,
         "position": "top",

@@ -2,7 +2,8 @@
 
 NAME=$1
 echo "Opening codespace $NAME"
-gh cs code --codespace $NAME --insiders
+# Start the codespace in vscode in background
+gh cs code --codespace $NAME --insiders &
 # Copy auth details for atuin
 gh cs cp --codespace $NAME -e ~/.config/atuin_login 'remote:/workspaces/.atuin_login'
 gh cs cp --codespace $NAME -e ~/.dotfile_groups/codespaces/hosts 'remote:/etc/hosts'

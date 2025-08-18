@@ -9,7 +9,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "cpu": {
-        "format": "<span color='#ff79c6'>󰻠</span> {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+        "format": "<span color='#ff79c6'></span> {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} 󰓅 {avg_frequency}Ghz (min:{min_frequency} max:{max_frequency})",
         "format-icons": [
             "▁",
             "▂",

@@ -8,4 +8,4 @@ ExecStart=/usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent
 Environment="GDK_BACKEND=x11"
 
 [Install]
-WantedBy=i3-session.target
+WantedBy=sway-session.target

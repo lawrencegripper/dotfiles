@@ -10,6 +10,7 @@
 #     "pyusb",
 #     "libusb",
 #     "psutil",
+#     "python-dateutil",
 # ]
 # ///
 

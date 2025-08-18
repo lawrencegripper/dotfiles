@@ -1,0 +1,11 @@
+# PPA repositories to add before package installation
+# Format: ppa:maintainer/ppa-name
+
+# Get up to date golang
+ppa:longsleep/golang-backports
+
+# Get ulauncher
+ppa:agornostal/ulauncher
+
+# Mainline for kernel updates
+ppa:cappelikan/ppa

@@ -5,7 +5,8 @@
             "~/.config/waybar/modules.json"
         ],
         "output": [
-            "DP-1"
+            "DP-1",
+            "eDP-1",
         ],
         "height": 32,
         "position": "top",
@@ -30,7 +31,9 @@
             "~/.config/waybar/modules.json"
         ],
         "output": [
-            "DP-4"
+            "DP-4",
+            "DP-6",
+            "DP-7"
         ],
         "height": 32,
         "position": "top",
@@ -41,6 +44,7 @@
         ],
         "modules-center": [],
         "modules-right": [
+            "custom/ghstatus",
             "custom/uptime-kuma",
             "tray"
         ],
@@ -51,16 +55,19 @@
             "~/.config/waybar/modules.json"
         ],
         "output": [
-            "DP-2"
+            "DP-2",
+            "DP-3"
         ],
         "height": 32,
         "position": "top",
-        "modules-left": [],
+        "modules-left": [
+            "custom/ghpr"
+        ],
         "modules-center": [
-            "sway/workspaces",
             "sway/mode"
         ],
         "modules-right": [
+            "sway/workspaces",
             "clock#pst",
             "clock#est",
             "clock#utc",

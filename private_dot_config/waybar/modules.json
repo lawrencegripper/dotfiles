@@ -9,7 +9,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "cpu": {
-        "format": "<span color='#ff79c6'>󰻠</span> {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+        "format": "<span color='#ff79c6'></span> {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} 󰓅 {avg_frequency}Ghz (min:{min_frequency} max:{max_frequency})",
         "format-icons": [
             "▁",
             "▂",
@@ -93,19 +93,34 @@
     },
     "custom/ghcal": {
         "exec": "$HOME/.config/waybar/calnot.py",
-        "interval": 8
+        "interval": 20,
+        "restart-interval": 5
+    },
+    "custom/ghpr": {
+        "exec": "$HOME/.config/waybar/gh_pull_status.py",
+        "return-type": "json",
+        "interval": 60,
+        "restart-interval": 10
     },
     "custom/uptime-kuma": {
         "exec": "$HOME/.config/waybar/uptime-kuma.py",
-        "interval": "60",
-        "return-type": "json"
+        "interval": "120",
+        "return-type": "json",
+        "restart-interval": 10
     },
     "custom/givenergy": {
         "exec": "$HOME/.config/waybar/givenergy.py",
-        "interval": 60,
+        "interval": 120,
         "return-type": "json",
         "tooltip-format": "{tooltip}",
-        "on-click": "xdg-open http://givenergy.cloud/"
+        "on-click": "xdg-open http://givenergy.cloud/",
+        "restart-interval": 15
+    },
+    "custom/ghstatus": {
+        "exec": "$HOME/.config/waybar/ghstatus.py",
+        "interval": "120",
+        "return-type": "json",
+        "restart-interval": 15
     },
     "tray": {
         "icon-size": 18,
@@ -124,7 +139,7 @@
         "tooltip-format": "New York: {:%Y-%m-%d %H:%M:%S}"
     },
     "clock#utc": {
-        "timezone": "UTC",
+        "timezone": "Etc/UTC",
         "format": "🌐 UTC {:%H:%M}",
         "tooltip": true,
         "tooltip-format": "Coordinated Universal Time: {:%Y-%m-%d %H:%M:%S}"
@@ -137,6 +152,7 @@
         "tooltip-format": "Berlin: {:%Y-%m-%d %H:%M:%S}"
     },
     "clock": {
+        "timezone": "Europe/London",
         "format": "🇬🇧 {:%H:%M:%S}",
         "tooltip": true,
         "tooltip-format": "London: {:%Y-%m-%d}",

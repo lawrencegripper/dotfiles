@@ -6,7 +6,7 @@ org.remmina.Remmina
 rest.insomnia.Insomnia
 io.github.mimbrero.WhatsAppDesktop
 # libvirt vm manager
-org.gnome.Boxes
+# org.gnome.Boxes # Install from apt otherwise usb redirect doesn't work
 # video editor
 org.pitivi.Pitivi
 

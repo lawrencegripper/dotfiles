@@ -1,9 +1,0 @@
-#!/bin/bash
-set -e
-export DEBIAN_FRONTEND=noninteractive
-
-{{ template "skip-unless-local-debian.tmpl" . }}
-
-sudo add-apt-repository ppa:cappelikan/ppa
-sudo apt update
-sudo apt install mainline

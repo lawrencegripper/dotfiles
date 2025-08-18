@@ -1,7 +1,0 @@
-#!/bin/bash
-set -e
-export DEBIAN_FRONTEND=noninteractive
-
-{{ template "skip-unless-local-debian.tmpl" . }}
-
-sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher

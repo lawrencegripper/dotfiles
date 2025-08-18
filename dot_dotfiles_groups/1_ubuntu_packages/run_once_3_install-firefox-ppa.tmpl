@@ -25,5 +25,5 @@ sudo apt install firefox
 echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefoxs
 
 # set app armour to allow yubi key and 1pw integration
-sudo ln -s /etc/apparmor.d/usr.bin.firefox /etc/apparmor.d/disable/
-sudo apparmor_parser -R /etc/apparmor.d/usr.bin.firefox
+# sudo ln -s /etc/apparmor.d/usr.bin.firefox /etc/apparmor.d/disable/
+# sudo apparmor_parser -R /etc/apparmor.d/usr.bin.firefox

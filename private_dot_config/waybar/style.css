@@ -287,6 +287,36 @@ window#waybar.hidden {
     font-family: 'JetBrainsMono Nerd Font', monospace;
 }
 
+#custom-power-profile {
+    border-radius: 10px;
+    margin: 3px;
+    padding: 0 10px;
+    background-color: rgba(139, 233, 253, 0.2);
+    border-bottom: 2px solid #8be9fd;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#custom-power-profile:hover {
+    background-color: rgba(70, 70, 100, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#custom-power-profile.power-profile-performance {
+    background-color: rgba(247, 118, 142, 0.3);
+    border-bottom: 2px solid #f7768e;
+}
+
+#custom-power-profile.power-profile-balanced {
+    background-color: rgba(241, 250, 140, 0.3);
+    border-bottom: 2px solid #f1fa8c;
+}
+
+#custom-power-profile.power-profile-power-saver {
+    background-color: rgba(80, 250, 123, 0.3);
+    border-bottom: 2px solid #50fa7b;
+}
+
 /* Style tooltips for all modules */
 tooltip {
     border-radius: 8px;

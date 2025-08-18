@@ -117,6 +117,12 @@
         "return-type": "json",
         "restart-interval": 360
     },
+    "custom/power-profile": {
+        "exec": "$HOME/.config/waybar/power_profile.py",
+        "return-type": "json",
+        "on-click": "$HOME/.config/waybar/power_profile.py click",
+        "tooltip": true
+    },
     "tray": {
         "icon-size": 18,
         "spacing": 10

@@ -13,10 +13,11 @@ import os
 import subprocess
 import requests
 import json
-from uptime_kuma_api import UptimeKumaApi, MonitorType, MonitorStatus
 import pickle
+import sys
 import time
 import traceback
+from uptime_kuma_api import UptimeKumaApi, MonitorType, MonitorStatus
 from typing import Dict, Optional
 
 CACHE_DIR = "/tmp/uptime-kuma"
@@ -144,4 +145,11 @@ def json_output(icon, tooltip, error=""):
     return json.dumps(waybar_data)
 
 if __name__ == "__main__":
-    print(main())
+    while True:
+        try:
+            print(main())
+            sys.stdout.flush()
+        except Exception as e:
+            print(json.dumps({ "text": f"Error: {str(e)}", "tooltip": "Failed to retrieve Uptime Kuma status." }))
+            sys.stdout.flush()
+        time.sleep(120)  # Update every 2 minutes

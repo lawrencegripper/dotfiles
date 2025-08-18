@@ -11,6 +11,8 @@ import json
 import os
 import pickle
 import subprocess
+import sys
+import time
 from dataclasses import dataclass
 from typing import Optional
 import requests
@@ -112,4 +114,11 @@ def main():
 
 
 if __name__ == "__main__":
-    print(main())
+    while True:
+        try:
+            print(main())
+            sys.stdout.flush()
+        except Exception as e:
+            print(json.dumps({ "text": f"Error: {str(e)}", "tooltip": "Failed to retrieve GitHub status." }))
+            sys.stdout.flush()
+        time.sleep(120)  # Update every 2 minutes

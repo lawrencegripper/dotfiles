@@ -93,34 +93,29 @@
     },
     "custom/ghcal": {
         "exec": "$HOME/.config/waybar/calnot.py",
-        "interval": 20,
-        "restart-interval": 5
+        "restart-interval": 120
     },
     "custom/ghpr": {
         "exec": "$HOME/.config/waybar/gh_pull_status.py",
         "return-type": "json",
-        "interval": 60,
-        "restart-interval": 10
+        "restart-interval": 360
     },
     "custom/uptime-kuma": {
         "exec": "$HOME/.config/waybar/uptime-kuma.py",
-        "interval": "120",
         "return-type": "json",
-        "restart-interval": 10
+        "restart-interval": 360
     },
     "custom/givenergy": {
         "exec": "$HOME/.config/waybar/givenergy.py",
-        "interval": 120,
         "return-type": "json",
         "tooltip-format": "{tooltip}",
         "on-click": "xdg-open http://givenergy.cloud/",
-        "restart-interval": 15
+        "restart-interval": 360
     },
     "custom/ghstatus": {
         "exec": "$HOME/.config/waybar/ghstatus.py",
-        "interval": "120",
         "return-type": "json",
-        "restart-interval": 15
+        "restart-interval": 360
     },
     "tray": {
         "icon-size": 18,

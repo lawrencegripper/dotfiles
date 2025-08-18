@@ -17,6 +17,8 @@
 import os
 import subprocess
 import base64
+import sys
+import time
 import requests
 from requests.auth import HTTPBasicAuth
 from datetime import datetime, timedelta
@@ -204,8 +206,12 @@ def main():
         print("📆 No more events today 🥳")
 
 if __name__ == "__main__":
-    # try:
-        main()
-    # except Exception as e:
-    #     print(f"Error: {e}")
+    while True:
+        try:
+            main()
+            sys.stdout.flush()
+        except Exception as e:
+            print(f"Error: {e}")
+            sys.stdout.flush()
+        time.sleep(20)  # Update every 20 seconds
 

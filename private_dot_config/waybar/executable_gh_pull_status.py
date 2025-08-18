@@ -10,6 +10,8 @@
 import base64
 import json
 import subprocess
+import sys
+import time
 from github import Github
 from github import Auth
 import os
@@ -145,9 +147,13 @@ def main():
 
 
 if __name__ == "__main__":
-    try:
-        print(main())
-    except Exception as e:
-        print(json.dumps({ "text": f"Error: {str(e)}", "tooltip": "Failed to retrieve GitHub pull request status." }))
+    while True:
+        try:
+            print(main())
+            sys.stdout.flush()
+        except Exception as e:
+            print(json.dumps({ "text": f"Error: {str(e)}", "tooltip": "Failed to retrieve GitHub pull request status." }))
+            sys.stdout.flush()
+        time.sleep(60)  # Update every 60 seconds
         
 

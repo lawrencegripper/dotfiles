@@ -61,7 +61,6 @@
         "height": 32,
         "position": "top",
         "modules-left": [
-            "custom/ghpr"
         ],
         "modules-center": [
             "sway/mode"

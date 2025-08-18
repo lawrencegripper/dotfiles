@@ -14,6 +14,7 @@ import json
 import os
 import pickle
 import traceback
+import time
 from givenergy_modbus.client import GivEnergyClient
 from givenergy_modbus.model.plant import Plant
 import asyncio
@@ -119,7 +120,7 @@ async def get_car_status():
 
             return f"{status.battery.state_of_charge_in_percent}% {human_readable}"
 
-try:
+def main():
     p = get_inverter_status()
     
     # Get main power values
@@ -241,15 +242,23 @@ Updated: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         "percentage": battery_percent # Optional: use battery percentage for progress bars etc.
     }
     # Print the JSON object
-    print(json.dumps(waybar_data))
-    
-except Exception as e:
-    # Create error output in HTML format
-    error_output = '<span color="#ff0000">󰚨 Energy Error</span>'
-    error_tooltip = f"Failed to retrieve energy system data:\n{traceback.format_exc()}"
-    waybar_error_data = {
-        "text": error_output,
-        "tooltip": error_tooltip,
-        "class": "solar-error"
-    }
-    print(json.dumps(waybar_error_data))
+    return json.dumps(waybar_data)
+
+if __name__ == "__main__":
+    while True:
+        try:
+            print(main())
+            sys.stdout.flush()
+        except Exception as e:
+            # Create error output in HTML format
+            error_output = '<span color="#ff0000">󰚨 Energy Error</span>'
+            error_tooltip = f"Failed to retrieve energy system data:\n{traceback.format_exc()}"
+            waybar_error_data = {
+                "text": error_output,
+                "tooltip": error_tooltip,
+                "class": "solar-error"
+            }
+            print(json.dumps(waybar_error_data))
+            sys.stdout.flush()
+        
+        time.sleep(120)  # Update every 2 minutes

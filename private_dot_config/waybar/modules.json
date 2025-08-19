@@ -121,7 +121,8 @@
         "exec": "$HOME/.config/waybar/power_profile.py",
         "return-type": "json",
         "on-click": "$HOME/.config/waybar/power_profile.py click",
-        "tooltip": true
+        "tooltip": true,
+        "signal": 9
     },
     "tray": {
         "icon-size": 18,

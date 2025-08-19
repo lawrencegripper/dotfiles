@@ -85,6 +85,10 @@ def handle_click():
     """Handle click event to cycle profiles"""
     if len(sys.argv) > 1 and sys.argv[1] == 'click':
         new_profile = set_next_profile()
+
+        # Signal waybar to refresh the module
+        subprocess.run(['pkill', '-RTMIN+9', 'waybar'], check=False)
+
         # Send notification about profile change
         try:
             subprocess.run([
@@ -120,7 +124,7 @@ def main():
     tooltip = '\n'.join(tooltip_lines)
     
     # Format output text to match other modules pattern
-    output = f'<span font_weight="bold"> <span color="{color}">󰓅</span> Power: {current_profile.title()} {icon}</span>'
+    output = f'<span font_weight="bold"> <span color="{color}">󰓅</span> Mode: {current_profile.title()} {icon}</span>'
     
     waybar_data = {
         'text': output,

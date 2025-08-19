@@ -53,17 +53,6 @@ def get_virtual_machines() -> List[VirtualMachine]:
                 vm = VirtualMachine.from_virsh_list(line)
                 if vm and vm.name:  # Only add VMs with valid names
                     vms.append(vm)
-        
-        # Get additional details for each VM
-        for vm in vms:
-            try:
-                # Get UUID
-                uuid_cmd = ["virsh", "--connect", "qemu:///system", "domuuid", vm.name]
-                uuid_response = subprocess.run(uuid_cmd, capture_output=True, text=True)
-                if uuid_response.returncode == 0:
-                    vm.uuid = uuid_response.stdout.strip()
-            except:
-                pass  # Continue even if we can't get additional details
                 
     except Exception as e:
         print(f"Error getting VMs: {e}")

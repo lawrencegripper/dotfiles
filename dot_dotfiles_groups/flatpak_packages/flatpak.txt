@@ -46,3 +46,6 @@ com.github.PintaProject.Pinta
 
 # postman alternative
 io.httpie.Httpie
+
+# Tailscale gui
+dev.deedles.Trayscale

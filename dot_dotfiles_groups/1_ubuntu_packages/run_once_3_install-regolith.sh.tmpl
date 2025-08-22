@@ -17,6 +17,9 @@ sudo tee /etc/apt/sources.list.d/regolith.list
 
 sudo apt update
 sudo apt install regolith-desktop regolith-session-flashback regolith-session-sway regolith-look-lascaille
+sudo apt remove xdg-desktop-portal-gnome
+sudo apt reinstall regolith-sway-screensharing
+
 
 # disable the bar as we're using polybar
 mkdir -p ~/scratch/i3

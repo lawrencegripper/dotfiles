@@ -12,7 +12,6 @@
         "position": "top",
         "modules-left": [
             "memory",
-            "load",
             "cpu",
             "custom/power-profile",
             "battery",
@@ -23,7 +22,8 @@
         "modules-right": [
             "custom/ghcal",
             "sway/mode",
-            "sway/workspaces"
+            "sway/workspaces",
+            "tray"
         ]
     },
     {
@@ -46,8 +46,7 @@
         "modules-center": [],
         "modules-right": [
             "custom/ghstatus",
-            "custom/uptime-kuma",
-            "tray"
+            "custom/uptime-kuma"
         ],
     },
     {

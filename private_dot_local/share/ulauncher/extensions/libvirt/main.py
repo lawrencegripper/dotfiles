@@ -74,22 +74,14 @@ def get_state_emoji(state: str) -> str:
         return '⚪'
 
 def open_vm_in_virt_manager(vm_name: str) -> str:
-    """Generate command to open VM in virt-manager"""
-    # Check if VM is stopped and start it if needed
-    try:
-        state_cmd = ["virsh", "--connect", "qemu:///system", "domstate", vm_name]
-        state_response = subprocess.run(state_cmd, capture_output=True, text=True)
-        
-        if state_response.returncode == 0 and "shut off" in state_response.stdout.lower():
-            # VM is stopped, start it first
-            start_cmd = ["virsh", "--connect", "qemu:///system", "start", vm_name]
-            subprocess.run(start_cmd, capture_output=True)
-            # Give it a moment to start
-            sleep(1)
-    except:
-        pass  # Continue even if we can't check/start the VM
     # Try to open the specific VM, fallback to just opening virt-manager
-    return f'bash -c "virt-manager --connect qemu:///system --show-domain-console \'{vm_name}\' 2>/dev/null || virt-manager --connect qemu:///system"'
+    return (
+        f'bash -c "'
+        f"virsh --connect qemu:///system start '{vm_name}'; "
+        f"virt-manager --connect qemu:///system --show-domain-console '{vm_name}' 2>/dev/null || "
+        f"virt-manager --connect qemu:///system"
+        f'"'
+    )
 
 class LibvirtExtension(Extension):
 

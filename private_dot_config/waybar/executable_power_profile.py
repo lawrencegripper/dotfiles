@@ -124,7 +124,7 @@ def main():
     tooltip = '\n'.join(tooltip_lines)
     
     # Format output text to match other modules pattern
-    output = f'<span font_weight="bold"> <span color="{color}">󰓅</span>{current_profile.title()} {icon}</span>'
+    output = f'<span font_weight="bold"> <span color="{color}">󰓅</span> {current_profile.title()} {icon}</span>'
     
     waybar_data = {
         'text': output,

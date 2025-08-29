@@ -213,5 +213,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error: {e}")
             sys.stdout.flush()
+            sys.exit(1)
         time.sleep(20)  # Update every 20 seconds
 

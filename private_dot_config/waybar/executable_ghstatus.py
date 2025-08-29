@@ -121,4 +121,5 @@ if __name__ == "__main__":
         except Exception as e:
             print(json.dumps({ "text": f"Error: {str(e)}", "tooltip": "Failed to retrieve GitHub status." }))
             sys.stdout.flush()
+            sys.exit(1)
         time.sleep(120)  # Update every 2 minutes

@@ -22,6 +22,7 @@ from aiohttp import ClientSession
 from myskoda import MySkoda
 import subprocess
 import base64
+import html
 
 CACHE_DIR = "/tmp/givenergy"
 CACHE_LAST_PKL = os.path.join(CACHE_DIR, "last.pkl")
@@ -260,5 +261,7 @@ if __name__ == "__main__":
             }
             print(json.dumps(waybar_error_data))
             sys.stdout.flush()
+            time.sleep(30) 
+            sys.exit(1)
         
         time.sleep(120)  # Update every 2 minutes

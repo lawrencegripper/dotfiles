@@ -1,0 +1,4 @@
+{{ if and (eq .chezmoi.os "linux") (contains "debian" (get .chezmoi.osRelease "idLike")) | not -}}
+echo "Skipping on {{get .chezmoi.osRelease "idLike"}}"
+exit 0
+{{ end }}

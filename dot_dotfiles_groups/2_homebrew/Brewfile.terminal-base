@@ -1,6 +1,6 @@
 
 # Terminal stuff
-brew "wezterm"
+#brew "wezterm" replaced with deb install via apt
 brew "jq"
 brew "starship"
 brew "htop"

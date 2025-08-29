@@ -25,7 +25,7 @@ alias upd-linux='~/.dotfiles_bin/update-linux'
 # load gh pat from 1pw
 alias ghpat='. ~/.gh_pat'
 
-alias htop='btop'
+alias htop='echo "use btop dummy"; btop'
 
 # Ruby things
 alias be='bundle exec $*'
@@ -49,7 +49,7 @@ fi
 # Check if 'bat' command exists
 if command -v bat &> /dev/null
 then
-    alias cat='bat'
+    alias cat='echo "use btop dummy"; bat'
 fi
 
 # Check if 'micro' command exists

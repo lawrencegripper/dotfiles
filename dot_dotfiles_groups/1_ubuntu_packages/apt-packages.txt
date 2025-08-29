@@ -11,7 +11,7 @@ tldr
 boxes
 
 # screen recorder
-kazam
+# kazam no wayland support
 
 # ssh agent manager
 keychain

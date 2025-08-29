@@ -38,8 +38,6 @@ com.discordapp.Discord
 
 # com.slack.Slack favour the deb installer
 io.missioncenter.MissionCenter
-# scren recorder
-sa.sy.bluerecorder
 
 # Paint.net replacement
 com.github.PintaProject.Pinta
@@ -49,3 +47,6 @@ io.httpie.Httpie
 
 # Tailscale gui
 dev.deedles.Trayscale
+
+# screnrecorer
+com.obsproject.Studio

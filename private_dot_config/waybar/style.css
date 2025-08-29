@@ -1,22 +1,18 @@
 /* Waybar styles */
 
-/* Import GivEnergy custom styles */
-@import "style-givenergy.css";
-
 /* General styling */
 * {
     font-family: 'JetBrainsMono Nerd Font', 'Ubuntu', sans-serif;
     font-size: 13px;
     min-height: 0;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: 1px;
+    margin-right: 1px;
 }
 
 window#waybar {
     background: rgba(30, 30, 46, 0.8);
     color: #cdd6f4;
-    border-radius: 8px;
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    border-bottom: 3px solid rgba(68, 130, 177, 0.611);
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -25,17 +21,50 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#cpu {
+    min-width: 380px;
+}
+
+#network {
+    min-width: 230px;
+}
+
+#tray {
+    min-width: 120px;
+    padding: 0 10px;
+    background-color: rgba(139, 233, 253, 0.2);
+    border-bottom: 2px solid #8be9fd;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#custom-ghstatus {
+    padding: 0 10px;
+    background-color: rgba(80, 140, 190, 0.6);
+    border-bottom: 2px solid #5090BE;
+}
+
+#custom-uptime-kuma {
+    padding: 0 10px;
+    background-color: rgba(75, 115, 235, 0.6);
+    border-bottom: 2px solid #4B73EB;
+}
+
+#custom-apt-updates {
+    padding: 0 10px;
+    background-color: rgba(90, 120, 170, 0.6);
+    border-bottom: 2px solid #5A78AA;
+}
+
 #workspaces {
-    background: rgba(30, 30, 46, 0.5);
-    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.5);
     padding: 0 5px;
-    margin: 3px;
+    
 }
 
 #workspaces button {
-    padding: 0 5px;
-    margin: 3px 2px;
-    border-radius: 5px;
+    /* padding: 0 5px; */
+    /* margin: 3px 2px; */
     background-color: rgba(55, 55, 80, 0.5);
     color: #dcdcdc;
     transition: all 0.3s ease;
@@ -66,8 +95,7 @@ window#waybar.hidden {
 
 /* Clock modules */
 #clock {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(55, 55, 80, 0.5);
     transition: all 0.3s ease;
@@ -82,35 +110,30 @@ window#waybar.hidden {
 #clock.pst {
     background-color: rgba(100, 130, 180, 0.6);
     padding: 0 8px;
-    margin-right: 4px;
     border-bottom: 2px solid #4682B4;
 }
 
 #clock.est {
     background-color: rgba(65, 105, 225, 0.6);
     padding: 0 8px;
-    margin-right: 4px;
     border-bottom: 2px solid #4169E1;
 }
 
 #clock.utc {
     background-color: rgba(70, 130, 180, 0.6);
     padding: 0 8px;
-    margin-right: 4px;
     border-bottom: 2px solid #4682B4;
 }
 
 #clock.berlin {
     background-color: rgba(255, 204, 0, 0.4);
     padding: 0 8px;
-    margin-right: 4px;
     border-bottom: 2px solid #FFA500;
 }
 
 #clock.date {
     background-color: rgba(189, 147, 249, 0.4);
     padding: 0 8px;
-    margin-right: 4px;
     border-bottom: 2px solid #bd93f9;
 }
 
@@ -118,7 +141,6 @@ window#waybar.hidden {
 #clock {
     background-color: rgba(207, 20, 43, 0.25); /* UK flag red with lower opacity */
     padding: 0 8px;
-    margin-right: 4px;
     border-bottom: 2px solid rgba(207, 20, 43, 0.7); /* UK flag red, semi-transparent */
     color: #f0f0f0; /* Slightly off-white text for contrast */
     font-weight: bold;
@@ -131,8 +153,7 @@ window#waybar.hidden {
 
 /* System modules (CPU, load, memory) */
 #cpu {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(139, 233, 253, 0.2);
     border-bottom: 2px solid #8be9fd;
@@ -141,8 +162,7 @@ window#waybar.hidden {
 }
 
 #load {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(80, 250, 123, 0.2); 
     border-bottom: 2px solid #50fa7b;
@@ -151,8 +171,7 @@ window#waybar.hidden {
 }
 
 #memory {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(255, 121, 198, 0.2);
     border-bottom: 2px solid #ff79c6;
@@ -167,8 +186,7 @@ window#waybar.hidden {
 
 /* Network module */
 #network {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(139, 233, 253, 0.3);
     border-bottom: 2px solid rgba(139, 233, 253, 0.7);
@@ -189,8 +207,7 @@ window#waybar.hidden {
 
 /* Battery and Temperature modules */
 #battery {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(241, 250, 140, 0.2);
     border-bottom: 2px solid #f1fa8c;
@@ -199,8 +216,7 @@ window#waybar.hidden {
 }
 
 #temperature {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(189, 147, 249, 0.2);
     border-bottom: 2px solid #bd93f9;
@@ -235,8 +251,7 @@ window#waybar.hidden {
 
 /* Tray module */
 #tray {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 5px;
     background-color: rgba(55, 55, 80, 0.3);
     border-bottom: 2px solid rgba(100, 114, 125, 0.5);
@@ -250,8 +265,7 @@ window#waybar.hidden {
 
 /* Custom Modules */
 #custom-ghcal {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(189, 147, 249, 0.3);
     border-bottom: 2px solid #bd93f9;
@@ -265,8 +279,7 @@ window#waybar.hidden {
 }
 
 #custom-givenergy {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(189, 147, 249, 0.3);
     border-bottom: 2px solid #bd93f9;
@@ -282,14 +295,12 @@ window#waybar.hidden {
 #custom-ghstatus {
     padding: 0 10px;
     margin: 0 5px;
-    border-radius: 10px;
     transition: all 0.3s ease;
     font-family: 'JetBrainsMono Nerd Font', monospace;
 }
 
 #custom-power-profile {
-    border-radius: 10px;
-    margin: 3px;
+    
     padding: 0 10px;
     background-color: rgba(139, 233, 253, 0.2);
     border-bottom: 2px solid #8be9fd;
@@ -319,7 +330,6 @@ window#waybar.hidden {
 
 /* Style tooltips for all modules */
 tooltip {
-    border-radius: 8px;
     background-color: rgba(30, 30, 46, 0.9);
     border: 1px solid #7aa2f7;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);

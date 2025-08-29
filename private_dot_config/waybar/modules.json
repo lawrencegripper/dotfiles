@@ -124,6 +124,14 @@
         "tooltip": true,
         "signal": 9
     },
+    "custom/apt-updates": {
+        "exec": "$HOME/.config/waybar/apt_updates.py",
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "wezterm start -- bash -c 'update-linux; pkill -RTMIN+10 waybar'",
+        "restart-interval": 3200,
+        "signal": 10
+    },
     "tray": {
         "icon-size": 18,
         "spacing": 10

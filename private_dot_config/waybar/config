@@ -16,11 +16,11 @@
             "custom/power-profile",
             "battery",
             "temperature",
+            "custom/apt-updates",
             "network"
         ],
         "modules-center": [],
         "modules-right": [
-            "custom/ghcal",
             "sway/mode",
             "sway/workspaces",
             "tray"
@@ -61,9 +61,11 @@
         "height": 32,
         "position": "top",
         "modules-left": [
+            
         ],
         "modules-center": [
-            "sway/mode"
+            "sway/mode",
+            "custom/ghcal"
         ],
         "modules-right": [
             "sway/workspaces",

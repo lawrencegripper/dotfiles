@@ -137,3 +137,6 @@ python3-fuzzywuzzy
 
 # mainline for kernel updates
 mainline
+
+# better htop
+btop

@@ -2,7 +2,9 @@
 
 set -e
 
-sudo timeshift --create --comments "before exec update-linux" --tags W || echo "Failed to take timeshift snapshot"
+sudo echo "Getting sudo permissions"
+
+# sudo timeshift --create --comments "before exec update-linux" --tags W || echo "Failed to take timeshift snapshot"
 
 # Do updating
 flatpak update -y

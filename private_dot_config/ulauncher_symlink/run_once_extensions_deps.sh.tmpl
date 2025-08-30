@@ -1,8 +1,0 @@
-#!/bin/bash
-
-{{ template "skip-unless-local-debian.tmpl" . }}
-
-{{ if lookPath "pip" }}
-# Window extension
-pip install memoization
-{{ end }}

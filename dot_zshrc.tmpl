@@ -76,6 +76,19 @@ if type "atuin" > /dev/null; then
   bindkey "^R" _atuin_search_widget
 fi
 
+# If wezterm dropdown is launched on sway then move it to the scratchpad
+# See: private_dot_config/regolith3/sway/executable_sway_dropdown_terminal.sh
+{{- if eq .chezmoi.os "linux" }}
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]] && [[ "$SWAYSOCK" != "" ]]; then
+  if command -v swaymsg > /dev/null 2>&1; then
+    APP_ID=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .app_id // empty')
+    if [[ "$APP_ID" == "wezdrop" ]]; then
+      swaymsg "floating enable ; resize set 100ppt 50ppt ; move position 0 0 ; move to scratchpad ; scratchpad show"
+    fi
+  fi
+fi
+{{- end }}
+
 
 # Configure auto-suggestions
 if type "brew" > /dev/null; then

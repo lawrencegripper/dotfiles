@@ -31,6 +31,7 @@ from humanize import naturaltime
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from blinkstick import blinkstick
 import psutil
+import threading
 
 CACHE_DIR = "/tmp/ghcal"
 CACHE_ALL_EVENTS = os.path.join(CACHE_DIR, "all.ics")
@@ -176,7 +177,7 @@ def main():
             else:
                 # Zoom Meeting already started but you haven't joined
                 joined = format_background_color("#FF0000", f"   Missing! '{format_color(forground, event.summary or '')}'")
-                blinkStickClient.blink(name="red", repeats=10, delay=100)
+                threading.Thread(target=lambda: blinkStickClient.blink(name="red", repeats=10, delay=100), daemon=True).start()
                 prompt_to_join(event, zoom_launch_uri)
         
         # What meetings are coming up?
@@ -193,7 +194,7 @@ def main():
             after_that = display_text
 
         if minutes_until_start < 3:
-            blinkStickClient.blink(name="yellow", repeats=7, delay=500)
+            threading.Thread(target=lambda: blinkStickClient.blink(name="yellow", repeats=7, delay=500), daemon=True).start()
 
         if minutes_until_start < 1 and zoom_launch_uri and not has_joined(event, zoom_launch_uri):
             prompt_to_join(event, zoom_launch_uri)

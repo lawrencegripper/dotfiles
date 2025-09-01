@@ -37,8 +37,11 @@ config.mouse_bindings = {
 -- Domains that can be used for stuff see: private_dot_config/regolith3/sway/executable_sway_dropdown_terminal.sh
 config.unix_domains = {
   {
-    name = 'unix-dropdown',
+    name = 'dropdown',
   },
+  {
+    name = 'main',
+  }
 }
 
 config.use_fancy_tab_bar = true

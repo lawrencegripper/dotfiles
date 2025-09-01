@@ -10,7 +10,7 @@ gh cs cp --codespace $NAME -e ~/.dotfile_groups/codespaces/hosts 'remote:/etc/ho
 cp ~/.config/wezterm/codespace_template.lua /tmp/codespace_$NAME.lua
 sed -i "s/CS_NAME/${NAME}/g" /tmp/codespace_$NAME.lua
 
-wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}" &
+wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}" || wezterm start -- bash -c "gh codespace ssh --codespace $NAME -- -R 3123:100.110.255.124:80 -R 8123:languagetool-api.unicorn-tailor.ts.net:8123" & 
 
 # Start the codespace in vscode in background
 gh cs code --codespace $NAME --insiders

@@ -1,0 +1,4 @@
+{{- if not (or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true")) }}
+echo "Skipping as NOT on codesspace"
+exit 0
+{{ end }}

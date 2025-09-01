@@ -41,6 +41,7 @@ config.unix_domains = {
   },
   {
     name = 'main',
+    -- socket_path = '/tmp/wezterm-main.sock',
   }
 }
 

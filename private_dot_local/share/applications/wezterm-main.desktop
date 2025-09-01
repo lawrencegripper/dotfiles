@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=WezTerm (main domain)
+Comment=Wez's Terminal Emulator
+Keywords=shell;prompt;command;commandline;cmd;
+Icon=org.wezfurlong.wezterm
+StartupWMClass=org.wezfurlong.wezterm
+TryExec=wezterm
+Exec=wezterm connect main
+Type=Application
+Categories=System;TerminalEmulator;Utility;
+Terminal=false

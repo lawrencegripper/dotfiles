@@ -1,5 +1,7 @@
 #!/bin/bash
 
+{{ template "skip-unless-local-debian.tmpl" . }}
+
 # TODO: Make this templated and find the service files in the directory
 
 echo "Starting user systemd services"

@@ -290,6 +290,6 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "chat.tools.autoApprove": true,
+    "chat.tools.autoApprove": false,
     // "editor.action.inlineSuggest.commit": ""
 }

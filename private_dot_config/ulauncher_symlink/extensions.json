@@ -62,18 +62,18 @@
         "last_commit": "b1d8e9399a466fe7c8dccd2f6d94ad014a260812",
         "last_commit_time": "2024-03-01T22:15:25"
     },
-    "com.github.psukys.ulauncher-plugin-windows": {
-        "id": "com.github.psukys.ulauncher-plugin-windows",
-        "url": "https://github.com/psukys/ulauncher-plugin-windows",
-        "updated_at": "2025-05-21T21:42:33.500266",
-        "last_commit": "f9dcc60e1d54fa85f8ce009e87d0588104733ea0",
-        "last_commit_time": "2021-02-15T07:07:53"
-    },
     "com.github.dcervenkov.ulauncher-z-search": {
         "id": "com.github.dcervenkov.ulauncher-z-search",
         "url": "https://github.com/dcervenkov/ulauncher-z-search",
         "updated_at": "2025-05-21T21:42:34.848013",
         "last_commit": "d7fbd54a9fe63660464c05458baf4b8ff1ef5209",
         "last_commit_time": "2025-02-15T11:11:04"
+    },
+    "com.github.rdnetto.ulauncher-sway": {
+        "id": "com.github.rdnetto.ulauncher-sway",
+        "url": "https://github.com/rdnetto/ulauncher-sway",
+        "updated_at": "2025-09-02T09:27:23.550756",
+        "last_commit": "9fc141f01959fb5086518699229af97d920ca865",
+        "last_commit_time": "2021-07-22T12:29:13"
     }
 }

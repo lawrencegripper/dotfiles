@@ -48,9 +48,10 @@ config.unix_domains = {
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
--- config.color_scheme = 'Monokai Pro (Gogh)'
+config.color_scheme = 'Monokai Pro (Gogh)'
 -- config.color_scheme = 'MaterialDesignColors'
-config.color_scheme = "Ayu Mirage"
+-- config.color_scheme = "ayu"
+-- config.color_scheme = 'Ayu Dark (Gogh)'
 config.font_size = 11
 
 -- See: https://github.com/githubnext/monaspace/issues/133

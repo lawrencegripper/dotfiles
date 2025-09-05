@@ -134,6 +134,7 @@ ulauncher
 
 # used by ulauncher plugins
 python3-fuzzywuzzy
+python3-cachetools
 
 # mainline for kernel updates
 mainline

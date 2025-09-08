@@ -4,5 +4,5 @@ export DEBIAN_FRONTEND=noninteractive
 # Replace snap firefox with deb for 1password integration
 {{ template "skip-unless-local-debian.tmpl" . }}
 
-wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb
-sudo apt install ./appimagelauncher_*.bionic_amd64.deb
+wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v3.0.0-beta-1/appimagelauncher_3.0.0-alpha-4-gha275.0bcc75d_amd64.deb
+sudo apt install ./appimagelauncher*_amd64.deb

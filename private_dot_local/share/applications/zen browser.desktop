@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Zen Browser
+Comment=Web Browser
+Exec=~/.local/bin/zen-bin %u
+Terminal=false
+Type=Application
+Icon=~/.local/share/zen/browser/chrome/icons/default/default128.png
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true

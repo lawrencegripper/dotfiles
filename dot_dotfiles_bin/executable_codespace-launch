@@ -10,8 +10,8 @@ gh cs cp --codespace $NAME -e ~/.dotfile_groups/codespaces/hosts 'remote:/etc/ho
 cp ~/.config/wezterm/codespace_template.lua /tmp/codespace_$NAME.lua
 sed -i "s/CS_NAME/${NAME}/g" /tmp/codespace_$NAME.lua
 
-if gh codespace ssh --codespace $NAME -- "wezterm --version"; then
-    wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}"
+if gh codespace ssh --codespace $NAME -- "wezterm --version && env > /tmp/.bashenv"; then
+    wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}" &
 else
     wezterm start -- bash -c "gh codespace ssh --codespace $NAME -- \
         -R 3123:100.110.255.124:80 \

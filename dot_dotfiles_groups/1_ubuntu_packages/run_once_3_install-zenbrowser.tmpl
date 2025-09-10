@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+export DEBIAN_FRONTEND=noninteractive
+
+# Download latest Zen Browser release
+LATEST_URL=$(wget -qO- https://api.github.com/repos/zen-browser/desktop/releases/latest | grep -oP '"browser_download_url": "\K[^"]*zen\.linux-x86_64\.tar\.xz')
+wget -q --show-progress "$LATEST_URL" -O /tmp/zen.linux-x86_64.tar.xz
+
+# Extract to ~/.local/share
+mkdir -p ~/.local/share
+tar -xf /tmp/zen.linux-x86_64.tar.xz -C ~/.local/share
+
+# Create symlink in ~/.local/bin
+mkdir -p ~/.local/bin
+ln -sf ~/.local/share/zen/zen-bin ~/.local/bin/zen-bin
+
+# Clean up
+rm /tmp/zen.linux-x86_64.tar.xz
+
+# Setup as trusted 1password browser
+sudo mkdir /etc/1password
+sudo touch /etc/1password/custom_allowed_browsers
+echo "zen-bin" | sudo tee -a /etc/1password/custom_allowed_browsers

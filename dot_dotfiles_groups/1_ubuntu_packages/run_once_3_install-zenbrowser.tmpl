@@ -3,18 +3,14 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 
 # Only install if Zen Browser is not already installed
-if [ ! -d ~/.local/share/zen ]; then
+if [ ! -d /usr/local/zen ]; then
     # Download latest Zen Browser release
     LATEST_URL=$(wget -qO- https://api.github.com/repos/zen-browser/desktop/releases/latest | grep -oP '"browser_download_url": "\K[^"]*zen\.linux-x86_64\.tar\.xz')
     wget -q --show-progress "$LATEST_URL" -O /tmp/zen.linux-x86_64.tar.xz
 
-    # Extract to ~/.local/share
-    mkdir -p ~/.local/share
-    tar -xf /tmp/zen.linux-x86_64.tar.xz -C ~/.local/share
+    sudo tar -xf /tmp/zen.linux-x86_64.tar.xz -C /usr/local/
 
-    # Create symlink in ~/.local/bin
-    mkdir -p ~/.local/bin
-    ln -sf ~/.local/share/zen/zen-bin ~/.local/bin/zen-bin
+    sudo ln -sf /usr/local/zen/zen-bin /usr/bin/zen-bin
 
     # Clean up
     rm /tmp/zen.linux-x86_64.tar.xz
@@ -24,4 +20,6 @@ fi
 sudo mkdir -p /etc/1password
 if [ ! -f /etc/1password/custom_allowed_browsers ] || ! grep -q "^zen-bin$" /etc/1password/custom_allowed_browsers; then
     echo "zen-bin" | sudo tee -a /etc/1password/custom_allowed_browsers
+    sudo chown root:root /etc/1password/custom_allowed_browsers
+    sudo chmod 755 /etc/1password/custom_allowed_browsers
 fi

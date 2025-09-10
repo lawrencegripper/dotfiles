@@ -8,7 +8,7 @@ Name=Zen Browser
 GenericName=Web Browser
 # Gnome and KDE 3 uses Comment.
 Comment=Access the Internet
-Exec=/home/lawrencegripper/.local/bin/zen-bin %u
+Exec=/usr/bin/zen-bin %u
 StartupNotify=true
 Terminal=false
 Icon=microsoft-edge

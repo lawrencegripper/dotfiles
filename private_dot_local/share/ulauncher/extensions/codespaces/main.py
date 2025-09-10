@@ -40,6 +40,7 @@ class Codespace:
     lastUsedAt: str
     name: str
     repository: str
+    branch: str = ""
 
     @staticmethod
     def from_dict(obj: Any) -> 'Codespace':
@@ -47,11 +48,12 @@ class Codespace:
         _lastUsedAt = str(obj.get("lastUsedAt"))
         _name = str(obj.get("name"))
         _repository = str(obj.get("repository"))
+        _branch = str(obj.get("branch"))
         return Codespace(_gitStatus, _lastUsedAt, _name, _repository)
 
 @cached(cache=TTLCache(maxsize=10, ttl=5)) # cache for 5 seconds
 def get_codespaces() -> List[Codespace]:
-    command: str = "/home/linuxbrew/.linuxbrew/bin/gh codespace list --json name,gitStatus,lastUsedAt,repository"
+    command: str = "/home/linuxbrew/.linuxbrew/bin/gh codespace list --json name,gitStatus,lastUsedAt,repository,branch"
     response = subprocess.run(command.split(' '), capture_output=True)
     codespaces: List[dict] = json.loads(response.stdout)
 
@@ -83,7 +85,7 @@ class KeywordQueryEventListener(EventListener):
                 for c in codespaces:
                     # Search in repository name, codespace name, and branch name
                     repo_name = c.repository.replace("github/", "")
-                    if (query.lower() in repo_name.lower()):
+                    if (query.lower() in repo_name.lower() or query.lower() in c.branch.lower()):
                         filtered_codespaces.append(c)
             else:
                 filtered_codespaces = codespaces

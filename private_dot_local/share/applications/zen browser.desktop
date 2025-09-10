@@ -1,10 +1,18 @@
 [Desktop Entry]
+Version=1.0
 Name=Zen Browser
-Comment=Web Browser
-Exec=~/.local/bin/zen-bin %u
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+# Appended -enable-features=UseOzonePlatform -ozone-platform=wayland --high-dpi-support=1 --gtk-version=4
+# to run on wayland
+GenericName=Web Browser
+# Gnome and KDE 3 uses Comment.
+Comment=Access the Internet
+Exec=/home/lawrencegripper/.local/bin/zen-bin %u
+StartupNotify=true
 Terminal=false
+Icon=microsoft-edge
 Type=Application
-Icon=~/.local/share/zen/browser/chrome/icons/default/default128.png
 Categories=Network;WebBrowser;
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true
+Actions=new-window;new-private-window;

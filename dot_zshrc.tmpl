@@ -114,3 +114,12 @@ setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
+
+# Allow you to pass command to execute before session when starting zsh
+# like: zsh -is eval 'your shell command here'
+if [[ $1 == eval ]]
+then
+    "$@"
+set --
+fi
+

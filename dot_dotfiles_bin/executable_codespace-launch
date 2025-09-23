@@ -11,8 +11,8 @@ cp ~/.config/wezterm/codespace_template.lua /tmp/codespace_$NAME.lua
 sed -i "s/CS_NAME/${NAME}/g" /tmp/codespace_$NAME.lua
 
 (
-    if gh codespace ssh --codespace $NAME -- "wezterm --version && env > /tmp/.bashenv"; then
-        wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}" -- /bin/zsh -is
+    if gh codespace ssh --codespace $NAME -- "wezterm --version"; then
+        wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}" -- /bin/zsh -is &
     else
         wezterm start -- bash -c "gh codespace ssh --codespace $NAME -- \
             -R 3123:atuin-api.unicorn-tailor.ts.net:80 \

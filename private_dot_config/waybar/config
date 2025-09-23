@@ -17,7 +17,8 @@
             "battery",
             "temperature",
             "custom/apt-updates",
-            "network"
+            "network",
+            "custom/tailscale"
         ],
         "modules-center": [],
         "modules-right": [

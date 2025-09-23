@@ -129,8 +129,15 @@
         "return-type": "json",
         "tooltip": true,
         "on-click": "wezterm start -- bash -c 'update-linux; pkill -RTMIN+10 waybar'",
-        "restart-interval": 3200,
+        "restart-interval": 320,
         "signal": 10
+    },
+    "custom/tailscale": {
+        "exec": "$HOME/.config/waybar/tailscale_status.py",
+        "return-type": "json",
+        "tooltip": true,
+        "on-click": "flatpak run dev.deedles.Trayscale",
+        "restart-interval": 120
     },
     "tray": {
         "icon-size": 18,

@@ -59,7 +59,7 @@ window#waybar.hidden {
 #workspaces {
     background: rgba(128, 128, 128, 0.5);
     padding: 0 5px;
-    
+
 }
 
 #workspaces button {
@@ -89,13 +89,18 @@ window#waybar.hidden {
 }
 
 @keyframes blink {
-    from { box-shadow: 0 0 5px rgba(247, 118, 142, 0.5); }
-    to { box-shadow: 0 0 10px rgba(247, 118, 142, 1); }
+    from {
+        box-shadow: 0 0 5px rgba(247, 118, 142, 0.5);
+    }
+
+    to {
+        box-shadow: 0 0 10px rgba(247, 118, 142, 1);
+    }
 }
 
 /* Clock modules */
 #clock {
-    
+
     padding: 0 10px;
     background-color: rgba(55, 55, 80, 0.5);
     transition: all 0.3s ease;
@@ -139,10 +144,13 @@ window#waybar.hidden {
 
 /* UK flag themed clock module (subtle red) */
 #clock {
-    background-color: rgba(207, 20, 43, 0.25); /* UK flag red with lower opacity */
+    background-color: rgba(207, 20, 43, 0.25);
+    /* UK flag red with lower opacity */
     padding: 0 8px;
-    border-bottom: 2px solid rgba(207, 20, 43, 0.7); /* UK flag red, semi-transparent */
-    color: #f0f0f0; /* Slightly off-white text for contrast */
+    border-bottom: 2px solid rgba(207, 20, 43, 0.7);
+    /* UK flag red, semi-transparent */
+    color: #f0f0f0;
+    /* Slightly off-white text for contrast */
     font-weight: bold;
 }
 
@@ -153,7 +161,6 @@ window#waybar.hidden {
 
 /* System modules (CPU, load, memory) */
 #cpu {
-    
     padding: 0 10px;
     background-color: rgba(139, 233, 253, 0.2);
     border-bottom: 2px solid #8be9fd;
@@ -162,16 +169,15 @@ window#waybar.hidden {
 }
 
 #load {
-    
+
     padding: 0 10px;
-    background-color: rgba(80, 250, 123, 0.2); 
+    background-color: rgba(80, 250, 123, 0.2);
     border-bottom: 2px solid #50fa7b;
     transition: all 0.3s ease;
     font-weight: bold;
 }
 
 #memory {
-    
     padding: 0 10px;
     background-color: rgba(255, 121, 198, 0.2);
     border-bottom: 2px solid #ff79c6;
@@ -179,14 +185,25 @@ window#waybar.hidden {
     font-weight: bold;
 }
 
-#cpu:hover, #load:hover, #memory:hover {
+#custom-tailscale {
+    padding: 0 10px;
+    background-color: rgba(255, 121, 198, 0.2);
+    border-bottom: 2px solid #ff79c6;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+
+#cpu:hover,
+#load:hover,
+#memory:hover {
     background-color: rgba(70, 70, 100, 0.6);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Network module */
 #network {
-    
+
     padding: 0 10px;
     background-color: rgba(139, 233, 253, 0.3);
     border-bottom: 2px solid rgba(139, 233, 253, 0.7);
@@ -207,7 +224,7 @@ window#waybar.hidden {
 
 /* Battery and Temperature modules */
 #battery {
-    
+
     padding: 0 10px;
     background-color: rgba(241, 250, 140, 0.2);
     border-bottom: 2px solid #f1fa8c;
@@ -216,7 +233,7 @@ window#waybar.hidden {
 }
 
 #temperature {
-    
+
     padding: 0 10px;
     background-color: rgba(189, 147, 249, 0.2);
     border-bottom: 2px solid #bd93f9;
@@ -224,7 +241,8 @@ window#waybar.hidden {
     font-weight: bold;
 }
 
-#battery:hover, #temperature:hover {
+#battery:hover,
+#temperature:hover {
     background-color: rgba(70, 70, 100, 0.6);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -251,7 +269,7 @@ window#waybar.hidden {
 
 /* Tray module */
 #tray {
-    
+
     padding: 0 5px;
     background-color: rgba(55, 55, 80, 0.3);
     border-bottom: 2px solid rgba(100, 114, 125, 0.5);
@@ -265,7 +283,7 @@ window#waybar.hidden {
 
 /* Custom Modules */
 #custom-ghcal {
-    
+
     padding: 0 10px;
     background-color: rgba(189, 147, 249, 0.3);
     border-bottom: 2px solid #bd93f9;
@@ -279,7 +297,7 @@ window#waybar.hidden {
 }
 
 #custom-givenergy {
-    
+
     padding: 0 10px;
     background-color: rgba(189, 147, 249, 0.3);
     border-bottom: 2px solid #bd93f9;
@@ -300,7 +318,7 @@ window#waybar.hidden {
 }
 
 #custom-power-profile {
-    
+
     padding: 0 10px;
     background-color: rgba(139, 233, 253, 0.2);
     border-bottom: 2px solid #8be9fd;

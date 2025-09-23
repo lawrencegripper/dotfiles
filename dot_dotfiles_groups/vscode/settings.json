@@ -291,5 +291,6 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "chat.tools.autoApprove": false,
+    "go.testOnSave": true,
     // "editor.action.inlineSuggest.commit": ""
 }

@@ -115,11 +115,16 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-# Allow you to pass command to execute before session when starting zsh
-# like: zsh -is eval 'your shell command here'
-if [[ $1 == eval ]]
-then
-    "$@"
-set --
+# Load codespace secrets as environment variables
+{{- if eq (env "CODESPACES") "true" }}
+if [[ -f /workspaces/.codespaces/shared/user-secrets-envs.json ]]; then
+  while IFS= read -r key; do
+    export "$key=$(jq -r ".[\"$key\"]" /workspaces/.codespaces/shared/user-secrets-envs.json)"
+  done < <(jq -r 'keys[]' /workspaces/.codespaces/shared/user-secrets-envs.json)
 fi
-
+if [[ -f /workspaces/.codespaces/shared/environment-variables.json ]]; then
+  while IFS= read -r key; do
+    export "$key=$(jq -r ".[\"$key\"]" /workspaces/.codespaces/shared/environment-variables.json)"
+  done < <(jq -r 'keys[]' /workspaces/.codespaces/shared/environment-variables.json)
+fi
+{{- end }}

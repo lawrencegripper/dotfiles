@@ -12,7 +12,7 @@ sed -i "s/CS_NAME/${NAME}/g" /tmp/codespace_$NAME.lua
 
 (
     if gh codespace ssh --codespace $NAME -- "wezterm --version && env > /tmp/.bashenv"; then
-        wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME} -- /bin/zsh -is eval 'source /tmp/.bashenv'"
+        wezterm --config-file /tmp/codespace_$NAME.lua connect "${NAME}" -- /bin/zsh -is
     else
         wezterm start -- bash -c "gh codespace ssh --codespace $NAME -- \
             -R 3123:atuin-api.unicorn-tailor.ts.net:80 \
@@ -21,4 +21,4 @@ sed -i "s/CS_NAME/${NAME}/g" /tmp/codespace_$NAME.lua
 ) &
 
 # Start the codespace in vscode in background
-gh cs code --codespace $NAME --insiders
+gh cs code --codespace "$NAME" --insiders

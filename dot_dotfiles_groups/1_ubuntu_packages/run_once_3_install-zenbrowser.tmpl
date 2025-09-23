@@ -2,6 +2,8 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
+{{ template "skip-unless-local-debian.tmpl" . }}
+
 # Only install if Zen Browser is not already installed
 if [ ! -d /usr/local/zen ]; then
     # Download latest Zen Browser release

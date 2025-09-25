@@ -1,10 +1,10 @@
 # Signal desktop
-org.signal.Signal
+# org.signal.Signal
 # Remote desktop
 org.remmina.Remmina
 # Rest testing tool
-rest.insomnia.Insomnia
-io.github.mimbrero.WhatsAppDesktop
+# rest.insomnia.Insomnia
+# io.github.mimbrero.WhatsAppDesktop
 # libvirt vm manager
 # org.gnome.Boxes # Install from apt otherwise usb redirect doesn't work
 # video editor
@@ -15,24 +15,24 @@ org.pitivi.Pitivi
 # us.zoom.Zoom
 
 # apple music player
-#edge browser
-com.microsoft.Edge
+# edge browser
+# com.microsoft.Edge
 
-tv.plex.PlexDesktop
+# tv.plex.PlexDesktop
 
-org.flameshot.Flameshot
+# org.flameshot.Flameshot
 
 # net.hovancik.Stretchly moved to deb for compat
 # cpu temp tracker
-org.coolero.Coolero
+# org.coolero.Coolero
 org.onlyoffice.desktopeditors
 
 # Backups
-org.gnome.DejaDup
+# org.gnome.DejaDup
 
 com.github.tchx84.Flatseal
-org.kde.kalk
-com.discordapp.Discord
+# org.kde.kalk
+# com.discordapp.Discord
 # Element matrix client
 # im.riot.Riot -> Moved to apt package as kept losing local state
 
@@ -43,7 +43,7 @@ io.missioncenter.MissionCenter
 com.github.PintaProject.Pinta
 
 # postman alternative
-io.httpie.Httpie
+# io.httpie.Httpie
 
 # Tailscale gui
 dev.deedles.Trayscale

@@ -10,6 +10,7 @@ sudo echo "Getting sudo permissions"
 flatpak update -y
 sudo apt update
 sudo apt upgrade -y
+{{ template "install-zen-browser.tmpl" . }}
 brew update
 brew upgrade
 

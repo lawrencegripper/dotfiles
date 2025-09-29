@@ -6,16 +6,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # Only install if Zen Browser is not already installed
 if [ ! -d /usr/local/zen ]; then
-    # Download latest Zen Browser release
-    LATEST_URL=$(wget -qO- https://api.github.com/repos/zen-browser/desktop/releases/latest | grep -oP '"browser_download_url": "\K[^"]*zen\.linux-x86_64\.tar\.xz')
-    wget -q --show-progress "$LATEST_URL" -O /tmp/zen.linux-x86_64.tar.xz
-
-    sudo tar -xf /tmp/zen.linux-x86_64.tar.xz -C /usr/local/
-
-    sudo ln -sf /usr/local/zen/zen-bin /usr/bin/zen-bin
-
-    # Clean up
-    rm /tmp/zen.linux-x86_64.tar.xz
+    {{ template "install-zen-browser.tmpl" . }}
 fi
 
 # Setup as trusted 1password browser (only if not already present)

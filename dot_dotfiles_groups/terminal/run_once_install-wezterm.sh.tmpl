@@ -19,9 +19,14 @@ LATEST_RELEASE=$(curl -sL https://api.github.com/repos/wezterm/wezterm/releases/
 # Extract the download URL for the appropriate .deb file
 if [[ "$ID" == "ubuntu" ]]; then
     DEB_URL=$(echo "$LATEST_RELEASE" | grep -oP '"browser_download_url":\s*"\K[^"]*Ubuntu[^"]*\.deb' | grep -v 'arm64' | grep $VERSION_ID | head -1)
+elif [[ "$ID" == "debian" ]]; then
+    DEB_URL=$(echo "$LATEST_RELEASE" | grep -oP '"browser_download_url":\s*"\K[^"]*Debian[^"]*\.deb' | grep -v 'arm64' | grep Debian$VERSION_ID | head -1)
 else
-    DEB_URL=$(echo "$LATEST_RELEASE" | grep -oP '"browser_download_url":\s*"\K[^"]*Debian[^"]*\.deb' | grep -v 'arm64' | grep $VERSION_ID | head -1)
+    echo "Unsupported codespaces container $ID $VERSION_ID. Skipping"
+    exit 0
 fi
+
+echo $DEB_URL
 
 if [[ -z "$DEB_URL" ]]; then
     echo "Could not find appropriate .deb file for $ID"

@@ -135,8 +135,8 @@
     "custom/tailscale": {
         "exec": "$HOME/.config/waybar/tailscale_status.py",
         "return-type": "json",
-        "tooltip": true,
-        "on-click": "flatpak run dev.deedles.Trayscale",
+        "tooltip": false,
+        "on-click": "$HOME/.config/waybar/tailscale_status.py click",
         "restart-interval": 120
     },
     "tray": {

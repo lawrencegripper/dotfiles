@@ -6,13 +6,6 @@
         "last_commit": "827cfe5e1d2f89f742f811f981759787b0654fa9",
         "last_commit_time": "2023-11-04T18:37:13"
     },
-    "com.github.friday.ulauncher-clipboard": {
-        "id": "com.github.friday.ulauncher-clipboard",
-        "url": "https://github.com/friday/ulauncher-clipboard",
-        "updated_at": "2025-05-21T21:42:23.725926",
-        "last_commit": "73420cf4816f925321db15379c9c981c8f28c6fe",
-        "last_commit_time": "2022-08-03T20:22:13"
-    },
     "com.github.plibither8.ulauncher-vscode-recent": {
         "id": "com.github.plibither8.ulauncher-vscode-recent",
         "url": "https://github.com/plibither8/ulauncher-vscode-recent",
@@ -75,5 +68,12 @@
         "updated_at": "2025-09-02T09:27:23.550756",
         "last_commit": "9fc141f01959fb5086518699229af97d920ca865",
         "last_commit_time": "2021-07-22T12:29:13"
+    },
+    "com.github.friday.ulauncher-clipboard": {
+        "id": "com.github.friday.ulauncher-clipboard",
+        "url": "https://github.com/friday/ulauncher-clipboard",
+        "updated_at": "2025-11-04T11:52:42.360634",
+        "last_commit": "73420cf4816f925321db15379c9c981c8f28c6fe",
+        "last_commit_time": "2022-08-03T20:22:13"
     }
 }

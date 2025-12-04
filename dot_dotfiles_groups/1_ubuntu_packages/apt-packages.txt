@@ -141,3 +141,6 @@ mainline
 
 # better htop
 btop
+
+# support virtfs in vm
+virtiofsd

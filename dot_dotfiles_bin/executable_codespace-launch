@@ -21,4 +21,4 @@ sed -i "s/CS_NAME/${NAME}/g" /tmp/codespace_$NAME.lua
 ) &
 
 # Start the codespace in vscode in background
-gh cs code --codespace "$NAME" --insiders
+gh cs code --codespace "$NAME"
